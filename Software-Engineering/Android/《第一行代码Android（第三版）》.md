@@ -6,6 +6,8 @@
   2. sync now
   3. 在activity中import进`import kotlinx.android.synthetic.main.那个layout.*`（建议使用补全）
 
+  > 实在不行重启
+
 + 创建了两个按钮，但是按钮重叠，在Design中拖动
 
   但是拖动后编译运行后两个按钮仍然重叠

@@ -56,4 +56,16 @@
   arg(sam);  // 返回幅角
   ```
 
-  
++ `builtin`内置函数：
+
+  ```c++
+  int __builtin_clz(unsigned int);  // 前导0的个数
+  int __buildin_ctz(unsigned int);  // 后缀0的个数
+  int __builtin_ffs(unsigned int);  // 后缀0的个数+1(最后一个1的位置, 索引从1开始)
+  int __buildin_popcount(unsigned int);  // 1的个数
+  ```
+
+  有对应的
+
+  + `unsigned long`版本：在函数名后加`l`
+  + `unsigned long long`版本：在函数名后加`ll`

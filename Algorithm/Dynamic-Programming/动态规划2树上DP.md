@@ -13,7 +13,7 @@
 
   + 证明：`bm`一定是某条直径的端点
 
-    ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Algorithm/无权图树的直径.png)
+    ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Algorithm/Dynamic-Programming/无权图树的直径.png)
 
 + 有权图：
 

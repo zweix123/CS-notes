@@ -117,7 +117,7 @@
 
 ### 迭代器类别
 
-算法库要求的迭代器类型：通过功能的多寡划分层次—高级类型支持底层类型所有操作![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/迭代器类别.jpg)
+算法库要求的迭代器类型：通过功能的多寡划分层次—高级类型支持底层类型所有操作![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/迭代器类别.jpg)
 
 算法库指明每个迭代器参数的最小类别
 
@@ -150,7 +150,7 @@ alg(beg, end, beg2, end2, other args);
 > 1. sort要求随机访问迭代器，但是list or forward_list不能
 > 2. 对于链表这种：交换只是换两个的连接，而不是换一系列的元素，所以针对数据结构做特定的修改
 
-+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/特定容器算法.jpg)
++  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/特定容器算法.jpg)
 
 
 

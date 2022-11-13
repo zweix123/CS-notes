@@ -4,7 +4,7 @@
 
 可以有任意数量的成员，
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/tuple.png)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/tuple.png)
 
 + 定义和初始化：
   + tuple的构造函数是explicit的
@@ -20,11 +20,11 @@
 
 + 初始化：
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/bitset初始化.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/bitset初始化.png)
 
 + 操作：
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/bitset操作.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/bitset操作.png)
 
 
 

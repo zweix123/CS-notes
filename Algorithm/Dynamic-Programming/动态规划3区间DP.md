@@ -141,7 +141,7 @@
 
   + 状态表示：`f[k][x1][y1][x2][y2]`：表示区间。。。在切`k`刀的方案的最优值，
   
-    状态计算：在小区间中横切+数切<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Algorithm/区间DP.jpg" style="zoom:67%;" />
+    状态计算：在小区间中横切+数切<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Algorithm/Dynamic-Programming/区间DP.jpg" style="zoom:67%;" />
   
   + 这里采用记忆化搜索的方法，动态规划就是记忆化搜索
 

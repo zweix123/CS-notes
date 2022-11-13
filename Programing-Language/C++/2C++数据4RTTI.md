@@ -68,7 +68,7 @@
 
   2. **`unique_ptr`**：独占所指针的对象
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/智能指针操作.jpg)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/智能指针操作.jpg)
 
 + 哑类：没有定义析构函数——智能指针不能自动析构它——定义**deleter删除器**
 
@@ -77,7 +77,7 @@
   shared_ptr<f> p(&, end_f);
   ```
 
-+ 规范：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/智能指针规范.jpg)
++ 规范：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/智能指针规范.jpg)
 
 ### shared_ptr
 
@@ -88,7 +88,7 @@
   + 这样`shared_ptr<type> p = new ...`是不行的，智能指针的构造函数是explicit的，不能隐式转换，必须直接初始化
   + 使用`make_shared<>()`函数是定义智能指针的好方法：`auto p = make_shared<int>(7);`
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/shared_ptr构造.jpg)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/shared_ptr构造.jpg)
 
   + `get()`方法：
 
@@ -108,8 +108,8 @@
 ### unique_ptr
 
 + unique_ptr：拥有所指对象，没有标准函数库返回，必须采用直接初始化
-+ 操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/unique_ptr构造.jpg)
-+ 管理数组：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/unique_ptr指向数组的.jpg)
++ 操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/unique_ptr构造.jpg)
++ 管理数组：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/unique_ptr指向数组的.jpg)
 
 + 做函数传参和返回：
   + 删除器：`unique_ptr<objjT, delT> p (new objT, fcn)`：类型为delT的对象释放objT对象，调用名为fcn的delT类型对象
@@ -117,7 +117,7 @@
 ### weak_ptr
 
 + weak_ptr：不控制所指向对象生存期的智能指针，指向shared_ptr管理的对象，**不改变**shared_ptr的引用计数
-+ 操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/weak_ptr操作.jpg)
++ 操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/weak_ptr操作.jpg)
 
 ## aloocator类
 
@@ -125,7 +125,7 @@
 
 + 位置：头文件`<mempry>`
 + 功能：提供*类型感知*的内存分配的方法，是模板
-+ 内容：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/allocator类.jpg)
++ 内容：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/allocator类.jpg)
 
 + 使用：
 
@@ -135,7 +135,7 @@
   alloc.construct(p, ...); //构造对象
   ```
 
-+ 其他算法：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/allocator伴随算法.jpg" style="zoom:80%;" />
++ 其他算法：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/allocator伴随算法.jpg" style="zoom:80%;" />
 
 
 
@@ -155,7 +155,7 @@
 + 可在**全局**或者**类成员**重载运算符，编译器会优先检测类成员、在检测全局自定义，最后使用标准库定义
   + 重载为类成员：隐式静态，无需显示的声明`static`
 
-+ 可重载的接口：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/动态内存接口.jpg)
++ 可重载的接口：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/动态内存接口.jpg)
 
   + `nothrow_t`是定义在new头文件中的一个无成员的struct，并定义了一个名为**`nothrow`**的const对象，用户可以通过这个对象请求非抛出版本，重载这部分运算符时也**必须**使用`noexcept`异常说明符
 

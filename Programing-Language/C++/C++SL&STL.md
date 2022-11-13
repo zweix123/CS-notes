@@ -92,7 +92,7 @@
 
 # IO库
 
-+ 头文件<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/IO库.jpg" style="zoom:50%;"> 名称空间`std`
++ 头文件<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/IO库.jpg" style="zoom:50%;"> 名称空间`std`
 
   + IO库中的类对象不能拷贝、赋值——不能做函数形参或返回值——只能做引用
   + IO库中的方法为流重载了`<<`或`>>`运算符：ege：`endl(cout)`可写为`cout << endl;`
@@ -137,7 +137,7 @@
 
 + condition state条件状态/stream state流状态：IO库类对象的数据成员：从ios_base类继承、定义为iostate类型(一种bitmask类型)
 
-  <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/IO库条件类型.jpg" style="zoom:65%;"><img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/流状态.png" style="zoom:55%;" />
+  <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/IO库条件类型.jpg" style="zoom:65%;"><img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/流状态.png" style="zoom:55%;" />
 
   + 一个流一旦发生错误，该流会失效（不能再使用）
 
@@ -165,7 +165,7 @@
 
 标准输入输出头文件`iostream`：最开始是`ios_base` ：
 
-<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/iostream.jpg" style="zoom:55%;"><img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/iostream流对象.jpg" style="zoom:55.5%;"> 
+<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/iostream.jpg" style="zoom:55%;"><img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/iostream流对象.jpg" style="zoom:55.5%;"> 
 
 + `cin`和`cout`为C++提供的标准I/O工具：包含在`iostream`头文件里，标准输入(standard input)：`cin`（发音see-in）是`istream`类的对象；标准输出(standard output)：`cout`（see-out）是`ostream`类的对象；两个类也有自己的成员函数。
 
@@ -209,7 +209,7 @@
 
     返回对象引用，可拼接。
 
-+ 输出格式化：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/cout格式化.png" style="zoom:67%;">
++ 输出格式化：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/cout格式化.png" style="zoom:67%;">
 
   > ostream类由ios类派生来的，ios类由ios_base派生来的；而ios_base类存储了描述格式状态的信息，又由于ios_base是ostream类的间接子类，所有其方法可用于ostream类和其对象。
 
@@ -311,7 +311,7 @@
 
 ## fstream
 
-+ 处理命名文件IO：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/fstream特有操作.jpg" style="zoom:67%;">
++ 处理命名文件IO：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/fstream特有操作.jpg" style="zoom:67%;">
 
   + 如果open失败，failbit会被置位，需要复位后再次使用
 
@@ -407,7 +407,7 @@
 
 + 文本模式：构造函数和open方法的其他参数（文件名字符串，模式常量）
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/文本模式常量.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/文本模式常量.png)
 
   默认：
 
@@ -416,7 +416,7 @@
 
   > 位运算符OR用于将两个位值合并成一个可用于设置两个位的值
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++和C的文件打开模式.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/C++和C的文件打开模式.png)
 
   + `ifstream fin(filename, c++mode);`
 
@@ -436,7 +436,7 @@
 
 ## sstream
 
-处理内存的IO：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/stringstream.jpg" style="zoom:67%;" />
+处理内存的IO：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/stringstream.jpg" style="zoom:67%;" />
 
 将string对象中的信息放在stringstream对象中，然后将此对象作为iostream使用
 
@@ -554,7 +554,7 @@ int get(void);
 
 + 头文件`<utility>`
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/pair.jpg)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/pair.jpg)
 
 + `make_pair()`$\rightarrow$`{}`
 
@@ -591,7 +591,7 @@ int get(void);
 
       ​			   操作数是迭代器：距离，类型`defference_type`
 
-+ Iterator Category迭代器类型：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/迭代器类别2.jpg)
++ Iterator Category迭代器类型：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/迭代器类别2.jpg)
 
   + 容器使用的迭代器类型：
 
@@ -622,7 +622,7 @@ int get(void);
   for (int i = 1; i <= 9; ++ i) *it = i; //vec = {1..9}
   ```
 
-   ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/插入迭代器.jpg)
+   ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/插入迭代器.jpg)
 
 + Stream iterator流迭代器：将流当作一个**特定类型**的**元素序列**
 
@@ -640,7 +640,7 @@ int get(void);
                      0) << endl;
   ```
 
-  + 操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/流迭代器.jpg)
+  + 操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/流迭代器.jpg)
 
 + move iterator移动迭代器
 
@@ -648,9 +648,9 @@ int get(void);
 
 + 头文件：`<容器名称>`，名称空间`std`，都是模板类
 
-+ 常规方法：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/容器操作.jpg" style="zoom:120%;">
++ 常规方法：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/容器操作.jpg" style="zoom:120%;">
 
-+ 容器赋值：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/容器赋值运算.jpg" style="zoom:80%;">
++ 容器赋值：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/容器赋值运算.jpg" style="zoom:80%;">
   + swap会改变迭代器或者索引或者指针
 
 ## Sequential顺序
@@ -659,7 +659,7 @@ int get(void);
 
 + 顺序容器(sequential container)：提供快速顺序访问元素
 
-  <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/顺序容器类型.jpg" style="zoom:120%;" />
+  <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/顺序容器类型.jpg" style="zoom:120%;" />
 
   + | 容器类型                 | 随机访问 | 随机添加 | 首尾读写 |
     | ------------------------ | -------- | -------- | -------- |
@@ -668,17 +668,17 @@ int get(void);
     | `list`<br>`froward_list` | 慢       | 快       |          |
     | `deque`                  | 快       |          | 快       |
 
-+ 添加：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/顺序容器添加操作.jpg" style="zoom:120%;" />
++ 添加：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/顺序容器添加操作.jpg" style="zoom:120%;" />
   + `insert`和`push_back`参数是元素，`emplace`使用参数构造元素
   + 内存分配策略：只在迫不得已时才重新分配新的内存空间
   
-+ 访问：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/顺序容器访问.jpg)
++ 访问：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/顺序容器访问.jpg)
 
-+ 删除元素：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/顺序容器删除.jpg)
++ 删除元素：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/顺序容器删除.jpg)
 
-  顺序容器大小操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/顺序容器大小操作.jpg)
+  顺序容器大小操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/顺序容器大小操作.jpg)
 
-  容器大小管理操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/容器大小管理操作.jpg)
+  容器大小管理操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/容器大小管理操作.jpg)
 
   + reserve不改变容器中元素的数量，只影响vector预先分配的内存空间
 
@@ -720,7 +720,7 @@ int get(void);
 
   > 由于单向链表的插入和删除需要修改**前驱元素**，但是单向链表没有简单方法获得前驱，所以STL里的fowward_list通过前驱增删后面的元素
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/forward_list的插入和删除.jpg)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/forward_list的插入和删除.jpg)
 
   + off-the-beginning首前迭代器：返回不存在的第一个元素的前驱
 
@@ -730,7 +730,7 @@ int get(void);
 
 + 所有容器适配器都支持的操作和类型：
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/所有容器适配器都支持的操作和类型.jpg)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/所有容器适配器都支持的操作和类型.jpg)
 
 + 构造：两个构造函数：空和拷贝
 
@@ -748,14 +748,14 @@ int get(void);
 
 + 头文件`<stack>`
 
-+ 操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/栈操作.jpg)
++ 操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/栈操作.jpg)
 
 
 #### queue
 
 + 头文件`<queue>`
 
-+ 操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/队列操作.jpg)
++ 操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/队列操作.jpg)
 
 
 #### priority_queue
@@ -767,8 +767,8 @@ int get(void);
 
 关联容器支持高效的关键字查找和访问
 
-+ 分类：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/关联容器类型.jpg)
-  +  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/关联容器的类型别名.jpg)
++ 分类：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/关联容器类型.jpg)
+  +  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/关联容器的类型别名.jpg)
   + 迭代器：双向迭代器
     + map：`pair<const type, tpye>`
     + set：`const type`
@@ -780,27 +780,27 @@ int get(void);
 
 + 操作：
 
-  + 添加：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/关联容器插入操作.jpg)
+  + 添加：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/关联容器插入操作.jpg)
 
     + 不可重复的insert返回pair：first是位置的迭代器，second是bool
 
       可重复的不会插入失败，只返回bool
 
-  + 删除：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/关联容器删除元素.jpg)
-  + 查找：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/关联容器查找操作.jpg)
+  + 删除：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/关联容器删除元素.jpg)
+  + 查找：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/关联容器查找操作.jpg)
     + 可重复的中相同元素相邻
 
 ### set
 
 ### map
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/map中的下标操作.jpg)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/map中的下标操作.jpg)
 
 ### unoreder
 
 + unordered associative container无序关联容器：不使用比较运算符，使用hash function哈希函数和关键字类型的==运算符
 + 无序容器在存储上组织为一组桶，每个桶保存零个或多个元素，使用哈希函数将元素映射到桶——性能依赖于哈希函数的质量和桶的数量和大小
-+ 管理操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/无序容器管理.jpg)
++ 管理操作：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/无序容器管理.jpg)
 
 # 泛型算法
 
@@ -921,7 +921,7 @@ int get(void);
 
 ### 迭代器类别
 
-算法库要求的迭代器类型：通过功能的多寡划分层次—高级类型支持底层类型所有操作![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/迭代器类别.jpg)
+算法库要求的迭代器类型：通过功能的多寡划分层次—高级类型支持底层类型所有操作![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/迭代器类别.jpg)
 
 算法库指明每个迭代器参数的最小类别
 
@@ -954,7 +954,7 @@ alg(beg, end, beg2, end2, other args);
 > 1. sort要求随机访问迭代器，但是list or forward_list不能
 > 2. 对于链表这种：交换只是换两个的连接，而不是换一系列的元素，所以针对数据结构做特定的修改
 
-+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/特定容器算法.jpg)
++  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/特定容器算法.jpg)
 
 
 

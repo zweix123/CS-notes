@@ -19,7 +19,7 @@
 
 # 捕获
 
- ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/lambda捕获列表.jpg)
+ ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/lambda捕获列表.jpg)
 
 + 可变Lambfa：会改变被捕获的值：在参数列表首添加关键字**`mutable`**
 
