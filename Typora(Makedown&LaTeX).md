@@ -209,7 +209,7 @@
 
 + 空格：
 
-  | 123         | 123      |
+  |             |          |
   | ----------- | -------- |
   | $a\;b$      | `\;`     |
   | $a\quad b$  | `\quad`  |
@@ -324,8 +324,6 @@
   | $\lim$ | `\lim` |
   | $\sin$ | `\sin` |
 
-  箭头：https://blog.csdn.net/Artoria_QZH/article/details/103310704
-
   | 表达式            | 代码                   |
   | ----------------- | ---------------------- |
   | $\to$             | `\to`<br>`\rightarrow` |
@@ -333,7 +331,7 @@
   | $\leftrightarrow$ | `\leftrightarrow`      |
   | $\Rightarrow$     | `\Rightarrow`          |
   |                   | `up down Up Down `     |
-
+  
 + 关系运算符
 
   | 关系运算符  | 转义序列    |
