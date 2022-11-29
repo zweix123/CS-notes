@@ -1,12 +1,10 @@
-
-
 # 终端复用器tmux
 
 + 功能：
 
   1. 分屏
 
-  2. 允许断开Terminal连接后，继续运行进程
+  2. 允许断开ssh连接后，继续运行进程
 
      > `top`：查看进程（任务管理器）
 
@@ -18,9 +16,9 @@
 
 1. `tmux`：新建一个session，包含一个window，window中包含一个pane，pane里打开了一个shell对话框
 
-2. `按下Ctrl + a后手指松开，然后按%`：将当前pane左右平分成带个pane
+2. `按下Ctrl + a后手指松开，然后按%`：将当前pane左右平分成两个pane
 
-   `按下Ctrl + a后手指松开，然后按"`：将当前pane左右平分成带个pane
+   `按下Ctrl + a后手指松开，然后按"`：将当前pane左右平分成两个pane
 
    + `鼠标点击`选择pane/`按下Ctrl + a后手指松开，使用方向键`选择pane
    + 鼠标拖动pane之间的分割线，可以调整分割线的位置/`按下Ctrl + a的同时使用方向键`调整分割线。
@@ -48,11 +46,10 @@
    + 方向键——右，展开当前项 session/window
    + 方向键——做，闭合当前项 session/window
 
-8. 复制粘贴：tmux中的选择需要按住`shift键`
+8. 复制粘贴：
 
-   1. 按下Ctrl + a后松开手指，然后按`[`
-   2. 用鼠标选中文本，被选中的文本会被自动复制到tmux的剪切板
-   3. 按下Ctrl + a后松开手指，然后按]，会将剪切板中的内容粘贴到光标处
+   + 按住`shift键`或者按下Ctrl + a后松开手指，然后按`[`，之后用鼠标选中文本，被选中文本复制到tmux剪切板中
+   + 按下Ctrl + a后松开手指，然后按`]`，会将剪切板中的内容粘贴到光标处
 
 # 文本编辑器vim
 
@@ -291,16 +288,10 @@
 
 # 容器[docker](https://docs.docker.com/desktop/)
 
-+ 安装：[docker官网](https://docs.docker.com/desktop/)和[acwing所用Ubuntu版本下的docker安装网址]((https://docs.docker.com/engine/install/ubuntu/))
-
-  > 在tmux中安装——防止闪退
-
-  所需执行命令：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Linux/Docker下载.jpg)
-
-  > Tip：如果apt-get下载软件速度较慢，可以参考[清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)中的内容，修改软件源。
-  >
++ > Tip：如果apt-get下载软件速度较慢，可以参考[清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)中的内容，修改软件源。
+>
   > 1. `vim /etc/apt/sources.list`：把软件园首页的代码copy进去
-  > 2. 然后`apt-get update`即可
+> 2. 然后`apt-get update`即可
   > 3. 之后的下载自动利用镜像站中的软件源
 
 + 将当前用户添加到docker用户组，为了避免每次使用docker命令都需要加上sudo权限，可以将当前用户加入安装中自动创建的docker用户组(可以参考官方文档)：`sudo usermod -aG docker $USER`执行完此操作后，需要退出服务器，再重新登录回来，才可以省去sudo权限。
@@ -374,20 +365,3 @@
     `docker cp xxx CONTAINER:xxx` 或 `docker cp CONTAINER:xxx xxx`：在本地和容器间复制文件
     `docker rename CONTAINER1 CONTAINER2`：重命名容器
     `docker update CONTAINER --memory 500MB`：修改容器限制
-
-+ 利用acwing的资源搭建docker：
-
-  1. 在本地将镜像上传到自己租的云端服务器：`scp /var/lib/acwing/docker/images/docker_lesson_1_0.tar server_name:`
-
-  2. 在云服务器将镜像加载到本地：`docker load -i docker_lesson_1_0.tar`
-
-     创建并运行docker_lesson:1.0镜像：`docker run -p 20000:22 --name my_docker_server -itd docker_lesson:1.0 `
-
-  3. 进入创建的docker容器：`docker attach my_docker_server`
-
-     设置密码：`passwd`
-
-  4. 去云平台控制台中修改安全组配置，放行端口20000
-
-  + 则可以通过`ssh root@xxx.xxx.xxx.xxx -p 20000`指定端口ssh
-  + 此时配置的docker容器相当于一个完整的云服务器，可以配置其免密登录，注意此时本地的`~/.ssh/config`中要在多加一行`Port 20000`

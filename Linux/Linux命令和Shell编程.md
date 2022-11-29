@@ -249,7 +249,7 @@
 
 + 登录：
 
-  + 登录格式：`ssh user@pastname`
+  + 登录格式：`ssh user@hostname`
     + `user`：用户名
     + `hostname`：IP地址或域名
 
@@ -322,34 +322,6 @@
   ```bash
   scp ~/.vimrc ~/.tmux.conf myserver:
   ```
-
-### 云服务器租赁
-
-1. （建议）创建（非root）用户：后续使用在非root用户中
-
-   1. ```bash
-      adduser acs  # 创建用户acs
-      ```
-
-      需要填写密码、重复密码以及其他填写其他信息，其他信息无脑回车即可。最后Y确认
-
-   2. ```bash
-      usermod -aG sudo acs  # 给用户acs分配sudu权限
-      ```
-
-      > 用户acs在第一次使用sudu时要求输入root用户密码
-
-2. 在本机上为服务器上的非root用户创建ssh别名和免密登录
-
-3. 装修：
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install tmux
-   
-   # 回到acwing的服务器
-   scp .bashrc .vimrc .tmux.conf server_name:  # server_name即服务器别名
-   ```
 
 # Shell编程
 
@@ -784,4 +756,3 @@ exit退出状态只能是一个介于 0~255 之间的整数，其中只有 0 表
   > 注意`$0`仍是文件名，不是函数名
 
 + 局部变量：`local 变量名=变量值`
-
