@@ -92,6 +92,29 @@ int query(int l, int r) {
 
 ## 双指针
 
++ 同类区间问题：
+
+  ```c++
+  for (int l = st, r; l <= ed; ++ l) {
+      r = l;
+      
+      while (r + 1 <= ed && is_same(arr[l], arr[r + 1])) ++ r;
+      //(l, r)为一个答案
+      
+      l = r;
+  }
+  ```
+
++ 单调序列问题：
+
+  ```c++
+  for (int l = st, r = st; r <= ed; ++ r) {
+  	add(arr[r]);  // 累加上arr[r]的值
+      while (l < r && !is_ok())  sub(l ++);  // 调整左区间并减去其影响
+      //r - l + 1即为一个答案
+  
+  ```
+
 ## 单调栈
 
 > 找到每个数左边离它最近的比它大/小的数
