@@ -1,5 +1,44 @@
 # Linux常识
 
++ ping
++ `df /`磁盘分区
+
+```bash
+fdisk /dev/sdb对磁盘进行分区
+poweroff关机
+find . -name "*.[ch]"查找当前目录下的.c和.h文件
+grep "\bint i\b" a.c 查看文件中定义变量i的位置
+wc a.c统计文件的行数/单词数/字符数
+apt-get install gcc
+wget url下载
+iconv -f gbk -t
+```
+
+
+
+
+
+```c
+int main(int argc, char *argv[], char *envp[]);  // 环境变量
+```
+
+
+
+
+
+
+
+
+
++ 文件：
+  + Linux程序运行时默认打开3个文件，通过文件描述符
+    + 0号文件：默认输入（默认当前终端
+    + 1号文件：默认输出（默认当前终端
+    + 2号文件：默认错误（默认当前终端
+  + `lsof -p 进程号`查看打开的文件
+
+
+
 + 根目录`\`
   + `home`：所有用户”家“目录
   + `bin`：常用可执行文件命令
@@ -15,6 +54,10 @@
   + 相对路径：
     + `.`表示当前目录
     + `..`表示当前目录的上一个目录
+
++ `ls -l -a`（`-l`全部信息，`-a`隐藏文件）打印的文件信息含义：一共10位，第一位表示当前是目录`d`还是普通文件`-`，剩下9位3位一组。三个组分别是当前用户权限、组内用户权限和其他用户权限。每组内分别是读写运行
+
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Linux/Linux文件信息.png)
 
 ## 环境变量
 
@@ -61,15 +104,34 @@
 
 0. `man -ls`：提供命令手册
 
-1. `ctrl c`：取消命令，并且换行：向当前进程传递终止信号
+     + `man 命令名称`：查看某个命令
 
-2. `ctrl u`：清空本行命令
+       > 进入了类似vim命令模式的状态
 
-3. `tab`键：可以补全命令或文件名，如果补全不了快速按两下tab键，可以显示备选选项
+     + `man man`how RTFM
+     + `man 3 库函数`
+     + `man -k 关键字`
 
-4. 方向键上键：上一条命令
+1. `strace 命令`：检查命令是使用什么系统调用进行的。
 
-5. `ls`：列出当前目录下所有文件，（ac terminal中）蓝色的是文件夹，白色的是普通文件，绿色的是可执行文件
+   + `strace -f bash -c "命令名"`：查看bash是如何调用对应命令的
+
+   + ```bash
+     strace -o strace.log -f man ls
+     tail -f strace.log  # 在另一个创建
+     ```
+
+     来查看在使用man时发生了什么
+
+2. `ctrl c`：取消命令，并且换行：向当前进程传递终止信号
+
+3. `ctrl u`：清空本行命令
+
+4. `tab`键：可以补全命令或文件名，如果补全不了快速按两下tab键，可以显示备选选项
+
+5. 方向键上键：上一条命令
+
+6. `ls`：列出当前目录下所有文件，（ac terminal中）蓝色的是文件夹，白色的是普通文件，绿色的是可执行文件
 
    + `ls -l`：提供详细信息
 
@@ -83,35 +145,35 @@
 
    + `ll`：相当于`ls -al`
 
-6. `pwd`：显示当前路径
+7. `pwd`：显示当前路径
 
-7. `cd XXX`：进入XXX目录下，`cd ..`返回上层目录，`cd -`返回上一个所在的目录，只有`cd`返回家目录
+8. `cd XXX`：进入XXX目录下，`cd ..`返回上层目录，`cd -`返回上一个所在的目录，只有`cd`返回家目录
 
-8. `cp XXX YYY`：将XXX文件复制成YYY，相当于复制+粘贴+（重命名），如果是移动文件夹则是`cp 文件夹 路径 -r`
+9. `cp XXX YYY`：将XXX文件复制成YYY，相当于复制+粘贴+（重命名），如果是移动文件夹则是`cp 文件夹 路径 -r`
 
-9. `mkdir XXX`：创建目录XXX，`mkdir 参数 -p`：如果一系列路径有部分目录没有，则递归创建
+10. `mkdir XXX`：创建目录XXX，`mkdir 参数 -p`：如果一系列路径有部分目录没有，则递归创建
 
-10. `rm XXX`：删除普通文件；
+11. `rm XXX`：删除普通文件；
 
     `rm XXX -r`：删除文件夹
 
     + 支持正则表达式：`rm a\*`：删除文件夹a下的所有文件而不删除文件夹
 
-11. `mv XXX YYY`：将XXX文件移动到YYY，和`cp`命令一样，XXX和YYY可以是一个路径，相当于拖拽
+12. `mv XXX YYY`：将XXX文件移动到YYY，和`cp`命令一样，XXX和YYY可以是一个路径，相当于拖拽
 
-12. `touch XXX`：创建一个文件
+13. `touch XXX`：创建一个文件
 
-13. `cat XXX`：展示文件XXX中的内容
+14. `cat XXX`：展示文件XXX中的内容
 
-14. 虚拟机和主体机器之间的信息交换
+15. 虚拟机和主体机器之间的信息交换
 
     复制文本：windows/Linux下，`Ctrl + insert`，Mac下，`command + c`
 
     粘贴文本：windows/Linux下，`Shift + insert`，Mac下，`command + v`
 
-15. `history`查看历史命令
+16. `history`查看历史命令
 
-15. `clear`和`Ctrl + l`：终端显示页后翻=刷新屏幕$\approx$清屏
+17. `clear`和`Ctrl + l`：终端显示页后翻=刷新屏幕$\approx$清屏
 
 + `type 其他命令`：查看命令类型
 
@@ -127,19 +189,22 @@
 
 + 重定向命令列表
 
-  | 命令               | 说明                                  |
-  | ------------------ | ------------------------------------- |
-  | `command > file`   | 将stdout重定向到file中                |
-  | `command < file`   | 将stdin重定向到file中                 |
-  | `command >> file`  | 将stdout以追加方式重定向到file中      |
-  | `command n> file`  | 将文件描述符n重定向到file中           |
-  | `command n>> file` | 将文件描述符n以追加方式重定向到file中 |
+  | 命令               | 说明                                          |
+  | ------------------ | --------------------------------------------- |
+  | `command > file`   | 将stdout重定向到file中                        |
+  | `command < file`   | 将stdin重定向到file中                         |
+  | `command >> file`  | 将stdout以追加方式重定向到file中              |
+  | `command n> file`  | 将文件描述符n重定向到file中<br>> `2>`错误输出 |
+  | `command n>> file` | 将文件描述符n以追加方式重定向到file中         |
 
 + 管道：将前一个命令的`stdout`重定向给下一个命令的`stdin`
   + 只能处理`stdout`，会忽略`stderr`
   + 要求管道右边的命令必须能接受`stdin`
   + 可串联
+  
 + `xargs`命令：将stdin中的数据用空格或回车分割成命令行参数：因为有的参数不从stdin读入，不能用管道
+
+  
 
 # 其他常用命令
 
@@ -206,6 +271,8 @@
     `echo \$PATH | cut -c 3,5`：输出PATH的第3、5个字符
     `echo \$PATH | cut -c 3-5`：输出PATH的第3-5个字符
   + `sort`：将每行内容按字典序排序，可从`stdin`内读取多行，可从参数读取文件名列表
+
+  + `alias ls="ls --color"`设置别名，或者写入到`~/.bashrc`文件中
 
 + 查看文件内容：
   + `more`：浏览文件内容：
@@ -324,6 +391,30 @@
   ```
 
 # Shell编程
+
++ shell功能：
+
+  + `Tab`补全
+
+  + 上下键检索历史命令
+
+  + `Alt+f`、`Atl+b`按单词移动光标
+
+    > `man readline`
+
+  + `history`查看历史命令
+
+    + `!历史命令编号`
+    + `!字符串`做前缀匹配最近使用的命令并运行
+
+  + 符号扩展：`echo Hello-{a, bb, ccc}-{1,2}!`
+
++ 任务管理：
+
+  + `Ctrl + z`最小化
+    + `bg`最小化
+  + `jobs`任务栏
+  + `fg`最大化
 
 > 关于空格，如果表达式加上”美观“的空格，可能导致这样的问题，空格在linux中有含义，分隔参数
 
