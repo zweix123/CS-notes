@@ -1,4 +1,4 @@
-#### 笔记的意义
+### 笔记的意义
 
 1. 在初学时
 
@@ -18,3 +18,7 @@
 + 零碎的、细节性的知识现用现查
 
 此时笔记更像是”当年攻城略地时的纪念品“
+
+### 2022新年计划
+
+<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/word of cs.png"/>

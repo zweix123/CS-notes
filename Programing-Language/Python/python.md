@@ -45,7 +45,7 @@
 
   + `jupyter notebook`进入`jupyter`：蓝色命令行模式、绿色编辑模式
 
-    + 命令行下H查看帮助，DD删除，A在上插入、B在下插入、Ctrl + Enter运行、M当前行变成makedown
+    + 命令行下H查看帮助，DD删除，A在上插入、B在下插入、Ctrl + Enter运行
     + 导出为：.md：`jupyter nbconvert --to markdown file.ipynb`
 
 + Python风格(Pythonic)：一致性：数据模型
@@ -157,7 +157,7 @@
     | `title()`                           | 将每个单词首字母大写                     |
     | `upper()`<br>`lower()`              | 字母转换                                 |
     | `strip()`<br>`lstrip`<br>`ritrip()` | 删除两端空白<br>删除首空白<br>删除尾空白 |
-    | `replace(串1, 串2)`                 | 将字符串中所有的string1替换为string2     |
+    | `replace(串1, 串2)`                 | 将字符串中string1替换为string2           |
     | `count(字符串)`                     | 串中这个串出现多少次                     |
 
 + 空白泛指任何非打印字符，比如空格、制表符和换行符
@@ -507,8 +507,8 @@
     >
     > ```python
     > class DerivedName(BaseName):
-    >        def __init__(self, ...):
-    >            super(DerivedName, self).__init__()
+    >     def __init__(self, ...):
+    >         super(DerivedName, self).__init__()
     > ```
 
   + 新属性和方法：
@@ -567,3 +567,49 @@
 
   > (Python Module of the Week)[http://pymotw.com/]
 
+  + `colllections.OrderedDict`：有序字典
+  + `random.radint(范围l, 范围r)`：返回随机数
+
+### json
+
+> json(JavaScript Object Notation)格式：文件以`.json`结尾
+
++ 将数据结构转存到文件中，然后运输该文件，其他程序在加载该文件来使用数据
+
++ 函数`dump(数据, json文件)`：将数据加载到文件中
++ 函数`load(json文件)`：返回。。。：将json加载出来
+
+### unittest
+
++ 单元测试：用于核实函数的某个方面没有问题
+
+  测试用例：一组单元测试 -> 符合核实函数的符合要求
+
+  全覆盖式测试样例包含一整套单元测试，涵盖各种可能的函数使用方式
+
++ 测试流程：导入模块unittest和要测试的函数，创建一个继承`unittest.TestCase`的类，并编写一系列方法的函数行为的不同方面进行测试。
+
+  ```python
+  import unittest
+  
+  class MyTestCase(unittest.TestCase):
+      def test_oabaoaba(self):  #所有test_打头的方法都自动进行
+          ...
+  
+  unittest.main()
+  ```
+
++ 断言方法：
+
+  | 方法                      | 用途                   |
+  | ------------------------- | ---------------------- |
+  | `assertEqual(a, b)`       | 核实`a == b`           |
+  | `assertnotEqual(a, b)`    | 核实`a != b`           |
+  | `assertTrue(x)`           | 核实`x`为`True`        |
+  | `assertFalse(x)`          | 核实`x`为`False`       |
+  | `assertIn(item, list)`    | 核实`item`在`list`中   |
+  | `assertNotIn(item, list)` | 核实`item`不在`list`中 |
+
++ 测试类：
+
+  + 方法：`setUp(self)`：测试程序先进行该方法，在运行其他test_开头方法：在此创建对象和答案列表
