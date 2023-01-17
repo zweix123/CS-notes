@@ -8,11 +8,15 @@
         "type": "tabs",
         "children": [
           {
-            "id": "a036a8dd7dcc2d54",
+            "id": "a9dd5a01f60eca96",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "preview",
+                "source": true
+              }
             }
           }
         ]
@@ -27,6 +31,7 @@
       {
         "id": "446a267114fc3729",
         "type": "tabs",
+        "dimension": 29.98102466793169,
         "children": [
           {
             "id": "8b152ee45479b2f0",
@@ -60,12 +65,39 @@
               "type": "starred",
               "state": {}
             }
+          },
+          {
+            "id": "45cdc6c44938084e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "df730e2758fb4e74",
+        "type": "tabs",
+        "dimension": 70.01897533206831,
+        "children": [
+          {
+            "id": "ff03a21901ef60d7",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md"
+              }
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 258.5
   },
   "right": {
     "id": "7ad0a1a6c3912f19",
@@ -81,6 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +152,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "README.md"
+              }
             }
           }
         ]
@@ -138,8 +174,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "8b152ee45479b2f0",
+  "active": "a9dd5a01f60eca96",
   "lastOpenFiles": [
-    "README.md"
+    "Distributed-System/Introduction.md",
+    "README.md",
+    "未命名.md"
   ]
 }
