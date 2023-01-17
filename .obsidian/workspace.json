@@ -4,18 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "fa74334fc60fa2d8",
+        "id": "f15e7715f449cc83",
         "type": "tabs",
         "children": [
           {
-            "id": "a9dd5a01f60eca96",
+            "id": "cc9ec213e6c84289",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "README.md",
                 "mode": "preview",
-                "source": true
+                "source": false
               }
             }
           }
@@ -31,7 +31,7 @@
       {
         "id": "446a267114fc3729",
         "type": "tabs",
-        "dimension": 29.98102466793169,
+        "dimension": 61.117318435754186,
         "children": [
           {
             "id": "8b152ee45479b2f0",
@@ -81,7 +81,7 @@
       {
         "id": "df730e2758fb4e74",
         "type": "tabs",
-        "dimension": 70.01897533206831,
+        "dimension": 38.88268156424581,
         "children": [
           {
             "id": "ff03a21901ef60d7",
@@ -97,7 +97,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 258.5
+    "width": 236.5
   },
   "right": {
     "id": "7ad0a1a6c3912f19",
@@ -174,8 +174,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "a9dd5a01f60eca96",
+  "active": "cc9ec213e6c84289",
   "lastOpenFiles": [
+    "Algorithm/Graph/图论1最短路.md",
+    "Distributed-System/MapReduce.md",
     "Distributed-System/Introduction.md",
     "README.md",
     "未命名.md"
