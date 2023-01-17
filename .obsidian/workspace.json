@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "28c4ab223ba7abca",
+        "id": "82671979477661e7",
         "type": "tabs",
         "children": [
           {
-            "id": "bd614a7f5ef9f714",
+            "id": "ef4b1938926797c0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Algorithm/Data-Structure-and-Sort/1LinearList线性表.md",
-                "mode": "preview",
+                "file": "README.md",
+                "mode": "source",
                 "source": true
               }
             }
@@ -48,7 +48,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Algorithm/Data-Structure-and-Sort/1LinearList线性表.md"
+                "file": "README.md"
               }
             }
           },
@@ -95,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Algorithm/Data-Structure-and-Sort/1LinearList线性表.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,7 +112,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Algorithm/Data-Structure-and-Sort/1LinearList线性表.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,7 +135,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Algorithm/Data-Structure-and-Sort/1LinearList线性表.md"
+                "file": "README.md"
               }
             }
           }
@@ -156,17 +156,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "947f63c8ed87d897",
+  "active": "ef4b1938926797c0",
   "lastOpenFiles": [
+    "try.md",
+    "2023-01-17.md",
+    "未命名.canvas",
+    "Computer-Organization&Architecture/计组3 CPU.md",
+    "Algorithm/Data-Structure-and-Sort/1LinearList线性表.md",
     "Algorithm/Graph/图论4联通分量.md",
     "Algorithm/Graph/图论1最短路-最小环.md",
     "Algorithm/Math/数学4计算几何_三维计算几何.md",
     "Algorithm/Math/数学2组合数学.md",
-    "Algorithm/Math/数学4计算几何_二维计算几何.md",
-    "Algorithm/Math/0Introduction.md",
-    "Algorithm/Search/Rand.md",
-    "Algorithm/Senior-Data-Structure/高级数据结构_树上结构.md",
-    "Algorithm/Senior-Data-Structure/高级数据结构_并查集.md",
-    "Algorithm/String/字符串0Trie树.md"
+    "Algorithm/Math/数学4计算几何_二维计算几何.md"
   ]
 }
