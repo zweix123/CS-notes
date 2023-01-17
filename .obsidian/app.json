@@ -6,5 +6,6 @@
   "showLineNumber": true,
   "foldHeading": false,
   "newFileLocation": "current",
-  "attachmentFolderPath": "/"
+  "attachmentFolderPath": "/",
+  "defaultViewMode": "preview"
 }
