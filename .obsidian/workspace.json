@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "f15e7715f449cc83",
+        "id": "c05f79afc25e025e",
         "type": "tabs",
         "children": [
           {
-            "id": "cc9ec213e6c84289",
+            "id": "14fc176573ef46f4",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -18,8 +18,17 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "8eec7e2d26d9bb1a",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -71,9 +80,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "README.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -88,9 +95,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "README.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -113,7 +118,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -130,7 +134,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,9 +155,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "README.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -174,12 +175,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "cc9ec213e6c84289",
+  "active": "8eec7e2d26d9bb1a",
   "lastOpenFiles": [
+    "sam.md",
+    "README.md",
+    "Programing-Language/Golang/Lib/http.md",
+    "Programing-Language/Golang/Lib/overview.md",
+    "Algorithm/Graph/图论0拓扑图.md",
+    "Programing-Language/C/C.md",
+    "MIssing-Semester/Typora(Makedown&LaTeX).md",
     "Algorithm/Graph/图论1最短路.md",
     "Distributed-System/MapReduce.md",
-    "Distributed-System/Introduction.md",
-    "README.md",
-    "未命名.md"
+    "Distributed-System/Introduction.md"
   ]
 }

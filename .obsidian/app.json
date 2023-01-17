@@ -1,1 +1,10 @@
-{}
+{
+  "showInlineTitle": false,
+  "livePreview": true,
+  "readableLineLength": false,
+  "foldIndent": false,
+  "showLineNumber": true,
+  "foldHeading": false,
+  "newFileLocation": "current",
+  "attachmentFolderPath": "/"
+}
