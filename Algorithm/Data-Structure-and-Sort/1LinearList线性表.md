@@ -5,7 +5,6 @@
 > 空表、前驱、后继
 
 ### 顺序存储: Sequence
-
 ```c++
 template<typename Object>
 class Vector {

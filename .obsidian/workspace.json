@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "c05f79afc25e025e",
+        "id": "c55effc0c1046ec6",
         "type": "tabs",
         "children": [
           {
-            "id": "14fc176573ef46f4",
+            "id": "5aca38ce95f688bc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8eec7e2d26d9bb1a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
+                "file": "Programing-Language/Golang/Lib/http.md",
                 "mode": "preview",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -85,7 +72,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "Programing-Language/Golang/Lib/http.md"
               }
             }
           }
@@ -102,7 +89,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "Programing-Language/Golang/Lib/http.md"
               }
             }
           }
@@ -126,7 +113,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Programing-Language/Golang/Lib/http.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -143,7 +130,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "Programing-Language/Golang/Lib/http.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -166,7 +153,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "Programing-Language/Golang/Lib/http.md"
               }
             }
           }
@@ -187,17 +174,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "8eec7e2d26d9bb1a",
+  "active": "5aca38ce95f688bc",
   "lastOpenFiles": [
-    "sam.md",
+    "Programing-Language/Golang/Grammar.md",
+    "Algorithm/Data-Structure-and-Sort/1LinearList线性表.md",
+    "Programing-Language/C/C.md",
+    "Distributed-System/Introduction.md",
+    "Distributed-System/MapReduce.md",
     "README.md",
+    "sam.md",
     "Programing-Language/Golang/Lib/http.md",
     "Programing-Language/Golang/Lib/overview.md",
-    "Algorithm/Graph/图论0拓扑图.md",
-    "Programing-Language/C/C.md",
-    "MIssing-Semester/Typora(Makedown&LaTeX).md",
-    "Algorithm/Graph/图论1最短路.md",
-    "Distributed-System/MapReduce.md",
-    "Distributed-System/Introduction.md"
+    "Algorithm/Graph/图论0拓扑图.md"
   ]
 }
