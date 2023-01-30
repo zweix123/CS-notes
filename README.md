@@ -21,6 +21,7 @@
 ### Plan of 2023
 
 <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/word of cs.png"/>
+
 >下面的部分描述我觉得也可以作为CS专业和其他相近专业的核心区别
 
 1. 让我们有一个我们的机器：PA（C）
