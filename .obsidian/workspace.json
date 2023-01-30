@@ -1,22 +1,18 @@
 {
   "main": {
-    "id": "6984819af7067802",
+    "id": "da345b8319b11449",
     "type": "split",
     "children": [
       {
-        "id": "ffcf129c23f75515",
+        "id": "a850f6b6c2064bb5",
         "type": "tabs",
         "children": [
           {
-            "id": "fbad821aa57880d3",
+            "id": "fba4432ec3a66a7b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -25,15 +21,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "db74ee406dcae4f1",
+    "id": "61c65f4f0128ac82",
     "type": "split",
     "children": [
       {
-        "id": "446a267114fc3729",
+        "id": "e2f518d4d1ff7a88",
         "type": "tabs",
         "children": [
           {
-            "id": "8b152ee45479b2f0",
+            "id": "8ebeecb05b9c8088",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +39,7 @@
             }
           },
           {
-            "id": "84159b227a7778fa",
+            "id": "3c30057f2d17434c",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -58,22 +54,11 @@
             }
           },
           {
-            "id": "dfe1e16d62fcef07",
+            "id": "c9ed3f92577c0658",
             "type": "leaf",
             "state": {
               "type": "starred",
               "state": {}
-            }
-          },
-          {
-            "id": "657703118377621b",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true
-              }
             }
           }
         ]
@@ -83,30 +68,19 @@
     "width": 200
   },
   "right": {
-    "id": "7ad0a1a6c3912f19",
+    "id": "29c545c219928119",
     "type": "split",
     "children": [
       {
-        "id": "995efc17ca9014fe",
+        "id": "619c0d2a73569588",
         "type": "tabs",
         "children": [
           {
-            "id": "8d9f2e705b57a1b3",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "README.md"
-              }
-            }
-          },
-          {
-            "id": "5b80c18dd7594bf8",
+            "id": "e414615bf204d0b3",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,45 +92,64 @@
             }
           },
           {
-            "id": "1df9694749f73854",
+            "id": "f27ed0e91ef29a66",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
+          },
+          {
+            "id": "2eb472def1087887",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "1ab35ec2c68774b8",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 232.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:Create new canvas": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "command-palette:打开命令面板": false
     }
   },
-  "active": "fbad821aa57880d3",
+  "active": "fba4432ec3a66a7b",
   "lastOpenFiles": [
-    "Complier/编译原理.md",
-    "Ubuntu云服务器配置指南.md",
-    "win10开发机配置指南.md",
-    "zweix技术日记/word of cs.png",
-    "zweix技术日记/zweix技术日记2023.1.9——关于互联网校招.md",
-    "zweix技术日记/zweix技术日记2022.12.13——关于CS和SE专业区别的思考.md",
-    "zweix技术日记/zweix技术日记2022.4.8——关于C++函数参数入栈顺序和内存对齐.md",
-    "一个博客的诞生.md",
-    "vscode受限模式关闭.png",
-    "Programing-Language/Golang/Lib/http.md"
+    "README.md",
+    "source/word of cs.png",
+    "source/Complier/re to NFA2.jpg",
+    "source/POSIX中定义的数据类型.jpg",
+    "source/README.md",
+    "Programing-Language/Python/python_model_numpy、pandas和matplotlib .md",
+    "Programing-Language/Golang/Lib/overview.md",
+    "Programing-Language/C++/4C++面向对象1封装-标准函数.md",
+    "Programing-Language/C/C.md",
+    "Operating-System/操作系统4 IO.md"
   ]
 }
