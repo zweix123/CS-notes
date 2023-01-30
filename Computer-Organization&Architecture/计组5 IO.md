@@ -8,7 +8,7 @@
 
 ## IO方式（中断）
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Organization&Architecture/IO方式.jpg)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Organization&Architecture/IO方式.jpg)
 
 ### 程序查询方式
 
@@ -21,7 +21,7 @@
 >
 > 处理完毕后自动返回现行程序的断点处，继续执行原程序。
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Organization&Architecture/程序中断方式.jpg)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Organization&Architecture/程序中断方式.jpg)
 
 工作流程：
 

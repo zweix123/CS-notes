@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a850f6b6c2064bb5",
+        "id": "7367731fc5effebe",
         "type": "tabs",
         "children": [
           {
-            "id": "fba4432ec3a66a7b",
+            "id": "7cc5c6651d9d4e5a",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -139,17 +139,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "fba4432ec3a66a7b",
+  "active": "8ebeecb05b9c8088",
   "lastOpenFiles": [
+    "Programing-Language/C++/2C++数据1 Plain Old Data.md",
+    "Programing-Language/C++/2C++数据2存储类别.md",
+    "Programing-Language/C++/1C++概述.md",
+    "Programing-Language/C/C.md",
     "README.md",
     "source/word of cs.png",
     "source/Complier/re to NFA2.jpg",
     "source/POSIX中定义的数据类型.jpg",
     "source/README.md",
-    "Programing-Language/Python/python_model_numpy、pandas和matplotlib .md",
-    "Programing-Language/Golang/Lib/overview.md",
-    "Programing-Language/C++/4C++面向对象1封装-标准函数.md",
-    "Programing-Language/C/C.md",
-    "Operating-System/操作系统4 IO.md"
+    "Programing-Language/Python/python_model_numpy、pandas和matplotlib .md"
   ]
 }

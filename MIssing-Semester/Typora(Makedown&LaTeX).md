@@ -181,9 +181,9 @@
 
   要添加图像，请使用感叹号 (`!`), 然后在方括号增加替代文本，图片链接放在圆括号里，括号里的链接后可以增加一个可选的图片标题文本。
 
-  插入图片Markdown语法代码：`![图片alt](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master//Typora(Makedown&LaTeX).md/图片链接 "图片title")`。
+  插入图片Markdown语法代码：`![图片alt](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/Typora(Makedown&LaTeX).md/图片链接 "图片title")`。
 
-  对应的HTML代码：`<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master//图片链接" alt="图片alt" title="图片title">`
+  对应的HTML代码：`<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/图片链接" alt="图片alt" title="图片title">`
 
   > 本地图片 链接为 位置\名
 

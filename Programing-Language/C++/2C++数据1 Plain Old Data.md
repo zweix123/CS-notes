@@ -80,7 +80,7 @@
 
 + **字面量**(literal)：即时使用的基本类型值，其都对应着一种数据类型
 
-  <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/指定字面值类型.png" alt="指定字面值类型" style="zoom:67%;" />
+  <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/指定字面值类型.png" alt="指定字面值类型" style="zoom:67%;" />
 
 
 ---
@@ -184,7 +184,7 @@
 
 + 数据类型性质：存储大小、解释方法->取值范围和精度，在其上的操作（）运算符
 
-   <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/C++算术类型.png" style="zoom:70%;" />
+   <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/C++算术类型.png" style="zoom:70%;" />
 
   + `climits`头文件有算术类型范围符号常量。
 
@@ -761,4 +761,4 @@
 
 + C++运算符优先级和结合律：
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/运算符优先级表.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/运算符优先级表.png)

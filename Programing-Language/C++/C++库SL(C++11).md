@@ -88,7 +88,7 @@ SL(Standard Library)标准库
 
 # IO库
 
-+ 头文件<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/IO库.jpg" style="zoom:50%;"> 名称空间`std`
++ 头文件<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/IO库.jpg" style="zoom:50%;"> 名称空间`std`
 
   + IO库中的类对象不能拷贝、赋值——不能做函数形参或返回值——只能做引用
   + IO库中的方法为流重载了`<<`或`>>`运算符：ege：`endl(cout)`可写为`cout << endl;`
@@ -133,7 +133,7 @@ SL(Standard Library)标准库
 
 + condition state条件状态/stream state流状态：IO库类对象的数据成员：从ios_base类继承、定义为iostate类型(一种bitmask类型)
 
-  <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/IO库条件类型.jpg" style="zoom:65%;"><img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/流状态.png" style="zoom:55%;" />
+  <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/IO库条件类型.jpg" style="zoom:65%;"><img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/流状态.png" style="zoom:55%;" />
 
   + 一个流一旦发生错误，该流会失效（不能再使用）
 
@@ -161,7 +161,7 @@ SL(Standard Library)标准库
 
 标准输入输出头文件`iostream`：最开始是`ios_base` ：
 
-<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/iostream.jpg" style="zoom:55%;"><img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/iostream流对象.jpg" style="zoom:55.5%;"> 
+<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/iostream.jpg" style="zoom:55%;"><img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/iostream流对象.jpg" style="zoom:55.5%;"> 
 
 + `cin`和`cout`为C++提供的标准I/O工具：包含在`iostream`头文件里，标准输入(standard input)：`cin`（发音see-in）是`istream`类的对象；标准输出(standard output)：`cout`（see-out）是`ostream`类的对象；两个类也有自己的成员函数。
 
@@ -205,7 +205,7 @@ SL(Standard Library)标准库
 
     返回对象引用，可拼接。
 
-+ 输出格式化：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/cout格式化.png" style="zoom:67%;">
++ 输出格式化：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/cout格式化.png" style="zoom:67%;">
 
   > ostream类由ios类派生来的，ios类由ios_base派生来的；而ios_base类存储了描述格式状态的信息，又由于ios_base是ostream类的间接子类，所有其方法可用于ostream类和其对象。
 
@@ -307,7 +307,7 @@ SL(Standard Library)标准库
 
 ## fstream
 
-+ 处理命名文件IO：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/fstream特有操作.jpg" style="zoom:67%;">
++ 处理命名文件IO：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/fstream特有操作.jpg" style="zoom:67%;">
 
   + 如果open失败，failbit会被置位，需要复位后再次使用
 
@@ -403,7 +403,7 @@ SL(Standard Library)标准库
 
 + 文本模式：构造函数和open方法的其他参数（文件名字符串，模式常量）
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/文本模式常量.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/文本模式常量.png)
 
   默认：
 
@@ -412,7 +412,7 @@ SL(Standard Library)标准库
 
   > 位运算符OR用于将两个位值合并成一个可用于设置两个位的值
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/C++和C的文件打开模式.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/C++和C的文件打开模式.png)
 
   + `ifstream fin(filename, c++mode);`
 
@@ -432,7 +432,7 @@ SL(Standard Library)标准库
 
 ## sstream
 
-处理内存的IO：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/stringstream.jpg" style="zoom:67%;" />
+处理内存的IO：<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/stringstream.jpg" style="zoom:67%;" />
 
 将string对象中的信息放在stringstream对象中，然后将此对象作为iostream使用
 
@@ -541,17 +541,17 @@ int get(void);
 
 ## pair
 
- ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/pair.jpg)
+ ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/pair.jpg)
 
 ## 函数对象
 
- ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/标准库函数对象.jpg)
+ ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/标准库函数对象.jpg)
 
 ## 类型转换
 
 `<type_traits>`
 
- ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/C++/标准类型转换模板及应用.png)
+ ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/C++/标准类型转换模板及应用.png)
 
 ## utility
 
