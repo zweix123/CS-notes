@@ -99,7 +99,7 @@
 
 + SQL基本概念：
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Database-System/SQL对关系数据库模式的支持.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Database-System/SQL对关系数据库模式的支持.png)
 
   外模式包括若干视图(view)和部分基本表(base table)，数据库模式包括若干基本表，内模式包括若干存储文件(stored file)
 
@@ -273,7 +273,7 @@
 
   默认情况是RESTRICT
 
-   <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Database-System/删除基本表.png" style="zoom:80%;" />
+   <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Database-System/删除基本表.png" style="zoom:80%;" />
 
 ### 视图
 
@@ -515,7 +515,7 @@ FROM<表名或视图名> [, <表名或视图名>···]|(<SELECT语句>)[AS]<别
 
 + 文本函数：
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Database-System/文本函数.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Database-System/文本函数.png)
 
   + `SOUNDEX()`函数将任何文本字符串转换为描述其语音表示的字母数字模式的算法：按发音做出哈希，用于比较发音
 
@@ -523,7 +523,7 @@ FROM<表名或视图名> [, <表名或视图名>···]|(<SELECT语句>)[AS]<别
 
 + 数值处理函数：
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Database-System/数值处理函数.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Database-System/数值处理函数.png)
 
 1. **聚集函数**(aggregate function)：运行在行组上（不用于具体字段），计算和返回单个值的函数
 
@@ -889,7 +889,7 @@ FROM<表名或视图名> [, <表名或视图名>···]|(<SELECT语句>)[AS]<别
 
   CC V2.1版于1990年被ISO采用为国际标准，2001被我国采用为国家标准
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Database-System/信息安全标准简史.png)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Database-System/信息安全标准简史.png)
 
 + 1991.4，美国国家计算机安全中心(National Computer Security Center, NCSC)颁布了《可信计算机系统评估准则关于可信数据库系统的解释》(TCSEC\Trusted Database Interpretation, TCSEC/TDI，即紫皮书)，将TCSEC扩展到数据库管理系统：从 安全策略、责任、保证和文档 来描述安全性级别划分的指标并分为四组七个等级
 
@@ -925,7 +925,7 @@ FROM<表名或视图名> [, <表名或视图名>···]|(<SELECT语句>)[AS]<别
 
 ## 安全控制
 
-<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Database-System/安全控制.png" style="zoom:80%;" />
+<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Database-System/安全控制.png" style="zoom:80%;" />
 
 ### 用户身份鉴别
 
@@ -1010,7 +1010,7 @@ FROM<表名或视图名> [, <表名或视图名>···]|(<SELECT语句>)[AS]<别
 
   + 新创建的数据库用户由三种权限：CONNECT（默认）、RESOURCE和DBA
 
-    ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Database-System/CREATE USER权限.png)
+    ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Database-System/CREATE USER权限.png)
 
   **不是SQL标准，不同关系数据库管理系统的语法和内容差别较大**
 
@@ -1149,7 +1149,7 @@ FROM<表名或视图名> [, <表名或视图名>···]|(<SELECT语句>)[AS]<别
 
    2. 端到端加密：在发送端加密，在接收端解密，只加密报文，不加密报头，可被截获
 
-      ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Database-System/端到端加密.png)
+      ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Database-System/端到端加密.png)
 
       + 确认可靠性：通过各自持有 由 指明数字证书认证(Certificate Authority, CA)中心或企业内建CA颁布的数字证书：先提供对方证书，然后使用 本地的CA新人列表和证书撤销列表(Certificate Revocation List, CRL)进行验证
       + 协商加密算法和密钥：利用 公钥基础设施(Public Key Infrastructure, PKI)

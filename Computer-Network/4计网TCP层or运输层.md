@@ -6,7 +6,7 @@
 
   分用(demultiplexing)：接收方运输层在剥去报文首部后能够把数据正确交付目的的应用进程
   
-+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/逻辑通信.png)
++  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/逻辑通信.png)
 
   + 网络层为主机之间提供逻辑通信
 
@@ -32,7 +32,7 @@
 | 无连接     | 面向连接       |
 | 不可靠信道 | 全双工可靠信道 |
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/应用及其协议.png)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/应用及其协议.png)
 
 ## 端口号
 
@@ -63,7 +63,7 @@
   1. 服务端使用的端口号
      1. 熟知端口号(wellknown port number)//系统端口号：数值为0 ~1023
      
-        ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/常用的熟知端口号.png)
+        ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/常用的熟知端口号.png)
      
         > 可在网址`www.iana.org`查到
      
@@ -85,7 +85,7 @@
 
   3. UDP的**面向报文**的：UDP对应用层交下来的报文，既不合并，也不拆分，而是保留这些报文的边界
 
-     ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/UDP面向报文.png)
+     ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/UDP面向报文.png)
 
      需要报文大小合适
 
@@ -101,7 +101,7 @@
 
 + 格式：（伪首部字段12字节） + 首部字段8字节 + 数据字段
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/UDP数据报格式.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/UDP数据报格式.png)
 
   + 首部：
     1. 源端口：源端口号。在需要对方回信时选用。不需要时可全0
@@ -146,7 +146,7 @@
   + 套接字：端口号*拼接到*(concatenated with)IP地址$套接字socket = (IP地址:端口号)$[RFC 793]
   + 每一条TCP连接唯一地被通信两端地两个端点（即两个套接字）所确定$TCP连接::={socket_1, socket_2}={(IP_1:port_1), (IP_2:port_2)}$
   
-  > socket的其他含义：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/socket其他含义.png)
+  > socket的其他含义：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/socket其他含义.png)
 
 ## 可靠传输
 

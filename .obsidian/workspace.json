@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "c55effc0c1046ec6",
+        "id": "ffcf129c23f75515",
         "type": "tabs",
         "children": [
           {
-            "id": "5aca38ce95f688bc",
+            "id": "fbad821aa57880d3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Programing-Language/Golang/Lib/http.md",
-                "mode": "preview",
+                "file": "README.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -31,7 +31,6 @@
       {
         "id": "446a267114fc3729",
         "type": "tabs",
-        "dimension": 61.117318435754186,
         "children": [
           {
             "id": "8b152ee45479b2f0",
@@ -67,29 +66,13 @@
             }
           },
           {
-            "id": "45cdc6c44938084e",
+            "id": "657703118377621b",
             "type": "leaf",
             "state": {
-              "type": "outline",
+              "type": "tag",
               "state": {
-                "file": "Programing-Language/Golang/Lib/http.md"
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "df730e2758fb4e74",
-        "type": "tabs",
-        "dimension": 38.88268156424581,
-        "children": [
-          {
-            "id": "ff03a21901ef60d7",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "Programing-Language/Golang/Lib/http.md"
+                "sortOrder": "frequency",
+                "useHierarchy": true
               }
             }
           }
@@ -97,23 +80,33 @@
       }
     ],
     "direction": "horizontal",
-    "width": 236.5
+    "width": 200
   },
   "right": {
     "id": "7ad0a1a6c3912f19",
     "type": "split",
     "children": [
       {
-        "id": "73d009357ee62430",
+        "id": "995efc17ca9014fe",
         "type": "tabs",
         "children": [
           {
-            "id": "d90aa5353177a5cb",
+            "id": "8d9f2e705b57a1b3",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md"
+              }
+            }
+          },
+          {
+            "id": "5b80c18dd7594bf8",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Programing-Language/Golang/Lib/http.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,35 +118,14 @@
             }
           },
           {
-            "id": "b72414fe0a403e0d",
+            "id": "1df9694749f73854",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Programing-Language/Golang/Lib/http.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
-            }
-          },
-          {
-            "id": "657703118377621b",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true
-              }
-            }
-          },
-          {
-            "id": "92f467bb71071ac3",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "Programing-Language/Golang/Lib/http.md"
               }
             }
           }
@@ -161,8 +133,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 232.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -171,20 +142,21 @@
       "canvas:Create new canvas": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "5aca38ce95f688bc",
+  "active": "fbad821aa57880d3",
   "lastOpenFiles": [
-    "Programing-Language/Golang/Grammar.md",
-    "Algorithm/Data-Structure-and-Sort/1LinearList线性表.md",
-    "Programing-Language/C/C.md",
-    "Distributed-System/Introduction.md",
-    "Distributed-System/MapReduce.md",
-    "README.md",
-    "sam.md",
-    "Programing-Language/Golang/Lib/http.md",
-    "Programing-Language/Golang/Lib/overview.md",
-    "Algorithm/Graph/图论0拓扑图.md"
+    "Complier/编译原理.md",
+    "Ubuntu云服务器配置指南.md",
+    "win10开发机配置指南.md",
+    "zweix技术日记/word of cs.png",
+    "zweix技术日记/zweix技术日记2023.1.9——关于互联网校招.md",
+    "zweix技术日记/zweix技术日记2022.12.13——关于CS和SE专业区别的思考.md",
+    "zweix技术日记/zweix技术日记2022.4.8——关于C++函数参数入栈顺序和内存对齐.md",
+    "一个博客的诞生.md",
+    "vscode受限模式关闭.png",
+    "Programing-Language/Golang/Lib/http.md"
   ]
 }

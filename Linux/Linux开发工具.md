@@ -373,3 +373,20 @@
     `docker cp xxx CONTAINER:xxx` 或 `docker cp CONTAINER:xxx xxx`：在本地和容器间复制文件
     `docker rename CONTAINER1 CONTAINER2`：重命名容器
     `docker update CONTAINER --memory 500MB`：修改容器限制
+
+## 案例: 利用acwing的资源搭建docker
+
+1. 在本地将镜像上传到自己租的云端服务器：`scp /var/lib/acwing/docker/images/docker_lesson_1_0.tar server_name:`
+
+2. 在云服务器将镜像加载到本地：`docker load -i docker_lesson_1_0.tar`
+
+   创建并运行docker_lesson:1.0镜像：`docker run -p 20000:22 --name my_docker_server -itd docker_lesson:1.0 `
+
+3. 进入创建的docker容器：`docker attach my_docker_server`
+
+   设置密码：`password`
+
+4. 去云平台控制台中修改安全组配置，放行端口20000
+
++ 则可以通过`ssh root@xxx.xxx.xxx.xxx -p 20000`指定端口ssh
++ 此时配置的docker容器相当于一个完整的云服务器，可以配置其免密登录，注意此时本地的`~/.ssh/config`中要在多加一行`Port 20000`

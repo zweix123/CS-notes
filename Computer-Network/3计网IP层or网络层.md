@@ -8,7 +8,7 @@
 >
 > （无连接：数据报服务）互联网采用这样地设计思路：**网络层向上只提供简单灵活的、无连接的、尽最大努力交付的 （IP）*数据报*(datagram) / 分组 服务**——网络层不提供服务质量的承诺：可能储存、丢失、重复和失序，同时时限也不保证。但路由器便宜，由由主机中的运输层保证——网络造假大大降低，运行方式灵活，能够适应多种应用。
 >
->  <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/虚电路服务和数据报服务的对比.png" style="zoom:79%;" />
+>  <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/虚电路服务和数据报服务的对比.png" style="zoom:79%;" />
 
 + 网际协议IP(Internet Protocol)
 
@@ -25,7 +25,7 @@
   
   + 网际组管理协议IGMP(Internet Group Management Protocol)
   
-   <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/IP配套协议.png" style="zoom:80%;" />
+   <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/IP配套协议.png" style="zoom:80%;" />
   
 + 虚拟互连网络(internet)
 
@@ -46,7 +46,7 @@
 
   + 好处：方便讨论：
 
-     <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/IP网.png" style="zoom:70%;" />
+     <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/IP网.png" style="zoom:70%;" />
   
 
 
@@ -73,7 +73,7 @@
 
   分类：
 
-   <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/各类IP地址字段含义.png" style="zoom:80%;" />
+   <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/各类IP地址字段含义.png" style="zoom:80%;" />
 
   1. A类：单播地址（一对一通信）。
   2. B类：单播地址
@@ -83,7 +83,7 @@
 
 + 书写：IP地址都是32位二进制，常在每8位中插入一个空格（机器中没有）；机器中使用*点分十进制法*(dotted decimal notation)：每八位化成十进制然后在空格位置加上点。
 
-   <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/点分十进制法.png" style="zoom:75%;" />
+   <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/点分十进制法.png" style="zoom:75%;" />
 
 **A、B、C类别的IP地址**：
 
@@ -93,13 +93,13 @@
 + 本主机所在的单个网络地址：主机号全零
 + 本主机连接的所有(all)网络地址：主机号全1
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/IP地址指派范围.png)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/IP地址指派范围.png)
 
 > 通过类别码可以找到，A类地址占整个IP地址空间的一半，剩下的空间B类地址占一半，即总的25%，相应的C。。。12.5%。
 
 + 一般不使用的特殊IP地址：
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/特殊IP地址.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/特殊IP地址.png)
 
 **IP地址的重要特点**
 
@@ -124,9 +124,9 @@
 + + 硬件（物理）地址：是数据链路层和物理层使用的地址
   + IP地（逻辑）地址：是网络层和以上各层使用的地址。
 
-+ ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/IP地址嵌入到硬件地址.png)
++ ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/IP地址嵌入到硬件地址.png)
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/IP地址与硬件地址的层次划分.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/IP地址与硬件地址的层次划分.png)
 
   > 抽象分离，各管各的，互不可知，嵌套使用，分别修改
 
@@ -169,11 +169,11 @@
 
   > 从IP数据报的首部的源地址和目的地址无法看出，于是采用掩码
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/子网掩码.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/子网掩码.png)
 
   + 默认子网掩码——对应类型的网络号长度
 
-    <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/默认子网掩码.png" style="zoom:70%;" />
+    <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/默认子网掩码.png" style="zoom:70%;" />
 
     子网掩码是一个网络或一个子网的重要属性：
 
@@ -258,7 +258,7 @@
 
 **格式**：由*基本首部*(base header) + *有效载荷*(payload)/静载荷 = 若干*扩展首部*(extension header) + 数据部分;（扩展首部不属于IPv6数据报首部）
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/IPv6一般格式.png)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/IPv6一般格式.png)
 
 + 变化：
 
@@ -280,7 +280,7 @@
 
 + 字段：
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/IPv6首部.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/IPv6首部.png)
 
   1. 版本(version)：4位：指定协议版本，IPv6对应6
 
@@ -331,7 +331,7 @@
   + 可结合使用点分十进制记法的后缀（冒号分隔16位，点分隔8位）
   + CIDR斜线表示法仍可用
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/IPv6地址分类.png)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/IPv6地址分类.png)
 
 **从IPv4向IPv6过渡**
 
@@ -357,7 +357,7 @@
 
   >  与IPv4的ICMP的差别：把其他三个协议都合并：
   >
-  > ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/ICMPv6.png)
+  > ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/ICMPv6.png)
 
   + 在归类时，也将其他协议认为是ICMPv6
     1. 邻站发现ND(Neighbor-Discovery)报文/多播听众交付MLD(Multicast Listener Delivery)报文
@@ -387,9 +387,9 @@
 
 **局域网硬件多播**
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/局域网硬件多播.png)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/局域网硬件多播.png)
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/D类IP地址与以太网多播地址的映射.png)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/D类IP地址与以太网多播地址的映射.png)
 
 + 所需协议：
   1. 网际组管理协议IGMP
@@ -399,7 +399,7 @@
 
 **格式**：
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/IP数据报格式.png)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/IP数据报格式.png)
 
 + 首部
 
@@ -436,7 +436,7 @@
 
     + 协议（占8位）：指此数据报携带的数据使用何种协议
 
-      ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/协议字段.png)
+      ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/协议字段.png)
 
     + 首部检验和（占16位）：只检查数据报的首部，但不包括数据部分——为节省时间，算法很简单：
 
@@ -482,7 +482,7 @@
 
 + 结构部分：
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/经典路由器结构.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/经典路由器结构.png)
 
   1. 路由选择部分/控制部分：核心构件：路由选择处理机：根据路由选择协议构造路由表
 
@@ -498,7 +498,7 @@
 
      + 转发方式：
 
-       ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/交换方式.png)
+       ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/交换方式.png)
 
        1. 通过存储器    ：受到存储器的带宽（读或写）的线速
 
@@ -623,7 +623,7 @@
 
   > 较新的RIP版本是1998.11发布的RIP2[RFC 2453]，较于RIP1无太大变化，但性能上有所改进，可支持变长子网掩码和无分类路由选择CIDR，还提供简单的鉴别过程支持多播
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/RIP2报文格式.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/RIP2报文格式.png)
 
   1. 首部：4字节：命令字段指出报文含义
 
@@ -705,7 +705,7 @@
 
 + 数据报格式：OSPF不使用UDP而是直接使用IP数据报传送（协议字段值为89）
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/OSPF数据报格式.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/OSPF数据报格式.png)
 
   0. 使用24字节的固定长度首部
   1. 版本：当前的版本号为2
@@ -768,7 +768,7 @@
 
 + 报文
 
-  + 格式：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/BGP报文结构.png)
+  + 格式：![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/BGP报文结构.png)
     1. 通用首部：
        1. 标记(marker)：16字节；鉴别收到的BGP报文，如果不使用，全置为7
        2. 长度               ：2字节  ；包括首部在内的整个BGP报文以字节为单位长度（19~4096）
@@ -830,7 +830,7 @@
 
   + 网际组管理协议IGMP(Internet Group Management Protocol)
 
-   <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/IP配套协议.png" style="zoom:80%;" />
+   <img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/IP配套协议.png" style="zoom:80%;" />
 
 ## 地址解析协议ARP
 
@@ -873,14 +873,14 @@
 
 + ICMP报文格式：
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/ICMP报文格式.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/ICMP报文格式.png)
 
   + 种类：
 
     + ICMP差错报告报文
     + ICMP询问报文
 
-  + ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/常用ICMP报文类型.png)
+  + ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/常用ICMP报文类型.png)
 
     + 询问报文现在少用
 
@@ -895,7 +895,7 @@
 
   + 差错报告报文格式：
 
-    ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Computer-Network/ICMP差错报告报文格式.png)
+    ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Computer-Network/ICMP差错报告报文格式.png)
 
   + 不应发送ICMP差错报告报文的情况：
 

@@ -18,7 +18,7 @@
 
   1. 请求方法(Request Method)：
 
-     ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/Python/请求方法.jpg)
+     ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/Python/请求方法.jpg)
 
   2. 请求的网址(Request URL)：统一资源定位符URL
 
@@ -40,7 +40,7 @@
 
      + Content-Type/互联网媒体类型(Internet Media Type)/MIME类型： 表示具体请求中的媒体类型信息
 
-       ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/Python/MIME.jpg)
+       ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/Python/MIME.jpg)
 
   4. 请求体(Request Body)：post请求的表单数据，get则为空
 
@@ -87,11 +87,11 @@
 
     1. 根据协议分：
 
-       ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/Python/代理分类1.jpg)
+       ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/Python/代理分类1.jpg)
 
     2. 根据匿名程度分：
 
-       ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/Python/代理分类2.jpg)
+       ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/Python/代理分类2.jpg)
 
 ## 前端基础
 

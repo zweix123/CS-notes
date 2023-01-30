@@ -567,7 +567,7 @@ ag ALLOWED_HOSTS # 查找列表在源代码位置
 
 ## QAuth2第三方授权
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Programing-Language/Python/1_1ddf070e4d-weboauth2.png)
+![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/Python/1_1ddf070e4d-weboauth2.png)
 
 1. 用户在网站点击第三方授权登录
 

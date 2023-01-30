@@ -57,7 +57,7 @@ int main(int argc, char *argv[], char *envp[]);  // 环境变量
 
 + `ls -l -a`（`-l`全部信息，`-a`隐藏文件）打印的文件信息含义：一共10位，第一位表示当前是目录`d`还是普通文件`-`，剩下9位3位一组。三个组分别是当前用户权限、组内用户权限和其他用户权限。每组内分别是读写运行
 
-  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes-img@master/Linux/Linux文件信息.png)
+  ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Linux/Linux文件信息.png)
 
 ## 环境变量
 

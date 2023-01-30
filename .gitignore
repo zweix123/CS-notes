@@ -1,0 +1,5 @@
+.\too\__pycache__\
+.\too\__pycache__\*
+
+./tool/__pycache__/
+./too/__pycache__/*
