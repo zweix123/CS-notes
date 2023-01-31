@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "ab5c9a47d863ac92",
+        "id": "fcc56ed013a56463",
         "type": "tabs",
         "children": [
           {
-            "id": "b69ae96b1ed21965",
+            "id": "f8301a3f1017e7ac",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -52,14 +56,6 @@
                 "sortOrder": "alphabetical"
               }
             }
-          },
-          {
-            "id": "c9ed3f92577c0658",
-            "type": "leaf",
-            "state": {
-              "type": "starred",
-              "state": {}
-            }
           }
         ]
       }
@@ -81,6 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +116,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "README.md"
+              }
             }
           }
         ],
@@ -139,7 +139,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "b69ae96b1ed21965",
+  "active": "f8301a3f1017e7ac",
   "lastOpenFiles": [
     "Distributed-System/MapReduce.md",
     "Distributed-System/Introduction.md",

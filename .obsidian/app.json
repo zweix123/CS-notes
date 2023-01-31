@@ -7,5 +7,13 @@
   "foldHeading": false,
   "newFileLocation": "current",
   "attachmentFolderPath": "/",
-  "defaultViewMode": "preview"
+  "defaultViewMode": "preview",
+  "strictLineBreaks": true,
+  "showFrontmatter": true,
+  "showIndentGuide": true,
+  "spellcheck": false,
+  "alwaysUpdateLinks": true,
+  "newLinkFormat": "absolute",
+  "useMarkdownLinks": true,
+  "showUnsupportedFiles": true
 }
