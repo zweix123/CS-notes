@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "da345b8319b11449",
+    "id": "8f1ec2781433ec8d",
     "type": "split",
     "children": [
       {
-        "id": "919272e131f8ee33",
+        "id": "4c54df1f541c201b",
         "type": "tabs",
         "children": [
           {
-            "id": "d1cdb92d86f1d501",
+            "id": "2a6eace15976fe66",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -21,15 +21,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "61c65f4f0128ac82",
+    "id": "54ddc27b064cebd2",
     "type": "split",
     "children": [
       {
-        "id": "e2f518d4d1ff7a88",
+        "id": "f9497086f23a1c7b",
         "type": "tabs",
         "children": [
           {
-            "id": "8ebeecb05b9c8088",
+            "id": "7040b9ee1bd0bcaf",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -39,7 +39,7 @@
             }
           },
           {
-            "id": "3c30057f2d17434c",
+            "id": "31cbba3d385bcb1b",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -60,15 +60,23 @@
     "width": 200
   },
   "right": {
-    "id": "29c545c219928119",
+    "id": "64e386ac135ac2e7",
     "type": "split",
     "children": [
       {
-        "id": "619c0d2a73569588",
+        "id": "a81681e64d0c67ce",
         "type": "tabs",
         "children": [
           {
-            "id": "e414615bf204d0b3",
+            "id": "47323af0c8338e7e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          },
+          {
+            "id": "3cfbc7169a203eb2",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -84,7 +92,7 @@
             }
           },
           {
-            "id": "f27ed0e91ef29a66",
+            "id": "a525671f1ee311c0",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -95,7 +103,7 @@
             }
           },
           {
-            "id": "2eb472def1087887",
+            "id": "71ad073f38caffbb",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -104,17 +112,8 @@
                 "useHierarchy": true
               }
             }
-          },
-          {
-            "id": "1ab35ec2c68774b8",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {}
-            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -131,17 +130,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "d1cdb92d86f1d501",
+  "active": "2a6eace15976fe66",
   "lastOpenFiles": [
-    "Algorithm/Simple-Algorithm.md",
-    "README.md",
-    "Distributed-System/MapReduce.md",
-    "Distributed-System/Introduction.md",
-    "Programing-Language/C++/现代C++.md",
-    "Programing-Language/Golang/lib/misc.md",
-    "Programing-Language/Golang/lib/http.md",
-    "Programing-Language/Golang/goroutine(thread).md",
-    "Programing-Language/Golang/Grammar.md",
-    "Programing-Language/Golang/Introduction.md"
+    "Front-end/HTML&CSS&Js.md",
+    "Linux/Linux_net_API.md",
+    "Linux/Linux_system_API.md",
+    "Linux/Linux开发工具.md",
+    "Linux/Shell.md",
+    "Linux/thrift.md",
+    "Missing-Semester/Typora(Makedown&LaTeX).md",
+    "Programing-Language/Rust/并发.md",
+    "Programing-Language/Rust/高级.md",
+    "Programing-Language/Rust/OOP.md"
   ]
 }
