@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "fcc56ed013a56463",
+        "id": "919272e131f8ee33",
         "type": "tabs",
         "children": [
           {
-            "id": "f8301a3f1017e7ac",
+            "id": "d1cdb92d86f1d501",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -77,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +89,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -116,9 +110,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "README.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -139,8 +131,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "f8301a3f1017e7ac",
+  "active": "d1cdb92d86f1d501",
   "lastOpenFiles": [
+    "Algorithm/Simple-Algorithm.md",
+    "README.md",
     "Distributed-System/MapReduce.md",
     "Distributed-System/Introduction.md",
     "Programing-Language/C++/现代C++.md",
@@ -148,8 +142,6 @@
     "Programing-Language/Golang/lib/http.md",
     "Programing-Language/Golang/goroutine(thread).md",
     "Programing-Language/Golang/Grammar.md",
-    "Programing-Language/Golang/Introduction.md",
-    "README.md",
-    "Programing-Language/C++/2C++数据1 Plain Old Data.md"
+    "Programing-Language/Golang/Introduction.md"
   ]
 }
