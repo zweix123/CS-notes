@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "7367731fc5effebe",
+        "id": "0eb2ab5c7022391c",
         "type": "tabs",
         "children": [
           {
-            "id": "7cc5c6651d9d4e5a",
+            "id": "0219a5b44e6c9766",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "README.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -147,17 +139,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "7cc5c6651d9d4e5a",
+  "active": "0219a5b44e6c9766",
   "lastOpenFiles": [
+    "Programing-Language/Golang/Introduction.md",
+    "Programing-Language/Golang/Lib/http.md",
+    "Programing-Language/Golang/Lib/misc.md",
+    "Programing-Language/Golang/Grammar.md",
+    "Programing-Language/Golang/Thread.md",
+    "README.md",
     "Programing-Language/C++/2C++数据1 Plain Old Data.md",
     "Programing-Language/C++/2C++数据2存储类别.md",
     "Programing-Language/C++/1C++概述.md",
-    "Programing-Language/C/C.md",
-    "README.md",
-    "source/word of cs.png",
-    "source/Complier/re to NFA2.jpg",
-    "source/POSIX中定义的数据类型.jpg",
-    "source/README.md",
-    "Programing-Language/Python/python_model_numpy、pandas和matplotlib .md"
+    "Programing-Language/C/C.md"
   ]
 }
