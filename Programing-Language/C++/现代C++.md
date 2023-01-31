@@ -39,30 +39,25 @@
   ```
 
   
-
-
-
-
-
 + 关于赋值函数中`if (this != &rhs)`的强异常安全性：赋值分为拷贝构造和交换两步
 
   ```c++
-      Ptr(Ptr& other) {
-          ptr_ = other.release();
-      }
-      T* release() {
-          T* ptr = ptr_;
-          ptr_ = nullptr;
-          return ptr;
-      }
-      Ptr& operator=(Ptr& rhs) {
-          Ptr(rhs).swap(*this);
-          return *this;
-      }
-      void swap(Ptr& rhs) {
-          using std::swap;
-          swap(ptr_, rhs.ptr_);
-      }
+	Ptr(Ptr& other) {
+		ptr_ = other.release();
+	}
+	T* release() {
+		T* ptr = ptr_;
+		ptr_ = nullptr;
+		return ptr;
+	}
+	Ptr& operator=(Ptr& rhs) {
+		Ptr(rhs).swap(*this);
+		return *this;
+	}
+	void swap(Ptr& rhs) {
+		using std::swap;
+		swap(ptr_, rhs.ptr_);
+	}
   ```
 
   注意这里的赋值运算符，是先通过拷贝构造函数构造一个新的对象，然后将这个对象和本对象进行交换，这样如果在构造这个对象是就出错，this不会受损
