@@ -175,3 +175,5 @@ if (up.size() > down.size()) down.push(up.top()), up.pop();
 //查询
 down.top()
 ```
+
+# 分治

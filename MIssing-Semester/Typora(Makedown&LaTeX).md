@@ -1,3 +1,5 @@
+>2023.01.17弃用Typora，转向Obsidian，该makedown不再更新
+
 # 基本语法
 
 + makdown可内嵌HTML

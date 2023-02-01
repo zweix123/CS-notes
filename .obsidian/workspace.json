@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "782f972cb969123b",
+        "id": "fffc44600b84a491",
         "type": "tabs",
         "children": [
           {
-            "id": "d85c24109ffe7b19",
+            "id": "4000d854964ee89b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -65,7 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 348.5
   },
   "right": {
     "id": "29c545c219928119",
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "README.md"
+              }
             }
           }
         ],
@@ -139,17 +147,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "d85c24109ffe7b19",
+  "active": "4000d854964ee89b",
   "lastOpenFiles": [
-    "Distributed-System/Raft.md",
-    "README.md",
-    "Computer-Network/0计网概论.md",
-    "Computer-Network/3计网IP层or网络层.md",
-    "Distributed-System/MapReduce.md",
-    "Distributed-System/Introduction.md",
-    "Programing-Language/C++/现代C++.md",
-    "Programing-Language/Golang/lib/misc.md",
-    "Programing-Language/Golang/lib/http.md",
-    "Programing-Language/Golang/goroutine(thread).md"
+    "Programing-Language/Rust/并发.md",
+    "Programing-Language/Rust/Grammer.md",
+    "Programing-Language/Rust/Rust模块系统.md",
+    "Programing-Language/Rust/Rust基本语法2.md",
+    "Programing-Language/Rust/Introduction.md",
+    "Programing-Language/Rust/OOP.md",
+    "Programing-Language/Rust/高级.md",
+    "Front-end/HTML&CSS&Js.md",
+    "Programing-Language/Python/python_Net_Spider.md",
+    "Programing-Language/Python/python_Net_Django.md"
   ]
 }
