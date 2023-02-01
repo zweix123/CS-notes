@@ -4,35 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "ab5c9a47d863ac92",
+        "id": "782f972cb969123b",
         "type": "tabs",
         "children": [
           {
-            "id": "416d0144a901f65b",
+            "id": "d85c24109ffe7b19",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Distributed-System/Raft.md",
-                "mode": "preview",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f3b343920a335aec",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "README.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -160,12 +139,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "f3b343920a335aec",
+  "active": "d85c24109ffe7b19",
   "lastOpenFiles": [
+    "Distributed-System/Raft.md",
+    "README.md",
     "Computer-Network/0计网概论.md",
     "Computer-Network/3计网IP层or网络层.md",
-    "README.md",
-    "Distributed-System/Raft.md",
     "Distributed-System/MapReduce.md",
     "Distributed-System/Introduction.md",
     "Programing-Language/C++/现代C++.md",
