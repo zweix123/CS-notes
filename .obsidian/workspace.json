@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "fffc44600b84a491",
+        "id": "8ddb1c688821f2f7",
         "type": "tabs",
         "children": [
           {
-            "id": "4000d854964ee89b",
+            "id": "ff1ba8b5223c30fb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "README.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -147,8 +139,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "4000d854964ee89b",
+  "active": "ff1ba8b5223c30fb",
   "lastOpenFiles": [
+    "task.md",
+    "README.md",
     "Programing-Language/Rust/并发.md",
     "Programing-Language/Rust/Grammer.md",
     "Programing-Language/Rust/Rust模块系统.md",
@@ -156,8 +150,6 @@
     "Programing-Language/Rust/Introduction.md",
     "Programing-Language/Rust/OOP.md",
     "Programing-Language/Rust/高级.md",
-    "Front-end/HTML&CSS&Js.md",
-    "Programing-Language/Python/python_Net_Spider.md",
-    "Programing-Language/Python/python_Net_Django.md"
+    "Front-end/HTML&CSS&Js.md"
   ]
 }
