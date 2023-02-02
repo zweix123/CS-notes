@@ -4,7 +4,9 @@
 
 + Django提供一个ipython：`python3 manage.py shell`
 
-# 搭环境
+# Init
+
+## 搭建环境
 
 1. 购买云服务器并初步配置[zweix linux云服务器配置指南](https://github.com/zweix123/blog/blob/master/Linux%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)
 2. 安装docker[教程](https://yeasy.gitbook.io/docker_practice/install/ubuntu)并配置
@@ -30,108 +32,59 @@
 	配置Linux
 	+ 挂起容器：`(Ctrl + p) -> (Ctrl + q)`
 
----
-
-+ 项目
-
-
-
 ## 创建项目
 
-1. 创建项目：
-
-   ```bash
-   django-admin startproject 项目名称
-   ```
-
-   + `和项目同名的目录`
-     + `和项目同名的目录`
-       + `__init__.py`
-       + `asgi.py`
-       + `settings.py`
-       + `urls.py`
-       + `wsgi.py`
-     + `manage.py`
-
-## 配置git环境
-
-0. 将该镜像和代码托管平台建立连接
-   1. 生成密钥：`ssh-keygen`
-   2. 将公钥配置到平台上
-
-进入项目目录
-
-1. 初始化`git init`
-
-   ```bash
-   git add .
-   git commit -m "start project"
-   ```
-
-2. 在代码托管平台创建项目
-
-   + 项目名称尽量一样
-   + 不使用`Initialize repository with a README`
-
-   创建后平台进入一个引导界面
-
-   1. 输入`Git global setup`的命令
-
-   2. 输入`Push an existing Git repository`的命令
-
-      1. `git remote add origin git@git.acwing.com:zweix/acapp.git`
-
-      2. `git push`
-
-         按照报错提示输入命令
-
-   ```bash
-   git push
-   ```
-
-+ ```bash
-  vim readme.md
-  # 输入 A great epic masterpiece !!!
-  # git add . \ git commit -m "add readme" \ git push三件套
-  ```
-
-+ 后续会有预编译的文件和开发过程中的`swp`文件，我们不希望将其维护在云端
-
-  ```bash
-  # 在仓库根目录下
-  vim .gitignore
-  
-  # 写入
-  */__pycache__  # 后续发现各个子目录下仍有，将此改为 **/__pycache__
-  *.swp
-  ```
-
-## 项目初步配置
-
-1. 运行项目：
-
-   ```bash
-   python3 manage.py runserver 0.0.0.0:8000
-   ```
-
-2. 查看项目：
-
-   ```bash
-   # 浏览器网址输入
-   云服务器平台分配的IP地址:8000
-   ```
-
-此时弹出的网页报错，查看提示：将本地IP地址加入源代码中的`ALLOWED_HOSTS`列表中
-
-+ `tree`后发现变化：
-  + `项目根目录/项目同名目录/__pycache__/`：预编译的文件
-  + `项目根目录/db.sqlite3`：数据库文件
-
 ```bash
-ag ALLOWED_HOSTS # 查找列表在源代码位置
+django-admin startproject 项目名称
 ```
 
-以字符串的形式将本地IP地址加入在列表中
++ `tree`：
+	```bash
+	|-- acapp
+	|   |-- __init__.py
+	|   |-- asgi.py
+	|   |-- settings.py
+	|   |-- urls.py
+	|   \`-- wsgi.py
+	\`-- manage.py
+	```
+
+## 部署上线
+
+1. 运行项目：
+	```bash
+	python3 manage.py runserver 0.0.0.0:8000  # 这里的0.0.0.0很关键，8000指明端口
+	```
+
+2. 不能访问
+
+3. 修改`项目目录/项目同名目录/setting`里的列表`ALLOWED_HOSTS
+	>命令**`ag`**可查找
+
+	1. 方法一：`ALLOWED_HOSTS = ['服务器IPv4地址']`
+	2. 方法一：`ALLOWED_HOSTS = ['*']`
+
++ `tree`
+	```bash
+	|-- acapp
+	|   |-- __init__.py
+	|   |-- __pycache__
+	|   |   |-- __init__.cpython-38.pyc
+	|   |   |-- settings.cpython-38.pyc
+	|   |   |-- urls.cpython-38.pyc
+	|   |   \`-- wsgi.cpython-38.pyc
+	|   |-- asgi.py
+	|   |-- settings.py
+	|   |-- urls.py
+	|   \`-- wsgi.py
+	|-- db.sqlite3
+	\`-- manage.py
+	```
+
+
+
+
+
 
 3. 同步数据库：在退出项目后
 
