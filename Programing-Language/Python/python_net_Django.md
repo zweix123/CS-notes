@@ -1,62 +1,40 @@
-# Init
+跟随[Acwing Django](https://www.acwing.com/activity/content/72/)学习
 
-+ 图片下载：
+# misc
 
-  ```bash
-  wget --output-document=自定义图片名称 图片地址
-  ```
++ Django提供一个ipython：`python3 manage.py shell`
 
-+ Django的ipython：`pyhton3 manage.py shell`
+# 搭环境
 
-## 配置docker环境
+1. 购买云服务器并初步配置[zweix linux云服务器配置指南](https://github.com/zweix123/blog/blob/master/Linux%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)
+2. 安装docker[教程](https://yeasy.gitbook.io/docker_practice/install/ubuntu)并配置
+3. 将Acwing的Django课程Docker镜像scp到云服务器上：
+	```bash
+	scp /var/lib/acwing/docker/images/django_lesson_1_0.tar 云服务器别名:~/
+	```
+4. 将镜像导出：
+	```bash
+	docker load -i django_lesson_1_0.tar 
+	```
+5. 利用镜像生成容器（并运行）：
+	```bash
+	docker run -p 20000:22 -p 8000:8000 --name django_server -itd django_lesson:1.0
+	```
+	+ 20000端口用于ssh登录
+	+ 8000端口用于调试
+	去服务器官网开启对应端口
+6. 进入容器：
+	```bash
+	docker attack django_server
+	```
+	配置Linux
+	+ 挂起容器：`(Ctrl + p) -> (Ctrl + q)`
 
-0. 1. 购买云服务器
-   2. 创建用户并分配`sudo`权限
-   3. 为用户配置别名和免密登录
-   4. `scp`祖传配置
-   5. 安装`docker`
+---
 
-1. 将Acwing的docker镜像传到云服务器上：
++ 项目
 
-   ```bash
-   cd /var/lib/acwing/docker/images/
-   scp django_lesson_1_0.tar 云服务器别名:
-   ```
 
-ssh到云服务器上
-
-2. 将镜像导出：
-
-   ```bash
-   docker load -i django_lesson_1_0.tar``
-   ```
-
-3. 利用镜像生成容器：
-
-   ```bash
-   docker run -p 20000:22 -p 8000:8000 --name django_server -itd django_lesson:1.0
-   ```
-
-   + 两万端口用于ssh登录
-   + 八千端口用于调试
-
-   > 对应端口的开放需要到云服务官网上打开
-
-4. 进入容器：
-
-   ```bash
-   docker attack django_server
-   ```
-
-5. 像配置云服务器一样配置容器：
-
-   1. 添加用户，配置sudo
-   
-   2. 为该用户在本地配置别名和免密登录
-   
-   3. 传入祖传配置
-   
-      > 在每次进入tmux时会有关于sudo的提示，在tmux外利用sudu执行任意命令即可之后不再提示
 
 ## 创建项目
 

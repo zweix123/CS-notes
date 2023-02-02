@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "1b4203a357d8111f",
+        "id": "3792847630e65386",
         "type": "tabs",
         "children": [
           {
-            "id": "6f3d42d2b0bebc5b",
+            "id": "be472b532d47ea36",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -139,17 +139,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "8ebeecb05b9c8088",
+  "active": "be472b532d47ea36",
   "lastOpenFiles": [
     "Linux/Linux开发工具.md",
-    "Linux/thrift.md",
+    "Programing-Language/Python/python_net_Django.md",
+    "Programing-Language/Python/python_net_spider.md",
+    "Programing-Language/Python/python_lib_numpy-pandas-matplotlib.md",
+    "Programing-Language/Python/python_lib.md",
+    "Programing-Language/Python/python_data_quant.md",
+    "Programing-Language/Python/python.md",
     "README.md",
-    "Linux/GNU/gcc.md",
-    "task.md",
-    "Programing-Language/Rust/并发.md",
-    "Programing-Language/Rust/Grammer.md",
-    "Programing-Language/Rust/Rust模块系统.md",
-    "Programing-Language/Rust/Rust基本语法2.md",
-    "Programing-Language/Rust/Introduction.md"
+    "Linux/Linux_system_API.md",
+    "Linux/Linux_net_API.md"
   ]
 }
