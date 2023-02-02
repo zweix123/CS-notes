@@ -1,15 +1,14 @@
-跟随[Acwing Django](https://www.acwing.com/activity/content/72/)学习
-
 # misc
-
++ 资料：[Acwing工程课之后端框架Django](https://www.acwing.com/activity/content/72/)
 + Django提供一个ipython：`python3 manage.py shell`
+---
 
-# Init
+# Hello World
 
 ## 搭建环境
 
 1. 购买云服务器并初步配置[zweix linux云服务器配置指南](https://github.com/zweix123/blog/blob/master/Linux%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)
-2. 安装docker[教程](https://yeasy.gitbook.io/docker_practice/install/ubuntu)并配置
+2. 安装docker（[教程](https://yeasy.gitbook.io/docker_practice/install/ubuntu)）并配置
 3. 将Acwing的Django课程Docker镜像scp到云服务器上：
 	```bash
 	scp /var/lib/acwing/docker/images/django_lesson_1_0.tar 云服务器别名:~/
@@ -29,44 +28,44 @@
 	```bash
 	docker attack django_server
 	```
-	配置Linux
+	再次配置Linux
 	+ 挂起容器：`(Ctrl + p) -> (Ctrl + q)`
 
-## 创建项目
+## 创建配置运行项目
 
-```bash
-django-admin startproject 项目名称
-```
-
-+ `tree`：
+1. 创建项目：
 	```bash
-	|-- acapp
-	|   |-- __init__.py
-	|   |-- asgi.py
-	|   |-- settings.py
-	|   |-- urls.py
-	|   \`-- wsgi.py
-	\`-- manage.py
+	django-admin startproject 项目名称
 	```
+	+ 初始文件结构：
+		```
+		|-- 与项目同名目录
+		|   |-- __init__.py
+		|   |-- asgi.py
+		|   |-- settings.py
+		|   |-- urls.py
+		|   \`-- wsgi.py
+		\`-- manage.py
+		```
 
-## 部署上线
-
-1. 运行项目：
+2. 运行体验：
 	```bash
-	python3 manage.py runserver 0.0.0.0:8000  # 这里的0.0.0.0很关键，8000指明端口
+	python3 manage.py runserver 0.0.0.0:8000
 	```
+	>会报错：
+	>```
+	>You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+	>Run 'python manage.py migrate' to apply them.
+	>```
+	>后续处理
 
-2. 不能访问
+	此时是不能访问（`IP:8000`）的，需要修改项目下的`与项目同名目录/setting.py`里的列表`ALLOWED_HOSTS`
+	+ 1. `ALLOWED_HOSTS = ['服务器IPv4地址']`
+	+ 2. `ALLOWED_HOSTS = ['*']`
 
-3. 修改`项目目录/项目同名目录/setting`里的列表`ALLOWED_HOSTS
-	>命令**`ag`**可查找
-
-	1. 方法一：`ALLOWED_HOSTS = ['服务器IPv4地址']`
-	2. 方法一：`ALLOWED_HOSTS = ['*']`
-
-+ `tree`
-	```bash
-	|-- acapp
++ 运行后文件结构`tree`：
+	```
+	|-- 与项目同名目录
 	|   |-- __init__.py
 	|   |-- __pycache__
 	|   |   |-- __init__.cpython-38.pyc
@@ -81,101 +80,87 @@ django-admin startproject 项目名称
 	\`-- manage.py
 	```
 
+3. 管理数据：
+	0. 停止项目的运行
+	1. 同步数据库：
+		```bash
+		python3 manage.py migrate
+		```
+	2. 创建`admin`用户：
+		```bash
+		python3 manage.py createsuperuser
+		```
+		输入管理员用户名
+		输入管理员邮箱，回车跳过
+		输入管理员密码
+		重复密码
+	此时可通过`IP:8000/admin`查看
+
+习惯上通常不直接在`和项目同名的子目录`下开发程序，而是再创建一个，实际上一个业务可能有多个微服务，正好一次划分。
+### 创建app
+
+1. 创建app：
+	```bash
+	python3 manage.py startapp app名称
+	```
+	+ 位置：`项目根目录/app名目录/`下
+
+2. 配置：`vim 项目根目录/项目同名子目录/setting.py`
+	+ 时区：
+		```python
+		TIME_ZONE = 'Asia/Shanghai'
+		```
+	+ 将新app添加到配置：列表`INSTALLEN_APPS`，新app配置放在首，配置为一个字符串`'[app名].apps.[app名]Config'`（没有`[]`）
+
+	+ 静态文件：
+		```python
+		STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+		MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+		MEDIR_URL = '/media/'
+		```
+		+ 其中`BASE_DIR`即为项目所在的绝对路径
+		+ `static`和`media`现在还没创建
+
+```python
+# vim ./game/views.py  # 已有
+# 键入
+from django.shortcuts import render
+from django.http import HttpResponse
+
+def index(request):
+	return HttpResponse("Hello world!")
+
+#---
+
+# vim ./game/urls.py  # 没有，需创建
+# 键入
+from django.urls import path
+from game.views import index
+
+urlpatterns = [
+	path("", index, name="index"), 
+]
+
+#---
+
+# cd ./acapp/urls.py
+# 键入
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+	path('game/', include('game.urls')), 
+	# 此时"IP地址:端口号"为一个不可访问地址
+	# 但是"IP地址:端口号/game"即为game app的主页面
+	# 如果第一个参数字符串为空，则网址直接为game的主页面
+	path('admin/', admin.site.urls),
+]
+```
 
 
 
 
-
-3. 同步数据库：在退出项目后
-
-   ```bash
-   python3 manage.py migrate
-   ```
-
-4. 创建`admin`用户：
-
-   ```bash
-   python3 manage.py createsuperuser
-   # 输入管理员用户名
-   # 输入管理员邮箱 # 直接回车跳过设置
-   # 输入密码
-   # 重复密码
-   ```
-
-   + 即可在`项目地址/admin`进入
-
-5. 创建app：
-
-   ```bash
-   python3 manage.py startapp app名称
-   ```
-
-   + `/项目根目录下/game`
-
-+ 配置：
-
-  ```bash
-  vim ./acapp/setting.py
-  ```
-
-  + 时区
-
-    ```python
-    TIME_ZONE = 'Asia/Shanghai'
-    ```
-
-  + 将game app添加到配置文件：
-
-    ```python
-    # 找到INSTALLED_APPS列表
-    # 将字符串‘game.apps.GameConfig’放在其首
-    ```
-
-  + 静态文件：
-
-    ```python
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 这里两个文件目前还没有创建
-    MEDIR_URL = '/media/'
-    ```
-
-+ Hello world
-
-  1. ```python
-     # vim ./game/views/py  # 已有
-     # 键入
-     from django.shortcuts import render
-     from django.http import HttpResponse
-     
-     def index(request):
-         return HttpResponse("Hello world!")
-     ```
-
-  2. ```python
-     # vim ./game/urls.py  # 没有，需创建
-     # 键入
-     from django.urls import path
-     from game.views import index
-     
-     urlpatterns = [
-     	path("", index, name="index"), 
-     ]
-     ```
-
-  3. ```python
-     # cd ./acapp/urls.py
-     # 键入
-     from django.contrib import admin
-     from django.urls import path, include
-     
-     urlpatterns = [
-         path('game/', include('game.urls')), 
-         # 此时"IP地址:端口号"为一个不可访问地址
-         # 但是"IP地址:端口号/game"即为game app的主页面
-         # 如果第一个参数字符串为空，则网址直接为game的主页面
-         path('admin/', admin.site.urls),
-     ]
-     ```
+  
 
 # 项目文件结构
 

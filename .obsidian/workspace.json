@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "3792847630e65386",
+        "id": "e92a56a638b4bfd7",
         "type": "tabs",
         "children": [
           {
-            "id": "be472b532d47ea36",
+            "id": "c8cc5c15eb192a41",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Programing-Language/Python/python_net_Django.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -147,17 +147,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "be472b532d47ea36",
+  "active": "c8cc5c15eb192a41",
   "lastOpenFiles": [
-    "Linux/Linux开发工具.md",
     "Programing-Language/Python/python_net_Django.md",
-    "Programing-Language/Python/python_net_spider.md",
-    "Programing-Language/Python/python_lib_numpy-pandas-matplotlib.md",
-    "Programing-Language/Python/python_lib.md",
-    "Programing-Language/Python/python_data_quant.md",
-    "Programing-Language/Python/python.md",
+    "Linux/Linux开发工具.md",
+    "Linux/thrift.md",
     "README.md",
-    "Linux/Linux_system_API.md",
-    "Linux/Linux_net_API.md"
+    "Linux/GNU/gcc.md",
+    "task.md",
+    "Programing-Language/Rust/并发.md",
+    "Programing-Language/Rust/Grammer.md",
+    "Programing-Language/Rust/Rust模块系统.md",
+    "Programing-Language/Rust/Rust基本语法2.md"
   ]
 }
