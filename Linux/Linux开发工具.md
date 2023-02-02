@@ -294,13 +294,7 @@
   + `git stash pop`：将栈顶存储的修改恢复到当前分支，同时删除栈顶元素
   + `git stash list`：查看栈中所有
 
-# 容器[docker](https://docs.docker.com/desktop/)
-
-+ > Tip：如果apt-get下载软件速度较慢，可以参考[清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)中的内容，修改软件源。
->
-  > 1. `vim /etc/apt/sources.list`：把软件园首页的代码copy进去
-> 2. 然后`apt-get update`即可
-  > 3. 之后的下载自动利用镜像站中的软件源
+# 容器docker
 
 + 将当前用户添加到docker用户组，为了避免每次使用docker命令都需要加上sudo权限，可以将当前用户加入安装中自动创建的docker用户组(可以参考官方文档)：`sudo usermod -aG docker $USER`执行完此操作后，需要退出服务器，再重新登录回来，才可以省去sudo权限。
 
