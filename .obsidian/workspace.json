@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "e92a56a638b4bfd7",
+        "id": "cb27a1dd955890f1",
         "type": "tabs",
         "children": [
           {
-            "id": "c8cc5c15eb192a41",
+            "id": "9e8f5c191486584d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Programing-Language/Python/python_net_Django.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Programing-Language/Python/python_net_Django.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Programing-Language/Python/python_net_Django.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Programing-Language/Python/python_net_Django.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -147,17 +139,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "c8cc5c15eb192a41",
+  "active": "9e8f5c191486584d",
   "lastOpenFiles": [
+    "Programing-Language/Golang/lib/misc.md",
+    "Programing-Language/Golang/lib/http.md",
+    "Programing-Language/Golang/基本语法.md",
+    "Programing-Language/Golang/goroutine(thread).md",
+    "Programing-Language/Golang/Introduction.md",
     "Programing-Language/Python/python_net_Django.md",
     "Linux/Linux开发工具.md",
-    "Linux/thrift.md",
-    "README.md",
-    "Linux/GNU/gcc.md",
-    "task.md",
-    "Programing-Language/Rust/并发.md",
-    "Programing-Language/Rust/Grammer.md",
-    "Programing-Language/Rust/Rust模块系统.md",
-    "Programing-Language/Rust/Rust基本语法2.md"
+    "Programing-Language/Python/python_net_spider.md",
+    "Programing-Language/Python/python_lib_numpy-pandas-matplotlib.md",
+    "Programing-Language/Python/python_lib.md"
   ]
 }

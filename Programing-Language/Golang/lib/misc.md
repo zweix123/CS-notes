@@ -50,7 +50,6 @@ func main() {
 
 两者存在差异
 
-
 +   Golang提供语法去做映射
     +   名映射：tag
         ```go
@@ -65,12 +64,12 @@ func main() {
         +   Go float64: Json num
         +   Go string: Json strings
         +   Go nil: Json null
-    
-    ---
-    
-    +   对未知类型的Json的映射：
-        +   `map[string]interface`存储任意JSON对象
-        +   `[]interface{}`存储任意的Json数组
+
+---
+
++ 对未知类型的Json的映射：
+	+ `map[string]interface`存储任意JSON对象
+	+ `[]interface{}`存储任意的Json数组
 
 +   使用:
     +   解码，读:
@@ -83,11 +82,3 @@ func main() {
         enc := json.NewEncoder(w io.Writer)  // 同上
         enc.Encode(res)  // 同上
         ```
-    
-    参数是类似迭代器的东西，适用于stream
-    ----
-    下面这个则是直接的string
-    
-    Marshal变量：把go struct转化成json格式
-        Marshallndent带缩进
-    Unmarshal解码：把json转化为go struct
