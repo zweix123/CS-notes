@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "e92a56a638b4bfd7",
+        "id": "49ea8880b0d9ebc9",
         "type": "tabs",
         "children": [
           {
-            "id": "c8cc5c15eb192a41",
+            "id": "c0cf7297540c7fe0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Programing-Language/Python/python_net_Django.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Programing-Language/Python/python_net_Django.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Programing-Language/Python/python_net_Django.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Programing-Language/Python/python_net_Django.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -147,7 +139,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "c8cc5c15eb192a41",
+  "active": "c0cf7297540c7fe0",
   "lastOpenFiles": [
     "Programing-Language/Python/python_net_Django.md",
     "Linux/Linux开发工具.md",
