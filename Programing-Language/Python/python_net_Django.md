@@ -1,14 +1,15 @@
+学习资料是[Acwing工程课的Django](https://www.acwing.com/activity/content/72/)，所以笔记中的项目名称跟随课程使用`acapp`
+
 # misc
-+ 资料：[Acwing工程课之后端框架Django](https://www.acwing.com/activity/content/72/)
+
 + Django提供一个ipython：`python3 manage.py shell`
----
 
 # Hello World
 
 ## 搭建环境
 
-1. 购买云服务器并初步配置[zweix linux云服务器配置指南](https://github.com/zweix123/blog/blob/master/Linux%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)
-2. 安装docker（[教程](https://yeasy.gitbook.io/docker_practice/install/ubuntu)）并配置
+1. 购买云服务器、配置服务器（[linux云服务器配置指南](https://github.com/zweix123/blog/blob/master/Linux%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)）、配置堡垒机（AC Terminal和本地）ssh。
+2. 在服务器上安装docker（[教程](https://yeasy.gitbook.io/docker_practice/install/ubuntu)）。
 3. 将Acwing的Django课程Docker镜像scp到云服务器上：
 	```bash
 	scp /var/lib/acwing/docker/images/django_lesson_1_0.tar 云服务器别名:~/
@@ -19,33 +20,36 @@
 	```
 5. 利用镜像生成容器（并运行）：
 	```bash
-	docker run -p 20000:22 -p 8000:8000 --name django_server -itd django_lesson:1.0
+	docker run -p 20000:22 -p 8000:8000 --name django_server --hostname appser -itd django_lesson:1.0  # 这里的hostname是和课程内不同的
 	```
 	+ 20000端口用于ssh登录
 	+ 8000端口用于调试
 	去服务器官网开启对应端口
 6. 进入容器：
 	```bash
-	docker attack django_server
+	docker attach django_server
 	```
-	再次配置Linux
+	配置这个Linux（像配置云服务那样）
+
 	+ 挂起容器：`(Ctrl + p) -> (Ctrl + q)`
 
 ## 创建配置运行项目
 
 1. 创建项目：
 	```bash
-	django-admin startproject 项目名称
+	django-admin startproject acapp
 	```
 	+ 初始文件结构：
 		```
-		|-- 与项目同名目录
-		|   |-- __init__.py
-		|   |-- asgi.py
-		|   |-- settings.py
-		|   |-- urls.py
-		|   \`-- wsgi.py
-		\`-- manage.py
+		.
+		\`-- acapp
+		    |-- acapp
+		    |   |-- __init__.py
+		    |   |-- asgi.py
+		    |   |-- settings.py
+		    |   |-- urls.py
+		    |   \`-- wsgi.py
+		    \`-- manage.py
 		```
 
 2. 运行体验：

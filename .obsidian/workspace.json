@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "3cccde10db3f61b3",
+        "id": "cd39760052c89d8a",
         "type": "tabs",
         "children": [
           {
-            "id": "cb1446ab00cf01f9",
+            "id": "235f3881db0d8896",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -139,17 +139,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "cb1446ab00cf01f9",
+  "active": "235f3881db0d8896",
   "lastOpenFiles": [
-    "Programing-Language/Golang/基本语法.md",
-    "Programing-Language/Golang/lib/misc.md",
-    "Programing-Language/Golang/lib/http.md",
-    "Programing-Language/Golang/goroutine(thread).md",
-    "Programing-Language/Golang/Introduction.md",
-    "Programing-Language/Python/python_net_Django.md",
     "Linux/Linux开发工具.md",
-    "Programing-Language/Python/python_net_spider.md",
-    "Programing-Language/Python/python_lib_numpy-pandas-matplotlib.md",
-    "Programing-Language/Python/python_lib.md"
+    "Programing-Language/Python/python_net_Django.md",
+    "Linux/thrift.md",
+    "README.md",
+    "Linux/GNU/gcc.md",
+    "task.md",
+    "Programing-Language/Rust/并发.md",
+    "Programing-Language/Rust/Grammer.md",
+    "Programing-Language/Rust/Rust模块系统.md",
+    "Programing-Language/Rust/Rust基本语法2.md"
   ]
 }
