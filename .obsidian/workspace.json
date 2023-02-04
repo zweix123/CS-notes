@@ -141,6 +141,7 @@
   },
   "active": "1289013155e5bc09",
   "lastOpenFiles": [
+    "README-.md",
     "Programing-Language/Golang/基本语法.md",
     "Programing-Language/Golang/并发.md",
     "Programing-Language/Golang/Introduction.md",
@@ -149,7 +150,6 @@
     "Programing-Language/Golang/lib/http.md",
     "Programing-Language/Golang/goroutine(thread).md",
     "Programing-Language/Python/python_net_Django.md",
-    "Programing-Language/Python/python_net_spider.md",
-    "Programing-Language/Python/python_lib_numpy-pandas-matplotlib.md"
+    "Programing-Language/Python/python_net_spider.md"
   ]
 }
