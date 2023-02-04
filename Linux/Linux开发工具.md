@@ -300,6 +300,22 @@
 
 + 将当前用户添加到docker用户组，为了避免每次使用docker命令都需要加上sudo权限，可以将当前用户加入安装中自动创建的docker用户组(可以参考官方文档)：`sudo usermod -aG docker $USER`执行完此操作后，需要退出服务器，再重新登录回来，才可以省去sudo权限。
 
+
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json": dial unix /var/run/docker.sock: connect: permission denied
+
+以下のコマンドを実行する。
+
+sudo chmod 666 /var/run/docker.sock
+
+解決できたかどうかの確認で何らかの docker コマンドを実行する。  
+docker ps
+
+以下のように表示されエラーが出なければ解決できた。  
+ubuntu:~$ docker ps  
+CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+
+参考サイト
+
   > docker很多命令需要sudo
 
 每个docker可以管理多个image镜像，每个image都可以生成多个container容器（这些容器里的环境都是一样的），每个容器都相当于一个完整的云服务器
