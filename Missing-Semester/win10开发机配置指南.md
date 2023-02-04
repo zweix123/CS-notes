@@ -156,7 +156,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	git config --global user.name "Your Name"
 	```
 
-+ ssh配置文件：[SSH](brother/SSH.md)
++ ssh配置文件（[我的教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/SSH.md)
 
 + Github配置：`Setting -> SSH and GPG keys -> New SSH key -> 拷贝公钥`
 
@@ -180,17 +180,17 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	>PowerShell7较于Windows PowerShell已经有了更多的美化功能。
 	+ 使用：键入`pwsh`命令
 	+ ps7会在打开后运行`$PROFILE`这个脚本
-2. 设置字体：[下载地址](https://www.nerdfonts.com/)：网站内的每种字体都是一个`.zip`文件，里面是一系列的字体，oh-my-posh推荐`MesloLGM NF`，我们下载`Meslo`字体并解压，发现里面并没有对应名称的文件夹，这里主要是一种`.ttf`文件，我们双击打开观察
-	<img src="https://cdn.jsdelivr.net/gh/zweix123/blog@master/source/win10开发机配置指南/字体打开.png" style="zoom:60%;" div align=center />
-	1. 安装
-	2. 字体名称
-	关于字体文件名中的部分含义：`Regular`常规、`Italic`斜体、`Bold`加粗
-	我们把字体名称`MesloLGM NF`的所有形态都下载
-	在wt中修改
+
+2. 设置字体（[下载地址](https://www.nerdfonts.com/)）：网站内的每种字体都是一个`.zip`文件，里面是一系列的字体，oh-my-posh推荐字体`MesloLGM NF`，我们下载`Meslo`字体并解压，发现里面并没有对应名称的文件夹，这里主要是一种`.ttf`文件，我们双击打开观察，主要关注安装按钮和字体名称字段
+	<img src="https://cdn.jsdelivr.net/gh/zweix123/blog@master/source/win10开发机配置指南/字体打开.png" style="zoom:50%;" div align=center />
+
+	关于字体文件名中的部分含义：`Regular`常规、`Italic`斜体、`Bold`加粗  
+	我们把字体名称`MesloLGM NF`的所有形态都下载  
+	在wt中修改  
 
 3. 安装oh-my-posh：oh-my-posh本质是一个程序，提供一些命令修改命令行形态，还记得ps7打开会运行一个脚本嘛？我们只需要将设置放入即可美化脚本
 	```powershell
-	oh-my-posh init pwsh | Invoke-Expression  # 使用默认主题
+	# oh-my-posh init pwsh | Invoke-Expression  # 使用默认主题
 	oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/Paradox.omp.json" | Invoke-Expression  # 使用我挑选的一个主题
 	```
 
@@ -204,7 +204,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 ### misc
 
-+ 如果ssh到linux机器，对vim来说`Ctrl + v`进入列模式很重要，会和Windows的Ctrl + v冲突：  
++ 如果ssh到linux机器，对vim来说`Ctrl + v`进入列模式很重要，会和Windows的`Ctrl + v`冲突：  
 	打开Terminal的`Setting.json`，找到这样的字段
 	```json
 	{
@@ -213,7 +213,6 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	}
 	```
 	去掉即可
- 
 
 ## 7. 编辑器VSCode
 
@@ -236,56 +235,52 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 		+ 编辑器字体：打开设置，键入`Editor Font Family`  
 			>需要插件`FiraCode font - Professional Font for Developers`
 
-			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/编辑器字体.png" style="zoom:50%;" div align=center />
+			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/编辑器字体.png" style="zoom:50%;" div align=center />
 		+ 终端字体：打开设置，键入`Terminal Font Family`  
-			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/终端字体.png" style="zoom:50%;" div align=center />
+			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/终端字体.png" style="zoom:50%;" div align=center />
 			
 	+ 报错系统：插件Error Lens
 	+ 关闭受限模式：
 		打开设置，键入`workspace.trust`  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/vscode受限模式关闭.png" style="zoom:50%;" div align=center />
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/vscode受限模式关闭.png" style="zoom:50%;" div align=center />
 	+ 括号连线：打开设置，键入`bracket`，找到对应位置选择true  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/branket.png" style="zoom:65%;" div align=center />
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/branket.png" style="zoom:65%;" div align=center />
 	+ 柔顺：
 		打开设置，键入`smooth`，选择下面三个选项  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/smooth.png" style="zoom:70%;" div align=center />  
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/smooth.png" style="zoom:70%;" div align=center />  
 		打开设置，键入`cursor` ，将下面设置为smooth  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/cursor smooth.png" style="zoom:75%;" div align=center />  
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/cursor smooth.png" style="zoom:75%;" div align=center />  
 	+ 补全建议：打开设置，键入`preview`，选择下面的选项  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/suggest perview.png" style="zoom:70%;" div align=center />
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/suggest perview.png" style="zoom:70%;" div align=center />
 
 + 插件推荐：
 	+ `Error Lens`
 
 ### 开发Python
-> 需要安装Pyhton解释器并将其设置环境变量
+>需要安装Python解释器并将其设置成环境变量
 
-+ 插件Python和Pylance
-	>我的Python总安装失败
++ 插件推荐：
 
-+ 开发流程：以项目为中心使用独立的Python运行环境
++ 开发流程：以项目为中心使用独立的Python运行环境（库）
 	1. 使用venv创建虚拟环境
 	2. 在虚拟环境中开发
 
 ### 开发C和C++
->请确保已经安装了命令`gcc g++ gdb make cmake`
 
 使用[教程](https://www.bilibili.com/video/BV1YG4y1v7uB)
 
 # 专业软件
 
 ## Python3
-STFW
 
 ## GNU
+
 ### gcc g++ gdb
 使用[教程](https://www.freecodecamp.org/news/how-to-install-c-and-cpp-compiler-on-windows/)
 
-### make
-使用[so](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)中的"将`前缀路径\msys64\usr\bin\`设置为环境变量“的方式（已经按照上一节下载的msys2）
+### Makefile
 
 ### CMake
-官网下载`.msi`文件安装
 
 # 工具软件
 

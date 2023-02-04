@@ -1,17 +1,11 @@
 >Linux有众多发行版、机器也分云服务器、虚拟机和物理机，该指南并没有限制某种机器，请读者选择对您有帮助的部分
 
 + 备份：
-```bash
-# make_bakcup.sh # 创建目录`~/backup`, 请确定没有冲突目录
-mkdir ~/backup -p
-# rm ~/backup/*
-# .bashrc只多一句`alias tmux='tmux -u'`  # 而且之后都是用.zshrc
-cp ~/.vimrc ~/backup           # vim配置
-cp ~/.tmux.conf ~/backup       # tmux配置
-cp ~/.gitconfig ~/backup       # git配置
-cp ~/.ssh/config ~/backup      # ssh云服务器别名配置
-# zsh配置手动配置
-```
+	+ 各软件配置已上云（[地址](https://github.com/zweix123/linux-config)）
+	+ `~/.gitconfig`
+	+ `~/ssh/config`
+
+[姊妹篇：Win机器配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)
 
 ## 机器检查
 
@@ -30,9 +24,9 @@ adduser 用户名 # 创建用户
 # 需要填写密码、重复密码以及其他信息，其他信息无脑回车即可，最后Y确认
 usermod -aG sudo 用户名 # 给用户分配sudo权限
 # 用户在第一次使用sudo时要求输入root用户密码
-su passwd 用户名 # 修改用户密码, 这个用户可以是root
+su passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 
-# hostname 主机名  # 可修改主机名
+# hostname 主机名  # 可修改主机名, 需要重启终端或机器才可以查看修改
 ```
 
 ### 修改源
@@ -40,40 +34,38 @@ su passwd 用户名 # 修改用户密码, 这个用户可以是root
 + 源位置：`/etc/apt/sources.list`
 
 1. 备份：
-```bash
-sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
-```
+	```bash
+	sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
+	```
 
 2. 按照系统版本选择合适的源：
->[清华源](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)、[中科大源](https://mirrors.ustc.edu.cn/repogen/)
-```bash
-sudo vim /etc/apt/sources.list
-```
+	>[清华源](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)、[中科大源](https://mirrors.ustc.edu.cn/repogen/)
+
+	```bash
+	sudo vim /etc/apt/sources.list
+	```
 
 3. 更新：
+	```bash
+	sudo apt update # 让系统知道所有包的最新信息
+	# sudo apt upgrade # 让新的包的信息更新所有软件
+	```
 
-```bash
-sudo apt update # 让系统知道所有包的最新信息
-# sudo apt upgrade # 让新的包的信息更新所有软件
-```
+### end
 
-### else
-
-+ 导入备份：vim and tmux (zsh is cover bash and zsh config in server)
-+ 配置ssh：[SSH](brother/SSH.md)
-
++ 导入配置和备份
++ 配置ssh（[我的教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/SSH.md)）
 
 ## 刚需软件
-[配置](https://github.com/zweix123/linux-config)
 
 ### vim
 
 ### tmux
 
 ### git
->已经配置好了ssh
+要求已经配置好了ssh
 
-+ 初始化：类似Windows：[win10开发机配置指南](win10开发机配置指南.md#5. Git)
++ 初始化：类似Windows（[我的win10开发机配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md#5.%20Git)）
 
 ### shell
 
@@ -84,7 +76,7 @@ sudo apt update # 让系统知道所有包的最新信息
 		>[关于chsh](https://wangchujiang.com/linux-command/c/chsh.html)
 
 #### 强化
->嘎嘎好用
+[我的配置](https://github.com/zweix123/linux-config)（嘎嘎好用）
 
 主要通过zsh和oh-my-zsh，前者是和bash一样的一个shell，但是它有更强的拓展性，但是想通过配置利用这些扩展性比较复杂，oh-my-zsh相当于一种辅助配置工具
 
@@ -96,13 +88,11 @@ sudo apt update # 让系统知道所有包的最新信息
 	>这里提供几个国内镜像源：
 	>```bash
 	>sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)"
-	>```
-	>```bash
 	>sh -c "$(wget -O- https://gitee.com/pocmon/mirrors/raw/master/tools/install.sh)"
 	>```
 
 + 命令：
-	+ 更新配置：`source ~/.zshrc`
+	+ 刷新配置效果：`source ~/.zshrc`
 
 + `~/.zshrc`：oh-my-zsh配置文件
 	+ 语法：
@@ -129,15 +119,12 @@ sudo apt update # 让系统知道所有包的最新信息
 		```bash
 		git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 		```
-		>这里的网址就是没有`.git`，manual就没有  
+		>这里的网址就是没有`.git`，Manual就没有  
 
 		下面提供国内镜像
 		```bash
 		git clone https://gitee.com/phpxxo/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 		```
-
-+ [我的配置](https://github.com/zweix123/linux-config)
-	>[借鉴](https://github.com/Codesire-Deng/rc)
 
 ## 其他软件
 
@@ -151,11 +138,12 @@ sudo apt update # 让系统知道所有包的最新信息
 	+ `dpkg -r 软件名`：不清除配置卸载
 	+ `dpkg -P 软件名`：清除配置卸载
 
-+ 配置和Windows类似：[[win10开发机配置指南#7. 编辑器VSCode]]
++ 配置和Windows类似（[我的配置]((https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10开发机配置指南.md#7.%20编辑器VSCode))）
 
 ### Obsidian
 
-+ 安装包类型AppImage，所有东西放在一个文件内，赋予其可执行权限即可运行软件。不过它单纯的是个文件，想要变成有图标的应用程序需要处理下
++ 安装包类型为`AppImage`，所有东西放在一个文件内，赋予其可执行权限即可运行软件。不过它单纯的是个文件，想要变成有图标的应用程序需要处理
+
 + 我的管理方式：
 	+ `~/AppIamges/`管理AppImage类型
 	+ `~/.icons/`管理AppImage应用程序的图标
@@ -170,7 +158,7 @@ sudo apt update # 让系统知道所有包的最新信息
 	Version=1.1.9
 	Type=Application
 	Exec=/home/$用户名/AppImages/obsidian.AppImage
-	Icon=/home/用户名/.icons/obsidian.png
+	Icon=/home/$用户名/.icons/obsidian.png
 	Terminal=false
 	StartupNotify=true
 	```
@@ -180,4 +168,4 @@ sudo apt update # 让系统知道所有包的最新信息
 
 ## misc
 
-	+ 在登录云服务器后终端会先输出一段话，这些在`/etc/update-motd.d/10-help-text`（Ubuntu），这是一个可执行文件
++ 在登录云服务器后终端会先输出一段话，这些在`/etc/update-motd.d/10-help-text`（Ubuntu），这是一个可执行文件

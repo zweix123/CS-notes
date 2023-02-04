@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "83790ae6655f8d8c",
+        "id": "89eacf0b234cd88e",
         "type": "tabs",
         "children": [
           {
-            "id": "1289013155e5bc09",
+            "id": "8ac0eabf8125202e",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -139,17 +139,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "1289013155e5bc09",
+  "active": "8ebeecb05b9c8088",
   "lastOpenFiles": [
-    "README-.md",
-    "Programing-Language/Golang/基本语法.md",
-    "Programing-Language/Golang/并发.md",
-    "Programing-Language/Golang/Introduction.md",
+    "Android/第一行代码Android(第三版).md",
+    "blog/unorganized/zweix技术日记2023.01.09-关于互联网校招.md",
+    "blog/unorganized/zweix技术日记2022.04.08-关于C++函数参数入栈顺序和内存对齐.md",
+    "Front-end/HTML&CSS&Js.md",
+    "Front-end/reveal.js.md",
+    "Linux/thrift.md",
     "Linux/Linux开发工具.md",
-    "Programing-Language/Golang/lib/misc.md",
-    "Programing-Language/Golang/lib/http.md",
-    "Programing-Language/Golang/goroutine(thread).md",
-    "Programing-Language/Python/python_net_Django.md",
-    "Programing-Language/Python/python_net_spider.md"
+    "Linux/Linux_system_API.md",
+    "Linux/Linux_net_API.md",
+    "Linux/通识和Shell.md"
   ]
 }
