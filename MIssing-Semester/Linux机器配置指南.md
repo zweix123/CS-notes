@@ -1,0 +1,183 @@
+>Linux有众多发行版、机器也分云服务器、虚拟机和物理机，该指南并没有限制某种机器，请读者选择对您有帮助的部分
+
++ 备份：
+```bash
+# make_bakcup.sh # 创建目录`~/backup`, 请确定没有冲突目录
+mkdir ~/backup -p
+# rm ~/backup/*
+# .bashrc只多一句`alias tmux='tmux -u'`  # 而且之后都是用.zshrc
+cp ~/.vimrc ~/backup           # vim配置
+cp ~/.tmux.conf ~/backup       # tmux配置
+cp ~/.gitconfig ~/backup       # git配置
+cp ~/.ssh/config ~/backup      # ssh云服务器别名配置
+# zsh配置手动配置
+```
+
+## 机器检查
+
++ `ping`检查网络：
+	+ IPv6：`ping mirrors.tuna.tsinghua.edu.cn -c 4`
+	+ IPv4：`ping www.baidu.com -c 4`
+
+## 初始设置
+
+### 创建用户
+
+>建议为机器创建非root用户，后续使用在非root用户中
+
+```bash
+adduser 用户名 # 创建用户
+# 需要填写密码、重复密码以及其他信息，其他信息无脑回车即可，最后Y确认
+usermod -aG sudo 用户名 # 给用户分配sudo权限
+# 用户在第一次使用sudo时要求输入root用户密码
+su passwd 用户名 # 修改用户密码, 这个用户可以是root
+
+# hostname 主机名  # 可修改主机名
+```
+
+### 修改源
+
++ 源位置：`/etc/apt/sources.list`
+
+1. 备份：
+```bash
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
+```
+
+2. 按照系统版本选择合适的源：
+>[清华源](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)、[中科大源](https://mirrors.ustc.edu.cn/repogen/)
+```bash
+sudo vim /etc/apt/sources.list
+```
+
+3. 更新：
+
+```bash
+sudo apt update # 让系统知道所有包的最新信息
+# sudo apt upgrade # 让新的包的信息更新所有软件
+```
+
+### else
+
++ 导入备份：vim and tmux (zsh is cover bash and zsh config in server)
++ 配置ssh：[SSH](brother/SSH.md)
+
+
+## 刚需软件
+[配置](https://github.com/zweix123/linux-config)
+
+### vim
+
+### tmux
+
+### git
+>已经配置好了ssh
+
++ 初始化：类似Windows：[win10开发机配置指南](win10开发机配置指南.md#5. Git)
+
+### shell
+
++ 通识：
+	+ `echo $SHELL`查看使用shell
+	+ `cat /etc/shells`查看机器有的shell程序
+	+ `chsh -s shell绝对路径`设置默认shell
+		>[关于chsh](https://wangchujiang.com/linux-command/c/chsh.html)
+
+#### 强化
+>嘎嘎好用
+
+主要通过zsh和oh-my-zsh，前者是和bash一样的一个shell，但是它有更强的拓展性，但是想通过配置利用这些扩展性比较复杂，oh-my-zsh相当于一种辅助配置工具
+
+1. 下载`zsh`：[Manual](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)，一行命令即可  
+	更新默认shell：`chsh -s $(which zsh)`
+	>实际上这边建议不要着急修改，在clone oh-my-zsh会提示是否修改默认shell
+
+2. 下载oh-my-posh：[Manual](https://github.com/ohmyzsh/ohmyzsh/wiki)
+	>这里提供几个国内镜像源：
+	>```bash
+	>sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)"
+	>```
+	>```bash
+	>sh -c "$(wget -O- https://gitee.com/pocmon/mirrors/raw/master/tools/install.sh)"
+	>```
+
++ 命令：
+	+ 更新配置：`source ~/.zshrc`
+
++ `~/.zshrc`：oh-my-zsh配置文件
+	+ 语法：
+		+ `ZSH_THERE="random"`：配置主题，这里使用随机主题
+		+ `plugins=(插件1 插件2 ... 插件n)`：配置插件，插件名之间空格隔开
+
++ `~/.oh-my-posh`：oh-my-zsh配置
+	+ `~/.oh-my-zsh/plugins/`插件目录：每个目录即为一个插件名，目录下的`.sh`文件可查看其逻辑
+		>不过下面的两个插件并没有安装在这里
+
++ 插件推荐：
+	>插件的能否下载依照Github的可连接程度，注意本机clone下载后scp到服务器的方法中，如果本机和服务器的OS不同的情况下，可能由于编码原因报错
+
+	+ `git`：默认安装，手动配置，为git命令提供缩写，可在插件目录下的sh文件查看
+	+ `z`：默认安装，手动配置，目录快速调转
+		+ history：`~/.z`
+		+ 命令：`z 目录`
+	+ `zsh-syntax-highlighting`：手动安装，手动配置，语法高亮
+		```bash
+		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+		```
+		
+	+ `zsh-autosuggestions`：手动安装，手动配置，命令历史补全
+		```bash
+		git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+		```
+		>这里的网址就是没有`.git`，manual就没有  
+
+		下面提供国内镜像
+		```bash
+		git clone https://gitee.com/phpxxo/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+		```
+
++ [我的配置](https://github.com/zweix123/linux-config)
+	>[借鉴](https://github.com/Codesire-Deng/rc)
+
+## 其他软件
+
+### VSCode
+
++ 下载：官网提供`deb`类型的安装包
+
++ `deb`类型安装包的简单语法：`dpkg`命令：
+	+ `dpkg -i 安装包`：安装
+	+ `dpkg -L 软件名`：查看安装位置
+	+ `dpkg -r 软件名`：不清除配置卸载
+	+ `dpkg -P 软件名`：清除配置卸载
+
++ 配置和Windows类似：[[win10开发机配置指南#7. 编辑器VSCode]]
+
+### Obsidian
+
++ 安装包类型AppImage，所有东西放在一个文件内，赋予其可执行权限即可运行软件。不过它单纯的是个文件，想要变成有图标的应用程序需要处理下
++ 我的管理方式：
+	+ `~/AppIamges/`管理AppImage类型
+	+ `~/.icons/`管理AppImage应用程序的图标
+
+我们以Obsidian为例走一个这个过程
+
+0. 下载Obsidian的AppImage类型安装包并`mv`到`~/AppImages/obsidian.AppImage`
+1. 编辑文件`obsidian.desktop`
+	```
+	[Desktop Entry]
+	Name=obsidian
+	Version=1.1.9
+	Type=Application
+	Exec=/home/$用户名/AppImages/obsidian.AppImage
+	Icon=/home/用户名/.icons/obsidian.png
+	Terminal=false
+	StartupNotify=true
+	```
+	照猫画虎修改即可
+
++ 让软件图标出现在应用程序栏中：将上面的desktop文件mv到`~/.local/share/application/`
+
+## misc
+
+	+ 在登录云服务器后终端会先输出一段话，这些在`/etc/update-motd.d/10-help-text`（Ubuntu），这是一个可执行文件
