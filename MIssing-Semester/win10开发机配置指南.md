@@ -236,23 +236,23 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 		+ 编辑器字体：打开设置，键入`Editor Font Family`  
 			>需要插件`FiraCode font - Professional Font for Developers`
 
-			<img src="https://cdn.jsdelivr.net/gh/zweix123/blog@master/source/win10开发机配置指南/编辑器字体.png" style="zoom:50%;" div align=center />
+			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/编辑器字体.png" style="zoom:50%;" div align=center />
 		+ 终端字体：打开设置，键入`Terminal Font Family`  
-			<img src="https://cdn.jsdelivr.net/gh/zweix123/blog@master/source/win10开发机配置指南/终端字体.png" style="zoom:50%;" div align=center />
+			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/终端字体.png" style="zoom:50%;" div align=center />
 			
 	+ 报错系统：插件Error Lens
 	+ 关闭受限模式：
 		打开设置，键入`workspace.trust`  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/blog@master/source/win10开发机配置指南/vscode受限模式关闭.png" style="zoom:50%;" div align=center />
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/vscode受限模式关闭.png" style="zoom:50%;" div align=center />
 	+ 括号连线：打开设置，键入`bracket`，找到对应位置选择true  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/blog@master/source/win10开发机配置指南/branket.png" style="zoom:65%;" div align=center />
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/branket.png" style="zoom:65%;" div align=center />
 	+ 柔顺：
 		打开设置，键入`smooth`，选择下面三个选项  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/blog@master/source/win10开发机配置指南/smooth.png" style="zoom:70%;" div align=center />  
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/smooth.png" style="zoom:70%;" div align=center />  
 		打开设置，键入`cursor` ，将下面设置为smooth  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/blog@master/source/win10开发机配置指南/cursor smooth.png" style="zoom:75%;" div align=center />  
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/cursor smooth.png" style="zoom:75%;" div align=center />  
 	+ 补全建议：打开设置，键入`preview`，选择下面的选项  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/blog@master/source/win10开发机配置指南/suggest perview.png" style="zoom:70%;" div align=center />
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/MIssing-Semester/suggest perview.png" style="zoom:70%;" div align=center />
 
 + 插件推荐：
 	+ `Error Lens`
