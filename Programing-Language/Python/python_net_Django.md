@@ -236,78 +236,19 @@ urlpatterns = [
 	+ template资源：如上
 		>本项目还支持多终端，故还多一个目录`multiends`
 
+---
+
+## 上线
+>处理到上面的步骤，对运行的项目，我们可以通过`IP地址:端口号`的方式访问，但是浏览器会认为这样的url是不安全的
+
+1. 将URL对接安全协议（https协议）
+	>需要申请https协议证书
+2. 将域名和证书挂钩
+	>域名需要备案
+
+---
 
 
-# Doc
-
-
-
-
-## url
-
-+ `和项目同名`目录下的`urls.py`
-
-  ```python
-  from django.urls import path, include
-  
-  urlpatterns = [
-  		path('', include('game.urls.index')), # 末尾的,是需要的
-  		]
-  ```
-
-  核心在于`path`函数的两个参数
-
-  1. 代表解析到当前的下一”位“的文件层次名称，这里为空表示这一位为空，而只是起始的点，之前的部分是网址，相当于网址就是
-  2. `include`函数里的字符串是文件引用格式，是从项目根目录开始的`game/urls/index`，这里的`index`是一个`/py`文件
-
-+ app下的`urls`目录下的`index.py`
-
-  ```python
-  from django.urls import path, include
-  from game.views.index import index
-  
-  urlpatterns = [
-  	    path("", index, name="index"),
-     		path("menu/", include("game.urls.menu.index")),
-      	path("playground/", include("game.urls.playground.index")),
-      	path("settings/", include("game.urls.settings.index")),
-  		]
-  ```
-
-  + 这里展示了`path`函数的另一个用法：
-
-    + `import`的格式也是文件结构下的对应函数名
-
-    1. 第一个参数同上，即如果只有解析到此前的部分（地址本身）则是这里
-    2. 第二第三个参数则是调用了`index`这个函数
-
-    + 之后的`path`则是该app下各个组件的地址，格式和方式同上
-
-+ 组件内的`index.py`不再展示
-
-## view
-
-+ app内的`views`目录下的`index.py`文件：
-
-  ```python
-  from django.shortcuts import render
-  
-  def index(request):
-      return render(request, "multiends/web.html")
-  ```
-
-  要求返回一个`.html`文件
-
-
-
-# 上线
-
-> 目前项目只能通过`IP地址:端口号`的方式访问，且浏览器认为该`url`是不安全的
-
-+ 将链接对接安全协议/https协议
-+ 需要申请https协议证书
-+ 证书和域名挂钩
-+ 域名需要备案
 
 ---
 
@@ -397,7 +338,14 @@ vacuum          = true
 
 5. 配置acapp：
 
-# 数据库
+
+# Doc
+
+
+
+## 数据库
+
+### Sqlite
 
 > Django自带的数据库Sqlite
 
@@ -446,7 +394,7 @@ vacuum          = true
 
   每条数据对应一个对象
 
-## Redis
+### Redis
 
 + 特点：
   + 内存的，快
@@ -497,7 +445,6 @@ vacuum          = true
 
 ## QAuth2第三方授权
 
-![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Programing-Language/Python/1_1ddf070e4d-weboauth2.png)
 
 1. 用户在网站点击第三方授权登录
 
@@ -509,13 +456,14 @@ vacuum          = true
      AcWingOS.api.oauth2.authorize(appid, redirect_uri, scope, state, callback);
      ```
 
-     | 参数         | 是否必须 | 说明                                                         |
+
+     | 参数           | 是否必须 | 说明                                                         |
      | ------------ | -------- | ------------------------------------------------------------ |
-     | appid        | 是       | 应用的唯一id，可以在AcWing编辑AcApp的界面里看到              |
+     | appid          | 是       | 应用的唯一id，可以在AcWing编辑AcApp的界面里看到              |
      | redirect_uri | 是       | 接收授权码的地址。需要用urllib.parse.quote对链接进行处理     |
-     | scope        | 是       | 申请授权的范围。目前只需填userinfo                           |
-     | state        | 是       | 用于判断请求和回调的一致性，授权成功后后原样返回。该参数可用于防止csrf攻击（跨站请求伪造攻击），建议第三方带上该参数，可设置为简单的随机数（如果是将第三方授权登录绑定到现有账号上，那么推荐用随机数 + user_id作为state的值，可以有效防止CSRF攻击） |
-     | callback     | 是       | redirect_uri返回后的回调函数                                 |
+     | scope          | 是       | 申请授权的范围。目前只需填userinfo                           |
+     | state           | 是       | 用于判断请求和回调的一致性，授权成功后后原样返回。该参数可用于防止csrf攻击（跨站请求伪造攻击），建议第三方带上该参数，可设置为简单的随机数（如果是将第三方授权登录绑定到现有账号上，那么推荐用随机数 + user_id作为state的值，可以有效防止CSRF攻击）  |
+     | callback      | 是       | redirect_uri返回后的回调函数                                 |
 
      + 返回：
 

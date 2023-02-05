@@ -182,7 +182,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ ps7会在打开后运行`$PROFILE`这个脚本
 
 2. 设置字体（[下载地址](https://www.nerdfonts.com/)）：网站内的每种字体都是一个`.zip`文件，里面是一系列的字体，oh-my-posh推荐字体`MesloLGM NF`，我们下载`Meslo`字体并解压，发现里面并没有对应名称的文件夹，这里主要是一种`.ttf`文件，我们双击打开观察，主要关注安装按钮和字体名称字段
-	<img src="https://cdn.jsdelivr.net/gh/zweix123/blog@master/source/win10开发机配置指南/字体打开.png" style="zoom:50%;" div align=center />
+	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/win10开发机配置指南/字体打开.png" style="zoom:50%;" div align=center />
 
 	关于字体文件名中的部分含义：`Regular`常规、`Italic`斜体、`Bold`加粗  
 	我们把字体名称`MesloLGM NF`的所有形态都下载  
@@ -237,7 +237,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/编辑器字体.png" style="zoom:50%;" div align=center />
 		+ 终端字体：打开设置，键入`Terminal Font Family`  
-			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/终端字体.png" style="zoom:50%;" div align=center />
+			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/master/source/Missing-Semester/终端字体.png" style="zoom:50%;" div align=center />
 			
 	+ 报错系统：插件Error Lens
 	+ 关闭受限模式：
