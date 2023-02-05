@@ -1,11 +1,12 @@
 + 备份：
+	+ 桌面
 	+ 数据目录
 	+ Chrome配置目录：`C:\Users\$用户名\AppData\Local\Google\Chrome\User Data\Default\`
 	+ Clash for Windows配置文件：`C:\Users\$用户名\.config`
-	+ Git配置文件：`C:\Users\$用户名\.gitconfig`
 	+ wt配置文件：`C:\Users\zweix\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`  
 		ps7配置文件：`C:\Users\zweix\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`
 	+ VSCode配置目录：`C:\Users\$用户名\.vscode\`
+	+ Git配置文件：`C:\Users\$用户名\.gitconfig`
 	---
 	+ Snipaste配置文件：`D:\Snipaste\config.ini`
 
@@ -14,7 +15,7 @@
 >作此博客的发心：
 >1. 作为重置系统的记录，在下次重置或者初始化一个win机器时提供一个可供参考的记录。
 >2. 观察到有人对计算机的软件和文件的管理相当粗放，我想在这里提供一个我使用win机器的习惯和经验。
->3. 部分软件的配置确实值得记录，我会在目录中标注；如果网上已经有足够优秀的教程，我会提供链接；否则，我会尽量在理清逻辑的情况下提供详细的教程
+>3. 部分软件的配置确实值得记录，可通过目录中总览；如果网上已经有足够优秀的教程，我会提供链接；否则，我会尽量在理清逻辑的情况下提供详细的教程
 >4. 后来博客还扩展出我对用过的好用软件的推荐
 
 + 须知：
@@ -45,7 +46,7 @@
 		D:[/...]/appName
 			        |------package  # 存放文件安装包  # 实际上大部分软件的安装包没必要保存
 				    |------appName  # 文件安装位置
-				    -------else     # 其他
+				    `------else     # 其他
 		```
 
 ## 初始设置
@@ -84,7 +85,7 @@
 
 # 必装软件
 
-## 1. 浏览器: Chrome
+## 1.浏览器: Chrome
 六大浏览器之一，插件丰富
 win自带Microsoft Edge浏览器，我常作为pdf阅读器使用，正常浏览器使用Chrome
 
@@ -94,15 +95,15 @@ win自带Microsoft Edge浏览器，我常作为pdf阅读器使用，正常浏览
 	+ YouTube双语字幕
 	+ 划词翻译
 
-## 2. 解压缩: 7z
+## 2.解压缩: 7z
 一款简单的解压缩软件
 用于科学上网软件的解压
 
-## 3. 科学上网: Clash
+## 3.科学上网: Clash
 懂得都懂
 >记得软件安装包和梯子的备份
 
-## 4. 笔记软件: Obsidian
+## 4.笔记软件: Obsidian
 >尽可能在某项工作的开始初就确定工作流，不然更换软件或配置的代价是巨大的
 
 + Obsidian默认安装C盘：不处理，软件位置右键快捷方式查看
@@ -146,7 +147,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 + 使用时遇到的问题：
 	+ `项目根目录/.obsidian/workspace.json`的修改相当频繁，不及时push和pull容易影响整个项目
 
-## 5. Git
+## 5.Git
 
 + [下载教程](https://blog.csdn.net/qq_41521682/article/details/122764915)
 
@@ -160,7 +161,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 + Github配置：`Setting -> SSH and GPG keys -> New SSH key -> 拷贝公钥`
 
-## 6. Windows Terminal
+## 6.Windows Terminal
 是为诸如cmd和windows powershell这样的命令行程序套一个好看的壳
 
 >命令行基础，`win + R`键入`cmd`打开一个命令行程序
@@ -214,7 +215,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	```
 	去掉即可
 
-## 7. 编辑器VSCode
+## 7.编辑器VSCode
 
 类似Obsidian，除了软件本身，更重要的是插件和配置，VSCode的配置分两部分：`C:\Users\$用户名\.vscode\`下的插件和项目目录下的`.vscode`的配置。
 

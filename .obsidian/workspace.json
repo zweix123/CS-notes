@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "9095d2492d881efd",
+        "id": "1496b0656a4c3a0a",
         "type": "tabs",
         "children": [
           {
-            "id": "d89692fe224670d7",
+            "id": "227c2fa05ed247bb",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -139,17 +139,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "d89692fe224670d7",
+  "active": "227c2fa05ed247bb",
   "lastOpenFiles": [
     "Missing-Semester/win10开发机配置指南.md",
-    "Computer-Network/0计网概论.md",
-    "Complier/yacc&lex.md",
-    "Complier/编译原理.md",
-    "Programing-Language/Python/python_net_Django.md",
-    "Programing-Language/Golang/misc.md",
-    "Missing-Semester/Linux机器配置指南.md",
-    "MIssing-Semester/Typora(Makedown&LaTeX).md",
+    "Programing-Language/Python/Spider.md",
+    "Programing-Language/Python/Quant.md",
+    "Programing-Language/Python/numpy-pandas-matplotlib.md",
+    "Programing-Language/Python/lib.md",
+    "Programing-Language/Python/grammar.md",
+    "Programing-Language/Python/Django.md",
     "README.md",
-    "Programing-Language/Golang/基本语法.md"
+    "Computer-Network/0计网概论.md",
+    "Complier/yacc&lex.md"
   ]
 }
