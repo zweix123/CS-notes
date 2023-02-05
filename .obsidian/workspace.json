@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "35c5ef2c1d93fcb5",
+        "id": "41482b811fc7a9eb",
         "type": "tabs",
         "children": [
           {
-            "id": "4519d5bd653b9377",
+            "id": "9b2ededa4885a415",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -139,8 +139,9 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "4519d5bd653b9377",
+  "active": "9b2ededa4885a415",
   "lastOpenFiles": [
+    "Programing-Language/Python/python_net_Django.md",
     "Programing-Language/Golang/misc.md",
     "Missing-Semester/Linux机器配置指南.md",
     "Missing-Semester/win10开发机配置指南.md",
@@ -149,7 +150,6 @@
     "Programing-Language/Golang/基本语法.md",
     "Programing-Language/Golang/并发.md",
     "Linux/Linux开发工具.md",
-    "Programing-Language/Golang/lib/misc.md",
-    "Programing-Language/Golang/lib/http.md"
+    "Programing-Language/Golang/lib/misc.md"
   ]
 }

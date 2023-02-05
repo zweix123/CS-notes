@@ -1,14 +1,18 @@
-学习资料是[Acwing工程课的Django](https://www.acwing.com/activity/content/72/)，所以笔记中的项目名称跟随课程使用`acapp`
+学习资料是[Acwing工程课之Django](https://www.acwing.com/activity/content/72/)
++ 学习提示：
+	+ y总的工程课以实用为主，对原理性的解释不多，要多总结思考
+	+ y总强行用终端开发，是个很好的练习机会，不过VSCode的remoting SSH也挺香。
+	+ y总使用的项目名为`acapp`，我这里是`moba`，并且笔记中尽可能解耦项目名
 
 # misc
 
 + Django提供一个ipython：`python3 manage.py shell`
 
-# Hello World
+# INIT
 
 ## 搭建环境
 
-1. 购买云服务器、配置服务器（[linux云服务器配置指南](https://github.com/zweix123/blog/blob/master/Linux%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)）、配置堡垒机（AC Terminal和本地）ssh。
+1. 购买云服务器、配置服务器（[linux云服务器配置指南](https://github.com/zweix123/blog/blob/master/Linux%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)）、配置堡垒机（AC Terminal和本地）的SSH。
 2. 在服务器上安装docker（[教程](https://yeasy.gitbook.io/docker_practice/install/ubuntu)）。
 3. 将Acwing的Django课程Docker镜像scp到云服务器上：
 	```bash
@@ -23,7 +27,8 @@
 	docker run -p 20000:22 -p 8000:8000 --name django_server --hostname appser -itd django_lesson:1.0  # 这里的hostname是和课程内不同的
 	```
 	+ 20000端口用于ssh登录
-	+ 8000端口用于调试
+	+ 8000端口用于调试  
+
 	去服务器官网开启对应端口
 6. 进入容器：
 	```bash
@@ -33,17 +38,17 @@
 
 	+ 挂起容器：`(Ctrl + p) -> (Ctrl + q)`
 
-## 创建配置运行项目
+## 创建项目
 
 1. 创建项目：
 	```bash
-	django-admin startproject acapp
+	django-admin startproject moba
 	```
 	+ 初始文件结构：
 		```
 		.
-		\`-- acapp
-		    |-- acapp
+		\`-- 项目根目录
+		    |-- 与项目同名的子目录
 		    |   |-- __init__.py
 		    |   |-- asgi.py
 		    |   |-- settings.py
@@ -52,20 +57,40 @@
 		    \`-- manage.py
 		```
 
-2. 运行体验：
-	```bash
-	python3 manage.py runserver 0.0.0.0:8000
-	```
-	>会报错：
-	>```
-	>You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
-	>Run 'python manage.py migrate' to apply them.
-	>```
-	>后续处理
+2. 配置Git并上云
 
-	此时是不能访问（`IP:8000`）的，需要修改项目下的`与项目同名目录/setting.py`里的列表`ALLOWED_HOSTS`
-	+ 1. `ALLOWED_HOSTS = ['服务器IPv4地址']`
-	+ 2. `ALLOWED_HOSTS = ['*']`
+## 初步配置
+
++ 打开`项目根目录/和项目同名的目录/settings`
+	```python
+	import os  # 下面要用到
+	...
+	# 修改
+	ALLOWED_HOSTS = ['服务器IPv4地址']  # 项目允许访问的URL, `'*'`表示通配
+	...
+	# 修改
+	TIME_ZONE = 'Asia/Shanghai'  # 修改时区
+	...
+	# 修改和添加静态资源路径和位置
+	STATIC_URL = '/static/'  # 文件本来就有: 使用的URL
+	STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # 添加: 上面的URL对应的路径
+	MEDIR_URL = '/media/'  # 添加: 原理同上
+	MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 添加
+	# 这样可以通过`url/static/...`访问项目静态资源, 结合下面项目文件结构可以猜测Django是统一整个项目的静态资源
+	# 初步测试, 在app下的static可以找到, 但是在任意位置的static就不可以
+	```
++ 同步数据：
+	```bash
+	python3 manage.py migrate
+		```
+
+## 运行体验
+
+```bash
+python3 manage.py runserver 0.0.0.0:8000
+```
+
+通过网址`服务器IPv4地址:8000`即可访问
 
 + 运行后文件结构`tree`：
 	```
@@ -84,24 +109,21 @@
 	\`-- manage.py
 	```
 
-3. 管理数据：
-	0. 停止项目的运行
-	1. 同步数据库：
-		```bash
-		python3 manage.py migrate
-		```
-	2. 创建`admin`用户：
-		```bash
-		python3 manage.py createsuperuser
-		```
-		输入管理员用户名
-		输入管理员邮箱，回车跳过
-		输入管理员密码
-		重复密码
-	此时可通过`IP:8000/admin`查看
 
-习惯上通常不直接在`和项目同名的子目录`下开发程序，而是再创建一个，实际上一个业务可能有多个微服务，正好一次划分。
-### 创建app
+## 创建admin
+
+```bash
+python3 manage.py createsuperuser
+# 输入管理员用户名
+# 输入管理员邮箱，回车跳过
+# 输入管理员密码
+# 重复密码
+```
+通过网址`服务器IPv4地址:8000/admin`即可登录查看
+
+
+## 创建app
+习惯上通常不直接在`和项目同名`的子目录下开发，而是再创建一个`app`。
 
 1. 创建app：
 	```bash
@@ -109,22 +131,17 @@
 	```
 	+ 位置：`项目根目录/app名目录/`下
 
-2. 配置：`vim 项目根目录/项目同名子目录/setting.py`
-	+ 时区：
-		```python
-		TIME_ZONE = 'Asia/Shanghai'
-		```
-	+ 将新app添加到配置：列表`INSTALLEN_APPS`，新app配置放在首，配置为一个字符串`'[app名].apps.[app名]Config'`（没有`[]`）
+2. 配置：打开`项目根目录/项目同名子目录/setting.py`
+	```python
+	...
+	INSTALLED_APPS = [
+		[app名].apps.[App名]Config  # 是一个函数在`app子目录/apps.py`中
+		...
+	]
+	...
+	```
 
-	+ 静态文件：
-		```python
-		STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-		MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-		MEDIR_URL = '/media/'
-		```
-		+ 其中`BASE_DIR`即为项目所在的绝对路径
-		+ `static`和`media`现在还没创建
-
+下面是一个简单的例子
 ```python
 # vim ./game/views.py  # 已有
 # 键入
@@ -136,7 +153,7 @@ def index(request):
 
 #---
 
-# vim ./game/urls.py  # 没有，需创建
+# vim ./game/urls.py  # 没有
 # 键入
 from django.urls import path
 from game.views import index
@@ -147,7 +164,7 @@ urlpatterns = [
 
 #---
 
-# cd ./acapp/urls.py
+# cd ./moba/urls.py
 # 键入
 from django.contrib import admin
 from django.urls import path, include
@@ -161,74 +178,70 @@ urlpatterns = [
 ]
 ```
 
+## 文件系统
+
+### 项目系统设计
+
++ 方法论：将一个大项目分成多个小部件，每个部件同样可以再细分
++ 在Acwing的项目中：
+	```
+	acapp
+	  |---menu
+	  |---playground
+	  \`--settings
+	```
+
+
+### 项目文件结构
+
++ 项目文件结构：Djang框架文件结构：  
+	
+	下面的管理方式将默认的单文件换成目录管理，而Python的文件互通是通过`import`，所以每个管理python代码的目录下都应该有名为的`__init__.py`的文件
+	
+	+ `templates`目录：管理HTML
+	+ `urls`目录：替换`urls.py`文件，管理URL
+	+ `consumers`目录：管理HTTP
+	+ `views`目录：替换`views.py`文件，管理函数
+	+ `models`目录：替换`models.py`文件，管理数据库
+	+ `static`目录：管理静态文件（CSS、JS）
+		+ `image`目录：存储图片
+		+ `audio`目录：存储音频
+		+ `css`目录：存储CSS文件
+		+ `js`目录：存储JavaScript文件
+			+ `src`目录：分部件管理
+			+ `dist`目录：将各部件js源码拼接放在该目录下
+
+			 说明见下
+
+### Sum
+
++ 系统架构和文件结构的关系：在不再拆分app的情况下，在每个项目文件结构的”终端“，都有一个系统架构的目录树
+	+ 图片音频类资源：如上
+	+ CSS类资源：一个大部件基本就一个，比如只有一个`menu.css`
+	+ JavaScript类资源：
+		>如果Js资源同样细分成小文件，在引用时由于并行读取太多文件会太慢
+		
+		所以src目录中仍然如上，所以将每个部件的Js文件拼接成一个文件到dist中
+		+ 脚本如下：
+
+			```bash
+			#! /bin/bash
+			
+			JS_PATH=拼接Js文件的根目录
+			JS_PATH_DIST=${JS_PATH}dist/
+			JS_PATH_SRC=${JS_PATH}src/
+			
+			find $JS_PATH_SRC -type f -name '*.js' | sort | xargs cat > ${JS_PATH_DIST}game.js
+			```
+	+ template资源：如上
+		>本项目还支持多终端，故还多一个目录`multiends`
 
 
 
-  
+# Doc
 
-# 项目文件结构
 
-+ 分而治之：将一个项目分成各个更容易实现的小部分
-  + `acapp`：
-    + `menu`
-    + `playground`
-    + `settings`
 
-+ Django文件结构：
-
-  + `templates`目录：管理`.html`文件，负责前端展示，按终端管理
-
-  + `urls`目录：管理`.py`文件，负责链接和函数的对应关系、即网址的去处，按部件管理
-
-  + `views`目录：管理`.py`文件，负责`http`函数、即短链接，按部件管理
-
-  + `comsumers`目录：管理`.py`文件，负责`websocket`函数、即长链接，按部件管理
-
-  + `models`目录：管理`.py`文件，负责数据库
-
-  + `static`目录：存储静态文件，按部件管理
-
-    + `image`：存储图片文件
-
-    + `audio`：存储音频文件
-
-    + `css`：存储`.css`文件，负责格式，通常整个项目只有一个，由`.html`文件引入
-    
-  + `js`：存储`,js`文件，负责逻辑，通常要承担更多责任，由`.html`文件引入
-    
-      + `src`：分部件管理，为各个部件的`.js`源码
-      + `dist`：为方便管理，将源码连在一起放在同一个文件在此管理
-      
-      > 合并用脚本
-      >
-      > ```bash
-      > #! /bin/bash
-      > 
-      > JS_PATH=/home/acs/acapp/game/static/js/
-      > JS_PATH_DIST=${JS_PATH}dist/
-      > JS_PATH_SRC=${JS_PATH}src/
-      > 
-      > find $JS_PATH_SRC -type f -name '*.js' | sort | xargs cat > ${JS_PATH_DIST}game.js
-    > ```
-
-> 对于上面的`.py`的文件夹，Django之间的文件互通是通过`import`，所以这些目录下需要有`__init__.py`文件
-
-+ 项目运转流程：
-
-  浏览器只是想要一个html文件来渲染一下
-
-  1. 找到对应函数：浏览器通过地址递归询问各层"`urls`"：在`和项目同名`目录的`urls.py`$\rightarrow$各个app下的`urls`目录$\rightarrow$各个部件的"`urls`"：这个跳转方式是指向对应的文件地址，能指向下一层"`urls`"，也能指向要执行的函数
-  2. 运行函数：函数通常按部件管理在`views`目录中，"`urls`"直接指向对应的函数名
-  3. 函数返回`.html`：函数返回一个`.html`供浏览器渲染，一个静态的页面
-
-  ---
-
-  4. `.html`引入`.css`文件和`.js`文件
-
-     > html给的是一个静态的页面，通常不能满足需求，而js里也可执行html语句，所以通常的模式是主体在`.js`文件中
-
-     + `.js`：js可以实现复杂的逻辑，比如生成一些html代码，以及一些交互方面的设计，通常是面向对象
-     + `.css`：css可以以特定的语法，针对js中的类，**使其变得更好看**，同时也能在特定的位置引入静态文件
 
 ## url
 
@@ -285,14 +298,7 @@ urlpatterns = [
 
   要求返回一个`.html`文件
 
-  ==怎么感觉文件路径缺了呢==
 
-## html js css
-
-+ html做基本框架
-+ js和css相互呼应
-  + css唯一，即js类为线索
-  + js多
 
 # 上线
 
@@ -368,16 +374,20 @@ urlpatterns = [
 
    1. 在django项目添加配置文件：`scripts/uwsgi.ini`
 
-      ```ini
-      [uwsgi]
-      socket          = 127.0.0.1:8000
-      chdir           = /home/acs/acapp
-      wsgi-file       = acapp/wsgi.py
-      master          = true
-      processes       = 2
-      threads         = 5
-      vacuum          = true
-      ```
+```
+      
+[uwsgi]
+socket          = 127.0.0.1:8000
+chdir           = /home/acs/acapp
+wsgi-file       = acapp/wsgi.py
+master          = true
+processes       = 2
+threads         = 5
+vacuum          = true
+```    
+
+
+
 
    2. 启动uwsgi服务：
 
