@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "8e2c964e8124a0c8",
+        "id": "b174623574613c2e",
         "type": "tabs",
         "children": [
           {
-            "id": "5f192e018a1f5a40",
+            "id": "2debcf49c4b32985",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Missing-Semester/win10开发机配置指南.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Missing-Semester/win10开发机配置指南.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Missing-Semester/win10开发机配置指南.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Missing-Semester/win10开发机配置指南.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -147,7 +139,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "5f192e018a1f5a40",
+  "active": "2debcf49c4b32985",
   "lastOpenFiles": [
     "Missing-Semester/win10开发机配置指南.md",
     "Programing-Language/Python/Spider.md",
