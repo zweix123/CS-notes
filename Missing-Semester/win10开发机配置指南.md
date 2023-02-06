@@ -58,15 +58,15 @@
 + 语言配置：
 	+ 输入法：默认
 	+ 拼音设置：双拼且不自动扩展到全拼
-	+ 中英切换：只保留`Ctrl + Space`
+	+ 中英切换：只保留`Ctrl + Space` （这部分其实按照个人熟悉的切换方式来就好，也有人更加习惯于`shift`切换）
 
 + 文件的查看：
 	+ 打开文件扩展名
 	+ 打开隐藏的项目
 
 + 电源设置：
-	>睡眠：风扇转  
-	>休眠：风扇不转，信息保留  
+	>睡眠：风扇转，此时电脑仍供电给内存，CPU以较低频率运行。微软关于睡眠有详细的模式设置，例如`S0`、`S3`模式等。
+	>休眠：风扇不转，信息保留，计算机将内存中的内容写入进磁盘中，并断电。下次开机时可以恢复到之前的工作状态。
 	>关机：信息不保留  
 	
 	|                 | 电池    | 通电    |
@@ -93,8 +93,13 @@ win自带Microsoft Edge浏览器，我常作为pdf阅读器使用，正常浏览
 	+ YouTube双语字幕
 	+ 划词翻译
 
+现在的`edge`浏览器也改为了 `chromium`内核，在同步和竖直标签栏上有独有的优势，也可以尝试。
+
 ## 2.解压缩:7z
 一款简单的解压缩软件
+
+bandizip 现在已经转向为商业收费软件，可以试试 `Peazip` 或是基于 `7zip`改造的 `nanaZip`
+
 用于科学上网软件的解压
 
 ## 3.科学上网:Clash
@@ -109,7 +114,7 @@ win自带Microsoft Edge浏览器，我常作为pdf阅读器使用，正常浏览
 
 Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同时也在设置限制。下面讨论我从Typora转向Obsidian的心路历程
 
-+ Typora的即使渲染做的很好，对Makedown本身的语法补全非常到位，而这方面Obsidian有差别且需要配置插件
++ Typora的即时渲染做的很好，对Makedown本身的语法补全非常到位，而这方面Obsidian有差别且需要配置插件
 	+ Makedown：基本语法补全基本一致
 	+ Table：Obsidian需要插件
 	+ LaTeX：语法略有区别，需要适应
@@ -156,7 +161,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	>问题：
 	>1. 报错VCRUNTIME140_1.dll缺失：在C盘搜寻文件，将其复制到`C:\Windows\System\`即可
 
-+ 关于wt的设置，网上教程多的修改setting.json文件，实际上wt提供图形化的修改方式，是等价的。
++ 关于wt的设置，网上教程多的修改`setting.json`文件，实际上wt提供图形化的修改方式，是等价的。
 
 ### 美化
 >推荐下载方式使用winget（因为使用Microsoft Store同样能下载，但是winget方便升级）
@@ -254,7 +259,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 	scoop bucket add 桶名 [桶地址]  # 添加桶
 	```
-
+事实上目前微软自带的 `winget` 和 `chocolatey` 也是不错的选择。
 
 ### Git
 
@@ -309,7 +314,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 		+ 终端字体：打开设置，键入`Terminal Font Family`  
 			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/终端字体.png" style="zoom:50%;" div align=center />
 			
-	+ 报错系统：插件Error Lens
+	+ 报错系统：插件Error Lens，这个插件可以按照个人喜好来。对于比较熟练的人反而会觉得是干扰。
 	+ 关闭受限模式：
 		打开设置，键入`workspace.trust`  
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/vscode受限模式关闭.png" style="zoom:50%;" div align=center />
@@ -325,6 +330,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 + 插件推荐：
 	+ `Error Lens`
+	+ AI 自动补全插件 `Tabnine`
 
 ### 开发Python
 + 依赖环境：通过Scoop下载Python（Python3）
@@ -334,6 +340,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 + 开发流程：以项目为中心使用独立的Python运行环境（库）
 	1. 使用venv创建虚拟环境
 	2. 在虚拟环境中开发
+如果经常使用深度学习相关的开发的话可以试试 `conda`，另外使用 `poetry` 管理也是个不错的选择。
 
 ### 开发C和C++
 + 教程：
@@ -376,3 +383,5 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 + 下载过程中的自定义路径是隐藏的，仔细寻找，观察“自定义”字眼
 + 这样的软件同样要关注下载文件或者消息记录的保存位置，在设置中修改
 	+ TIM的保存路径修改是针对某个账号而不是整个软件的所有用户
+
+如果觉得 `QQ`太过臃肿可以试试`Icalingua-plus-plus`，但是是第三方软件，不排除被腾讯警告封号的危险。
