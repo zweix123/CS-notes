@@ -3,8 +3,8 @@
 	+ 数据目录
 	+ Chrome配置目录：`C:\Users\$用户名\AppData\Local\Google\Chrome\User Data\Default\`
 	+ Clash for Windows配置文件：`C:\Users\$用户名\.config`
-	+ wt配置文件：`C:\Users\zweix\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`  
-		ps7配置文件：`C:\Users\zweix\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`
+	+ wt配置文件：`C:\Users\$用户名\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`  
+		ps7配置文件：`C:\Users\$用户名\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`
 	+ VSCode配置目录：`C:\Users\$用户名\.vscode\`
 	+ Git配置文件：`C:\Users\$用户名\.gitconfig`
 	---
@@ -13,9 +13,10 @@
 # 前言
 
 >作此博客的发心：
->1. 作为重置系统的记录，在下次重置或者初始化一个win机器时提供一个可供参考的记录。
+>1. 作为重置系统的记录，在下次重置或者初始化一个win机器时提供可供参考的记录。
 >2. 观察到有人对计算机的软件和文件的管理相当粗放，我想在这里提供一个我使用win机器的习惯和经验。
->3. 部分软件的配置确实值得记录，可通过目录中总览；如果网上已经有足够优秀的教程，我会提供链接；否则，我会尽量在理清逻辑的情况下提供详细的教程
+>3. 部分软件的配置确实值得记录，如果网上已经有足够优秀的教程，我会提供链接，否则，我会尽量在理清逻辑的情况下提供教程  
+>	>尽可能依照Manual
 >4. 后来博客还扩展出我对用过的好用软件的推荐
 
 + 须知：
@@ -29,7 +30,8 @@
 	操作系统内部版本: 1904.2486
 	```
 
-+ 关于数据的处理：我并没有将软件和文档分成两个盘，因为实际上我在学生时代创造的值得存储的数据不到30G，所以我直接在D盘创建一个专门的目录并在其下管理我的数据，这样的好处是在进行数据备份和转移时，只需要维护这个目录即可。
++ 关于数据的管理：  
+	我并没有将软件和文档分成两个盘，因为实际上我在学生时代创造的值得存储的数据不到30G，所以我直接在D盘创建一个专门的目录并在其下管理我的数据，这样的好处是在进行数据备份和转移时，只需要维护这个目录即可。
 
 + 关于软件的管理：
 	>软件倾向于安装在C盘的原因：
@@ -38,16 +40,9 @@
 
 	+ 软件尽可能安装在非C盘的盘，现在的非C盘也都是固态硬盘，上面的速度原因无需顾虑
 		+ 通过安装包安装软件时通常会有对应的步骤提示（或者是一个拉起的选项卡）选择路径
-		+ 诸如WeChat、QQ、TIM这样的软件涉及到文件的存储，需要在“设置”中手动修改
-		+ 有些安装包直接安装软件并在桌面创建快捷方式，这种方式可以通过查看快捷方式的指向来确定其存储位置，下面可能在对应软件下讨论解决方案
-
-	+ 一个软件本身的管理：
-		```
-		D:[/...]/appName
-			        |------package  # 存放文件安装包  # 实际上大部分软件的安装包没必要保存
-				    |------appName  # 文件安装位置
-				    `------else     # 其他
-		```
+		+ 诸如WeChat、QQ、TIM或者是软件管家这样的软件通常涉及到文件的存储，需要在“设置”中手动修改
+		+ 有些安装包直接安装软件并在桌面创建快捷方式，可以通过查看快捷方式的指向来确定其存储位置，不建议直接横移文件夹修改
+			>因为还涉及到注册表等等因素
 
 ## 初始设置
 
@@ -70,9 +65,9 @@
 	+ 打开隐藏的项目
 
 + 电源设置：
-	>睡眠：风扇转
-	>休眠：风扇不转，信息保留
-	>关机：信息不保留
+	>睡眠：风扇转  
+	>休眠：风扇不转，信息保留  
+	>关机：信息不保留  
 	
 	|                 | 电池    | 通电    |
 	| --------    | ------   | ------   |
@@ -85,29 +80,32 @@
 
 # 必装软件
 
-## 1.浏览器: Chrome
+## 1.浏览器:Chrome
 六大浏览器之一，插件丰富
 win自带Microsoft Edge浏览器，我常作为pdf阅读器使用，正常浏览器使用Chrome
 
 + Chrome默认安装C盘：不处理，软件位置右键快捷方式查看
-+ 谷歌需要人工验证：使用插件Header Editor，配置使用网址`https://azurezeng.github.io/static/HE-GoogleRedirect.json`，[具体配置](https://blog.azurezeng.com/recaptcha-use-in-china/)
++ 谷歌需要人工验证：使用插件Header Editor（[教程](https://blog.azurezeng.com/recaptcha-use-in-china/)）
+	```
+	https://azurezeng.github.io/static/HE-GoogleRedirect.json
+	```
 + 插件推荐：
 	+ YouTube双语字幕
 	+ 划词翻译
 
-## 2.解压缩: 7z
+## 2.解压缩:7z
 一款简单的解压缩软件
 用于科学上网软件的解压
 
-## 3.科学上网: Clash
+## 3.科学上网:Clash
 懂得都懂
 >记得软件安装包和梯子的备份
 
-## 4.笔记软件: Obsidian
->尽可能在某项工作的开始初就确定工作流，不然更换软件或配置的代价是巨大的
+## 4.笔记软件:Obsidian
+>尽可能在某个学习阶段的开始就确定工作流，不然更换软件或配置的代价是巨大的
 
 + Obsidian默认安装C盘：不处理，软件位置右键快捷方式查看
-	>这个软件的核心其实是配置（项目目录下`.obsidian`文件夹），而配置软件是在对应的项目下的，可以不占C盘空间
+	>这个软件的核心其实是配置（项目目录下`.obsidian`文件夹），而配置文件是在对应的项目下的，可以不占C盘空间
 
 Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同时也在设置限制。下面讨论我从Typora转向Obsidian的心路历程
 
@@ -117,7 +115,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ LaTeX：语法略有区别，需要适应
 	+ \`\`\`graph：Obsidian更好看
 	+ 代码块：
-		+ 列表：Typora在改变代码块的列表从时自动对齐代码，Obdian在不适用插件时不行
+		+ 列表：Typora在改变代码块的列表从时自动对齐代码，Obdian在不使用插件时不行
 	+ 使用模式：Typora更多的是单文件（其实也能维护目录），而Obsidian则是完全以项目为中心
 
 + Obsidian优势：
@@ -130,7 +128,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 + 为什么没有选择其他的Makedown编辑器？
 	+ VSCode：写代码
-	+ 有道云笔记：笔记使用内部编码
+	+ 有道云笔记：文件使用内部编码
 	+ notion：不了解
 
 + Obsidian缺点（至少对我来说）：
@@ -142,44 +140,30 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	    >`Ctrl + Alt + C` -> `commit`、`Ctrl + Alt + H` -> `push`、`Ctrl + Alt + L` -> `pull`  
 		>实际上这个插件提供定时自动commit和push，我由于个人习惯没有使用，上面的快捷键是尽量躲避win的ubuntu系统快捷键的结果
 
-	+ Advanced Tabled：Makedown表格的自动补全，是之相当Typora
+	+ Advanced Tabled：Makedown表格的自动补全，使之相当Typora
 
 + 使用时遇到的问题：
-	+ `项目根目录/.obsidian/workspace.json`的修改相当频繁，不及时push和pull容易影响整个项目
+	+ `项目根目录/.obsidian/workspace.json`的修改相当频繁，不及时push和pull比较麻烦
 
-## 5.Git
-
-+ [下载教程](https://blog.csdn.net/qq_41521682/article/details/122764915)
-
-+ git配置文件：`C:\Users\$用户名\.gitconfig`
-	```bash
-	git config --global user.email "you@example.com"
-	git config --global user.name "Your Name"
-	```
-
-+ ssh配置文件（[我的教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/SSH.md)
-
-+ Github配置：`Setting -> SSH and GPG keys -> New SSH key -> 拷贝公钥`
-
-## 6.Windows Terminal
+## 5.Windows Terminal
 是为诸如cmd和windows powershell这样的命令行程序套一个好看的壳
-
 >命令行基础，`win + R`键入`cmd`打开一个命令行程序
 
-1. 下载：使用国内网在Microsoft Store直接下载即可（实际上这也是Manual推荐的做法）
+1. 下载：使用国内网在Microsoft Store直接下载即可（Manual推荐）
 	>自然默认安装C盘：不处理
 
-2. 使用：键入`wt`打开
+2. 使用：快捷键`win + r`键入`wt`打开
 	>问题：
 	>1. 报错VCRUNTIME140_1.dll缺失：在C盘搜寻文件，将其复制到`C:\Windows\System\`即可
 
 + 关于wt的设置，网上教程多的修改setting.json文件，实际上wt提供图形化的修改方式，是等价的。
 
 ### 美化
+>推荐下载方式使用winget（因为使用Microsoft Store同样能下载，但是winget方便升级）
 
-1. 安装PowerShell7：[官方教程](https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3)
+1. 安装PowerShell7：[官方教程](https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3)（推荐winget）
 	>PowerShell7较于Windows PowerShell已经有了更多的美化功能。
-	+ 使用：键入`pwsh`命令
+	+ 使用：快捷键`win + r`键入`pwsh`命令
 	+ ps7会在打开后运行`$PROFILE`这个脚本
 
 2. 设置字体（[下载地址](https://www.nerdfonts.com/)）：网站内的每种字体都是一个`.zip`文件，里面是一系列的字体，oh-my-posh推荐字体`MesloLGM NF`，我们下载`Meslo`字体并解压，发现里面并没有对应名称的文件夹，这里主要是一种`.ttf`文件，我们双击打开观察，主要关注安装按钮和字体名称字段
@@ -189,7 +173,8 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	我们把字体名称`MesloLGM NF`的所有形态都下载  
 	在wt中修改  
 
-3. 安装oh-my-posh：oh-my-posh本质是一个程序，提供一些命令修改命令行形态，还记得ps7打开会运行一个脚本嘛？我们只需要将设置放入即可美化脚本
+3. 安装oh-my-posh：[官方教程](https://ohmyposh.dev/docs/installation/windows)（推荐winget）  
+	oh-my-posh本质是一个程序，提供一些命令修改命令行形态，还记得ps7打开会运行一个脚本嘛？我们只需要将设置放入即可美化脚本
 	```powershell
 	# oh-my-posh init pwsh | Invoke-Expression  # 使用默认主题
 	oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/Paradox.omp.json" | Invoke-Expression  # 使用我挑选的一个主题
@@ -197,15 +182,11 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 4. 实际上通过`$PROFILE`可以让ps7的功能更加丰富，不过需要更多的ps编程经验，我只使用最基本的美化即可。
 
-+ 我理解的Powershell7的使用逻辑：它除了有类似shell的命令，还有*模块Medule*的概念（不过还不理解它怎么定义这些模块的），每个模块内部有独特的命令，通过命令`Import-Medule 模块名`可以导入模块（本文并没有讨论如何完备的导入），然后就可以使用模块内的一些命令，下面讨论的一些命令就是（所以你可能并不能直接运行）
-
-	```powershell
-	Get-PoshThemes  # 查看所有主题
-	```
-
 ### misc
 
-+ 如果ssh到linux机器，对vim来说`Ctrl + v`进入列模式很重要，会和Windows的`Ctrl + v`冲突：  
++ 我理解的Powershell7的使用逻辑：它除了有类似shell的命令，还有*模块Medule*的概念（不过还不理解它怎么定义这些模块的），每个模块内部有独特的命令，通过命令`Import-Medule 模块名`可以导入模块（本文并没有讨论如何完备的导入），然后就可以使用模块内的一些命令，比如网上有教程导入oh-my-posh相关模块就可以使用命令`Get-PoshThemes`查看所有主题
+
++ 如果ssh到linux机器，对vim来说`Ctrl + v`进入列模式比较常用，但会和Windows的`Ctrl + v`冲突：  
 	打开Terminal的`Setting.json`，找到这样的字段
 	```json
 	{
@@ -214,6 +195,94 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	}
 	```
 	去掉即可
+
+## 6.包管理器:scoop
+在Windows中正常使用软件通常的流程是去官网下载对应机器和系统的安装包，运行安装包安装，安装过程中会选择诸如下载路径之类的设置。在开发过程中常用的比如Git或者Python这种，下载过程中还要设置更多的选项。同时想要通过命令行使用它们还要将其设置为“环境变量”。但是在实际使用的过程中，基本只会在命令行中或者以命令的形式使用，那么下载过程中下载的诸如添加桌面快捷键、添加右键菜单栏这样的功能是画蛇添足的，如果你也这样想，那么Scoop很好用。
++ scoop的优点：
+	+ 统一且清楚的管理下载的软件
+	+ 命令行下载、自动配置环境变量
++ scoop的缺点：
+	+ 不能自动配置win注册表
+	+ 不能自动添加右键菜单栏
+
+	这里要多解释下，因为win是一个图形化操作系统，命令行很高效、图形化也有其独特的魅力。上面的缺点有很多问题，比如Scoop可以下载VSCode，但是不能配置使用VSCode默认打开`.py`文件、`.c`文件，而且不会自动添加到右键菜单栏，想用VSCode打开一个文件夹的场景不可能用命令行去`code`；再比如`7zip`，在图形化界面下的下载流程肯定是右键压缩包解压而不是使用命令。
+
++ 资源：
+	+ [官网](https://scoop.sh/#/)
+	+ [文档](https://github.com/ScoopInstaller/Scoop/wiki)
+
++ 安装：
+	```powershell
+	Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser # 设置PowerShell执行策略
+	irm get.scoop.sh -outfile 'install.ps1' # 下载安装脚本
+	.\install.ps1 -ScoopDir 'D:\Scoop' # 执行安装, --ScoopDir参数指定Scoop安装路径
+	```
+
++ 文件结构：
+	```
+	Scoop
+	  |---apps     # 下载的软件安装位置
+	  |---buckets  # 软件源(不懂也罢)
+	  |---cache    # 下载的安装包
+	  |---persist  # 用户数据
+	  `---shims    # 命令位置
+	```
+
++ 配置：
+	+ 利用`aria2`来加速下载，**极大**的提高安装成功率
+		```powershell
+		scoop install aria2  # 安装
+		# 打开线程
+		scoop config aria2-max-connection-per-server 16
+		scoop config aria2-split 16
+		scoop config aria2-min-split-size 1M 
+		```
+	+ 添加仓库（软件源），默认只有`main bucket`
+		```powershell
+		scoop bucket add extras  # 官方维护的extras bucket
+		```
+  
++ 相关命令：
+	```powershell
+	scoop --help  # 查看帮助
+
+	scoop search 命令     # 查看有无命令
+	scoop install 命令    # 下载命令
+	scoop uninstall 命令  # 删除命令
+
+	scoop update  # 更新scoop、软件源和各个软件
+
+	scoop bucket add 桶名 [桶地址]  # 添加桶
+	```
+
+
+### Git
+
++ 安装：`scoop install git`
+
++ 配置：
+	+ 配置文件位置：`C:\Users\$用户名\.gitconfig`
+	```bash
+	git config --global user.email "you@example.com"
+	git config --global user.name "Your Name"
+	```
+
++ ssh配置文件（[我的教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/SSH.md)）
+	>网上有些例子是通过Scoop下载SSH，难道ssh命令不是win机器默认的嘛？
+
++ Github配置：`Setting -> SSH and GPG keys -> New SSH key -> 拷贝公钥`
+
+### Python3
+
++ 安装：`scoop install python`
+
+### C/C++
+
++ 编译：
+	+ `scoop install gcc`（`gcc`、`g++`）
+	+ `scoop install make`（`GNU Makefile`）
+	+ `scoop install cmake`（`Modern CMake`）
++ 调试：`scoop install gdb`（`gdb`）
 
 ## 7.编辑器VSCode
 
@@ -258,7 +327,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ `Error Lens`
 
 ### 开发Python
->需要安装Python解释器并将其设置成环境变量
++ 依赖环境：通过Scoop下载Python（Python3）
 
 + 插件推荐：
 
@@ -294,7 +363,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 ## 思维导图Xmind8
 现在的思维导图软件市场并没有一个统一的文件格式，相当于如果我们选择了一个软件几乎不可能迁移到其他软件，我现在的工作流尽可能避免使用思维导图。但是思维导图提供了一个如此独特的树形的数据结构方式，而转为手写的话速度上又很受限。至于选择哪个软件还是小马过河，这里提供切实的Xmind8的特点，请读者自己选择
->这里提到的Xmind是8（直接搜索`xmind8`即可），这个软件好像在2022有了更大更新，个人使用新版本不好用
+>**注意**：这里提到的Xmind是8（直接搜索`xmind8`即可），这个软件好像在2022有了更大更新，个人使用新版本不好用
 >>而且Xmind8较于最新版还能自定义位置
 
 + 常用快捷键：`enter`创建同级节点、`tab`创建子节点、`space`编辑当前节点
@@ -306,6 +375,11 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 + 缺点：
 	+ 节点限制，并不是数量限制，而是过多的节点会非常卡
 		>不过这是我早期的巨大文件才出现的情况，后来女朋友用这个记笔记我看规模也很大，但是并没有很卡
+
+幻灯片
+
+## iVam
+电脑和手机分别安装通过数据线连接可将手机作为笔记本摄像头
 
 ## Tencent(WeChat QQ TIM)
 
