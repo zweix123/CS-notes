@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b174623574613c2e",
+        "id": "cf66bd89ea663ac0",
         "type": "tabs",
         "children": [
           {
-            "id": "2debcf49c4b32985",
+            "id": "cdd9166716fe5821",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -139,8 +139,9 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "2debcf49c4b32985",
+  "active": "cdd9166716fe5821",
   "lastOpenFiles": [
+    "Missing-Semester/Linux机器配置指南.md",
     "Missing-Semester/win10开发机配置指南.md",
     "Programing-Language/Python/Spider.md",
     "Programing-Language/Python/Quant.md",
@@ -149,7 +150,6 @@
     "Programing-Language/Python/grammar.md",
     "Programing-Language/Python/Django.md",
     "README.md",
-    "Computer-Network/0计网概论.md",
-    "Complier/yacc&lex.md"
+    "Computer-Network/0计网概论.md"
   ]
 }

@@ -305,7 +305,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 		+ 编辑器字体：打开设置，键入`Editor Font Family`  
 			>需要插件`FiraCode font - Professional Font for Developers`
 
-			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/编辑器字体.png" style="zoom:50%;" div align=center />
+			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/编辑器字体.png" style="zoom:60%;" div align=center />
 		+ 终端字体：打开设置，键入`Terminal Font Family`  
 			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/终端字体.png" style="zoom:50%;" div align=center />
 			
@@ -314,7 +314,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 		打开设置，键入`workspace.trust`  
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/vscode受限模式关闭.png" style="zoom:50%;" div align=center />
 	+ 括号连线：打开设置，键入`bracket`，找到对应位置选择true  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/branket.png" style="zoom:65%;" div align=center />
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/branket.png" style="zoom:60%;" div align=center />
 	+ 柔顺：
 		打开设置，键入`smooth`，选择下面三个选项  
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/smooth.png" style="zoom:70%;" div align=center />  
@@ -336,21 +336,11 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	2. 在虚拟环境中开发
 
 ### 开发C和C++
++ 教程：
+	+ 一个在Linux下的保姆[教程](https://www.bilibili.com/video/BV1YG4y1v7uB)
+	+ 一个使用clang的[教程](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/index.html)
 
-使用[教程](https://www.bilibili.com/video/BV1YG4y1v7uB)
-
-# 专业软件
-
-## Python3
-
-## GNU
-
-### gcc g++ gdb
-使用[教程](https://www.freecodecamp.org/news/how-to-install-c-and-cpp-compiler-on-windows/)
-
-### Makefile
-
-### CMake
++ 依赖环境：通过Scoop下载了gcc、g++、gdb、make和cmake
 
 # 工具软件
 
