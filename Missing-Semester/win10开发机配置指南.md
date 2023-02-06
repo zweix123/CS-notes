@@ -10,6 +10,8 @@
 	---
 	+ Snipaste配置文件：`D:\Snipaste\config.ini`
 
+[姊妹篇：Linux机器配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/Linux%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)
+
 # 前言
 
 >作此博客的发心：
