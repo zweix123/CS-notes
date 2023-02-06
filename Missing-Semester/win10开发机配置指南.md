@@ -167,7 +167,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ ps7会在打开后运行`$PROFILE`这个脚本
 
 2. 设置字体（[下载地址](https://www.nerdfonts.com/)）：网站内的每种字体都是一个`.zip`文件，里面是一系列的字体，oh-my-posh推荐字体`MesloLGM NF`，我们下载`Meslo`字体并解压，发现里面并没有对应名称的文件夹，这里主要是一种`.ttf`文件，我们双击打开观察，主要关注安装按钮和字体名称字段
-	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/win10开发机配置指南/字体打开.png" style="zoom:50%;" div align=center />
+	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/字体打开.png" style="zoom:50%;" div align=center />
 
 	关于字体文件名中的部分含义：`Regular`常规、`Italic`斜体、`Bold`加粗  
 	我们把字体名称`MesloLGM NF`的所有形态都下载  
@@ -305,23 +305,23 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 		+ 编辑器字体：打开设置，键入`Editor Font Family`  
 			>需要插件`FiraCode font - Professional Font for Developers`
 
-			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/编辑器字体.png" style="zoom:50%;" div align=center />
+			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/编辑器字体.png" style="zoom:50%;" div align=center />
 		+ 终端字体：打开设置，键入`Terminal Font Family`  
-			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/master/source/Missing-Semester/终端字体.png" style="zoom:50%;" div align=center />
+			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/终端字体.png" style="zoom:50%;" div align=center />
 			
 	+ 报错系统：插件Error Lens
 	+ 关闭受限模式：
 		打开设置，键入`workspace.trust`  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/vscode受限模式关闭.png" style="zoom:50%;" div align=center />
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/vscode受限模式关闭.png" style="zoom:50%;" div align=center />
 	+ 括号连线：打开设置，键入`bracket`，找到对应位置选择true  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/branket.png" style="zoom:65%;" div align=center />
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/branket.png" style="zoom:65%;" div align=center />
 	+ 柔顺：
 		打开设置，键入`smooth`，选择下面三个选项  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/smooth.png" style="zoom:70%;" div align=center />  
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/smooth.png" style="zoom:70%;" div align=center />  
 		打开设置，键入`cursor` ，将下面设置为smooth  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/cursor smooth.png" style="zoom:75%;" div align=center />  
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/cursor smooth.png" style="zoom:75%;" div align=center />  
 	+ 补全建议：打开设置，键入`preview`，选择下面的选项  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes/blob/master/source/Missing-Semester/suggest perview.png" style="zoom:70%;" div align=center />
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/suggest perview.png" style="zoom:70%;" div align=center />
 
 + 插件推荐：
 	+ `Error Lens`
