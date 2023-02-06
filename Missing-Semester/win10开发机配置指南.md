@@ -173,7 +173,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ 使用：快捷键`win + r`键入`pwsh`命令
 	+ ps7会在打开后运行`$PROFILE`这个脚本
 
-2. 设置字体（[下载地址](https://www.nerdfonts.com/)）：网站内的每种字体都是一个`.zip`文件，里面是一系列的字体，oh-my-posh推荐字体`MesloLGM NF`，我们下载`Meslo`字体并解压，发现里面并没有对应名称的文件夹，这里主要是一种`.ttf`文件，我们双击打开观察，主要关注安装按钮和字体名称字段
+2. 设置字体（[下载地址](https://www.nerdfonts.com/)）：网站内的每种字体都是一个`.zip`文件，里面是一系列的字体，oh-my-posh推荐字体`MesloLGM NF`，我们下载`Meslo`字体并解压，发现里面并没有对应名称的文件夹，这里主要是一种`.ttf`文件，我们双击打开观察，主要关注安装按钮和字体名称字段  
 	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/字体打开.png" style="zoom:50%;" div align=center />
 
 	关于字体文件名中的部分含义：`Regular`常规、`Italic`斜体、`Bold`加粗  
@@ -248,19 +248,23 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 		```powershell
 		scoop bucket add extras  # 官方维护的extras bucket
 		```
-  
-+ 相关命令：
-	```powershell
+
+
++ 相关命令：  
+	```powershell  
 	scoop --help  # 查看帮助
 
+	scoop --help  # 查看帮助
+	
 	scoop search 命令     # 查看有无命令
 	scoop install 命令    # 下载命令
 	scoop uninstall 命令  # 删除命令
-
+	
 	scoop update  # 更新scoop、软件源和各个软件
-
-	scoop bucket add 桶名 [桶地址]  # 添加桶
+	
+	scoop bucket add 桶名 [桶地址]  # 添加桶	
 	```
+
 事实上目前微软自带的 `winget` 和 `chocolatey` 也是不错的选择。
 
 ### Git
@@ -342,7 +346,8 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 + 开发流程：以项目为中心使用独立的Python运行环境（库）
 	1. 使用venv创建虚拟环境
 	2. 在虚拟环境中开发
-如果经常使用深度学习相关的开发的话可以试试 `conda`，另外使用 `poetry` 管理也是个不错的选择。
+
+	如果经常使用深度学习相关的开发的话可以试试 `conda`，另外使用 `poetry` 管理也是个不错的选择。
 
 ### 开发C和C++
 + 教程：
@@ -375,7 +380,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ 节点限制，并不是数量限制，而是过多的节点会非常卡
 		>不过这是我早期的巨大文件才出现的情况，后来女朋友用这个记笔记我看规模也很大，但是并没有很卡
 
-幻灯片
+## 幻灯片reveal.js
 
 ## iVam
 电脑和手机分别安装通过数据线连接可将手机作为笔记本摄像头

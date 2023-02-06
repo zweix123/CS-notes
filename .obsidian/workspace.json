@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8db7250f2f409b32",
+        "id": "0f08754703c2a04c",
         "type": "tabs",
         "children": [
           {
-            "id": "c6a6fdbe41102299",
+            "id": "932c413fa3051bf5",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -139,7 +139,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "c6a6fdbe41102299",
+  "active": "932c413fa3051bf5",
   "lastOpenFiles": [
     "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/Linux机器配置指南.md",
