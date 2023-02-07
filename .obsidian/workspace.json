@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "9958f372518612b2",
+        "id": "56060d0568d3b965",
         "type": "tabs",
         "children": [
           {
-            "id": "498f512bc0308d49",
+            "id": "89a5119ba18f0f39",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -139,12 +139,12 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "498f512bc0308d49",
+  "active": "89a5119ba18f0f39",
   "lastOpenFiles": [
+    "Missing-Semester/slide.md",
     "Missing-Semester/SSH.md",
-    "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/Linux机器配置指南.md",
-    "Missing-Semester/Reveal.js.md",
+    "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/未命名.canvas",
     "Programing-Language/Golang/misc.md",
     "MIssing-Semester/Typora(Makedown&LaTeX).md",

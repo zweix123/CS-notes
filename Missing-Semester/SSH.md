@@ -8,6 +8,7 @@
 	```
 
 ---
+
 以下是概念性介绍
 
 + 配置目录：`C:\User\$用户名\.ssh\`（Windows）、`~/.ssh/`（Linux）
@@ -40,7 +41,7 @@
 		```
 		必须Tab缩进，多个服务器别名用空行分开
   
-	 + `authorized_keys`：如上所述
+	d_ + `authorized_keys`：如上所述
 	 + `known_hosts`和`know_hosts.old`：记录本机ssh到的机器（包括云服务机和Github）
 
 + 关于备份，由于涉及到RSA公钥秘钥，所以不建议备份
