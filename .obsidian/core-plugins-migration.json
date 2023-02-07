@@ -20,7 +20,7 @@
   "random-note": false,
   "outline": true,
   "word-count": true,
-  "slides": true,
+  "slides": false,
   "audio-recorder": false,
   "workspaces": false,
   "file-recovery": true,

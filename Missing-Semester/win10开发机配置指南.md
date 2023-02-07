@@ -289,6 +289,9 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 + 调试：`scoop install gdb`（`gdb`）
 >是不是已经感受到有个包管理器是多么好用了？
 
+### node.js
++ 安装：`scoop install nodejs`
+
 ## 7.编辑器:VSCode
 
 设计类似Obsidian，除了软件本身，更重要的是插件和配置，VSCode的配置分两部分：`C:\Users\$用户名\.vscode\`下的插件和项目目录下的`.vscode\`的配置。
@@ -374,7 +377,9 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ 节点限制，并不是数量限制，而是过多的节点会非常卡
 		>不过这是我早期的巨大文件才出现的情况，后来女朋友用这个记笔记我看规模也很大，但是并没有很卡
 
-## 幻灯片reveal.js
+## 幻灯片
+见我的[教程]()
+
 
 ## iVam
 电脑和手机分别安装通过数据线连接可将手机作为笔记本摄像头
