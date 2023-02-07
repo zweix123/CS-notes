@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0f08754703c2a04c",
+        "id": "e8bda8f678677b51",
         "type": "tabs",
         "children": [
           {
-            "id": "932c413fa3051bf5",
+            "id": "168f990f93880be0",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -139,17 +139,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "932c413fa3051bf5",
+  "active": "168f990f93880be0",
   "lastOpenFiles": [
     "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/Linux机器配置指南.md",
     "Missing-Semester/SSH.md",
+    "Missing-Semester/Reveal.js.md",
     "Programing-Language/Golang/misc.md",
     "MIssing-Semester/Typora(Makedown&LaTeX).md",
     "README.md",
     "Programing-Language/Golang/基本语法.md",
     "Programing-Language/Golang/并发.md",
-    "Linux/Linux开发工具.md",
-    "Programing-Language/Golang/lib/misc.md"
+    "Linux/Linux开发工具.md"
   ]
 }

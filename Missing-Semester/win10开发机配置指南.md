@@ -4,7 +4,7 @@
 	+ Chrome配置目录：`C:\Users\$用户名\AppData\Local\Google\Chrome\User Data\Default\`
 	+ Clash for Windows配置文件：`C:\Users\$用户名\.config`
 	+ wt配置文件：`C:\Users\$用户名\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`  
-		ps7配置文件：`C:\Users\$用户名\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`
+		+ posh配置：已上云
 	+ VSCode配置目录：`C:\Users\$用户名\.vscode\`
 	+ Git配置文件：`C:\Users\$用户名\.gitconfig`
 	---
@@ -60,19 +60,19 @@
 + 语言配置：
 	+ 输入法：默认
 	+ 拼音设置：双拼且不自动扩展到全拼
-	+ 中英切换：只保留`Ctrl + Space` （这部分其实按照个人熟悉的切换方式来就好，也有人更加习惯于`shift`切换）
+	+ 中英切换：只保留`Ctrl + Space` （个人习惯）
 
 + 文件的查看：
 	+ 打开文件扩展名
 	+ 打开隐藏的项目
 
 + 电源设置：
-	>睡眠：风扇转，此时电脑仍供电给内存，CPU以较低频率运行。微软关于睡眠有详细的模式设置，例如`S0`、`S3`模式等。
-	>休眠：风扇不转，信息保留，计算机将内存中的内容写入进磁盘中，并断电。下次开机时可以恢复到之前的工作状态。
-	>关机：信息不保留  
+	>睡眠：风扇转                      ：此时电脑仍供电给内存，CPU以较低频率运行（微软关于睡眠有详细的模式设置，例如`S0`、`S3`模式等）  
+	>休眠：风扇不转，信息保留：计算机将内存中的内容写入进磁盘中，并断电。下次开机时可以恢复到之前的工作状态。  
+	>关机：信息不保留 
 	
-	|                 | 电池    | 通电    |
-	| --------    | ------   | ------   |
+	|                | 电池    | 通电     |
+	| --------  | ------ | ------   |
 	| 电源按钮 | 休眠    | 休眠     |
 	| 关盖        | 不使用 | 不使用 |
 
@@ -84,7 +84,7 @@
 
 ## 1.浏览器:Chrome
 六大浏览器之一，插件丰富
-win自带Microsoft Edge浏览器，我常作为pdf阅读器使用，正常浏览器使用Chrome
+win默认使用Microsoft Edge浏览器现在（2023.2.7）已经改为Chromium内核，可以直接同步Chrome数据（收藏夹、扩展）但是它每个选项卡都是一个窗口，我仅把它作为PDF阅读器使用
 
 + Chrome默认安装C盘：不处理，软件位置右键快捷方式查看
 + 谷歌需要人工验证：使用插件Header Editor（[教程](https://blog.azurezeng.com/recaptcha-use-in-china/)）
@@ -95,14 +95,8 @@ win自带Microsoft Edge浏览器，我常作为pdf阅读器使用，正常浏览
 	+ YouTube双语字幕
 	+ 划词翻译
 
-现在的`edge`浏览器也改为了 `chromium`内核，在同步和竖直标签栏上有独有的优势，也可以尝试。
-
 ## 2.解压缩:7z
 一款简单的解压缩软件
-
-bandizip 现在已经转向为商业收费软件，可以试试 `Peazip` 或是基于 `7zip`改造的 `nanaZip`
-
-用于科学上网软件的解压
 
 ## 3.科学上网:Clash
 懂得都懂
@@ -119,7 +113,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 + Typora的即时渲染做的很好，对Makedown本身的语法补全非常到位，而这方面Obsidian有差别且需要配置插件
 	+ Makedown：基本语法补全基本一致
 	+ Table：Obsidian需要插件
-	+ LaTeX：语法略有区别，需要适应
+	+ LaTeX：语法有区别，之前笔记失效，还在学习
 	+ \`\`\`graph：Obsidian更好看
 	+ 代码块：
 		+ 列表：Typora在改变代码块的列表从时自动对齐代码，Obdian在不使用插件时不行
@@ -142,7 +136,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ 既然选择以项目为中，为什么不能提供右键打开当前目录的选项？
 
 + 插件推荐：
-	+ Obsidian Git（需要下载Git）多机同步必备，配置比较复杂。
+	+ Obsidian Git（需要下载Git）多机同步必备
 	 >我的配置：  
 	    >`Ctrl + Alt + C` -> `commit`、`Ctrl + Alt + H` -> `push`、`Ctrl + Alt + L` -> `pull`  
 		>实际上这个插件提供定时自动commit和push，我由于个人习惯没有使用，上面的快捷键是尽量躲避win的ubuntu系统快捷键的结果
@@ -182,12 +176,9 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 3. 安装oh-my-posh：[官方教程](https://ohmyposh.dev/docs/installation/windows)（推荐winget）  
 	oh-my-posh本质是一个程序，提供一些命令修改命令行形态，还记得ps7打开会运行一个脚本嘛？我们只需要将设置放入即可美化脚本
-	```powershell
-	# oh-my-posh init pwsh | Invoke-Expression  # 使用默认主题
-	oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/Paradox.omp.json" | Invoke-Expression  # 使用我挑选的一个主题
-	```
 
-4. 实际上通过`$PROFILE`可以让ps7的功能更加丰富，不过需要更多的ps编程经验，我只使用最基本的美化即可。
++ 这里提供我的[ps7配置和oh-my-posh主题](https://github.com/zweix123/posh-config)
++ 实际上通过`$PROFILE`可以让ps7的功能更加丰富，不过需要更多的ps编程经验，我只使用最基本的美化即可。
 
 ### misc
 
@@ -203,16 +194,18 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	```
 	去掉即可
 
-## 6.包管理器:scoop
+## 6.包管理器:Scoop
 在Windows中正常使用软件通常的流程是去官网下载对应机器和系统的安装包，运行安装包安装，安装过程中会选择诸如下载路径之类的设置。在开发过程中常用的比如Git或者Python这种，下载过程中还要设置更多的选项。同时想要通过命令行使用它们还要将其设置为“环境变量”。但是在实际使用的过程中，基本只会在命令行中或者以命令的形式使用，那么下载过程中下载的诸如添加桌面快捷键、添加右键菜单栏这样的功能是画蛇添足的，如果你也这样想，那么Scoop很好用。
-+ scoop的优点：
+>其实win下还有其他包管理器比如winget和chocolatey，上面终端相关就是用winget下载的，看个人习惯
+
++ Scoop的优点：
 	+ 统一且清楚的管理下载的软件
 	+ 命令行下载、自动配置环境变量
-+ scoop的缺点：
++ Scoop的缺点：
 	+ 不能自动配置win注册表
 	+ 不能自动添加右键菜单栏
 
-	这里要多解释下，因为win是一个图形化操作系统，命令行很高效、图形化也有其独特的魅力。上面的缺点有很多问题，比如Scoop可以下载VSCode，但是不能配置使用VSCode默认打开`.py`文件、`.c`文件，而且不会自动添加到右键菜单栏，想用VSCode打开一个文件夹的场景不可能用命令行去`code`；再比如`7zip`，在图形化界面下的下载流程肯定是右键压缩包解压而不是使用命令。
+	这里要多解释下，因为win是一个图形化操作系统，命令行很高效、图形化也有独特的魅力。上面的缺点有很多问题，比如Scoop可以下载VSCode，但是不能自动设置使用VSCode默认打开`.py`文件、`.c`文件，而且不会自动添加到右键菜单栏，想用VSCode打开一个文件夹的场景不可能用命令行去`code`；再比如`7zip`，在图形化界面下的下载流程肯定是右键压缩包解压而不是使用命令。
 
 + 资源：
 	+ [官网](https://scoop.sh/#/)
@@ -229,7 +222,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	```
 	Scoop
 	  |---apps     # 下载的软件安装位置
-	  |---buckets  # 软件源(不懂也罢)
+	  |---buckets  # 软件源(或者可以这样理解)
 	  |---cache    # 下载的安装包
 	  |---persist  # 用户数据
 	  `---shims    # 命令位置
@@ -265,7 +258,6 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	scoop bucket add 桶名 [桶地址]  # 添加桶	
 	```
 
-事实上目前微软自带的 `winget` 和 `chocolatey` 也是不错的选择。
 
 ### Git
 
@@ -276,12 +268,13 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	```bash
 	git config --global user.email "you@example.com"
 	git config --global user.name "Your Name"
+	# 其他配置在使用时看git提示
 	```
 
 + ssh配置文件（[我的教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/SSH.md)）
 	>网上有些例子是通过Scoop下载SSH，难道ssh命令不是win机器默认的嘛？
 
-+ Github配置：`Setting -> SSH and GPG keys -> New SSH key -> 拷贝公钥`
++ Github配置：`Setting -> SSH and GPG keys -> New SSH key -> 拷贝公钥`（配置公钥用于自己通过ssh链接去push，网上有诸多教程）
 
 ### Python3
 
@@ -294,15 +287,16 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ `scoop install make`（`GNU Makefile`）
 	+ `scoop install cmake`（`Modern CMake`）
 + 调试：`scoop install gdb`（`gdb`）
+>是不是已经感受到有个包管理器是多么好用了？
 
-## 7.编辑器VSCode
+## 7.编辑器:VSCode
 
-类似Obsidian，除了软件本身，更重要的是插件和配置，VSCode的配置分两部分：`C:\Users\$用户名\.vscode\`下的插件和项目目录下的`.vscode`的配置。
+设计类似Obsidian，除了软件本身，更重要的是插件和配置，VSCode的配置分两部分：`C:\Users\$用户名\.vscode\`下的插件和项目目录下的`.vscode\`的配置。
 
 + 彻底删除VSCode：
 	+ 软件安装位置
-	+ `C:\Users\$用户名\.vscode`
-	+ `C:\Users\$用户名\AppData\Roaming\Code`
+	+ `C:\Users\$用户名\.vscode\`
+	+ `C:\Users\$用户名\AppData\Roaming\Code\`
 
 + 快捷键习惯：
 	+ Ctrl + \`和Ctrl + 1用来代码区和命令行切换
@@ -318,25 +312,25 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/编辑器字体.png" style="zoom:60%;" div align=center />
 		+ 终端字体：打开设置，键入`Terminal Font Family`  
-			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/终端字体.png" style="zoom:50%;" div align=center />
-			
-	+ 报错系统：插件Error Lens，这个插件可以按照个人喜好来。对于比较熟练的人反而会觉得是干扰。
+			<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/终端字体.png" style="zoom:57.5%;" div align=center />
+
 	+ 关闭受限模式：
 		打开设置，键入`workspace.trust`  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/vscode受限模式关闭.png" style="zoom:50%;" div align=center />
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/vscode受限模式关闭.png" style="zoom:59%;" div align=center />
 	+ 括号连线：打开设置，键入`bracket`，找到对应位置选择true  
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/branket.png" style="zoom:60%;" div align=center />
 	+ 柔顺：
 		打开设置，键入`smooth`，选择下面三个选项  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/smooth.png" style="zoom:70%;" div align=center />  
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/smooth.png" style="zoom:79%;" div align=center />  
 		打开设置，键入`cursor` ，将下面设置为smooth  
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/cursor smooth.png" style="zoom:75%;" div align=center />  
 	+ 补全建议：打开设置，键入`preview`，选择下面的选项  
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/suggest perview.png" style="zoom:70%;" div align=center />
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/suggest perview.png" style="zoom:64%;" div align=center />
 
 + 插件推荐：
-	+ `Error Lens`
-	+ AI 自动补全插件 `Tabnine`
+	+ `Remote-SSH`：远程开发必备（据说有漏洞，不过我不在乎）
+	+ `Error Lens`：报错提示方式，看个人喜好
+	+ `Tabnine`：AI 自动补全插件，看个人喜好
 
 ### 开发Python
 + 依赖环境：通过Scoop下载Python（Python3）
@@ -347,7 +341,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	1. 使用venv创建虚拟环境
 	2. 在虚拟环境中开发
 
-	如果经常使用深度学习相关的开发的话可以试试 `conda`，另外使用 `poetry` 管理也是个不错的选择。
+	>python还有其他的环境管理方式（conda和poetry），看个人喜好
 
 ### 开发C和C++
 + 教程：
@@ -366,11 +360,11 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 + `F3`可以将剪切板的内容转化成图片悬浮在屏幕上
 
 ## 思维导图Xmind8
-现在的思维导图软件市场并没有一个统一的文件格式，相当于如果我们选择了一个软件几乎不可能迁移到其他软件，我现在的工作流尽可能避免使用思维导图。但是思维导图提供了一个如此独特的树形的数据结构方式，而转为手写的话速度上又很受限。至于选择哪个软件还是小马过河，这里提供切实的Xmind8的特点，请读者自己选择
+现在的思维导图软件市场并没有一个统一的文件格式，相当于如果我们选择了一个软件几乎不可能迁移到其他软件，我现在的工作流尽可能避免使用思维导图。但是思维导图提供了一个如此独特的树形的组织信息方式，而转为手写的话速度上又很受限。至于选择哪个软件还是小马过河，这里提供Xmind8的特点，请读者自己选择
 >**注意**：这里提到的Xmind是8（直接搜索`xmind8`即可），这个软件好像在2022有了更大更新，个人使用新版本不好用
 >>而且Xmind8较于最新版还能自定义位置
 
-+ 常用快捷键：`enter`创建同级节点、`tab`创建子节点、`space`编辑当前节点
++ 常用快捷键：`Enter`创建同级节点、`Tab`创建子节点、`Space`编辑当前节点
 + 优点：
 	+ 阳间的快捷键
 	+ 简约（节点大小紧贴文字）
@@ -391,4 +385,4 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 + 这样的软件同样要关注下载文件或者消息记录的保存位置，在设置中修改
 	+ TIM的保存路径修改是针对某个账号而不是整个软件的所有用户
 
-如果觉得 `QQ`太过臃肿可以试试`Icalingua-plus-plus`，但是是第三方软件，不排除被腾讯警告封号的危险。
+如果觉得`QQ`太过臃肿可以试试`Icalingua-plus-plus`，但是是第三方软件，不排除被腾讯警告封号的危险。

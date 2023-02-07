@@ -57,6 +57,7 @@ su passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 + 配置ssh（[我的教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/SSH.md)）
 
 ## 刚需软件
+Linux通常有包管理器
 
 ### vim
 
@@ -127,6 +128,7 @@ su passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 		```
 
 ## 其他软件
+需要机器有图形化
 
 ### VSCode
 
@@ -168,4 +170,4 @@ su passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 
 ## misc
 
-+ 在登录云服务器后终端会先输出一段话，这些在`/etc/update-motd.d/10-help-text`（Ubuntu），这是一个可执行文件
++ 在登录云服务器后终端会先输出一段话，这些在`/etc/update-motd.d/10-help-text`（Ubuntu），这是一个可执行文件，具体请STFW
