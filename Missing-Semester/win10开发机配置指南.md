@@ -296,11 +296,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 ### node.js
 + 安装：`scoop install nodejs`
-
-+ node.js的开发：
-	+ node.js包层次分成全局和项目，一般都会将
-
-
++ 用法见我的另一个[笔记]()
 
 ## 7.编辑器:VSCode
 
