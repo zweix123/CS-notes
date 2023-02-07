@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "d21a89e8120222e3",
+        "id": "e7b8fab2b9392f2a",
         "type": "tabs",
         "children": [
           {
-            "id": "d4c62b42b94111a9",
+            "id": "85e894d1a2e7d24b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Missing-Semester/win10开发机配置指南.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Missing-Semester/win10开发机配置指南.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Missing-Semester/win10开发机配置指南.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Missing-Semester/win10开发机配置指南.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -147,12 +139,12 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "d4c62b42b94111a9",
+  "active": "85e894d1a2e7d24b",
   "lastOpenFiles": [
-    "Missing-Semester/slide.md",
-    "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/Linux机器配置指南.md",
+    "Missing-Semester/slide.md",
     "Missing-Semester/SSH.md",
+    "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/未命名.canvas",
     "Programing-Language/Golang/misc.md",
     "MIssing-Semester/Typora(Makedown&LaTeX).md",

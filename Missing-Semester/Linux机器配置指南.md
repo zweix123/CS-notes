@@ -66,7 +66,7 @@ Linux通常有包管理器
 ### git
 要求已经配置好了ssh
 
-+ 初始化：类似Windows（[我的win10开发机配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md#5.%20Git)）
++ 初始化：类似Windows（[我的win10开发机配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md#5.-Git)）
 
 ### shell
 
