@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "ec3619503f8da33a",
+        "id": "aba2e0fd74824ad8",
         "type": "tabs",
         "children": [
           {
-            "id": "453e7bfd2c2c7157",
+            "id": "0f089d4e76029646",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Missing-Semester/SSH.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Missing-Semester/SSH.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Missing-Semester/SSH.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Missing-Semester/SSH.md"
+              }
             }
           }
         ],
@@ -139,17 +147,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "453e7bfd2c2c7157",
+  "active": "0f089d4e76029646",
   "lastOpenFiles": [
-    "Missing-Semester/SSH.md",
-    "Missing-Semester/Linux机器配置指南.md",
     "Missing-Semester/win10开发机配置指南.md",
+    "Missing-Semester/Linux机器配置指南.md",
     "Missing-Semester/Reveal.js.md",
+    "Missing-Semester/未命名.canvas",
+    "Missing-Semester/SSH.md",
     "Programing-Language/Golang/misc.md",
     "MIssing-Semester/Typora(Makedown&LaTeX).md",
     "README.md",
     "Programing-Language/Golang/基本语法.md",
-    "Programing-Language/Golang/并发.md",
-    "Linux/Linux开发工具.md"
+    "Programing-Language/Golang/并发.md"
   ]
 }
