@@ -127,10 +127,12 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ 链接，想象一下，笔记可以像IDE的`Ctrl + Click`一样跳转
 	+ 体感上感觉性能Obsidian比Typora强
 
-+ 为什么没有选择其他的Makedown编辑器？
-	+ VSCode：写代码
-	+ 有道云笔记：文件使用内部编码
-	+ notion：不了解
++ 其他Makedown编辑器：
+	+ Typora收费
+	+ VSCdoe看个人爱好
+	+ 有道云笔记文件不能源文件导出
+
+	其他不了解
 
 + Obsidian缺点（至少对我来说）：
 	+ 既然选择以项目为中，为什么不能提供右键打开当前目录的选项？
@@ -378,8 +380,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 		>不过这是我早期的巨大文件才出现的情况，后来女朋友用这个记笔记我看规模也很大，但是并没有很卡
 
 ## 幻灯片
-见我的[教程]()
-
+见我的[教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/slide.md)
 
 ## iVam
 电脑和手机分别安装通过数据线连接可将手机作为笔记本摄像头
