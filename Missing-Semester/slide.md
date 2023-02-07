@@ -1,18 +1,25 @@
-本文主要讨论以reveal.js为中心的内容和样式分离的slide，即不包括微软的PowerPoint
+本文主要讨论以reveal.js为中心的内容和样式分离的slide，即不是微软的PowerPoint
 
 + reveal.js是node.js的一个包，是一个使用HTML制作演讲文稿的框架
 + reveal-md是node.js的一个包，是一个将Makedown文件转换成reveal.js的工具
 + slidev是node.js的一个包，是一个使用Makedown制作演讲文稿的框架
 + Obsidian插件Advanced-Slides，是一个让Obdian支持reveal.js的插件，目前还有bug
-	+ 其实Obsidian默认自带一个slide插件，但是提供的功能太少了。
+	+ 其实Obsidian默认自带一个slide插件，但只提供最基本的功能
 
 最后选择使用slidev（[dov_cn](https://cn.sli.dev/guide/why.html)）
+
+### 安装和使用
 
 0. 安装Scoop
 1. 使用Scoop安装node.js（命令`npm`）
 	```bash
 	scoop install nodejs
 	```
+
+
+0. 安装Scoop
+1. 使用Scoop安装node.js（命令`npm`）
+	
 + 不显式安装slidev
 2. 初始化一个slidev项目（node.js自动下载slidev）：
 	```bash
