@@ -282,6 +282,9 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 + 安装：`scoop install python`
 
++ Python的开发：以项目为中心使用独立的Python运行环境和第三方库，我使用的环境管理方式是Python的标准库`venv`
+	>Python还有其他的环境管理方式（conda和poetry），看个人喜好
+
 ### C/C++
 
 + 编译：
@@ -293,6 +296,11 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 ### node.js
 + 安装：`scoop install nodejs`
+
++ node.js的开发：
+	+ node.js包层次分成全局和项目，一般都会将
+
+
 
 ## 7.编辑器:VSCode
 
@@ -337,18 +345,15 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ `Error Lens`：报错提示方式，看个人喜好
 	+ `Tabnine`：AI 自动补全插件，看个人喜好
 
-### 开发Python
-+ 依赖环境：通过Scoop下载Python（Python3）
++ 打开流程：右键项目文件通过Code打开，然后开始编码
 
+### 开发Python
+
++ 依赖环境：通过Scoop下载Python（Python3）
 + 插件推荐：
 
-+ 开发流程：以项目为中心使用独立的Python运行环境（库）
-	1. 使用venv创建虚拟环境
-	2. 在虚拟环境中开发
-
-	>python还有其他的环境管理方式（conda和poetry），看个人喜好
-
 ### 开发C和C++
+
 + 教程：
 	+ 一个在Linux下的保姆[教程](https://www.bilibili.com/video/BV1YG4y1v7uB)
 	+ 一个使用clang的[教程](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/index.html)
