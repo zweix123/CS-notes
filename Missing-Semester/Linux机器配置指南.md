@@ -140,7 +140,10 @@ Linux通常有包管理器
 	+ `dpkg -r 软件名`：不清除配置卸载
 	+ `dpkg -P 软件名`：清除配置卸载
 
-+ 配置和Windows类似（[我的配置]((https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10开发机配置指南.md#7.%20编辑器VSCode))）
++ 配置和Windows类似（[我的配置](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md#7%E7%BC%96%E8%BE%91%E5%99%A8vscode)）
+
+### 开发Golang
+微软[教程](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)已经足够亲爹
 
 ### Obsidian
 
