@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "7112219a96b2aa2c",
+        "id": "8802db248a83fee1",
         "type": "tabs",
         "children": [
           {
-            "id": "6a27b06959b0f6f7",
+            "id": "d3b0745d096212e7",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,7 +129,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "6a27b06959b0f6f7",
+  "active": "d3b0745d096212e7",
   "lastOpenFiles": [
     "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/Linux机器配置指南.md",
