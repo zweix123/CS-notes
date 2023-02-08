@@ -47,3 +47,22 @@
 + 关于备份，由于涉及到RSA公钥秘钥，所以不建议备份
 	+ 本机，新机器`ssh-keygen`，编写`config`，然后更新云服务器和Github
 	+ 云服务器，新机器更新`authorized_keys`
+
+
+
+## SCP
+命令格式：`scp source destination`：将`source`路径下的文件复制到`destination`中
+
++ 多文件：`scp source1 source2 destination`
++ 复制文件夹：`scp -r ... ...`
++ 指定端口：`scp -P 端口号 ... ...`
+
+> 其中参数`-r`和`-P`尽可能放在两组地址之前
+
++ source和destination是逻辑关系，不是本机和服务器的关系
+	+ 本机：正常使用
+	+ 服务器：`服务器别名:...`
+		+ `服务器别名:/home/acs/...`
+		+ `服务器别名:家目录下的文件`：服务器的家目录不用起始`~`
+
+

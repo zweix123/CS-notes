@@ -15,5 +15,6 @@
   "alwaysUpdateLinks": true,
   "newLinkFormat": "absolute",
   "useMarkdownLinks": true,
-  "showUnsupportedFiles": false
+  "showUnsupportedFiles": false,
+  "autoPairMarkdown": false
 }

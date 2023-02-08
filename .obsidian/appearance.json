@@ -3,5 +3,6 @@
   "theme": "system",
   "baseFontSize": 15,
   "translucency": false,
-  "nativeMenus": false
+  "nativeMenus": false,
+  "showViewHeader": true
 }

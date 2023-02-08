@@ -396,4 +396,5 @@ int bind(int sockfd, struct sockaddr *myaddr, socklen_t addrlen);
 
 # 通用
 
-+ 可移植操作系统接口Portable Operating System Interface, POSIX：是为Unix操作系统建立的标准![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Linux/POSIX中定义的数据类型.jpg)
++ 可移植操作系统接口Portable Operating System Interface, POSIX：是为Unix操作系统建立的标准
+

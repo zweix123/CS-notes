@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "e9ddef7d05544fac",
+        "id": "27f81dc330bcd967",
         "type": "tabs",
         "children": [
           {
-            "id": "f406a43423fd7960",
+            "id": "825d0969f1a67bfa",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -106,7 +106,7 @@
             }
           },
           {
-            "id": "fbe13679dde89032",
+            "id": "c67305eff6db5929",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -126,21 +126,20 @@
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:Create new canvas": false,
-      "daily-notes:打开/创建今天的日记": false,
-      "templates:插入模板": false,
       "command-palette:打开命令面板": false
     }
   },
-  "active": "f406a43423fd7960",
+  "active": "825d0969f1a67bfa",
   "lastOpenFiles": [
-    "Missing-Semester/slide.md",
-    "Missing-Semester/win10开发机配置指南.md",
-    "Missing-Semester/Linux机器配置指南.md",
-    "Front-end/HTML&CSS&Js.md",
-    "Front-end/node.js.md",
-    "Missing-Semester/SSH.md",
-    "Linux/GNU/Modern CMake.md",
+    "Software-Engineering/thrift.md",
+    "Linux/shell.md",
+    "Linux/LinuxTools.md",
+    "Linux/LinuxSystemAPI.md",
+    "Linux/LinuxNetAPI.md",
+    "Linux/私房菜.md",
+    "Linux/GNU/gcc.md",
+    "Linux/GNU/gdb.md",
     "Linux/GNU/GNU Makefile.md",
-    "Linux/GNU/gdb.md"
+    "Linux/GNU/Modern CMake.md"
   ]
 }
