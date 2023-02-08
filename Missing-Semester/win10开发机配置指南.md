@@ -1,3 +1,5 @@
+[TOC]
+
 + 备份：
 	+ 桌面
 	+ 数据目录
@@ -296,7 +298,6 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 ### node.js
 + 安装：`scoop install nodejs`
-+ 用法见我的另一个[笔记](https://github.com/zweix123/CS-notes/tree/master/Front-end)
 
 ## 7.编辑器:VSCode
 
@@ -346,15 +347,17 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 ### 开发Python
 
 + 依赖环境：通过Scoop下载Python（Python3）
-+ 插件推荐：
++ 插件推荐：Python
 
 ### 开发C和C++
+>使用clang的一个[教程](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/index.html)
 
-+ 教程：
-	+ 一个在Linux下的保姆[教程](https://www.bilibili.com/video/BV1YG4y1v7uB)
-	+ 一个使用clang的[教程](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/index.html)
++ 项目模板：保姆[教程](https://www.bilibili.com/video/BV1YG4y1v7uB)
 
 + 依赖环境：通过Scoop下载了gcc、g++、gdb、make和cmake
++ 插件推荐：C/C++和C/C++ Extension Pack
+
+### 编辑MarkDown
 
 # 工具软件
 

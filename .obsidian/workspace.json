@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a8048ddfb25c2a8b",
+        "id": "e9ddef7d05544fac",
         "type": "tabs",
         "children": [
           {
-            "id": "3b6998b31a95cca0",
+            "id": "f406a43423fd7960",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -131,16 +131,16 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "3b6998b31a95cca0",
+  "active": "f406a43423fd7960",
   "lastOpenFiles": [
+    "Missing-Semester/Linux机器配置指南.md",
+    "Missing-Semester/win10开发机配置指南.md",
+    "Front-end/HTML&CSS&Js.md",
+    "Front-end/node.js.md",
+    "Missing-Semester/SSH.md",
+    "Missing-Semester/slide.md",
     "Linux/GNU/Modern CMake.md",
     "Linux/GNU/GNU Makefile.md",
-    "Linux/GNU/gdb.md",
-    "Missing-Semester/win10开发机配置指南.md",
-    "Missing-Semester/slide.md",
-    "Missing-Semester/SSH.md",
-    "Missing-Semester/Linux机器配置指南.md",
-    "Front-end/HTML&CSS&Js.md",
-    "Front-end/node.js.md"
+    "Linux/GNU/gdb.md"
   ]
 }
