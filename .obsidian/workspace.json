@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "27f81dc330bcd967",
+        "id": "6ba63f491199de5e",
         "type": "tabs",
         "children": [
           {
-            "id": "825d0969f1a67bfa",
+            "id": "6cbc4f1356dc6570",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,17 +129,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "825d0969f1a67bfa",
+  "active": "6cbc4f1356dc6570",
   "lastOpenFiles": [
-    "Software-Engineering/thrift.md",
     "Linux/shell.md",
     "Linux/LinuxTools.md",
-    "Linux/LinuxSystemAPI.md",
     "Linux/LinuxNetAPI.md",
     "Linux/私房菜.md",
-    "Linux/GNU/gcc.md",
-    "Linux/GNU/gdb.md",
     "Linux/GNU/GNU Makefile.md",
+    "Linux/GNU/gdb.md",
+    "Linux/GNU/gcc.md",
+    "Software-Engineering/thrift.md",
+    "Linux/LinuxSystemAPI.md",
     "Linux/GNU/Modern CMake.md"
   ]
 }
