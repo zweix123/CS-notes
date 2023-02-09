@@ -2,14 +2,53 @@
 	+ 一个简单的入门[网站](https://linux.cn/article-6160-1.html)
 	+ 《鸟哥的Linux私房菜》
 
++ 规矩：终端即为一个shell的解释器
+	+ `q`或`Esc`退出
+	+ 参数支持正则表达式
+
++ 使用习惯：
+	+ `Ctrl + u`：清空本行命令
+	+ `Ctrl + c`：终止当前命令
+	+ `Tab`：补全命令或文件，对于多选项双击Tab显式备选选项
+	+ 方向键`up`：上一条命令
+	+ `Ctrl + l`：刷新屏幕
+
 # misc
-+ 大部分命令参数支持正则表达式
-+ `q`或`Esc`退出
+
++ `man 命令`：查看命令手册  
++ 通常命令会提供`--help`参数
++ `type 命令`：查看命令类型
++ `strace 命令`：检查命令使用的系统调用
 ---
-+ `Ctrl + u`：清空本行命令
-+ `Ctrl + c`：终止当前命令
-+ `Tab`：补全命令或文件，对于多选项双击Tab显式备选选项
-+ 方向键up：上一条命令
++ 工具：
+	+ `md5sum`：计算md5哈希值：
+		+ 可从`stdin`读入内容：执行命令 -> 输入内容 -> `Ctrl + z`
+		+ 可从命令行参数传入文件名列表
+	+ `time command`：统计`command`命令的执行时间
+	+ `watch -n 0.1 command`：每0.1秒执行一次`command`命令
+	+ `tar`：压缩文件
+		+ `tar -zcvf xxx.tar.gz /path/to/file/*`：压缩
+		+ `tar -zxvf xxx.tar.gz`：解压缩
+	+ `diff XXX YYY`： 查找文件XXX与YYY的不同点
+
+## 基操
++ `pwd`：显式当前绝对路径
++ `ls`：
+	+ `ll`
++ `cd`：
+	+ `cd ..`：
++ `cp sourcefile distfile`：copy
++ `rm file`：remove  
+	`rm dir -r`
++ `mv sourcefile distfile`：move or rename
++ `mkdir dir`
++ `touch file`
++ `cat file`
++ `chmod`：修改文件权限
+	+ `chmod +x XXX`：给XXX添加可执行权限
+	+ `chmod -x XXX`：去掉XXX的可执行权限
+	+ `chmod 777 XXX`：将XXX的权限改成777
+	+ `chmod 777 XXX -R`：递归修改整个文件夹的权限
 
 ## 重定向和管道
 
@@ -36,77 +75,47 @@
 
 + `xargs`命令：
 
-
----
-
-+ 工具：
-  + `md5sum`：计算md5哈希值：
-    + 可从`stdin`读入内容：执行命令 -> 输入内容 -> `Ctrl + z`
-    + 可从命令行参数传入文件名列表
-  + `time command`：统计`command`命令的执行时间
-  + `ipython`：ipython的相关特点
-  + `watch -n 0.1 command`：每0.1秒执行一次`command`命令
-    + 怎么关：`Ctrl + c`
-  + `tar`：压缩文件
-    + `tar -zcvf xxx.tar.gz /path/to/file/*`：压缩
-      `tar -zxvf xxx.tar.gz`：解压缩
-  + `diff XXX YYY`： 查找文件XXX与YYY的不同点
-
-+ 安装软件
-  + `sudo command`：以`root`身份执行`command`命令
-  + `apt-get install xxx`：安装软件
-  + `pip install xxx --user --upgrade`：安装python包
-
 # 运维
-+ `man 命令`：查看命令手册
-+ `strace 命令`：检查命令使用的系统调用
-+ `type 命令`：查看命令类型
++ `tree`：展示当前目录的文件结构
 
-+ `clear`：刷新屏幕
-+ `pwd`：显式当前绝对路径
-+ `ls`
-+ `cd`：
-	+ `cd ..`：
-+ `cp sourcefile distfile`：copy
-+ `rm file`：
-	`rm dir -r`
-+ `mv sourcefile distfile`：move or rename
-+ `mkdir dir`
-+ `touch file`：
-+ `cat file`
-
+## 文件
 + 查找：
-	+ 按文件名查找：`find 路径 -name 正则表达式`
-	+ 按文件内容查找：`grep 正则表达式 文件名`
-	+  `wc`：统计行数、单词书、字节数：既可以从`stdin中`直接读入内容；也可以在命令行参数中传入文件名列表
-	    + 参数：`-l`：统计行数；`-w`：统计单词数；`-c`：统计字节数
-+   + `ag "要查的内容"`：在当前目录下的文件中查找内容（较于grep输入更人性化）
-  + `tree`：展示当前目录的文件结构：可添加参数展示某个目录的文件结果
+	+ 按文件名查找文件：`find 路径 -name 正则表达式`
+	+ 在文件中检索内容：`grep 正则表达式 文件名`
+	+ 在当前目录中检索内容：`ag 正则表达式`
+	+ 内容统计：`wc`：统计行数、单词书、字节数：既可以从`stdin中`直接读入内容；也可以在命令行参数中传入文件名列表
+		+ 参数：`-l`：统计行数；`-w`：统计单词数；`-c`：统计字节数
 
 + 查看文件内容：
-  + `more`：浏览文件内容：
-    + `回车`：下一行
-    + `空格`：下一页
-    + `b`：上一页
-    + `q`：退出
-  + `less`：与more类似，功能更全
-    + `回车`：下一行
-    + `y`：上一行
-    + `Page Down`：下一页
-      `Page Up`：上一页
-    + `q`：退出
-  + `head -3 xxx`：展示xxx的前3行内容
-    同时支持从stdin读入内容
-    `tail -3 xxx`：展示xxx末尾3行内容
-    同时支持从stdin读入内容
+	+ `cat`
+	+ `more`：浏览文件内容：
+		+ `回车`：下一行
+		+ `空格`：下一页
+		+ `b`：上一页
+		+ `q`：退出
+	+ `less`：与more类似，功能更全
+		+ `回车`：下一行
+		+ `y`：上一行
+		+ `Page Down`：下一页  
+		+ `Page Up`：上一页
+		`q`：退出
+	+ `head -3 xxx`：展示xxx的前3行内容  
+		同时支持从stdin读入内容  
+		`cat file | head -10`查看file开头10行内容
+	+ `tail -3 xxx`：展示xxx末尾3行内容  
+		同时支持从stdin读入内容  
+		组合机同head
 
- `cut`：
-    从stdin中读入多行数据
-    `echo \$PATH | cut -d ':' -f 3,5`：输出PATH用:分割后第3、5列数据
-    `echo \$PATH | cut -d ':' -f 3-5`：输出PATH用:分割后第3-5列数据
-    `echo \$PATH | cut -c 3,5`：输出PATH的第3、5个字符
++ `cut`：  
+	从stdin中读入多行数据  
+    `echo \$PATH | cut -d ':' -f 3,5`：输出PATH用:分割后第3、5列数据  
+    `echo \$PATH | cut -d ':' -f 3-5`：输出PATH用:分割后第3-5列数据  
+    `echo \$PATH | cut -c 3,5`：输出PATH的第3、5个字符  
     `echo \$PATH | cut -c 3-5`：输出PATH的第3-5个字符
-  + `sort`：将每行内容按字典序排序，可从`stdin`内读取多行，可从参数读取文件名列表
+
++ `sort`：将每行内容按字典序排序，可从`stdin`内读取多行，可从参数读取文件名列表
+
+## 进程
 
 + `top`：查看所有进程的信息（Linux的任务管理器）
 	+ 打开后，输入`M`：按使用内存排序
@@ -117,26 +126,115 @@
 	+ `kill -9 pid`：杀死编号为pid的进程
 		>本质是向某个进程传递信号：`kill -s SIGTERM pid`
 
-+ `chmod`：修改文件权限
-	+ `chmod +x XXX`：给XXX添加可执行权限
-	+ `chmod -x XXX`：去掉XXX的可执行权限
-	+ `chmod 777 XXX`：将XXX的权限改成777
-	+ `chmod 777 XXX -R`：递归修改整个文件夹的权限
-
 # 存储
 
 + `df -h`：查看硬盘使用情况
 + `free -h`：查看内存使用情况
 + `du -sh`：查看当前目录占用的硬盘空间
++ `lsblk`
 
 # 网络
 
 + `ping`
-+ 
 + SSH：[我的教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/SSH.md)
 
-
 # Shell
++ Shell中的空格有含义
++ Linux下的shell语言种类很多，默认bash
+	+ 文件后缀名`.sh`
+	+ 脚本需要在文件开头`#! /bin/bash`来指明bash为脚本解释器
++ 运行方式：
+	+ 1. `chmod +x test.sh`：把脚本`test.sh`具有可执行权限  
+		可以把`test.sh`作为可执行文件运行（当前路径、绝对路径、家目录路径）
+	+ 2. 解释器运行：`bash test.sh`
++ 注释：
+	1. 单行注释：`#`：注释每行之后的内容
+	2. 多行注释：
+```bash
+:<<EOF
+这里是注释
+这还是一个注释
+EOF
+命令
+# 这里的`EOF`可以换成其他任意字符串
+```
+
++ 引入外部脚本：
+	```bash
+	. filename  # 空格隔开  # 1
+	source filename        # 2
+	```
+
+## 变量
+
++ 定义变量：
+  ```bash
+  sam='string'
+  sam="string"
+  sam=string
+  ```
+  上面这三种方法都是定义字符串  
+  + 字符串：
+    + 单引号：内容原样输出、不会执行、不会取变量——真文本
+    + 双引号：内容                   可以执行、可以去变量——代码
+    > ssh中的`ssh ... commond`相反
+
+  + 获取字符串长度：`${#字符串变量名}`
+  + 提取子串：`${字符串变量名:第一个索引（从0开始）:子串长度}`
++ 使用变量：在变量名前加上`$`或者使用`${}`符号
+  + 在后续的使用中，可能还要把取变量后的结果在用引号括起来，因为比如变量是字符串变量且中间有空格，同时取变量后作为参数，这时空格导致这是多个参数
++ 只读变量：
+  ```bash
+  sam=string
+  readonly sam
+  declare -r name
+  ```
+  以上两种方式均可
+
++ 删除变量：
+  ```bash
+  sam=string
+  unset sam
+  ```
+  删除之后其内容为一个空字符串
+
++ 变量类型：
+  > 子进程：命令bash会开一个新进程，原进程睡眠，exit/Ctrl + d退出当前bash
+
+  1. 自定义变量/局部变量：子进程不能访问的变量
+  2. 环境变量/全局变量：子进程可以访问的变量
+  + 自定义变量改成环境变量：
+    ```bash
+    sam=string  # 定义自定义变量
+    export name
+    declare -x name
+    ```
+    以上两种方法均可
+  + 环境变量改为自定义变量：
+    ```bash
+    export sam=string  # 定义环境变量
+    declare +x name
+    ```
++ 文件参数变量（默认变量）：执行shell脚本时，可向脚本传递参数
+
+  | 参数         | 说明                                                         |
+  | ------------ | ------------------------------------------------------------ |
+  | `$数字`      | `$0`是文件名<br>对应参数从1开始                              |
+  | `$#`         | 代表文件传入的参数个数                                       |
+  | `$*`         | 由所有参数构成的用空格隔开的字符串                           |
+  | `$@`         | 每个参数分别用双引号括起来的字符串                           |
+  | `$$`         | 脚本当前运行的进程ID                                         |
+  | `$?`         | 上一条命令的退出状态（注意不是stdout，而是exit code）。0表示正常退出，其他值表示错误 |
+  | `$(command)` | 返回command这条命令的stdout（可嵌套）                        |
+  | \`command\`  | 返回command这条命令的stdout（不可嵌套）这里的点是有效的      |
+
+  + 后两个比如：
+    ```bash
+    #! /bin/bash
+    echo $(ls)
+    echo 'ls'
+    ```
+
 
 ## 环境变量
 记录配置信息，可被各个进程访问到
@@ -154,169 +252,6 @@
 	+ `PATH`：可执行文件（命令）的存储路径，用`:`分割，从左到右执行
 
   + `alias ls="ls --color"`设置别名，或者写入到`~/.bashrc`文件中
-
-
-
-
-+ shell功能：
-
-  + `Tab`补全
-
-  + 上下键检索历史命令
-
-  + `Alt+f`、`Atl+b`按单词移动光标
-
-    > `man readline`
-
-  + `history`查看历史命令
-
-    + `!历史命令编号`
-    + `!字符串`做前缀匹配最近使用的命令并运行
-
-  + 符号扩展：`echo Hello-{a, bb, ccc}-{1,2}!`
-
-+ 任务管理：
-
-  + `Ctrl + z`最小化
-    + `bg`最小化
-  + `jobs`任务栏
-  + `fg`最大化
-
-> 关于空格，如果表达式加上”美观“的空格，可能导致这样的问题，空格在linux中有含义，分隔参数
-
-> linux下的Shell语言种类很多，一般默认bash
-
-+ 文件后缀名：`.sh`
-
-  脚本需要在文件开头`#! /bin/bash`来指明bash为脚本解释器
-
-+ 运行方式：
-
-  1. `chmod +x test.sh`：把脚本`test.sh`具有可执行权限
-
-     可以把`test.sh`作为可执行文件运行（当前路径、绝对路径、家目录路径）
-
-  2. 解释器运行：`bash test.sh`
-
-+ 注释：
-
-  1. 单行注释：`#`：注释每行之后的内容
-
-  2. 多行注释：
-
-
-
-
-	 
-```bash
-:<<EOF
-这里面是一个注释
-EOF
-```
-
-     这里的`EOF`可以换成其他任意字符串
-
-+ 引入外部脚本：
-
-  ```bash
-  . filename  # 空格隔开
-  
-  #或者
-  
-  source filename
-  ```
-
-## 变量
-
-+ 定义变量：
-
-  ```bash
-  sam='string'
-  sam="string"
-  sam=string
-  ```
-
-  上面这三种方法都是定义字符串
-
-  + 字符串：
-
-    + 单引号：内容原样输出、不会执行、不会取变量——真文本
-    + 双引号：内容                   可以执行、可以去变量——代码
-
-    > ssh中的`ssh ... commond`相反
-
-  + 获取字符串长度：`${#字符串变量名}`
-
-  + 提取子串：`${字符串变量名:第一个索引（从0开始）:子串长度}`
-
-+ 使用变量：在变量名前加上`$`或者使用`${}`符号
-
-  + 在后续的使用中，可能还要把取变量后的结果在用引号括起来，因为比如变量是字符串变量且中间有空格，同时取变量后作为参数，这时空格导致这是多个参数
-
-+ 只读变量：
-
-  ```bash
-  sam=string
-  readonly sam
-  declare -r name
-  ```
-
-  以上两种方式均可
-
-+ 删除变量：
-
-  ```bash
-  sam=string
-  unset sam
-  ```
-
-  删除之后其内容为一个空字符串
-
-+ 变量类型：
-
-  > 子进程：命令bash会开一个新进程，原进程睡眠，exit/Ctrl + d退出当前bash
-
-  1. 自定义变量/局部变量：子进程不能访问的变量
-  2. 环境变量/全局变量：子进程可以访问的变量
-
-  + 自定义变量改成环境变量：
-
-    ```bash
-    sam=string  # 定义自定义变量
-    export name
-    declare -x name
-    ```
-
-    以上两种方法均可
-
-  + 环境变量改为自定义变量：
-
-    ```bash
-    export sam=string  # 定义环境变量
-    declare +x name
-    ```
-
-+ 文件参数变量（默认变量）：执行shell脚本时，可向脚本传递参数
-
-  | 参数         | 说明                                                         |
-  | ------------ | ------------------------------------------------------------ |
-  | `$数字`      | `$0`是文件名<br>对应参数从1开始                              |
-  | `$#`         | 代表文件传入的参数个数                                       |
-  | `$*`         | 由所有参数构成的用空格隔开的字符串                           |
-  | `$@`         | 每个参数分别用双引号括起来的字符串                           |
-  | `$$`         | 脚本当前运行的进程ID                                         |
-  | `$?`         | 上一条命令的退出状态（注意不是stdout，而是exit code）。0表示正常退出，其他值表示错误 |
-  | `$(command)` | 返回command这条命令的stdout（可嵌套）                        |
-  | \`command\`  | 返回command这条命令的stdout（不可嵌套）这里的点是有效的      |
-
-  + 后两个比如：
-
-    ```bash
-    #! /bin/bash
-    echo $(ls)
-    echo 'ls'
-    ```
-
 
 ## 数组
 

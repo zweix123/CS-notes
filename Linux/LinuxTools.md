@@ -1,71 +1,51 @@
 # 终端复用器tmux
 
 + 功能：
-
   1. 分屏
-
   2. 允许断开ssh连接后，继续运行进程
-
      > `top`：查看进程（任务管理器）
 
      服务器中的进程如果断开连接则停止
 
-+ 结构：树形：一个tmux可包含多个session，每个session可包含多个window，每个window可包含多个pane
-
-  其中pane是最小单位，每个pane都会打开一个shell对话框
++ 结构：树形：一个tmux可包含多个session，每个session可包含多个window，每个window可包含多个pane，其中pane是最小单位，每个pane都会打开一个shell对话框
+	>通常开一个session只放一个windows，然后这个windows中开多个pane
 
 1. `tmux`：新建一个session，包含一个window，window中包含一个pane，pane里打开了一个shell对话框
+2. `按下Ctrl + a后手指松开，然后按%`：将当前pane左右平分成两个pane  
+	`按下Ctrl + a后手指松开，然后按"`：将当前pane左右平分成两个pane
+3. `鼠标点击`选择pane  
+	`按下Ctrl + a后手指松开，使用方向键`选择pane  
+	按住`Alt`键然后使用方向键选择pane
+4. 鼠标拖动pane之间的分割线，可以调整分割线的位置  
+	`按下Ctrl + a的同时使用方向键`调整分割线。
+5. `按下Ctrl + a后手指松开，然后按z`：将当前pane全屏/取消全屏
+6. `Ctrl + d`：关闭当前pane，如果当前window的所有pane均已关闭，则自动关闭window，如果当前session的所有window均已关闭，则自动关闭session
+7. `按下Ctrl + a后手指松开，然后按d`：挂起当前session
+	`tmux a`/`tmux attch`：返回挂起的session
 
-2. `按下Ctrl + a后手指松开，然后按%`：将当前pane左右平分成两个pane
-
-   `按下Ctrl + a后手指松开，然后按"`：将当前pane左右平分成两个pane
-
-   + `鼠标点击`选择pane/`按下Ctrl + a后手指松开，使用方向键`选择pane
-		>还有一个方案是：按住`Alt`键然后使用方向键选择pane
-   + 鼠标拖动pane之间的分割线，可以调整分割线的位置/`按下Ctrl + a的同时使用方向键`调整分割线。
-   + `按下Ctrl + a后手指松开，然后按z`：将当前pane全屏/取消全屏
-
-3. `Ctrl + d`：关闭当前pane，如果当前window的所有pane均已关闭，则自动关闭window，如果当前session的所有window均已关闭，则自动关闭session
-
-4. `按下Ctrl + a后手指松开，然后按d`：挂起当前session
-
-   `tmux a`/`tmux attch`：返回挂起的session
-
-5. `按下Ctrl + a后手指松开，然后按s`：选择其他session
-
-   + 方向键——上，选择上一项 session/window/pane
-   + 方向键——下，选择下一项 session/window/pane
-   + 方向键——右，展开当前项 session/window
-   + 方向键——做，闭合当前项 session/window
-
-6. `按下Ctrl + a后手指松开，然后按c`：在当前session中创建一个新的window
-
-7. `按下Ctrl + a后手指松开，然后按w`：选择其他window
-
-   + 方向键——上，选择上一项 session/window/pane
-   + 方向键——下，选择下一项 session/window/pane
-   + 方向键——右，展开当前项 session/window
-   + 方向键——做，闭合当前项 session/window
++ `按下Ctrl + a后手指松开，然后按s`：选择其他session
+	+ 方向键——上，选择上一项 session/window/pane
+	+ 方向键——下，选择下一项 session/window/pane
+	+ 方向键——右，展开当前项 session/window
+	+ 方向键——做，闭合当前项 session/window
++ `按下Ctrl + a后手指松开，然后按c`：在当前session中创建一个新的window
++ `按下Ctrl + a后手指松开，然后按w`：选择其他window
+	+ 方向键——上，选择上一项 session/window/pane
+	+ 方向键——下，选择下一项 session/window/pane
+	+ 方向键——右，展开当前项 session/window
+	+ 方向键——做，闭合当前项 session/window
 
 8. 复制粘贴：
-
-   + tmux内复制粘贴：
-
-     + `Ctrl + a`后松开手指，然后按`[`进入复制模式，之后鼠标选中的文本进入**tmux**的粘贴板。
-     + `Ctrl + a`后松开手指，然后按`]`，将tmux粘贴板中的文本粘贴出来
-
-   + tmux和其他软件复制粘贴：
-
-     选中：按`shift`键同时鼠标选中
-
-     之后复制粘贴同Shell
+	+ tmux内复制粘贴：
+		+ `Ctrl + a`后松开手指，然后按`[`进入复制模式，之后鼠标选中的文本进入**tmux**的粘贴板。
+		+ `Ctrl + a`后松开手指，然后按`]`，将tmux粘贴板中的文本粘贴出来
+	+ tmux和其他软件复制粘贴：
+		+ 选中：按`shift`键同时鼠标选中
+		+ 之后复制粘贴同Shell
 
 # 文本编辑器vim
 
-每次用vim编辑文件时，会自动创建一个`.filename.swp`的临时文件，此时如果打开某个文件时，该文件的swp文件已存在，则会报错，可以找到正在打开该文件的程序，并退出或者直接删掉该swp文件即可。
-
 + 功能：
-
   1. 命令行模式下的文本编辑器
   2. 根据文本扩展名自动判别编程语言。支持代码缩进、代码高亮等功能
   3. 使用方式：`vim filename`
@@ -73,111 +53,76 @@
      + 如果没有该文件，则打开一个新的文件，并命名为`filename`
 
 + 模式：
-
   1. 一般命令模式（默认）：可进行复制、粘贴、删除。
-
-  2. 编辑模式：
-
-     在一般命令模式里按`i`，进入编辑模式
-
+  2. 编辑模式：   
+     在一般命令模式里按`i`，进入编辑模式  
      `按下ESC`退出编辑模式，返回到编辑模式
-
-  3. 命令行模式：在一般命令模式按下`:`、`/`、`?`三个字母中的任意一个，进入命令行模式，命令行在最下面，
-
-     ​                       可进行查找、替换、保存、退出、配置编辑器等
+  3. 命令行模式：在一般命令模式按下`:`、`/`、`?`三个字母中的任意一个，进入命令行模式，命令行在最下面，可进行查找、替换、保存、退出、配置编辑器等
 
 + 命令：
-
   1. `i`：进入编辑模式
-
   2. `ESC`：进入一般命令模式
-
   3. `h`或`左箭头键`：光标向左移动一个字符
-
      `j`或`向下箭头`：光标向下移动一个字符
-
      `k`或`向上箭头`：光标向上移动一个字符
-
      `l`或`向右箭头`：光标向右移动一个字符
-
   4. `数字+空格`：光标向右移动数字大小个字母
-
      `数字+回车`：光标向下移动数字大小个行
-
   5. `0`或`功能键[Home]`：光标移动到本行开头
-
   6. `$`或`功能键[End]`：光标移动到本行末尾
-
   7. `G`：光标移动到最后一行
-
      `:数字`/`数字G`：光标移动到第n行
-
      `gg`：光标移动到第一行，相当于`1G`
-
   8. 查找：
-
      + `/word`：向光标之下寻找第一个值为word的字符串
      + `?word`：向光标之上寻找第一个值为word的字符串
      + `n`：重复前一个查找操作
      + `N`：反向重复前一个查找操作
 
   9. 替换：
-
      + `:数字1,数字2s/word1/word2/g`：在数字1和数字2行之间的word1替换成word2
-
        `:1,$s/word1/word2/g`：全文替换
-
        `:1,$s/word1/word2/gc`：全文替换，并且在替换前询问用户
-
   + `:noh`：取消高亮
-
   10. `v`：选中文本
-
       `d`（剪切）：删除选中的文本
-
       `dd`（剪切）：删除当前行
-
       `y`：复制选中的文本
-
       `yy`：复制当前行
-
       `p`：将复制的数据在光标的下一位置粘贴
+	+ 在多行前插入注释：
+		1. `Ctrl + v`
+		2. 选择行
+		3. `I`（大写）
+		4. 编辑一行
+		5. `Esc`
+	+ 删除多行注释
+		1. `Ctrl + v`
+		2. 选择行
+		3. `dd`
 
   11. `u`：撤销
-
       `Ctrl + r`：取消撤销
-
-  12. `shift + >`：将选中的文本整体向右缩进一次
-
-      `shift + <`：将选中的文本整体向左缩进一次
+  12. `shift + >`：将选中的文本整体向右缩进一次  
+	`shift + <`：将选中的文本整体向左缩进一次
 
   13. `:w`保存（`:w 文件名`）
-
       `:w!`强制保存
-
       `:q`退出
-
       `:q!`：强制退出
-
       `:wq`保存并退出
 
   14. `:set paste`设置成粘贴模式，取消代码自动缩进
-
       `:set nopaste`取消粘贴模式，开启代码自动缩进
-
       `:set nu`显示行号
-
       `:set nonu`隐藏行号
 
   15. 连招`gg=G`：将全文代码格式化
-
   16. `Ctrl + q`：当vim卡死时，可以取消当前正在执行的命令
 
-
 + 常见异常/异常处理：
-
   >  每次用vim编辑文件时，会自动创建一个.filename.swp的临时文件。
-  
+
   + 如果打开某个文件时，该文件的swp文件已存在，则会报错。此时解决办法有两种
     1. 找到正在打开该文件的程序，并退出
     2. 直接删掉该swp文件即可
@@ -298,27 +243,17 @@
 
 # 容器docker
 
-+ 将当前用户添加到docker用户组，为了避免每次使用docker命令都需要加上sudo权限，可以将当前用户加入安装中自动创建的docker用户组(可以参考官方文档)：`sudo usermod -aG docker $USER`执行完此操作后，需要退出服务器，再重新登录回来，才可以省去sudo权限。
-
-
-Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json": dial unix /var/run/docker.sock: connect: permission denied
-
-以下のコマンドを実行する。
-
-sudo chmod 666 /var/run/docker.sock
-
-解決できたかどうかの確認で何らかの docker コマンドを実行する。  
-docker ps
-
-以下のように表示されエラーが出なければ解決できた。  
-ubuntu:~$ docker ps  
-CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
-
-参考サイト
-
-  > docker很多命令需要sudo
-
 每个docker可以管理多个image镜像，每个image都可以生成多个container容器（这些容器里的环境都是一样的），每个容器都相当于一个完整的云服务器
+
+1. 下载
+2. 配置：docker很多命令需要sudo，为了避免每次使用docker命令都需要加上sudo权限，可将当前用户加入安装中自动创建的docker用户组中
+	```bash
+	sudo usermod -aG docker $USER
+	# 重启终端
+	```
+
+
+
 
 + 镜像（images）：
 
@@ -350,10 +285,10 @@ CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
 
     `docker [container] commit CONTAINER IMAGE_NAME:TAG`：创建某个`container`的镜像
 
-  + `docker [container] start CONTAINER`：启动容器
-    `docker [container] stop CONTAINER`：停止容器
-    `docker [container] restart CONTAINER`：重启容器
-    `docker [contaienr] run -itd ubuntu:20.04`：创建并启动一个容器
+  + `docker [container] start CONTAINER`：启动容器  
+    `docker [container] stop CONTAINER`：停止容器  
+    `docker [container] restart CONTAINER`：重启容器  
+    `docker [contaienr] run -itd ubuntu:20.04`：创建并启动一个容器  
 
     > 这里的参数`-itd`：如果没有d是创建、启动并进入
 
@@ -380,25 +315,30 @@ CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
     > + export/import会丢弃历史记录和元数据信息，仅保存容器当时的快照状态
     > + save/load会保存完整记录，体积更大
 
-  + `docker top CONTAINER`：查看某个容器内的所有进程
-    `docker stats`：查看所有容器的统计信息，包括CPU、内存、存储、网络等信息
-    `docker cp xxx CONTAINER:xxx` 或 `docker cp CONTAINER:xxx xxx`：在本地和容器间复制文件
-    `docker rename CONTAINER1 CONTAINER2`：重命名容器
-    `docker update CONTAINER --memory 500MB`：修改容器限制
+  + `docker top CONTAINER`：查看某个容器内的所有进程  
+    `docker stats`：查看所有容器的统计信息，包括CPU、内存、存储、网络等信息  
+    `docker cp xxx CONTAINER:xxx` 或 `docker cp CONTAINER:xxx xxx`：在本地和容器间复制文件  
+    `docker rename CONTAINER1 CONTAINER2`：重命名容器  
+    `docker update CONTAINER --memory 500MB`：修改容器限制  
 
 ## 案例: 利用acwing的资源搭建docker
 
 1. 在本地将镜像上传到自己租的云端服务器：`scp /var/lib/acwing/docker/images/docker_lesson_1_0.tar server_name:`
-
-2. 在云服务器将镜像加载到本地：`docker load -i docker_lesson_1_0.tar`
-
-   创建并运行docker_lesson:1.0镜像：`docker run -p 20000:22 --name my_docker_server -itd docker_lesson:1.0 `
-
-3. 进入创建的docker容器：`docker attach my_docker_server`
-
-   设置密码：`password`
-
+2. 在云服务器将镜像加载到本地：`docker load -i docker_lesson_1_0.tar`  
+	创建并运行docker_lesson:1.0镜像：`docker run -p 20000:22 --name my_docker_server -itd docker_lesson:1.0 `
+3. 进入创建的docker容器：`docker attach my_docker_server`  
+	设置密码：`password`
 4. 去云平台控制台中修改安全组配置，放行端口20000
-
 + 则可以通过`ssh root@xxx.xxx.xxx.xxx -p 20000`指定端口ssh
 + 此时配置的docker容器相当于一个完整的云服务器，可以配置其免密登录，注意此时本地的`~/.ssh/config`中要在多加一行`Port 20000`
+
+## 报错处理
+
++ 报错：
+	```
+	Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get"http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/json": dial unix /var/run/docker.sock: connect: permission denied
+	```
+	解决：
+	```bash
+	sudo chmod 666 /var/run/docker.sock
+	```

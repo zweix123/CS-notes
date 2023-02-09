@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8802db248a83fee1",
+        "id": "579e09aa5d6ba6eb",
         "type": "tabs",
         "children": [
           {
-            "id": "d3b0745d096212e7",
+            "id": "c76fca53b08397b6",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,17 +129,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "d3b0745d096212e7",
+  "active": "c76fca53b08397b6",
   "lastOpenFiles": [
-    "Missing-Semester/win10开发机配置指南.md",
-    "Missing-Semester/Linux机器配置指南.md",
     "Linux/shell.md",
     "Linux/LinuxTools.md",
+    "Linux/LinuxSystemAPI.md",
     "Linux/LinuxNetAPI.md",
-    "Linux/私房菜.md",
-    "Linux/GNU/GNU Makefile.md",
-    "Linux/GNU/gdb.md",
-    "Linux/GNU/gcc.md",
-    "Software-Engineering/thrift.md"
+    "Linux/GeneralKnowledge.md",
+    "Software-Engineering/thrift.md",
+    "Software-Engineering/Bazel.md",
+    "Missing-Semester/win10开发机配置指南.md",
+    "Missing-Semester/Linux机器配置指南.md",
+    "Linux/GNU/GNU Makefile.md"
   ]
 }
