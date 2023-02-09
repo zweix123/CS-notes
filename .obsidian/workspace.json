@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "746eea3f8b632b13",
+        "id": "bbbf94fa8112a088",
         "type": "tabs",
         "children": [
           {
-            "id": "80e498571dbae862",
+            "id": "3d4b42603702ff9a",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,7 +129,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "80e498571dbae862",
+  "active": "3d4b42603702ff9a",
   "lastOpenFiles": [
     "Software-Engineering/Bazel.md",
     "Linux/shell.md",
