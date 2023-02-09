@@ -1,16 +1,14 @@
-[TOC]
-
 + 备份：
 	+ 桌面
 	+ 数据目录
 	+ Chrome配置目录：`C:\Users\$用户名\AppData\Local\Google\Chrome\User Data\Default\`
 	+ Clash for Windows配置文件：`C:\Users\$用户名\.config`
-	+ wt配置文件：`C:\Users\$用户名\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json`  
-		+ posh配置：已上云
-	+ VSCode配置目录：`C:\Users\$用户名\.vscode\`
-	+ Git配置文件：`C:\Users\$用户名\.gitconfig`
+	+ wt配置文件：即`settings.json`，核心配置已在文档中说明、不备份  
+		posh配置：已上云
+	+ VSCode配置目录：已在文档中说明、不备份
+	+ Git配置文件：已在文档中说明、不备份
 	---
-	+ Snipaste配置文件：`D:\Snipaste\config.ini`
+	+ Snipaste配置文件：只添加了开机自启动
 
 [姊妹篇：Linux机器配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/Linux%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)
 
@@ -73,10 +71,10 @@
 	>休眠：风扇不转，信息保留：计算机将内存中的内容写入进磁盘中，并断电。下次开机时可以恢复到之前的工作状态。  
 	>关机：信息不保留 
 	
-	|                | 电池    | 通电     |
-	| --------  | ------ | ------   |
-	| 电源按钮 | 休眠    | 休眠     |
-	| 关盖        | 不使用 | 不使用 |
+	|          | 电池   | 通电   |
+	| -------- | ------ | ------ |
+	| 电源按钮 | 休眠   | 休眠   |
+	| 关盖     | 不使用 | 不使用 |
 
 ---
 
@@ -105,50 +103,8 @@ win默认使用Microsoft Edge浏览器现在（2023.2.7）已经改为Chromium�
 >记得软件安装包和梯子的备份
 
 ## 4.笔记软件:Obsidian
->尽可能在某个学习阶段的开始就确定工作流，不然更换软件或配置的代价是巨大的
 
-+ Obsidian默认安装C盘：不处理，软件位置右键快捷方式查看
-	>这个软件的核心其实是配置（项目目录下`.obsidian`文件夹），而配置文件是在对应的项目下的，可以不占C盘空间
-
-Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同时也在设置限制。下面讨论我从Typora转向Obsidian的心路历程
-
-+ Typora的即时渲染做的很好，对Makedown本身的语法补全非常到位，而这方面Obsidian有差别且需要配置插件
-	+ Makedown：基本语法补全基本一致
-	+ Table：Obsidian需要插件
-	+ LaTeX：语法有区别，之前笔记失效，还在学习
-	+ \`\`\`graph：Obsidian更好看
-	+ 代码块：
-		+ 列表：Typora在改变代码块的列表从时自动对齐代码，Obdian在不使用插件时不行
-	+ 使用模式：Typora更多的是单文件（其实也能维护目录），而Obsidian则是完全以项目为中心
-
-+ Obsidian优势：
-	+ 更完善的文档
-	+ 全平台且开源
-	+ LaTeX通过插件可支持LaTeX的Tikz
-	+ 使用插件可通过Github实现多机同步
-	+ 链接，想象一下，笔记可以像IDE的`Ctrl + Click`一样跳转
-	+ 体感上感觉性能Obsidian比Typora强
-
-+ 其他Makedown编辑器：
-	+ Typora收费
-	+ VSCdoe看个人爱好
-	+ 有道云笔记文件不能源文件导出
-
-	其他不了解
-
-+ Obsidian缺点（至少对我来说）：
-	+ 既然选择以项目为中，为什么不能提供右键打开当前目录的选项？
-
-+ 插件推荐：
-	+ Obsidian Git（需要下载Git）多机同步必备
-	 >我的配置：  
-	    >`Ctrl + Alt + C` -> `commit`、`Ctrl + Alt + H` -> `push`、`Ctrl + Alt + L` -> `pull`  
-		>实际上这个插件提供定时自动commit和push，我由于个人习惯没有使用，上面的快捷键是尽量躲避win的ubuntu系统快捷键的结果
-
-	+ Advanced Tabled：Makedown表格的自动补全，使之相当Typora
-
-+ 使用时遇到的问题：
-	+ `项目根目录/.obsidian/workspace.json`的修改相当频繁，不及时push和pull比较麻烦
+见我的关于Markdown编辑器的[讨论](https://github.com/zweix123/CS-notes/tree/master/Missing-Semester/Markdown-Editor.md)
 
 ## 5.Windows Terminal
 是为诸如cmd和windows powershell这样的命令行程序套一个好看的壳
@@ -177,6 +133,7 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	关于字体文件名中的部分含义：`Regular`常规、`Italic`斜体、`Bold`加粗  
 	我们把字体名称`MesloLGM NF`的所有形态都下载  
 	在wt中修改  
+	+ wt修改字体粗细
 
 3. 安装oh-my-posh：[官方教程](https://ohmyposh.dev/docs/installation/windows)（推荐winget）  
 	oh-my-posh本质是一个程序，提供一些命令修改命令行形态，还记得ps7打开会运行一个脚本嘛？我们只需要将设置放入即可美化脚本
@@ -246,7 +203,6 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 		scoop bucket add extras  # 官方维护的extras bucket
 		```
 
-
 + 相关命令：  
 	```powershell  
 	scoop --help  # 查看帮助
@@ -261,7 +217,6 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	
 	scoop bucket add 桶名 [桶地址]  # 添加桶	
 	```
-
 
 ### Git
 
