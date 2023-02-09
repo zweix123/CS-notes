@@ -238,7 +238,7 @@ win默认使用Microsoft Edge浏览器现在（2023.2.7）已经改为Chromium�
 ### Python3
 
 + 安装：`scoop install python`
-+ Python的开发：以项目为中心使用独立的Python运行环境和所依赖的第三方库，环境管理方式我选择`poetry`（个人喜好），具体见我的[笔记]()
++ Python的开发：以项目为中心使用独立的Python运行环境和所依赖的第三方库，环境管理方式我选择`poetry`（个人喜好），具体见我的[笔记](https://github.com/zweix123/CS-notes/blob/master/Programing-Language/Python/poetry.md)
 
 ### C/C++
 
