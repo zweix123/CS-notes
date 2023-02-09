@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "bbbf94fa8112a088",
+        "id": "71b3726cff42f305",
         "type": "tabs",
         "children": [
           {
-            "id": "3d4b42603702ff9a",
+            "id": "597882d12c47d8e6",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -122,24 +122,24 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:Create new canvas": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "3d4b42603702ff9a",
+  "active": "0ae51cc7d1bd6e85",
   "lastOpenFiles": [
-    "Software-Engineering/Bazel.md",
     "Linux/shell.md",
+    "Missing-Semester/win10开发机配置指南.md",
+    "Missing-Semester/Markdown editor.md",
+    "README.md",
+    "Software-Engineering/Bazel.md",
     "Linux/LinuxTools.md",
     "Linux/LinuxSystemAPI.md",
     "Linux/LinuxNetAPI.md",
     "Linux/GeneralKnowledge.md",
-    "Software-Engineering/thrift.md",
-    "Missing-Semester/win10开发机配置指南.md",
-    "Missing-Semester/Linux机器配置指南.md",
-    "Linux/GNU/GNU Makefile.md"
+    "Software-Engineering/thrift.md"
   ]
 }

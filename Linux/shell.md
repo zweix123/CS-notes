@@ -126,14 +126,26 @@
 	+ `kill -9 pid`：杀死编号为pid的进程
 		>本质是向某个进程传递信号：`kill -s SIGTERM pid`
 
-# 存储
+# 外设
+
+## 显示器
+
+```bash
+xrandr  # 查看接入显示器, 查看显示器名称
+xrandr --output 显示器名称 --auto --primary    # 设置主屏幕
+xrandr --output 屏幕D --right-of 屏幕H --auto  # 双屏, 且H在D的右边
+                         --left-of            #             左
+                         --same-as            # 双屏, 且H和D一样
+```
+
+## 存储
 
 + `df -h`：查看硬盘使用情况
 + `free -h`：查看内存使用情况
 + `du -sh`：查看当前目录占用的硬盘空间
 + `lsblk`
 
-# 网络
+## 网络
 
 + `ping`
 + SSH：[我的教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/SSH.md)
