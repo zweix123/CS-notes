@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "579e09aa5d6ba6eb",
+        "id": "746eea3f8b632b13",
         "type": "tabs",
         "children": [
           {
-            "id": "c76fca53b08397b6",
+            "id": "80e498571dbae862",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,15 +129,15 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "c76fca53b08397b6",
+  "active": "80e498571dbae862",
   "lastOpenFiles": [
+    "Software-Engineering/Bazel.md",
     "Linux/shell.md",
     "Linux/LinuxTools.md",
     "Linux/LinuxSystemAPI.md",
     "Linux/LinuxNetAPI.md",
     "Linux/GeneralKnowledge.md",
     "Software-Engineering/thrift.md",
-    "Software-Engineering/Bazel.md",
     "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/Linux机器配置指南.md",
     "Linux/GNU/GNU Makefile.md"
