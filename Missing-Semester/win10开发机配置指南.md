@@ -238,9 +238,7 @@ win默认使用Microsoft Edge浏览器现在（2023.2.7）已经改为Chromium�
 ### Python3
 
 + 安装：`scoop install python`
-
-+ Python的开发：以项目为中心使用独立的Python运行环境和第三方库，我使用的环境管理方式是Python的标准库`venv`
-	>Python还有其他的环境管理方式（conda和poetry），看个人喜好
++ Python的开发：以项目为中心使用独立的Python运行环境和所依赖的第三方库，环境管理方式我选择`poetry`（个人喜好），具体见我的[笔记]()
 
 ### C/C++
 
@@ -302,7 +300,7 @@ win默认使用Microsoft Edge浏览器现在（2023.2.7）已经改为Chromium�
 ### 开发Python
 
 + 依赖环境：通过Scoop下载Python（Python3）
-+ 插件推荐：Python
++ 插件推荐：Python和Python Extension Pack（它们有依赖的插件，所以会下载很多）
 
 ### 开发C和C++
 >使用clang的一个[教程](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/index.html)
@@ -310,10 +308,11 @@ win默认使用Microsoft Edge浏览器现在（2023.2.7）已经改为Chromium�
 + 项目模板：保姆[教程](https://www.bilibili.com/video/BV1YG4y1v7uB)
 
 + 依赖环境：通过Scoop下载了gcc、g++、gdb、make和cmake
-+ 插件推荐：C/C++和C/C++ Extension Pack
++ 插件推荐：C/C++和C/C++ Extension Pack（它们有依赖的插件，所以会下载很多）
 
 ### 编辑MarkDown
 
+见我关于Markdown编辑器的[讨论](https://github.com/zweix123/CS-notes/tree/master/Missing-Semester/Markdown-Editor.md)
 
 # 工具软件
 
@@ -340,7 +339,7 @@ win默认使用Microsoft Edge浏览器现在（2023.2.7）已经改为Chromium�
 		>不过这是我早期的巨大文件才出现的情况，后来女朋友用这个记笔记我看规模也很大，但是并没有很卡
 
 ## 幻灯片
-见我的[教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/slide.md)
+见我的[讨论](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/slide.md)
 
 ## iVam
 电脑和手机分别安装通过数据线连接可将手机作为笔记本摄像头
