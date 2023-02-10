@@ -92,6 +92,11 @@ Linux通常有包管理器
 	>sh -c "$(wget -O- https://gitee.com/pocmon/mirrors/raw/master/tools/install.sh)"
 	>```
 
+	+ 镜像源好像G掉了，这里说明下
+		1. https://blog.csdn.net/m0_56681539/article/details/127912811
+		2. https://blog.csdn.net/u014454538/article/details/123563034
+		实际上我还关闭了防火墙，然后hosts里有很多其他教程的东西，不知道有没有影响。
+
 + 命令：
 	+ 刷新配置效果：`source ~/.zshrc`
 
