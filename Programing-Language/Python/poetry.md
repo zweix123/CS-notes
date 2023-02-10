@@ -25,6 +25,7 @@ python3 -m poetry --help  # 查看细节
 	+ 删除库：`python3 -m poetry remove 库名`
 
 + 运行程序：`python3 -m poetry run python 文件`
+	>这里的第二个python没有3，我的理解是最开始的python3已经指定python版本了
 
 ### 另一种使用方式
 
@@ -32,8 +33,9 @@ python3 -m poetry --help  # 查看细节
 
 + 库管理：`pip`
 + 运行：`python`
+	>命令理解同上
 
 ## 下载依赖
 
-+ 项目的使用者只需要通过命令`python3 -m poetry install`即将项目中的依赖部署到本地
-	>注意这时项目目录中仍然是整洁的，但是这些依赖实实在在的下载到本地，路径会在使用该命令时输出提示。
++ 项目的使用者只需要通过命令`python3 -m poetry install`即可将项目中的依赖部署到本地
+	>注意这时项目目录中仍然是整洁的，但是这些依赖实实在在的下载到本地，其位置会在使用该命令时输出提示。

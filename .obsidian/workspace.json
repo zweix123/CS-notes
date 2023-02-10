@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4ce2be075bb01338",
+        "id": "48c00512e0cd4c9a",
         "type": "tabs",
         "children": [
           {
-            "id": "fd549179b0e5f087",
+            "id": "38961016b620081d",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -131,6 +131,7 @@
   },
   "active": "0ae51cc7d1bd6e85",
   "lastOpenFiles": [
+    "Programing-Language/Python/poetry.md",
     "Programing-Language/C++/C++库SL(C++11).md",
     "Missing-Semester/Markdown-Editor.md",
     "Missing-Semester/Linux机器配置指南.md",
@@ -138,7 +139,6 @@
     "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/SSH.md",
     "README.md",
-    "Programing-Language/Python/poetry.md",
     "Programing-Language/Python/Spider.md",
     "Programing-Language/Python/命名.md"
   ]
