@@ -32,6 +32,11 @@
 	+ `diff XXX YYY`： 查找文件XXX与YYY的不同点
 
 ## 基操
+
++ 查看机器信息：
+	+ `uname -a`
+	+ `cat /etc/issue`
+
 + `pwd`：显式当前绝对路径
 + `ls`：
 	+ `ll`

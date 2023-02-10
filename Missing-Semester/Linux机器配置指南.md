@@ -2,8 +2,8 @@
 
 + 备份：
 	+ 各软件配置已上云（[地址](https://github.com/zweix123/linux-config)）
-	+ `~/.gitconfig`
-	+ `~/ssh/config`
+	+ `~/.gitconfig`：不再使用，现用现配
+	+ `~/ssh/config`：不再使用
 
 [姊妹篇：Win机器配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)
 
@@ -42,7 +42,7 @@ su passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 	>[清华源](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)、[中科大源](https://mirrors.ustc.edu.cn/repogen/)
 
 	```bash
-	sudo vim /etc/apt/sources.list
+	sudo vi /etc/apt/sources.list
 	```
 
 3. 更新：
@@ -142,7 +142,7 @@ Linux通常有包管理器
 
 + 配置和Windows类似（[我的配置](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md#7%E7%BC%96%E8%BE%91%E5%99%A8vscode)）
 
-### 开发Golang
+#### 开发Golang
 微软[教程](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)已经足够亲爹
 
 ### Obsidian
