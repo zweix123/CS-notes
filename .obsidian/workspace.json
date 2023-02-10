@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "48c00512e0cd4c9a",
+        "id": "a6053c66365e501a",
         "type": "tabs",
         "children": [
           {
-            "id": "38961016b620081d",
+            "id": "9cfa85bec94b09b0",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,13 +129,13 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "0ae51cc7d1bd6e85",
+  "active": "9cfa85bec94b09b0",
   "lastOpenFiles": [
+    "Missing-Semester/slide.md",
+    "Missing-Semester/Markdown.md",
     "Programing-Language/Python/poetry.md",
     "Programing-Language/C++/C++库SL(C++11).md",
-    "Missing-Semester/Markdown-Editor.md",
     "Missing-Semester/Linux机器配置指南.md",
-    "Missing-Semester/slide.md",
     "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/SSH.md",
     "README.md",
