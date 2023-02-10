@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "8fcf844df4a3dc93",
+        "id": "4ce2be075bb01338",
         "type": "tabs",
         "children": [
           {
-            "id": "d1861eac675334c1",
+            "id": "fd549179b0e5f087",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,17 +129,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "d1861eac675334c1",
+  "active": "0ae51cc7d1bd6e85",
   "lastOpenFiles": [
+    "Programing-Language/C++/C++库SL(C++11).md",
+    "Missing-Semester/Markdown-Editor.md",
     "Missing-Semester/Linux机器配置指南.md",
     "Missing-Semester/slide.md",
-    "Missing-Semester/Markdown-Editor.md",
     "Missing-Semester/win10开发机配置指南.md",
-    "Programing-Language/Python/poetry.md",
     "Missing-Semester/SSH.md",
+    "README.md",
+    "Programing-Language/Python/poetry.md",
     "Programing-Language/Python/Spider.md",
-    "Programing-Language/Python/命名.md",
-    "Programing-Language/Python/Quant.md",
-    "Programing-Language/Python/numpy-pandas-matplotlib.md"
+    "Programing-Language/Python/命名.md"
   ]
 }
