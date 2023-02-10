@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "5495feb11bae504c",
+        "id": "c0722af60a3950fa",
         "type": "tabs",
         "children": [
           {
-            "id": "7ffa5c0ffa98335e",
+            "id": "94367ad945525356",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,7 +129,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "7ffa5c0ffa98335e",
+  "active": "94367ad945525356",
   "lastOpenFiles": [
     "Missing-Semester/slide.md",
     "Missing-Semester/Markdown.md",
