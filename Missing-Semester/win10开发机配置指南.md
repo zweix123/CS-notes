@@ -307,7 +307,7 @@
 + 依赖环境：通过Scoop下载Python（Python3）
 + 插件推荐：Python和Python Extension Pack（它们有依赖的插件，所以会下载很多）
 + misc：
-	+ 格式化：
+	+ 格式化：`python format provide` -> `autopep8`
 
 ### 开发C和C++
 >使用clang的一个[教程](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/index.html)
