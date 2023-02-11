@@ -52,9 +52,11 @@ reveal-md slides.md -w --theme white --highlight-theme github
 	\`\`\`
 	```
 
-+ 其他属性
++ 其他属性  
+	背景
 	```
 	<!-- .slide: data-background="./image1.png" -->
 	```
+	逐条演示：[教程](https://blog.csdn.net/qq_45682183/article/details/127032676)
 
 + 其他语法同Mardown

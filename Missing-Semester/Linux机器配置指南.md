@@ -91,11 +91,8 @@ Linux通常有包管理器
 	>sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)"
 	>sh -c "$(wget -O- https://gitee.com/pocmon/mirrors/raw/master/tools/install.sh)"
 	>```
-
-	+ 镜像源好像G掉了，这里说明下
-		1. https://blog.csdn.net/m0_56681539/article/details/127912811
-		2. https://blog.csdn.net/u014454538/article/details/123563034
-		实际上我还关闭了防火墙，然后hosts里有很多其他教程的东西，不知道有没有影响。
+	
+	我在使用VMware workstation时出现错误，通过这两个博客解决（[一个](https://blog.csdn.net/m0_56681539/article/details/127912811)、[另一个](https://blog.csdn.net/u014454538/article/details/123563034)）
 
 + 命令：
 	+ 刷新配置效果：`source ~/.zshrc`
@@ -180,5 +177,5 @@ Linux通常有包管理器
 
 + 在登录云服务器后终端会先输出一段话，这些在`/etc/update-motd.d/10-help-text`（Ubuntu），这是一个可执行文件，具体请STFW
 
-## ssh到VMware workstation虚拟机
+### ssh vm
 [教程](https://cloud.tencent.com/developer/article/1679861#:~:text=windows%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%A6%82%E4%BD%95SSH%E8%BF%9E%E6%8E%A5VMware%E7%9A%84Linux%E8%99%9A%E6%8B%9F%E6%9C%BA%201%201%E3%80%81%E5%AE%89%E8%A3%85%E5%A5%BDUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA%202,2%E3%80%81%E5%BB%BA%E7%AB%8BIP%E6%98%A0%E5%B0%84%203%203%E3%80%81%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BASSH%204%204%E3%80%81%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%98%B2%E7%81%AB%E5%A2%99)

@@ -2,11 +2,12 @@
 	+ 连接云服务器
 	+ 使用Github
 
-+ 配置命令：
++ 配置脚本：
 	```bash
 	ssh-keygen
+	touch ~/.ssh/authorized_keys ~/.ssh/config
 	```
-
+ 
 ---
 
 以下是概念性介绍
@@ -44,12 +45,6 @@
 	 + `authorized_keys`：如上所述
 	 + `known_hosts`和`know_hosts.old`：记录本机ssh到的机器（包括云服务机和Github）
 
-+ 关于备份，由于涉及到RSA公钥秘钥，所以不建议备份
-	+ 本机，新机器`ssh-keygen`，编写`config`，然后更新云服务器和Github
-	+ 云服务器，新机器更新`authorized_keys`
-
-
-
 ## SCP
 命令格式：`scp source destination`：将`source`路径下的文件复制到`destination`中
 
@@ -64,5 +59,3 @@
 	+ 服务器：`服务器别名:...`
 		+ `服务器别名:/home/acs/...`
 		+ `服务器别名:家目录下的文件`：服务器的家目录不用起始`~`
-
-
