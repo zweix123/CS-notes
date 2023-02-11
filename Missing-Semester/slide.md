@@ -1,3 +1,6 @@
+https://blog.csdn.net/qq_45682183/article/details/127032676
+
+
 >本文讨论的是制作像[南大蒋炎岩老师那样的](http://jyywiki.cn/OS/2022/slides/1.slides#/)运行于Web的幻灯片，而不是微软的力量点
 
 |                                     |                   简介                   |           优点           |       缺点       |
