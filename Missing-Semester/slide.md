@@ -1,5 +1,3 @@
-https://blog.csdn.net/qq_45682183/article/details/127032676
-
 
 >本文讨论的是制作像[南大蒋炎岩老师那样的](http://jyywiki.cn/OS/2022/slides/1.slides#/)运行于Web的幻灯片，而不是微软的力量点
 
@@ -24,9 +22,9 @@ https://blog.csdn.net/qq_45682183/article/details/127032676
 + VSCode插件：
 	+ Markdown Preview Enhanced：即上面讨论的插件，用于局部渲染查看
 	+ Markdown All in One：Manual语法补全
-+ reveal-md：
-	```bash
-	npm install -g reveal-md
++ reveal-md：  
+	```
+npm install -g reveal-md
 	```
 
 # Use
