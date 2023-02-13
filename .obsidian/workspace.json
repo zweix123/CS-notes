@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "8f4b18d7543a824e",
+        "id": "3fe1761ad1c5f7b9",
         "type": "tabs",
         "children": [
           {
-            "id": "f25b07ffa4281eb9",
+            "id": "c42730b15b441372",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Missing-Semester/slide.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -73,6 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Missing-Semester/slide.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Missing-Semester/slide.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -110,7 +116,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Missing-Semester/slide.md"
+              }
             }
           }
         ],
@@ -129,10 +137,10 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "f25b07ffa4281eb9",
+  "active": "c42730b15b441372",
   "lastOpenFiles": [
-    "Missing-Semester/slide.md",
     "Missing-Semester/SSH.md",
+    "Missing-Semester/slide.md",
     "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/Linux机器配置指南.md",
     "Missing-Semester/Markdown.md",
