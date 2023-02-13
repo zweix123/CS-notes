@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "c6ed52f248d47c2b",
+        "id": "814f0e2780a75d93",
         "type": "tabs",
         "children": [
           {
-            "id": "e7ea68fe337dfa6b",
+            "id": "63d255e7bfb4c9b2",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Linux/shell.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -73,6 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Linux/shell.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,6 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Linux/shell.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -110,7 +116,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Linux/shell.md"
+              }
             }
           }
         ],
@@ -129,17 +137,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "e7ea68fe337dfa6b",
+  "active": "63d255e7bfb4c9b2",
   "lastOpenFiles": [
+    "Missing-Semester/Linux机器配置指南.md",
+    "Linux/shell.md",
+    "Missing-Semester/win10开发机配置指南.md",
     "Programing-Language/Python/poetry.md",
     "Programing-Language/Python/grammar.md",
     "Programing-Language/Python/Django.md",
-    "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/slide.md",
-    "Linux/shell.md",
     "Missing-Semester/Markdown.md",
     "Missing-Semester/SSH.md",
-    "Programing-Language/C++/C++库SL(C++11).md",
-    "Missing-Semester/Linux机器配置指南.md"
+    "Programing-Language/C++/C++库SL(C++11).md"
   ]
 }

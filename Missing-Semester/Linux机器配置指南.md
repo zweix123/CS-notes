@@ -2,8 +2,8 @@
 
 + 备份：
 	+ 各软件配置已上云（[地址](https://github.com/zweix123/linux-config)）
-	+ `~/.gitconfig`：不再使用，现用现配
-	+ `~/ssh/config`：不再使用
+	+ `~/.gitconfig`：不备份，现用现配
+	+ `~/ssh/config`：不备份
 
 [姊妹篇：Win机器配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)
 

@@ -19,9 +19,8 @@ poetry self update
 
 + 我的配置：
 	```bash
-	poetry config virtualenvs.in-project true  # 在项目下创建虚拟环境
+	poetry config virtualenvs.in-project true  # 在项目下创建虚拟环境，这样VSCode也能找到对应库
 	```
-
 ## 使用
 
 + 初始化：

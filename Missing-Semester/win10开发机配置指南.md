@@ -309,8 +309,9 @@
 
 + 依赖环境：通过Scoop下载Python（Python3）
 + 插件推荐：Python和Python Extension Pack（它们有依赖的插件，所以会下载很多）
++ 开发流程：使用poetry做环境管理，教程可[见](https://github.com/zweix123/CS-notes/blob/master/Programing-Language/Python/poetry.md)
 + misc：
-	+ 格式化：`python format provide` -> `autopep8`
+	+ 格式化：`python format provide` -> `black`（默认autopep8，个人喜好）
 
 ### 开发C和C++
 >使用clang的一个[教程](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/index.html)
