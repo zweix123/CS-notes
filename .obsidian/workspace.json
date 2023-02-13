@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "d5a6ef823d604870",
+        "id": "4c154e9e050a7aa0",
         "type": "tabs",
         "children": [
           {
-            "id": "a59583af0da9589a",
+            "id": "9c804727727e52fd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Missing-Semester/win10开发机配置指南.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -77,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Missing-Semester/win10开发机配置指南.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +89,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Missing-Semester/win10开发机配置指南.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -116,9 +110,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Missing-Semester/win10开发机配置指南.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -137,7 +129,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "a59583af0da9589a",
+  "active": "9c804727727e52fd",
   "lastOpenFiles": [
     "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/slide.md",
