@@ -110,8 +110,21 @@
 >记得软件安装包和梯子的备份
 
 ## 4.笔记软件:Obsidian
+>为什么选择这款软件作为我的Markdown编辑器见我的关于Markdown编辑器的[讨论](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/Markdown.md)
 
-见我的关于Markdown编辑器的[讨论](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/Markdown.md)
++ Obsidian默认安装C盘：不处理，软件位置右键快捷方式查看
+	>这个软件的核心其实是配置（项目目录下`.obsidian`文件夹），而配置文件是在对应的项目下的，可以不占C盘空间
+
++ 插件推荐：
+	+ Obsidian Git（需要下载Git）多机同步必备
+	 >我的配置：  
+	    >`Ctrl + Alt + C` -> `commit`、`Ctrl + Alt + H` -> `push`、`Ctrl + Alt + L` -> `pull`  
+		>实际上这个插件提供定时自动commit和push，我由于个人习惯没有使用，上面的快捷键是尽量躲避win的ubuntu系统快捷键的结果
+
+	+ Advanced Tabled：Makedown表格的自动补全，使之相当Typora
+
++ 使用时遇到的问题：
+	+ `项目根目录/.obsidian/workspace.json`的修改相当频繁，不及时push和pull比较麻烦
 
 ## 5.Windows Terminal
 >win11自带wt
@@ -314,6 +327,7 @@
 + 开发流程：使用poetry做环境管理，教程可[见](https://github.com/zweix123/CS-notes/blob/master/Programing-Language/Python/poetry.md)
 + misc：
 	+ 格式化：`python format provide` -> `black`（默认autopep8，个人喜好）
+		>如何让这样的配置跟随项目？这里提供一个思路，vscode有两种settings，一种是关于软件本身的，另一个是关于工作区的，想打开的目录下的`.vsvscode/settings.json`文件
 
 ### 开发C和C++
 >使用clang的一个[教程](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/index.html)

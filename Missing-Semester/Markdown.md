@@ -1,18 +1,11 @@
 # 语法
 无论是Markdown的语法还是Markdown的方言还是LaTeX简单语法还是Markdown内置的graph语法千万不要记笔记，全面浏览、之后多用、随用随查是最好的
 
-
 # Editor
-
-
-
 
 ## old notes
 
 >尽可能在某个学习阶段的开始就确定工作流，不然更换软件或配置的代价是巨大的
-
-+ Obsidian默认安装C盘：不处理，软件位置右键快捷方式查看
-	>这个软件的核心其实是配置（项目目录下`.obsidian`文件夹），而配置文件是在对应的项目下的，可以不占C盘空间
 
 Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同时也在设置限制。下面讨论我从Typora转向Obsidian的心路历程
 
@@ -42,14 +35,3 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 + Obsidian缺点（至少对我来说）：
 	+ 既然选择以项目为中，为什么不能提供右键打开当前目录的选项？
-
-+ 插件推荐：
-	+ Obsidian Git（需要下载Git）多机同步必备
-	 >我的配置：  
-	    >`Ctrl + Alt + C` -> `commit`、`Ctrl + Alt + H` -> `push`、`Ctrl + Alt + L` -> `pull`  
-		>实际上这个插件提供定时自动commit和push，我由于个人习惯没有使用，上面的快捷键是尽量躲避win的ubuntu系统快捷键的结果
-
-	+ Advanced Tabled：Makedown表格的自动补全，使之相当Typora
-
-+ 使用时遇到的问题：
-	+ `项目根目录/.obsidian/workspace.json`的修改相当频繁，不及时push和pull比较麻烦
