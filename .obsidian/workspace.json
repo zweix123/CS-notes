@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4c154e9e050a7aa0",
+        "id": "6c3999c1623f8d92",
         "type": "tabs",
         "children": [
           {
-            "id": "9c804727727e52fd",
+            "id": "3884439cddf48d7b",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,7 +129,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "9c804727727e52fd",
+  "active": "3884439cddf48d7b",
   "lastOpenFiles": [
     "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/slide.md",
