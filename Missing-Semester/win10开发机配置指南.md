@@ -268,8 +268,6 @@
 + 调试所需命令：
 	+ `scoop install gdb`（`gdb`）
 
-### node.js
-+ 安装：`scoop install nodejs`
 
 ## 7.编辑器:VSCode
 处理软件本身，更重要的是插件和配置，VSCode的配置分两个部分：`C:\User\$用户名\.vscode\`目录（插件和配置）和项目目录下的相关配置文件
@@ -342,7 +340,7 @@
 见我的关于Markdown编辑器的[讨论](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/Markdown.md)
 
 + 插件：
-	+ 渲染：Markdown Preview Enhanced
+	+ 渲染：Markdown Preview Enhanced：`Ctrl + k -> v`
 	+ 编辑：Markdown All in One
 		+ 提供补全
 		+ 生成目录（后续我会开发批量生成Markdown目录的工具）

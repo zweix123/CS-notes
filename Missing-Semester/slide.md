@@ -12,4 +12,6 @@
 reveal相关支持垂直幻灯片和代码特定行高亮  
 slidev不支持垂直幻灯片但是支持代码特定行高亮
 
+---
+
 我开发了一款相当于Reveal.js的前端框架，主要是使用我的Markdown方言将Markdown文件转换成一个html文件，其幻灯片风格是蒋老师那种（实际上格式代码就是cppy的老师），具体见项目[仓库](https://github.com/zweix123/jyyslide-md)

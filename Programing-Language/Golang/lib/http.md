@@ -112,14 +112,11 @@ http.Handle("/hello", http.HandlerFunc(func(ResponseWriter, *Request){
 *   HTTP报文格式：基于文本的
     *   请求报文：
         *   请求行request line：  
-            | 请求方法 | 空格 | URL | 空格 | 协议版本 | 回车符 | 换行符 |  
-            | ---- | -- | --- | -- | ---- | --- | --- |
+
         *   请求头部header：0个或多个  
-            | 头部字段名 | : | 值 | 回车符 | 换行符 |  
-            | ----- | - | - | --- | --- |
+
         *   空行blank line  
-            | 回车符 | 换行符 |  
-            | --- | --- |
+
         *   请求数据body
 
     *   响应报文：
