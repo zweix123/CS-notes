@@ -1,12 +1,4 @@
-# 编辑环境
+overleaf不香嘛？干嘛本地写？
 
-+ 适用于：
-	+ 机器：`win`
-	+ 包管理器：`scoop`
-	+ 编辑器：`VSCode`
-
-1. 安装LaTeX：
-	```bash
-	scoop install miktex  # 实际上就是LaTeX, 这是一个发行版
-	```
-
+>	+ [编辑器和编程器教程](https://zhuanlan.zhihu.com/p/508823527)
+>	+ [支持中文教程](https://jingyan.baidu.com/article/ff411625e229d512e482379c.html)

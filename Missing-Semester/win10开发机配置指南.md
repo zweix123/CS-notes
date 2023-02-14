@@ -125,6 +125,17 @@
 
 + 使用时遇到的问题：
 	+ `项目根目录/.obsidian/workspace.json`的修改相当频繁，不及时push和pull比较麻烦
+	+ 对于报错：
+		```
+		error: Your local changes to the following files would be overwritten by merge:
+				.obsidian/workspace.json
+		Please commit your changes or stash them before you merge.
+		Aborting
+		```
+		解决方案：
+		```bash
+		git checkout .\.obsidian\workspace.json
+		```
 
 ## 5.Windows Terminal
 >win11自带wt
