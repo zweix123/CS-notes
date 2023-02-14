@@ -369,11 +369,18 @@
 	+ 节点限制，并不是数量限制，而是过多的节点会非常卡
 		>不过这是我早期的巨大文件才出现的情况，后来女朋友用这个记笔记我看规模也很大，但是并没有很卡
 
-## VMware Workstation Pro
-
-
 ## 幻灯片
 见我关于基于Web的幻灯片演示的[讨论](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/slide.md)
+
+## LaTeX
+见我关于win下适用latex的[教程]()
+>和配置指南一脉相承
+
+
+## 虚拟机VMware Workstation Pro
+
+
+
 
 ## iVam
 电脑和手机分别安装通过数据线连接可将手机作为笔记本摄像头
