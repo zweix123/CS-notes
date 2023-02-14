@@ -68,7 +68,7 @@
 	+ 中英切换：只保留`Ctrl + Space`
 
 + 文件的查看：
-	+ <font color="red">打开文件扩展名</font>
+	+ <font color="red">打开文件扩展名</font>    <---
 	+ 打开隐藏的项目
 
 + 电源设置：
