@@ -1,11 +1,29 @@
+我个人使用Markdown的原因是，对于word，它的功能非常之多，对应着的，想要自如的使用这些功能需要很高的学习成本，实际上在大部分场景下并不需要这些功能，Markdown其实就是提供一些“受限”的功能，功能受限、意味着学习成本更低。除此之外Markdown还可以一对一转换成HTML，将笔记转换成网页更有利于其传播。
+
 # 语法
-无论是Markdown的语法还是Markdown的方言还是LaTeX简单语法还是Markdown内置的graph语法千万不要记笔记，全面浏览、之后多用、随用随查是最好的
+无论是Markdown的语法还是Markdown的方言还是LaTeX简单语法还是Markdown内置的graph语法千万不要记笔记，全面浏览、之后多用、随用随查是最好的。
 
 # Editor
 
-## old notes
++ 考虑角度：
+	+ 编辑模式：Markdown的主要编辑模式有即时渲染，即对应的格式不显示源码，直接是渲染后的效果；或者是分屏浏览，一边的源码、一边是渲染后的结果
+	+ Markdown方言：有些Markdown编辑器还提供“Markdown方言”。比如Typora的`[TCO]`生成目录、Obsidian的内部链接`[[]]`，这些确实扩大了Markdown的功能，但是如果这些功能并不是所有编辑器都提供的话，意味着我们的笔记没有更强的鲁棒性，比如我的笔记有些功能如果不能在Github上渲染，那么在给其他人看的时候就影响体验
+	+ 一款软件还要考虑其对平台的支持和收费情况。
+	+ 笔记能否源码导出。
+	+ 笔记能否多机管理。
+	+ 个人习惯
 
->尽可能在某个学习阶段的开始就确定工作流，不然更换软件或配置的代价是巨大的
+每种编辑器各有优缺点，我的选择是按照自己的习惯选择的，下面描述一下心路历程，请读者结合各编辑器特点自行选择
+
++ Typora：即时渲染能力极强，在其加持下，甚至感觉不到Markdown语法；可以管理项目、可以查看小标题（两者只能同时看到一个）；维护本地文件，上云需要其他手段；收费使用。
++ 有道云笔记：免费，自动上云；编辑模式有即时渲染和双屏，体感一般。文件不能源码导出。
++ VSCode结合插件（Markdown Preview Enhanced、Markdown All in One）：只能双屏编辑，但是VSCode编辑能力极强；似乎不能看小标题；维护本地文件，上云需要其他手段。
++ Obsidian：即使渲染能力略逊于Typora，可以同时查看项目和小标题，维护本地项目，可通过插件上云，免费且全平台支持，具有丰富的插件！
++ Notion：不了解。
+
+最后我选择主要使用Obsidian，单文件使用VSCode
+
+## Obsidian
 
 Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同时也在设置限制。下面讨论我从Typora转向Obsidian的心路历程
 
@@ -26,12 +44,15 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ 链接，想象一下，笔记可以像IDE的`Ctrl + Click`一样跳转
 	+ 体感上感觉性能Obsidian比Typora强
 
-+ 其他Makedown编辑器：
-	+ Typora收费
-	+ VSCdoe看个人爱好
-	+ 有道云笔记文件不能源文件导出
-
-	其他不了解
++ 使用：
+	+ [win下安装和插件推荐](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md#4%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6obsidian)
+	+ [linux下安装](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/Linux%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md#obsidian)
 
 + Obsidian缺点（至少对我来说）：
 	+ 既然选择以项目为中，为什么不能提供右键打开当前目录的选项？
+
+# 导出
+
+## 导出成PDF
+
+## 导出成HTML

@@ -3,18 +3,18 @@
 	+ 数据目录
 	+ Chrome数据目录：`C:\Users\$用户名\AppData\Local\Google\Chrome\User Data\Default\`
 	+ Clash for Windows配置文件：`C:\Users\$用户名\.config`
-	+ wt配置文件：不备份（`C:\Users\$用户名\AppData\Local\Microsoft\Windows Terminal`  ）  
+	+ wt配置文件：按照实际感受配置、不备份（`C:\Users\$用户名\AppData\Local\Microsoft\Windows Terminal`  ）  
 		posh配置：已上云
 	+ VSCode配置目录：按文档说明配置、不备份
 	+ Git配置文件：按文档说明配置、不备份
 	---
-	+ Snipaste配置文件：唯一个人位置——开机自启动
+	+ Snipaste配置文件：唯一个人位置——开机自启动，故不备份
 
 [姊妹篇：Linux机器配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/Linux%E6%9C%BA%E5%99%A8%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)
 
 # 前言
 
-+ 您可以去看一下这个[标题](#初始设置)下标红的操作，如果您不会或者不能理解这样的设置，可能这个教程并不适合您。
++ 您可以去看一下这个[标题](#初始设置)下标红（标斜或被箭头指向）的操作，如果您不会或者不能理解这样的设置，可能这个教程并不适合您。
 
 >作此博客的发心：
 >1. 作为重置系统的记录，在下次重置或者初始化一个win机器时提供可供参考的记录。
@@ -68,7 +68,7 @@
 	+ 中英切换：只保留`Ctrl + Space`
 
 + 文件的查看：
-	+ <font color="red">打开文件扩展名</font>    <---
+	+ *<font color="red">打开文件扩展名</font>*    <---
 	+ 打开隐藏的项目
 
 + 电源设置：
@@ -327,7 +327,7 @@
 + 开发流程：使用poetry做环境管理，教程可[见](https://github.com/zweix123/CS-notes/blob/master/Programing-Language/Python/poetry.md)
 + misc：
 	+ 格式化：`python format provide` -> `black`（默认autopep8，个人喜好）
-		>如何让这样的配置跟随项目？这里提供一个思路，vscode有两种settings，一种是关于软件本身的，另一个是关于工作区的，想打开的目录下的`.vsvscode/settings.json`文件
+		>如何让这样的配置跟随项目？这里提供一个思路，vscode有两种settings，一种是关于软件本身的，另一个是关于工作区的，项目目录下的`.vsvscode/settings.json`文件
 
 ### 开发C和C++
 >使用clang的一个[教程](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/index.html)
@@ -340,6 +340,12 @@
 
 ### 编辑MarkDown
 见我的关于Markdown编辑器的[讨论](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/Markdown.md)
+
++ 插件：
+	+ 渲染：Markdown Preview Enhanced
+	+ 编辑：Markdown All in One
+		+ 提供补全
+		+ 生成目录（后续我会开发批量生成Markdown目录的工具）
 
 # 工具软件
 
