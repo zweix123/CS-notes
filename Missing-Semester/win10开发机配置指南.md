@@ -124,17 +124,20 @@
 	+ Advanced Tabled：Makedown表格的自动补全，使之相当Typora
 
 + 使用时遇到的问题：
-	+ `项目根目录/.obsidian/workspace.json`的修改相当频繁，不及时push和pull比较麻烦
-	+ 对于报错：
+	+ `项目根目录/.obsidian/workspace.json`的修改相当频繁，不及时push和pull比较麻烦  
+		比如对于报错：
 		```
 		error: Your local changes to the following files would be overwritten by merge:
 				.obsidian/workspace.json
 		Please commit your changes or stash them before you merge.
 		Aborting
 		```
-		解决方案：
-		```bash
+		可通过下面命令解决
+		```powershell
 		git checkout .\.obsidian\workspace.json
+		```
+		```bash
+		git checkout -- ./.obsidian/workspace.json
 		```
 
 ## 5.Windows Terminal
@@ -384,9 +387,7 @@
 见我关于基于Web的幻灯片演示的[讨论](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/slide.md)
 
 ## LaTeX
-见我关于win下适用latex的[教程]()
->和配置指南一脉相承
-
+这边建议使用overleaf
 
 ## 虚拟机VMware Workstation Pro
 

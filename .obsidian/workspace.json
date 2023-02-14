@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ae675b1c35b2e07a",
+        "id": "aa8782cc5b779347",
         "type": "tabs",
         "children": [
           {
-            "id": "c4b243f647293b55",
+            "id": "d45e355f93a2e556",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,17 +129,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "0ae51cc7d1bd6e85",
+  "active": "d45e355f93a2e556",
   "lastOpenFiles": [
-    "Missing-Semester/LaTeX.md",
-    "Missing-Semester/win10开发机配置指南.md",
-    "Programing-Language/Python/poetry.md",
-    "Programing-Language/Python/grammar.md",
-    "Programing-Language/Python/Django.md",
     "Missing-Semester/slide.md",
-    "Linux/shell.md",
-    "Missing-Semester/Markdown.md",
     "Missing-Semester/SSH.md",
-    "Programing-Language/C++/C++库SL(C++11).md"
+    "Missing-Semester/Markdown.md",
+    "Missing-Semester/Linux机器配置指南.md",
+    "Missing-Semester/win10开发机配置指南.md",
+    "Missing-Semester/LaTeX.md",
+    "Missing-Semester/未命名.md",
+    "Missing-Semester/未命名 1.md",
+    "Programing-Language/Golang/misc.md",
+    "Programing-Language/Golang/基本语法.md"
   ]
 }
