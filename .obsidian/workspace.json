@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "aa8782cc5b779347",
+        "id": "51012b4146ef0e36",
         "type": "tabs",
         "children": [
           {
-            "id": "d45e355f93a2e556",
+            "id": "f1aac4c58dfc506c",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,8 +129,9 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "d45e355f93a2e556",
+  "active": "0ae51cc7d1bd6e85",
   "lastOpenFiles": [
+    "Algorithm/Simple-Algorithm.md",
     "Missing-Semester/slide.md",
     "Missing-Semester/SSH.md",
     "Missing-Semester/Markdown.md",
@@ -139,7 +140,6 @@
     "Missing-Semester/LaTeX.md",
     "Missing-Semester/未命名.md",
     "Missing-Semester/未命名 1.md",
-    "Programing-Language/Golang/misc.md",
-    "Programing-Language/Golang/基本语法.md"
+    "Programing-Language/Golang/misc.md"
   ]
 }
