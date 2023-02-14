@@ -41,3 +41,7 @@ poetry self update
 ## 部署
 
 + 在项目目录下使用命令`poetry install`即可将项目中的虚拟环境配置到本地
+
+## 问题
+
++ 如果报错`AssertionError`，可能的原因是项目和添加的包重名
