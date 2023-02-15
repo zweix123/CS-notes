@@ -1,18 +1,16 @@
->Linux有众多发行版、机器也分云服务器、虚拟机和物理机，该指南并没有限制某种机器，请读者选择对您有帮助的部分
+>Linux有众多发行版、机器也分云服务器、虚拟机和物理机，该指南并没有限制某种机器，对独属于某种机器的问题会单独说明，请读者选择对您有帮助的部分
 
-+ 关于备份：各软件备份已上云[地址](https://github.com/zweix123/linux-config)
++ 关于备份：各软件配置已上云[地址](https://github.com/zweix123/linux-config)
 
 [姊妹篇：Win机器配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)
 
-## 机器检查
+## 0.机器检查
 
 + `ping`检查网络：
 	+ IPv6：`ping mirrors.tuna.tsinghua.edu.cn -c 4`
 	+ IPv4：`ping www.baidu.com -c 4`
 
-## 初始设置
-
-### 创建用户
+## 1.创建用户
 
 >建议为机器创建非root用户，后续使用在非root用户中
 
@@ -26,10 +24,10 @@ passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 # hostname 主机名  # 可修改主机名, 需要重启终端或机器才可以查看修改
 ```
 
-### 配置SSH
+## 2.配置SSH
 我的[教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/SSH.md)
 
-### 修改软件源
+## 3.修改软件源
 
 + 源位置：`/etc/apt/sources.list`
 
@@ -51,23 +49,8 @@ passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 	sudo apt upgrade # 让新的包的信息更新所有软件
 	```
 
-### 导入软件配置
-在装好刚需软件后导入[我的配置](https://github.com/zweix123/linux-config)
 
-### 改键
->有图形化的机器才需要
-
-+ `Caps`->`right`：用于zsh的历史命令补全
-
-```bash
-# xmodmap -pke
-# xmodmap -pm
-xmodmap -e "remove lock = Caps_Lock"
-xmodmap -e "keycode 66 = Right NoSymbol Right"
-# 还原：setxkbmap 或者 setxkbmap -option
-```
-
-## 刚需软件
+## 4.下载刚需软件
 
 ### vim
 
@@ -77,16 +60,14 @@ xmodmap -e "keycode 66 = Right NoSymbol Right"
 
 + 初始化：类似Windows（[我的win10开发机配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md#git)）
 
-### shell
-
-+ 通识：
+### zsh
++ shell通识：
 	+ `echo $SHELL`查看使用shell
 	+ `cat /etc/shells`查看机器有的shell程序
 	+ `chsh -s shell绝对路径`设置默认shell
 		>[关于chsh](https://wangchujiang.com/linux-command/c/chsh.html)
 
-#### 强化
-[我的配置](https://github.com/zweix123/linux-config)（嘎嘎好用）
++ [我的配置](https://github.com/zweix123/linux-config)（嘎嘎好用）
 
 主要通过zsh和oh-my-zsh，前者是和bash一样的一个shell，但是它有更强的拓展性，但是想通过配置利用这些扩展性比较复杂，oh-my-zsh相当于一种辅助配置工具
 
@@ -138,8 +119,22 @@ xmodmap -e "keycode 66 = Right NoSymbol Right"
 		git clone https://gitee.com/phpxxo/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 		```
 
+## 5.导入软件配置
+导入[我的配置](https://github.com/zweix123/linux-config)
+
+# 物理机
+
+## 6.改建
++ `Caps`->`right`：用于zsh的历史命令补全
+```bash
+# xmodmap -pke
+# xmodmap -pm
+xmodmap -e "remove lock = Caps_Lock"
+xmodmap -e "keycode 66 = Right NoSymbol Right"
+# 还原：setxkbmap 或者 setxkbmap -option
+```
+
 ## 其他软件
-需要机器有图形化
 
 ### VSCode
 
@@ -182,9 +177,13 @@ xmodmap -e "keycode 66 = Right NoSymbol Right"
 
 + 让软件图标出现在应用程序栏中：将上面的desktop文件mv到`~/.local/share/application/`
 
-## misc
+# 虚拟机
+
++ 本机ssh到虚拟机[教程](https://cloud.tencent.com/developer/article/1679861#:~:text=windows%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%A6%82%E4%BD%95SSH%E8%BF%9E%E6%8E%A5VMware%E7%9A%84Linux%E8%99%9A%E6%8B%9F%E6%9C%BA%201%201%E3%80%81%E5%AE%89%E8%A3%85%E5%A5%BDUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA%202,2%E3%80%81%E5%BB%BA%E7%AB%8BIP%E6%98%A0%E5%B0%84%203%203%E3%80%81%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BASSH%204%204%E3%80%81%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%98%B2%E7%81%AB%E5%A2%99)
+
+# 服务器
+
+
+# misc
 
 + 在登录云服务器后终端会先输出一段话，这些在`/etc/update-motd.d/10-help-text`（Ubuntu），这是一个可执行文件，具体请STFW
-
-### ssh vm
-[教程](https://cloud.tencent.com/developer/article/1679861#:~:text=windows%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%A6%82%E4%BD%95SSH%E8%BF%9E%E6%8E%A5VMware%E7%9A%84Linux%E8%99%9A%E6%8B%9F%E6%9C%BA%201%201%E3%80%81%E5%AE%89%E8%A3%85%E5%A5%BDUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA%202,2%E3%80%81%E5%BB%BA%E7%AB%8BIP%E6%98%A0%E5%B0%84%203%203%E3%80%81%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BASSH%204%204%E3%80%81%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%98%B2%E7%81%AB%E5%A2%99)
