@@ -15,3 +15,7 @@ Manual推荐Bazellisk，但是我使用的方式是“使用 Bazel 的 apt 代�
 >```
 >即可运行后面的命令
 
+## QuickStart
+
++ `WORKSPACE` file，主要其定位作用，一般位于项目目录结构的根目录下
++ `BUILD` files，告知Bazel如何

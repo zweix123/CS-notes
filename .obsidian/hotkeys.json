@@ -88,14 +88,6 @@
       "key": "`"
     }
   ],
-  "table-editor-obsidian:next-cell": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "ArrowRight"
-    }
-  ],
   "table-editor-obsidian:next-row": [
     {
       "modifiers": [
@@ -165,5 +157,6 @@
       ],
       "key": "Backspace"
     }
-  ]
+  ],
+  "table-editor-obsidian:next-cell": []
 }
