@@ -54,6 +54,19 @@ passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 ### 导入软件配置
 在装好刚需软件后导入[我的配置](https://github.com/zweix123/linux-config)
 
+### 改键
+>有图形化的机器才需要
+
++ `Caps`->`right`：用于zsh的历史命令补全
+
+```bash
+# xmodmap -pke
+# xmodmap -pm
+xmodmap -e "remove lock = Caps_Lock"
+xmodmap -e "keycode 66 = Right NoSymbol Right"
+# 还原：setxkbmap 或者 setxkbmap -option
+```
+
 ## 刚需软件
 
 ### vim

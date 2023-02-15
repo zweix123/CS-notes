@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "5ebe0e1c4612af43",
+        "id": "8d3784ec75388edd",
         "type": "tabs",
         "children": [
           {
-            "id": "19dc05aa7e4652d5",
+            "id": "d64a6a4453df5ab1",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,17 +129,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "19dc05aa7e4652d5",
+  "active": "d64a6a4453df5ab1",
   "lastOpenFiles": [
     "Missing-Semester/Linux机器配置指南.md",
-    "Missing-Semester/Markdown.md",
-    "Missing-Semester/win10开发机配置指南.md",
-    "Missing-Semester/键盘.md",
-    "Missing-Semester/slide.md",
-    "Missing-Semester/LaTeX.md",
-    "Missing-Semester/SSH.md",
+    "Programing-Language/Golang/misc.md",
+    "Programing-Language/Golang/base.md",
+    "Programing-Language/Golang/concurrency.md",
+    "Programing-Language/Golang/lib/misc.md",
+    "Programing-Language/Golang/lib/http.md",
+    "Linux/shell.md",
     "Programing-Language/Python/poetry.md",
-    "Programing-Language/Python/grammar.md",
-    "Programing-Language/Python/Django.md"
+    "Missing-Semester/win10开发机配置指南.md",
+    "Algorithm/Simple-Algorithm.md"
   ]
 }
