@@ -80,22 +80,6 @@
       "key": "E"
     }
   ],
-  "table-editor-obsidian:delete-column": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "Delete"
-    }
-  ],
-  "table-editor-obsidian:delete-row": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "Backspace"
-    }
-  ],
   "table-editor-obsidian:format-table": [
     {
       "modifiers": [
@@ -162,6 +146,24 @@
         "Shift"
       ],
       "key": "Insert"
+    }
+  ],
+  "table-editor-obsidian:delete-column": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "Delete"
+    }
+  ],
+  "table-editor-obsidian:delete-row": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "Backspace"
     }
   ]
 }

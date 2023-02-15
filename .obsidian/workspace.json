@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0e5a6013e1b0f055",
+        "id": "7053ba896bfdba5e",
         "type": "tabs",
         "children": [
           {
-            "id": "af384cdd91901e33",
+            "id": "3d62e3a62f9d3e98",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -132,14 +132,14 @@
   "active": "0ae51cc7d1bd6e85",
   "lastOpenFiles": [
     "Software-Engineering/Bazel.md",
-    "Programing-Language/Golang/Intro.md",
-    "Programing-Language/Python/poetry.md",
-    "Programing-Language/Golang/dlv.md",
-    "Programing-Language/Rust/Grammer.md",
-    "Programing-Language/Rust/Introduction.md",
-    "Programing-Language/Python/Intro.md",
-    "Programing-Language/Python/Lib.md",
-    "Programing-Language/Python/Quant.md",
-    "Programing-Language/Python/Spider.md"
+    "Software-Engineering/thrift.md",
+    "Missing-Semester/Linux机器配置指南.md",
+    "Missing-Semester/Markdown.md",
+    "Missing-Semester/win10开发机配置指南.md",
+    "Missing-Semester/键盘.md",
+    "Missing-Semester/slide.md",
+    "Missing-Semester/LaTeX.md",
+    "Missing-Semester/SSH.md",
+    "Programing-Language/Python/poetry.md"
   ]
 }

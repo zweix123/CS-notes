@@ -1,9 +1,4 @@
-# [thrift](https://thrift.apache.org/)
->建议版本：`0.16.0`
-
-对于C/S模式：双方需要通信的接口和数据格式，thrift就是相关工具，并且其更近一步，允许通信双方是任意语言。
-
-+ 用法：
-	+ `.thrift`文件：按照语法编写通信接口和数据格式  
-
-	可将`.thrift`文件编译到特定的语言，即可在生成的文件中完成逻辑。
+[official website](https://thrift.apache.org/)
+## Intro
++ IDL, Interface description language接口描述语言：是CORBA的一部分，既然是语言，就有很多种
++ Thrift是IDL相关项目，是Facebook开发的跨语言平台的一种RPC服务框架，利用IDL文件定义接口和数据类型，通过Thrift提供的编译器编成不语言的代码，从而实现跨语言。
