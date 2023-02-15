@@ -4,6 +4,8 @@
 ```bash
 python3 -m pip install poetry  # 之后可直接在命令行使用命令poetry
 ```
+>至少我在win10和Ubuntu22中都会将poetry设置成命令，但是在阿里云Ubuntu20.04中，不可以，需要通过`python3 -m poetry`使用
+
 ## 更新
 ```bash
 poetry self update

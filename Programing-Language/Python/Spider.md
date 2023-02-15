@@ -204,3 +204,15 @@
 
     
 
+## selenium
+
+
+```c++
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+
+driver.get('http://baidu.com')
+
+driver.quit() 
+```

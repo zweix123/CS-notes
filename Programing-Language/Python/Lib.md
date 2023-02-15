@@ -102,76 +102,10 @@ os.listdir('目录') #返回这个目录下所有目录和文件的名字（文�
 
   + 方法：`setUp(self)`：测试程序先进行该方法，在运行其他test_开头方法：在此创建对象和答案列表
 
-# 数据分析相关
 
-###  xlrd/xlwd
+# 图形化
 
-```c++
-data = xlrd.open_workbook(file)
-table = data.sheets()[0]
-
-def get_(col):
-    res = []
-    for row in range(2, table.nrows):
-        sam = table.cell_value(row, col)
-        if sam != '':
-            res.append(sam)
-    return res
-```
-
-## numpy、pandas和matplotlib
-
-# 网络编程相关
-
-```c++
-from selenium import webdriver
-
-driver = webdriver.Chrome()
-
-driver.get('http://baidu.com')
-
-driver.quit() 
-
-```
-
-# 杂
-
-## 图像识别pytesseract
-
-```python
-import os
-import sys
-
-file = sys.argv[1]
-
-if not os.path.exists(file):
-    print(file + " is not exists")
-    quit()
-
-op = ''
-if len(sys.argv) == 3:
-    op = sys.argv[2]
-
-
-from PIL import Image
-import pytesseract
-
-
-image = Image.open(file)
-
-if op == 'chi_sim':
-    res = pytesseract.image_to_string(image, lang='chi_sim')
-else :
-    res = pytesseract.image_to_string(image)
-
-print(res)
-```
-
-## 游戏Pygame
-
-> 以此为代表的图形化框架
-
-### 概念
+## Pygame
 
 + surface：在Pygame种是屏幕的一部分，用于显示游戏元素
 
@@ -199,7 +133,7 @@ print(res)
     oabaoab_settings = Settings()
     ```
 
-### 类
+---
 
 + 框架：整个游戏又一个while控制，里面的一个for监控事件
 
@@ -240,15 +174,45 @@ print(res)
     + `KEYDOWN`：点击：进一步比对`event.key == ...`
       + `K_RIGHT`：右键点击
 
-  
-
 + 图片类：`image`
 
   ```python
   image = pygame.image.load('图片路径') # 获取图片，返回的也是一种surface
-  
   ```
 
   + 图片属性类：rect：通过`get_rect()`获取：
     + 属性值：`centerx`：类成员
     + 属性值：`bottom：类成员`
+
+# MISC
+
+## 图像识别pytesseract
+
+```python
+import os
+import sys
+
+file = sys.argv[1]
+
+if not os.path.exists(file):
+    print(file + " is not exists")
+    quit()
+
+op = ''
+if len(sys.argv) == 3:
+    op = sys.argv[2]
+
+
+from PIL import Image
+import pytesseract
+
+
+image = Image.open(file)
+
+if op == 'chi_sim':
+    res = pytesseract.image_to_string(image, lang='chi_sim')
+else :
+    res = pytesseract.image_to_string(image)
+
+print(res)
+```
