@@ -1,9 +1,6 @@
 >Linux有众多发行版、机器也分云服务器、虚拟机和物理机，该指南并没有限制某种机器，请读者选择对您有帮助的部分
 
-+ 备份：
-	+ 各软件配置已上云（[地址](https://github.com/zweix123/linux-config)）
-	+ `~/.gitconfig`：不备份，现用现配
-	+ `~/ssh/config`：不备份
++ 关于备份：各软件备份已上云[地址](https://github.com/zweix123/linux-config)
 
 [姊妹篇：Win机器配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md)
 
@@ -24,12 +21,15 @@ adduser 用户名 # 创建用户
 # 需要填写密码、重复密码以及其他信息，其他信息无脑回车即可，最后Y确认
 usermod -aG sudo 用户名 # 给用户分配sudo权限
 # 用户在第一次使用sudo时要求输入root用户密码
-su passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
+passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 
 # hostname 主机名  # 可修改主机名, 需要重启终端或机器才可以查看修改
 ```
 
-### 修改源
+### 配置SSH
+我的[教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/SSH.md)
+
+### 修改软件源
 
 + 源位置：`/etc/apt/sources.list`
 
@@ -48,25 +48,21 @@ su passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 3. 更新：
 	```bash
 	sudo apt update # 让系统知道所有包的最新信息
-	# sudo apt upgrade # 让新的包的信息更新所有软件
+	sudo apt upgrade # 让新的包的信息更新所有软件
 	```
 
-### end
-
-+ 导入配置和备份
-+ 配置ssh（[我的教程](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/SSH.md)）
+### 导入软件配置
+在装好刚需软件后导入[我的配置](https://github.com/zweix123/linux-config)
 
 ## 刚需软件
-Linux通常有包管理器
 
 ### vim
 
 ### tmux
 
 ### git
-要求已经配置好了ssh
 
-+ 初始化：类似Windows（[我的win10开发机配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md#5.-Git)）
++ 初始化：类似Windows（[我的win10开发机配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/win10%E5%BC%80%E5%8F%91%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md#git)）
 
 ### shell
 

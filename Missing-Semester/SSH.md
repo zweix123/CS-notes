@@ -4,10 +4,9 @@
 
 + 配置脚本：
 	```bash
-	ssh-keygen
-	touch ~/.ssh/authorized_keys ~/.ssh/config
+	ssh-keygen && touch ~/.ssh/authorized_keys ~/.ssh/config  # 之后一路回车
 	```
- 
+
 ---
 
 以下是概念性介绍
