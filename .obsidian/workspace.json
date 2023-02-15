@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "6a8abb1644d70cb8",
+        "id": "b45a1ba4ed31889e",
         "type": "tabs",
         "children": [
           {
-            "id": "15bf12f68cd924b7",
+            "id": "919826a1d69910d4",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,14 +129,14 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "0ae51cc7d1bd6e85",
+  "active": "919826a1d69910d4",
   "lastOpenFiles": [
+    "Programing-Language/Golang/quickstart.md",
+    "Programing-Language/Golang/concurrency.md",
+    "Programing-Language/Golang/base.md",
     "Missing-Semester/Linux机器配置指南.md",
     "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/LaTeX.md",
-    "Programing-Language/Golang/misc.md",
-    "Programing-Language/Golang/base.md",
-    "Programing-Language/Golang/concurrency.md",
     "Programing-Language/Golang/lib/misc.md",
     "Programing-Language/Golang/lib/http.md",
     "Linux/shell.md",

@@ -1,3 +1,4 @@
+pre: [quickstart](Programing-Language/Golang/quickstart.md)
 ## 包
 *   每个Go程序都是由包构成的、程序从`main`包开始运行、
     ```go

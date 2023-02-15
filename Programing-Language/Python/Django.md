@@ -24,7 +24,7 @@
 	```
 5. 利用镜像生成容器（并运行）：
 	```bash
-	docker run -p 20000:22 -p 8000:8000 --name django_server --hostname appser -itd django_lesson:1.0  # 这里的hostname是和课程内不同的
+	docker run -p 20000:22 -p 8000:8000 --name django_server --hostname django_server -itd django_lesson:1.0  # 这里的hostname是和课程内不同的
 	```
 	+ 20000端口用于ssh登录
 	+ 8000端口用于调试  
