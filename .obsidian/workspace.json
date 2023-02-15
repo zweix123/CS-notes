@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "2cfcbc51dcdbd6ec",
+        "id": "0e5a6013e1b0f055",
         "type": "tabs",
         "children": [
           {
-            "id": "1afbd44c72f9a951",
+            "id": "af384cdd91901e33",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -73,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Programing-Language/Golang/Intro.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -90,7 +89,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Programing-Language/Golang/Intro.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -112,9 +110,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Programing-Language/Golang/Intro.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -135,15 +131,15 @@
   },
   "active": "0ae51cc7d1bd6e85",
   "lastOpenFiles": [
-    "Programing-Language/Python/poetry.md",
+    "Software-Engineering/Bazel.md",
     "Programing-Language/Golang/Intro.md",
+    "Programing-Language/Python/poetry.md",
     "Programing-Language/Golang/dlv.md",
     "Programing-Language/Rust/Grammer.md",
     "Programing-Language/Rust/Introduction.md",
     "Programing-Language/Python/Intro.md",
     "Programing-Language/Python/Lib.md",
     "Programing-Language/Python/Quant.md",
-    "Programing-Language/Python/Spider.md",
-    "Programing-Language/Python/Base.md"
+    "Programing-Language/Python/Spider.md"
   ]
 }
