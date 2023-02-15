@@ -81,6 +81,8 @@
 	| 电源按钮 | 休眠   | 休眠   |
 	| 关盖     | 不使用 | 不使用 |
 
++ 改键：改建脚本在
+	+ 将`Caps`键映射到`Right`键用于posh历史补全（不然方向键右键太远了）
 ---
 
 + 不能进入`C:\Program Files\WindowsApps`：[教程](https://jingyan.baidu.com/article/1876c852de26a0c80b1376c5.html)
