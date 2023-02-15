@@ -131,15 +131,6 @@
 	+ `kill -9 pid`：杀死编号为pid的进程
 		>本质是向某个进程传递信号：`kill -s SIGTERM pid`
 
-## misc
-+ 开机自运行脚本：`crontab`（Linux计划任务）：  
-	到达设定时间点，自动出发某些脚本的运行  
-	有种特殊的任务叫`@reboot`，即为在系统启动时自动运行
-	+ `crontab -e`进行编辑
-	```
-	@reboot /home/netease/Configs/linux-config/changekey.sh  # 改键
-	@reboot /home/netease/Configs/netease/cmd/modify_screen  # 调整屏幕
-	```
 # 外设
 
 ## 显示器

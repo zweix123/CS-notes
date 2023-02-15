@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "050b8238ec9f6a78",
+        "id": "020afe13674cdb9a",
         "type": "tabs",
         "children": [
           {
-            "id": "ac9cf34ff1ef14a1",
+            "id": "78c5bf939b74fe4d",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,7 +129,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "0ae51cc7d1bd6e85",
+  "active": "78c5bf939b74fe4d",
   "lastOpenFiles": [
     "Linux/shell.md",
     "Missing-Semester/Linux机器配置指南.md",
