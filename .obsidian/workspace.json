@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "7053ba896bfdba5e",
+        "id": "050b8238ec9f6a78",
         "type": "tabs",
         "children": [
           {
-            "id": "3d62e3a62f9d3e98",
+            "id": "ac9cf34ff1ef14a1",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -131,15 +131,15 @@
   },
   "active": "0ae51cc7d1bd6e85",
   "lastOpenFiles": [
+    "Linux/shell.md",
+    "Missing-Semester/Linux机器配置指南.md",
     "Software-Engineering/Bazel.md",
     "Software-Engineering/thrift.md",
-    "Missing-Semester/Linux机器配置指南.md",
     "Missing-Semester/Markdown.md",
     "Missing-Semester/win10开发机配置指南.md",
     "Missing-Semester/键盘.md",
     "Missing-Semester/slide.md",
     "Missing-Semester/LaTeX.md",
-    "Missing-Semester/SSH.md",
-    "Programing-Language/Python/poetry.md"
+    "Missing-Semester/SSH.md"
   ]
 }
