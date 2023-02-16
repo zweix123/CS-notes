@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "65847150963d74b7",
+        "id": "0f75fdcecc64cfd2",
         "type": "tabs",
         "children": [
           {
-            "id": "bc93aee14818e14c",
+            "id": "942b78b37d4e910b",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,17 +129,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "bc93aee14818e14c",
+  "active": "942b78b37d4e910b",
   "lastOpenFiles": [
-    "Programing-Language/Golang/lib/cobra.md",
     "blog/多机协同.md",
+    "README.md",
+    "Operating-System/操作系统2 内存.md",
+    "Operating-System/操作系统0 概述.md",
+    "Software-Engineering/Bazel.md",
+    "Programing-Language/Golang/lib/cobra.md",
     "source/blog/tmp.md",
     "Linux/shell.md",
     "Missing-Semester/Linux机器配置指南.md",
-    "Software-Engineering/Bazel.md",
-    "Software-Engineering/thrift.md",
-    "Missing-Semester/Markdown.md",
-    "Missing-Semester/win10开发机配置指南.md",
-    "Missing-Semester/键盘.md"
+    "Software-Engineering/thrift.md"
   ]
 }
