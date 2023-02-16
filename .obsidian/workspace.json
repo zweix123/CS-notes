@@ -14,8 +14,17 @@
               "type": "empty",
               "state": {}
             }
+          },
+          {
+            "id": "7aaa033ecc73d588",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -129,7 +138,7 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "8a37639ccaac1d6b",
+  "active": "0ae51cc7d1bd6e85",
   "lastOpenFiles": [
     "Missing-Semester/win10开发机配置指南.md",
     "blog/多机协同.md",
