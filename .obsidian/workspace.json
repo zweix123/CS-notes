@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "020afe13674cdb9a",
+        "id": "65847150963d74b7",
         "type": "tabs",
         "children": [
           {
-            "id": "78c5bf939b74fe4d",
+            "id": "bc93aee14818e14c",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,17 +129,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "78c5bf939b74fe4d",
+  "active": "bc93aee14818e14c",
   "lastOpenFiles": [
+    "Programing-Language/Golang/lib/cobra.md",
+    "blog/多机协同.md",
+    "source/blog/tmp.md",
     "Linux/shell.md",
     "Missing-Semester/Linux机器配置指南.md",
     "Software-Engineering/Bazel.md",
     "Software-Engineering/thrift.md",
     "Missing-Semester/Markdown.md",
     "Missing-Semester/win10开发机配置指南.md",
-    "Missing-Semester/键盘.md",
-    "Missing-Semester/slide.md",
-    "Missing-Semester/LaTeX.md",
-    "Missing-Semester/SSH.md"
+    "Missing-Semester/键盘.md"
   ]
 }
