@@ -300,6 +300,7 @@
 		`Ctrl + Shift + p`：全局配置
 
 + 编辑器设置：参考[视频](https://www.bilibili.com/video/BV1YG4y1v7uB/)
+	+ *设置同步*
 	+ 关闭受限模式：
 		打开设置，键入`workspace.trust`  
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/source/Missing-Semester/vscode受限模式关闭.png" style="zoom:59%;" div align=center />

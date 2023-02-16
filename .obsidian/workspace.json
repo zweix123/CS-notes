@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "e10034af93d146be",
+        "id": "342c88a3810b8776",
         "type": "tabs",
         "children": [
           {
-            "id": "8293da8da3c029ee",
+            "id": "8a37639ccaac1d6b",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,12 +129,12 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "0ae51cc7d1bd6e85",
+  "active": "8a37639ccaac1d6b",
   "lastOpenFiles": [
+    "Missing-Semester/win10开发机配置指南.md",
     "blog/多机协同.md",
     "README.md",
     "blog/().md",
-    "Missing-Semester/win10开发机配置指南.md",
     "Operating-System/操作系统2 内存.md",
     "Operating-System/操作系统0 概述.md",
     "Software-Engineering/Bazel.md",
