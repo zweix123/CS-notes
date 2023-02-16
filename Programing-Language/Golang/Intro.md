@@ -4,7 +4,7 @@
 	```
 	vim ~/.zshrc
 	export PATH=$PATH:/usr/local/go/bin  # manual中的
-	export PATH=$PATH:which(go env GOPATH)  # 见下我关于依赖管理问题的讨论
+	export PATH=$PATH:$(go env GOPATH)/bin  # 见下我关于依赖管理问题的讨论
 	```
 ### config
 ```bash
@@ -18,7 +18,7 @@ go env -w GOPROXY=https://goproxy.io,direct  # 设置软件源
 + 命令`go env`可查看关于Golang的环境变量，上面config中的GOPROXY就在其中
 ---
 + GOPATH默认是`$HOME/go`
-+ GO111MODULE默认是`on`
++ GO111MODULE默认为空，相当于`on`
 ---
 + 命令`go mod init ...`初始化项目，生成`go.mod`文件
 ---
