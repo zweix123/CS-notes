@@ -1,44 +1,39 @@
 {
   "main": {
-    "id": "177a738bc56c1aad",
+    "id": "ae587e37257465f4",
     "type": "split",
     "children": [
       {
-        "id": "342c88a3810b8776",
+        "id": "5969540243adb3d7",
         "type": "tabs",
         "children": [
           {
-            "id": "8a37639ccaac1d6b",
+            "id": "89361883ff2b244b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "7aaa033ecc73d588",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Programing-Language/Golang/Intro.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "f1d76d6bcabbf97e",
+    "id": "98d037cbdfab828e",
     "type": "split",
     "children": [
       {
-        "id": "da21f249684f1ba6",
+        "id": "1a63beb78f0a591f",
         "type": "tabs",
         "children": [
           {
-            "id": "0ae51cc7d1bd6e85",
+            "id": "cc8f302ae7b358ff",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,7 +43,7 @@
             }
           },
           {
-            "id": "cbca63b68a923595",
+            "id": "99b0d8f72eac3469",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -69,19 +64,20 @@
     "width": 200
   },
   "right": {
-    "id": "6c8a99ce5874aa24",
+    "id": "0c1a63d41922c647",
     "type": "split",
     "children": [
       {
-        "id": "1b1c8f419bb75cb3",
+        "id": "ca5d55cd8a05d2ec",
         "type": "tabs",
         "children": [
           {
-            "id": "9180e6d3a08b670c",
+            "id": "2a9ffbf423c5d99b",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Programing-Language/Golang/Intro.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -93,18 +89,19 @@
             }
           },
           {
-            "id": "8da107fc64634359",
+            "id": "7e507a4d2c334fce",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Programing-Language/Golang/Intro.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "a1cf5eec5f54f4c0",
+            "id": "e570664dc2658df8",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -115,11 +112,13 @@
             }
           },
           {
-            "id": "c67305eff6db5929",
+            "id": "f24a296047342127",
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Programing-Language/Golang/Intro.md"
+              }
             }
           }
         ],
@@ -131,24 +130,15 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:Create new canvas": false,
-      "command-palette:打开命令面板": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false
+      "command-palette:打开命令面板": false
     }
   },
-  "active": "0ae51cc7d1bd6e85",
+  "active": "89361883ff2b244b",
   "lastOpenFiles": [
-    "Missing-Semester/win10开发机配置指南.md",
-    "blog/多机协同.md",
-    "README.md",
-    "blog/().md",
-    "Operating-System/操作系统2 内存.md",
-    "Operating-System/操作系统0 概述.md",
-    "Software-Engineering/Bazel.md",
-    "Programing-Language/Golang/lib/cobra.md",
-    "source/blog/tmp.md",
-    "Linux/shell.md"
+    "Programing-Language/Golang/lib/cobra.md"
   ]
 }

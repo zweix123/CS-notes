@@ -1,16 +1,23 @@
 ## Install
-[Manual](https://go.dev/doc/install)
+按照[manual](https://go.dev/doc/install)下载即可
+## config
 ```bash
+
+go env -w GO111MODULE=on 
+go env -w GOPROXY=https://goproxy.io,direct
+
 echo "\nexport PATH=\$PATH:\$HOME/go/bin\n" >> ~/.zshrc
 ```
 
-+ 这里体现了Golang的现代性，就是Golang有一系列的工具，且可以扩展，可以通过`go install ...`下载可执行文件，这些是下载到目录下的`go/bin`的，但是manual中没有
+### go env
+可查看关于Golang的环境变量
 
-## config
-```bash
-go env -w GO111MODULE=on  # 
-go env -w GOPROXY=https://goproxy.io,direct
-```
+
+
+
+关于Golang的库管理比较复杂
+
+
 
 ### GOPATH and go get
 Go在09年出现使用GOPATH，这不是包管理器，go get将对应的部件放到GOPATH中。  
@@ -32,3 +39,4 @@ Go Modules在Go 1.11出现，使用项目中的`go.mod`文件管理不同项目�
 ## project file struct
 
 >[资料](https://github.com/golang-standards/project-layout/blob/master/README_zh.md)
+
