@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "bf5cdbabf3f4130a",
+        "id": "bc10727cf7a641f4",
         "type": "tabs",
         "children": [
           {
-            "id": "1fb4aefbcfa68fd5",
+            "id": "f90d186ddc6a148e",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,17 +129,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "1fb4aefbcfa68fd5",
+  "active": "f90d186ddc6a148e",
   "lastOpenFiles": [
+    "Programing-Language/Python/PDF.md",
+    "Programing-Language/Python/Django.md",
+    "Programing-Language/Python/Base Grammer.md",
+    "Programing-Language/Python/Lib.md",
     "Programing-Language/Golang/Intro.md",
     "Programing-Language/Python/poetry.md",
     "Missing-Semester/Linux机器配置指南.md",
     "Missing-Semester/SSH.md",
     "Programing-Language/Golang/lib/spf13.md",
-    "Programing-Language/Golang/lib/http.md",
-    "Programing-Language/Golang/lib/misc.md",
-    "Programing-Language/Golang/lib/命令行框架cobra.md",
-    "Programing-Language/Golang/lib/配置框架viper.md",
-    "Missing-Semester/win10开发机配置指南.md"
+    "Programing-Language/Golang/lib/http.md"
   ]
 }

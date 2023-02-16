@@ -2,7 +2,6 @@
 + 学习提示：
 	+ y总的工程课以实用为主，对原理性的解释不多，要多总结思考
 	+ y总强行用终端开发，是个很好的练习机会，不过VSCode的remoting SSH也挺香。
-	+ y总使用的项目名为`acapp`，我这里是`moba`，并且笔记中尽可能解耦项目名
 
 # misc
 
@@ -24,7 +23,7 @@
 	```
 5. 利用镜像生成容器（并运行）：
 	```bash
-	docker run -p 20000:22 -p 8000:8000 --name django_server --hostname django_server -itd django_lesson:1.0  # 这里的hostname是和课程内不同的
+	docker run -p 20000:22 -p 8000:8000 --name django_server --hostname django_server -itd django_lesson:1.0  # 这里的命令和课程内不同的(我指定了hosttname)
 	```
 	+ 20000端口用于ssh登录
 	+ 8000端口用于调试  
