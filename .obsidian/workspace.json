@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "50b30468ea0222b8",
+        "id": "298a544a77fbf4a6",
         "type": "tabs",
         "children": [
           {
-            "id": "3beddca073073e9b",
+            "id": "591e9cb5d78076f1",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,17 +129,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "cc8f302ae7b358ff",
+  "active": "591e9cb5d78076f1",
   "lastOpenFiles": [
-    "Programing-Language/Golang/Intro.md",
     "Missing-Semester/Linux机器配置指南.md",
+    "Missing-Semester/SSH.md",
+    "Programing-Language/Golang/lib/spf13.md",
+    "Programing-Language/Golang/Intro.md",
+    "Programing-Language/Golang/lib/http.md",
+    "Programing-Language/Golang/lib/misc.md",
+    "Programing-Language/Golang/lib/命令行框架cobra.md",
+    "Programing-Language/Golang/lib/配置框架viper.md",
     "Missing-Semester/win10开发机配置指南.md",
-    "Distributed-System/RPC.md",
-    "Distributed-System/Raft.md",
-    "Distributed-System/MapReduce.md",
-    "Distributed-System/Introduction.md",
-    "Software-Engineering/gPRC和protobuf.md",
-    "Software-Engineering/ProtoBuf和protoc.md",
-    "Software-Engineering/Thrift.md"
+    "Distributed-System/RPC.md"
   ]
 }

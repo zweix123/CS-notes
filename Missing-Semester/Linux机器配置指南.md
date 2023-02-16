@@ -150,6 +150,7 @@ xmodmap -e "keycode 66 = Right NoSymbol Right"
 
 #### 开发Golang
 微软[教程](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)已经足够亲爹
++ how to debug: [tutor](https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code)
 
 ### Obsidian
 

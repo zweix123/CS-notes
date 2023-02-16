@@ -27,7 +27,7 @@ go env -w GOPROXY=https://goproxy.io,direct  # 设置软件源
 	+ 下载的二进制文件就在GOPATH路径下的`bin`目录下  
 		这时就可以解释为什么要将GOPATH/bin设置为环境变量，只有这样下载的二进制文件才能作为一个命令使用
 ---
-+ `go mod tidy`可以依照项目中依赖的使用情况自动更新go.mod
++ `go mod tidy`可以依照项目中依赖的使用情况自动更新go.mod，所以这里推荐使用这句命令，即使各大开发框架的install是get
 ---
 除了上面的go.mod文件，还有一个`go.sum`文件，其中的是依赖的校验信息
 
@@ -39,3 +39,4 @@ go env -w GOPROXY=https://goproxy.io,direct  # 设置软件源
 
 ## IDE
 VSCode [Manual](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)
++ how to debug: [tutor](https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code)
