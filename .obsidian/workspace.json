@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "5969540243adb3d7",
+        "id": "6e7eeab9b1807cd8",
         "type": "tabs",
         "children": [
           {
-            "id": "89361883ff2b244b",
+            "id": "881c356362d3e0e6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Programing-Language/Golang/Intro.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -77,7 +73,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Programing-Language/Golang/Intro.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +89,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Programing-Language/Golang/Intro.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -116,9 +110,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Programing-Language/Golang/Intro.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -137,8 +129,17 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "89361883ff2b244b",
+  "active": "881c356362d3e0e6",
   "lastOpenFiles": [
-    "Programing-Language/Golang/lib/cobra.md"
+    "Distributed-System/RPC.md",
+    "Distributed-System/Raft.md",
+    "Distributed-System/MapReduce.md",
+    "Distributed-System/Introduction.md",
+    "Software-Engineering/gPRC和protobuf.md",
+    "Software-Engineering/ProtoBuf和protoc.md",
+    "Software-Engineering/Thrift.md",
+    "Programing-Language/Golang/lib/命令行框架cobra.md",
+    "Software-Engineering/Bazel.md",
+    "Programing-Language/Golang/lib/配置框架viper.md"
   ]
 }
