@@ -1,3 +1,12 @@
++ 一行超人：
+	```go
+	package main
+	import "net/http"
+	func main() {
+		http.ListenAndServe(":8080", http.FileServer(http.Dir("./")))
+	}
+	```
+
 ## Handler
 
 标准库`net/http`中Web Server模型：系统中有一个Handler，每每收到一个HTTp请求，就创建一个goruntine去处理，或者使用一个多路复用器做路由，每每收到一个HTTP请求，将其分发给不同的Handler。
