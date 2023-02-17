@@ -40,6 +40,7 @@ def merge_pdf(pdf_folder, outfn):
 ## pdfplumer
 + 踩坑
 	+ 在win10下，需要安装软件[ImageMagick](https://docs.wand-py.org/en/latest/guide/install.html#install-imagemagick-on-windows)和Ghostscript
+		>神奇的是，这些都能通过scoop下
 
 ```python
 import os
