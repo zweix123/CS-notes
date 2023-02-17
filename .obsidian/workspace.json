@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "bf0c894316429e7b",
+        "id": "f3b44aeafb8256a9",
         "type": "tabs",
         "children": [
           {
-            "id": "cd91eaa632451d64",
+            "id": "56e8708ecd6fe94f",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,12 +129,12 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "cd91eaa632451d64",
+  "active": "56e8708ecd6fe94f",
   "lastOpenFiles": [
+    "Missing-Semester/win10开发机配置指南.md",
     "Pasted image 20230217164001.png",
     "Pasted image 20230217163950.png",
     "Pasted image 20230217163946.png",
-    "Missing-Semester/win10开发机配置指南.md",
     "Programing-Language/Python/PDF.md",
     "blog/多机协同.md",
     "Programing-Language/Python/image.md",
