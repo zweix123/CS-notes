@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "f7db096dbea6eeeb",
+        "id": "f8299c26152fcd55",
         "type": "tabs",
         "children": [
           {
-            "id": "4b0f0180e0d049a4",
+            "id": "3def3a1b76648e5b",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -129,8 +129,10 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "4b0f0180e0d049a4",
+  "active": "3def3a1b76648e5b",
   "lastOpenFiles": [
+    "Missing-Semester/win10开发机配置指南.md",
+    "Linux/LinuxTools.md",
     "Programing-Language/Python/PDF.md",
     "Programing-Language/Python/Django.md",
     "Programing-Language/Python/Base Grammer.md",
@@ -138,8 +140,6 @@
     "Programing-Language/Golang/Intro.md",
     "Programing-Language/Python/poetry.md",
     "Missing-Semester/Linux机器配置指南.md",
-    "Missing-Semester/SSH.md",
-    "Programing-Language/Golang/lib/spf13.md",
-    "Programing-Language/Golang/lib/http.md"
+    "Missing-Semester/SSH.md"
   ]
 }
