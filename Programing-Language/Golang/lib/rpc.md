@@ -1,0 +1,1 @@
+[Manual](https://pkg.go.dev/net/rpc)
