@@ -45,6 +45,7 @@
 + 达坦科技
 + risingwave
 
+greptime
 西门子、宁德时代、吉比特、华泰证券、greptime、高途、沐曈科技、美的、完美世界、依图、招银网络、联影
 睿思芯科、卡方、迈普、蔚来、成章数据、达梦金仓星环
 risingware、掌趣科技、ScienTech、databend、小蝇科技、启林投资、正仁量化、中望软件、迅雷
