@@ -1,4 +1,4 @@
->大数据运算的代表
+>大数据处理的典型代表
 
 + Reference：
 	+ [论文](http://nil.csail.mit.edu/6.824/2022/papers/mapreduce.pdf)本文

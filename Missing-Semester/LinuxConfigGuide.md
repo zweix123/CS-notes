@@ -251,6 +251,10 @@ Obsidian提供的文件类型是`AppImage`，加上可执行权限（`chmod +x x
 	+ 这里`/usr/share/icons/`目录通放置图标
 	+ 这里`/opt/`目录通常放置第三方软件，我看有个目录叫`apps`叫放进来了。
 
+### misc
+
++ [解决 Ubuntu22 Alt + Tab 后的滚动错误行为](https://blog.csdn.net/qq_33512762/article/details/128985799)
+
 # 云服务器
 
 # 虚拟机
