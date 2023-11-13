@@ -1,4 +1,4 @@
 .obsidian/workspace.json
-.mypy_cache/
+**/.mypy_cache/
 # .vscode/
 **/__pycache__/
