@@ -1,4 +1,4 @@
-+ Reference：
+ + Reference：
 	+ [Paper](http://nil.csail.mit.edu/6.824/2022/papers/mapreduce.pdf)（被最多人链接的，但是下载到pad上有密码无法修改） | [Paper](https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/mapreduce-osdi04.pdf)（824课程下的，没密码可以修改）
 	+ [叉鸽的翻译](https://blog.mrcroxx.com/posts/paper-reading/mapreduce-osdi04/#36-%E4%BB%BB%E5%8A%A1%E5%89%AF%E6%9C%AC)
 
@@ -130,6 +130,3 @@ Paper里提到系统将input files分成M份，每个通常是16MB或者64MB大�
 + 还有一个不同是在论文中worker和master之间是可以相互通信的，但是在Lab只有master有rpc服务端，所以论文中所有master向worker的通信需要改
 	+ master向worker分配任务 -> worker主动向master请求任务
 	+ master ping worker去心跳检测 -> worker定期向master发送心跳检测
-
-
-
