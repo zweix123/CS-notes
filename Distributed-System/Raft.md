@@ -22,17 +22,18 @@ Raft是一个管理Replicated Log的Consensus Algorithm
 
 	+ 但是由于Raft是中心式的，所以理论上其性能是比不上Paxos的
 
-Raft会以Library的形式存在于服务中，即每个服务的副本由两部分组成：应用程序代码和Raft库
++ Raft的安全性已经得到证明和验证，Raft的性能已经被比较。
 
-安全性和性能已经被证明/验证和比较
++ Raft会以库的形式存在于服务中，即每个服务的部分由两部分组成，应用程序代码和Raft库
 
-+ Features
++ Raft的Features：
 	+ Strong leader：单领导人让数据的流向更简单
 	+ Leader election：使用随机timer选举领导，在心跳检测的基础上引入少量机制，用来快速解决冲突
 		+ 这里我翻译不好，我理解是一种trade-off，即随机化虽然增加了不确定性，但是也减少了状态空间
 	+ Membership changes：使用joint consensus的方法更改集群，运行两种不同的配置重叠
 
 # Decomposition
+
 
 + 约定：
 	+ 我们称集群中的机器为server，那么自然外界的我们服务的就是client
@@ -46,7 +47,8 @@ Raft会以Library的形式存在于服务中，即每个服务的副本由两部
 		>如果client向follower发请求，follower会将其重定向到leader
 + follower简介：
 	+ passive的，不发request，只response to request from leader and candidates
-+ candidate简介
++ candidate简介：  
+	None
 
 转换如下图  
 ![状态机](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Distributed-System/状态机.png)
@@ -71,7 +73,7 @@ Raft会以Library的形式存在于服务中，即每个服务的副本由两部
 + RPC：server重发rpc如果它没有收到response，且它们也会并行发送以获得最高性能
 	+ `RequestVote`：candidate as server
 	+ `AppendEntrie`：leader as server：
-		+ 复制log entry
+		+ replicate log entry
 		+ heartbeat
 
 ## Leader Election
@@ -87,10 +89,9 @@ Raft会以Library的形式存在于服务中，即每个服务的副本由两部
 	 该Candidate一直持续到：自己或其他赢得选举或者选举分裂/选举超时
 	 + 当一个Candidate收到`AppendEntries`，对方的term大于等于自己，则承认其地位，退回到follower，否则拒绝，继续。
 
-	+ 获胜条件：获得集群中**大多数server对同一term的vote**
+	+ 获胜条件：获得集群中**大多数**server对同一term的vote
 	+ 选举规则：对于给定的term，一个follower只能投递一票，follower投票的标准是First-Come-First-Served
 		>保证一个term只有一个leader
-
 
 	2. 当一个Candidate赢得选举，其变成Leader，并向其他server发送heatbbeat
 
@@ -101,79 +102,67 @@ Raft会以Library的形式存在于服务中，即每个服务的副本由两部
 		+ 用于选举期间
 
 ## Log Replication
-leader必须接受从clients来的log entry并将其复制到集群的server中
+一个leader被选举出来后，它就开始服务client的request，leader有职责将log entry复制到集群的servers上。
 
-一旦一个leader被选举出来，它就开始服务客户端请求
++ Pre：
+	+ cmd：即command，每个client request包含一个cmd，是client给到cluster的
+	+ log entry（或者简称entry）：leader将client给的cmd包装进log entry中作为raft的处理单位
+	+ logs（有时用log）：即日志文件，由Log Entry组成，每个server上都有
+
++ Log Entry数据结构：
+	+ Index：log entry在logs中的唯一递增整数编号
+	+ Term：创建该log entry的leader的term number
+	+ cmd：如上
 
 + 复制流程：
-	1. 每个client request包含一个cmd，leader将其包装成entry并追加到自己的logs中，然后通过并发地`AppendEntries`将其发送给集群中的其他结点
+	1. leader将client request中的cmd包装成log entry并追加到自己的logs中，然后并发地使用`AppendEntries`将其发送给集群中的其他结点。
+		+ leader会无限重发（即使它已经给client response了）直到所有的follower都存储了所有log entris
+			>follower crash, follower sun 慢, 网络丢包
 
-	+ 如果由于follower crash或者其运行的慢或者网络丢包，leader会无限重发（即使它已经给了client response）直到所有的follower最终存储所有的log entries
+	2. 当这个entry已经被safely replicated时，leader将这个entry应用到自己的状态机中，并将结果返回给client
 
-	2. 当这个entry已经被safely replicated时，leader将这个entry放进自己的状态机中，并将结果返回给client
+		+ *commited*提交：如果leader觉得一个entry是safe时则将其应用到状态机中，此即为提交。
+			+ Raft保证entry是持久的且最终被应用到集群中所有的可用的状态机中
+			+ 当leader创建的entry被集群中**大多数**server复制时提交
+			+ 提交也提交了leader log中所有之前的entry，包括之前任期的entry。
 
-+ Logs组成：由Log Entry组成
-	+ Entry数据结构：
-		+ Index：唯一递增整数编号
-		+ Term：创建该Entry的Leader的Term number
-		+ cmd
+		+ leader的heartbeat会携带其已经提交的index最大的entry的index，follower会将对应的在自己logs的entry依次应用到它的状态机中
 
-+ Log文件结构：由Log Entry组成
-	+ Entry数据结构：
-		+ Index：唯一递增整数编号
-		+ Term：创建该Entry的Leader的Term
-		+ Command
++ Log Matching Property保证high level of coherency，保证
+	+ election safety：最多一个leader可以被选举在一个给定的term
+	+ leader append-only：leader从来补充覆盖写或者删除entry in its log（leader和它自己）
+	+ log matching：如果两个logs包含一个entry有同样的index和term，then the logs are identical in all entries up through the given index.
+		+ 如果两个entry在不同的logs中有同样的index和term
+			+ 它们的cmd一样：  
+				证明：对于给定term和给定index，一个leader只会创建一个entry
+			+ 它们之前的entry都一样    
 
-+ Commit提交
-	+ 一个节点的Entry，Commit is Entry被安全地应用到状态机后
-	+ 一个Entry：
-		1. 创建这个Entry的Leader将它复制到大多数节点
-		2. 1中的提交也提交了Leader Log中的所有前面的Entry，包括之前由其他Leader创建的Entry
-
-	+ Follower一旦确定某个Entry被提交了，就将这个Entry应用到它自己的状态机（in log order）
-
-+ Log matching特性保证Log coherency高度一致性
-
-	如果不同Log中的两个Entry有完全相同的Index和Term，那么
-	1. 这两个Entry一定包含相同的命令
-		>证明：
-
-	2. 在两个Log中，从该Index往前的所有Entry都分别相同
-		>证明：
-
-	+ AppendEntries一致性检查：
-		+ 在请求中，Leader会带上Log中前一个紧邻Entry的Index和Term
-		+ 如果Follower Log中相同的Index没有Entry，或者有Entry但Term不同，则拒绝新的Entry
-
-	组合以上各点，通过归纳法可以证明 Log Matching Property
-
-+ 对Log不一致的应对
-	>Leader的Fail会出现Log不一致
+				+ 实现：`AppendEntries`的consistency check一致性检查：leader带上entry前一个entry的index和term，follower如果没有这个”前面的entry“，则拒绝  
+				
+				+ 证明：归纳
+				
+					1. 一个空的logs时safety的
+					2. 当logs extend时，一致性检查保证Log Matching Property  
 	
-	还记得上面的AppendEntries中的一致性检查嘛？如果在这个环境发现不一致，则直接暴力复制给Follower一份Header的Log
-	1. 找到最后两者共同认可的Entry
-	2. 多余丢掉
-	3. 同步
+					所以当`AppendEntries`成功返回时，leader就知道follower的log是identical to its own log up through the new entries.
 
-+ 优化：
-	>在上面Follower会因为Log不一致拒绝AppendEntries，怎么减少这样的情况呢？
+	+ Leader Completeness：如果一个entry被commited，则其将会出现在任何一个term更高的leader的logs中
+	+ state machine safety：如果server已经将一个entry（它有一个index）应用，则其他server不会有任何一个将不同的entry去应用使用同一个index
 
++ Log Inconsistent
+	+ 什么时候会发生：Leader Crash
+	+ 在`AppendEntries`的一致性检查失败时暴力全覆盖：
+		1. leader找到两者一样的最后一个entry
+		2. 删除follower这个点之后的任何entry
+		3. 发送leader这个点之后的所有entry
 
+	+ `nextIndex`：leader为每个follower维护一个`nextIndex`表示leader将会发送给follower的下一个entry的index
 
-----Safely
-任何server已经将log entry去apply到它的状态机中，其他server在这个索引下不会有apply其他命令
+		当一个leader初始化时，该值为它自己的下一个entry索引，如果follower log inconsistent，则`AppendEntries`的一致性检查会错误，此时leader则减少对应的`nextIndex`然后重发`Appendentries`，最终`nextIndex`将会变成上面提到的那个点，算法逻辑闭环。
 
-安全的语义是确保状态机以相同顺序执行相同的命令流
+	+ 优化：follower不仅返回失败，还返回失败的entry的term，leader则跳过该term的所有entry，不知道怎么证明。
 
-任何 term 内的 leader 都包含了前面所有 term 内提交的 entries
+## Safely
 
+> 任何server已经将log entry去apply到它的状态机中，其他server在这个索引下不会有apply其他命令。安全的语义是确保状态机以相同顺序执行相同的命令流。任何 term 内的 leader 都包含了前面所有 term 内提交的 entries
 
------Impl
-
-+ 所有server的持久性状态：
-	+ `currentTerm`：当前最新任期，从0开始，单调递增
-	+ `votedFor`：当前任期内投票投向的Candidate
-	+ `log[]`：Log Entries，索引从1开始
-		+ Entry：状态机命令和leader收到该entry的任期
-+ 所有server的易失性状态：
-	+ `ccom`
