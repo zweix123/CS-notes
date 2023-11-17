@@ -1,9 +1,13 @@
-+ Ref
-	+ [Paper](https://raft.github.io/raft.pdf)：强烈建议先独立按自己的学习方法读完论文再使用其他资料
-		+ 论文开始时反复强调understandability，在选择算法组成时也是优先从这个方面考虑，但是不免主观，使用下面两个技术来让其更合适
-			+ 问题划分：领导选举，日志变更，安全，成员变更
-			+ 简化状态空间（与trade-off）
-	+ [Raft 可视化](http://thesecretlivesofdata.com/raft/)
++ ref：
+	+ [paper](https://raft.github.io/raft.pdf)：强烈建议先独立按照自己的学习方法读完论文再使用其他资料
+		+ 论文反复强调understandability，在选择算法组成时有限从这个方面考虑，但不免主观，使用下面两个技术让其更合适
+			+ Decomposing the problem问题划分：比如Raft将其划分成领导选举、日志变更、安全和成员变更几个子问题
+			+ Simplifying the state space
+				+ trade-off：比如Raft引入随机性，虽然会增加不确定情况，但是简化了状态空间
+
+	+ [可视化](https://thesecretlivesofdata.com/raft/)：完善了我对majority的理解
+	+ 6.824提供的资料：
+		+ [Students' Guide to Raft](https://thesquareplanet.com/blog/students-guide-to-raft/)：讲了在实现Raft时可能踩的坑。
 
 # Intro
 
@@ -15,10 +19,10 @@ Raft是一个管理Replicated Log的Consensus Algorithm
 	+ 缺点：
 		+ 很难准确理解，即使是对专业研究者和领域教授
 			+ Paxos复杂难懂但是又没有其他适合教学的替代算法
-		+ 很难正确实现。复杂加上某些理论描述模糊
+		+ 很难正确实现，本身复杂加上某些理论描述模糊
 			+ Paxos本身是点对点模型，最后为了性能考虑建议弱领导力的模型，但是在实际应用中通常是中心式的，所以There are significant gaps between the description of the Paxos algorithm and the needs of a real-world system. . . . the final system will be based on an **un-proven** protocol（注意Paxos的正确性是得到证明的，这里的un-proven是因为实现和理论的gap太大了）
 
-	因为从工业界和学术界需求出发，斯坦福大学博士生Diego Ongaro及其导师John Ousterhout提出了Raft算法（2013年），它的最大设计目标是可理解性understandability
+	从工业界和学术界需求出发，斯坦福大学博士生Diego Ongaro及其导师John Ousterhout提出了Raft算法（2013年），它的最大设计目标是可理解性understandability
 
 	+ 但是由于Raft是中心式的，所以理论上其性能是比不上Paxos的
 
@@ -26,14 +30,7 @@ Raft是一个管理Replicated Log的Consensus Algorithm
 
 + Raft会以库的形式存在于服务中，即每个服务的部分由两部分组成，应用程序代码和Raft库
 
-+ Raft的Features：
-	+ Strong leader：单领导人让数据的流向更简单
-	+ Leader election：使用随机timer选举领导，在心跳检测的基础上引入少量机制，用来快速解决冲突
-		+ 这里我翻译不好，我理解是一种trade-off，即随机化虽然增加了不确定性，但是也减少了状态空间
-	+ Membership changes：使用joint consensus的方法更改集群，运行两种不同的配置重叠
-
-# Decomposition
-
+# core
 
 + 约定：
 	+ 我们称集群中的机器为server，那么自然外界的我们服务的就是client
@@ -48,7 +45,6 @@ Raft是一个管理Replicated Log的Consensus Algorithm
 + follower简介：
 	+ passive的，不发request，只response to request from leader and candidates
 + candidate简介：  
-	None
 
 转换如下图  
 ![状态机](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Distributed-System/状态机.png)
@@ -70,14 +66,14 @@ Raft是一个管理Replicated Log的Consensus Algorithm
 	+ 如果candidate或者leader发现它的current term out of date，它们立刻变成follower
 	+ 如果一个server收到request的term小于它的current term，则拒收。
 
-+ RPC：server重发rpc如果它没有收到response，且它们也会并行发送以获得最高性能
-	+ `RequestVote`：candidate as server
-	+ `AppendEntrie`：leader as server：
++ RPC：没有收到答复则重复，通过并发以提高性能。
+	+ `RequestVote` RPC：candidate as server
+	+ `AppendEntrie` RPC：leader as server：
 		+ replicate log entry
 		+ heartbeat
+	+ 在快照压缩章节还有第三个RPC
 
 ## Leader Election
-如果一个存在的leader fail了，必须选举新的leader
 
 + heartbeat机制：
 	+ server启动时是follower，只有持续从leader收到heartbeat(没有log entry的`AppendEntries`)，就一直是follower
@@ -110,7 +106,7 @@ Raft是一个管理Replicated Log的Consensus Algorithm
 	+ logs（有时用log）：即日志文件，由Log Entry组成，每个server上都有
 
 + Log Entry数据结构：
-	+ Index：log entry在logs中的唯一递增整数编号
+	+ Index：log entry在logs中的唯一递增正整数编号（从1开始）
 	+ Term：创建该log entry的leader的term number
 	+ cmd：如上
 
@@ -164,5 +160,69 @@ Raft是一个管理Replicated Log的Consensus Algorithm
 
 ## Safely
 
-> 任何server已经将log entry去apply到它的状态机中，其他server在这个索引下不会有apply其他命令。安全的语义是确保状态机以相同顺序执行相同的命令流。任何 term 内的 leader 都包含了前面所有 term 内提交的 entries
++ 选举限制：为实现日志匹配属性的“如果一个entry已经被commited了，那么它将出现在任何一个term更高的leader的log中”
+	>ref: paper.5.4.1
 
+	+ up-to-data：
+		```python
+		def up_to_data(lhs: log, rhs: log) {
+			if (lhs[-1].term == rhs[-1].term) {
+				return len(lhs) > len(rhs)
+			}
+			return lhs[-1].term > rhs[-1].term
+		}
+		```
+
+	+ 在领导选举的`RequestVote`中，其包含candidate的log的info，如果follower的log较于candidate的更up-to-data，则不给其投票。
+
+# Cluster membership changes
+>ref: paper.6
+
+# Log compaction
+>ref: paper.7
+
++ Snapshot
++ Snapshot metadata：`last included index` and `last included term`
+	>所以它依然可以支持`AppendEntries`的一致性检测。
+
++ `InstallSnapshot` RPC：Invoked by leader to send chunks of a snapshot a follower.
+	+ Leaders always send chunks in order.
+
+# Client interaction
+> ref: paper.8
+
++ find the cluster leader：client开始会随机选择一个server连接，如果是follower，则拒绝request并返回leader信息（most recent leader is has heard from（`AppendEntries` requests include the network address of the leader））
+	+ 在follower视角下，它可能向client返回错误的leader info，比如`heartbear -> client request -> leader crash -> follower response`，此时就会发生client向一个crash的leader发送消息。这样的情况在client request time-out时，它会再随机选择server进行连接。至此闭环。
+
++ support linearizable semantics：
+	+ 什么是linearizable semantics？client's opeator应该在发起invocation和得到response之间的某个点被精准的执行一次。
+	+ 可能出现的问题：leader在committed之后、response之前crash，则会导致response重发，新的leader会有两个同样的命令。
+	+ 解决方案：client为每一个cmd设置一个unique serial number，然后状态机跟踪最新的serial number和其res，如果收到一个cmd它的serial number已经被执行了，则立刻回答而不重新执行
+		>这里有个问题，就是状态机只track最新的，但是收到的cmd可能不是最新的，难道直接返回最新的res么？还是说其他的一致性保证正确性？或者这么理解，这是linearizable的保证，Linearizable reads must not return stale data.
+
+	+ read-only cmd怎么保证linearizable？
+		+ 可能出现的问题，leader在response时不知道自己已经被取代了，则返回了脏数据
+
+		两个机制保证
+	
+		1. leader在它的任期开始时向log中committed a blank *no-op* entry
+		2. leader在response rand-only request之前先和集群中的majority进行一个exchange heartbeat
+			>这步可以融合在普通的heartbeat中，但是那样需要依赖时序来保证安全。
+
+# Impl
+
++ state(server data structure): Updated on stable storage before responding to RPCs
+	+ `currentTerm`：server看到的latest term
+		+ 初始化为0
+		+ 单调递增
+
+	+ `votedFor`：server在当前term投票的candidated ID（可能是none）
+	+ `log[]`：log entris
++ Volatile state
+	+ on all servers:
+		+ `commitIndex`：server知道的committed的index of highest log entry（从0开始，单调递增）
+		+ `lastAppend`：server知道的applied to 状态机的index of highest log entry（从0开始，单调递增）
+
+	+ on leader：选举当选后初始化
+		+ `nextIndex[]`：对每个server的，要发送过去的，index of the next log entry（初始化为leader last log index +1）
+		+ `matchIndex[]`：对每个server的，leader知道的已经被replicated过去的，index of highest log entry（初始化为0，单调递增）

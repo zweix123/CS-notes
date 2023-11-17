@@ -9,14 +9,18 @@ import unicodedata
 from datetime import datetime
 from typing import Optional
 
+PREFIX = "1-"
+print(f"uuid = {PREFIX[:-1]}")
+ETCFILENAME = "etc.md"
+
 filepaths = [
     os.path.abspath(filename)
     for filename in os.listdir(".")
-    if filename.startswith("20")
+    if filename.startswith(PREFIX)
 ]
 
 
-def time_str_format(time_str: str) -> str:
+def util_time_str_format(time_str: str) -> str:
     try:
         date_obj = time.strptime(time_str, "%Y")
         return time.strftime("%Y", date_obj)
@@ -25,79 +29,64 @@ def time_str_format(time_str: str) -> str:
             date_obj = time.strptime(time_str, "%m.%d")
             return time.strftime("%m.%d", date_obj)
         except Exception:
-            assert False, time_str
+            assert False, f"{time_str}既不是年份也不是月日"
 
 
 class Submit:
-    def __init__(self, filepath: str) -> None:
-        filename = os.path.basename(filepath)
-        submit_time, company, post, *batch_dummy = list(
-            map(str.strip, filename[:-3].split("-"))
-        )
+    def __init__(
+        self,
+        year: str,  # 投递时年份, 流程不能跨年, 由对事件有序性断言保证
+        company: str,  # 公司名
+        position: str,  # 岗位
+        batch: str,  # 批次
+        events: list[tuple[str, str]],  # 事件列表
+    ) -> None:
+        self.year: str = year
+        self.company: str = company
+        self.position: str = position
+        self.batch: str = batch
+        self.events: list[tuple[str, str]] = events
 
-        self.filepath = filepath
-        self.year: str = time_str_format(submit_time[:4])
-        self.company = company
-        self.post = post
-        self.batch = batch_dummy[0] if len(batch_dummy) != 0 else "正式批"
-        self.events: list[tuple[str, str]] = [(time_str_format(submit_time[5:]), "投递")]
+        self.stage_str = "投递"
+        self.stage_level = 0
 
-        self.ignore = False
-        self.sche_link: Optional[str] = None
-        with open(filepath, "r", encoding="utf-8") as f:
-            for line in f:
-                if line == "<!-- ignore -->\n":
-                    self.ignore = True
-                if True:
-                    pattern = r"\[进度\]\((.*?)\)"
-                    match = re.search(pattern, line)
-                    # assert match is not None
-                    if match is not None:
-                        self.sche_link = match.group(1)
+        def stage_update(event_level: int, index: int):
+            level2stage_map = {
+                0: ["投递"],
+                1: ["测评", "笔试"],
+                2: ["面试"],
+                3: ["OC", "挂", "不匹配"],
+            }
 
-                if line.startswith("## "):
-                    for event in line[3:].split("|"):
-                        event_time, event_name = map(str.strip, event.split("-"))
-                        self.events.append((time_str_format(event_time), event_name))
+            if event_level > self.stage_level:
+                self.stage_level = event_level
+                self.stage_str = level2stage_map[self.stage_level][index]
 
-        self.stage = "投递"
-        self.order = 0
-        # 我将流程阶段分成三层
-        order2stage = {
-            0: ["投递"],
-            1: ["测评", "笔试"],
-            2: ["面试"],
-            3: ["OC", "挂", "不匹配"],
-        }
-
-        def update(event_value: int, index: int):
-            if event_value > self.order:
-                self.order = event_value
-                self.stage = order2stage[self.order][index]
-
-        # 这里统计的针对一个流程, 测评、笔试、面试的次数，用于最后每项总次数的统计
         self.eval_num: int = 0
         self.exam_num: int = 0
         self.interview_num: int = 0
 
-        for event_time, event_name in self.events:
-            if "占位" in event_name:
-                assert False, event_name
-            elif "测评" in event_name or "评测" in event_name:
+        for _, event_name in self.events:
+            if "测评" in event_name or "评测" in event_name:
                 self.eval_num += 1
-                update(1, 0)
+                stage_update(1, 0)
             elif "笔" in event_name and "约" not in event_name and "邀请" not in event_name:
                 self.exam_num += 1
-                update(1, 1)
+                stage_update(1, 1)
             elif "面" in event_name and "约" not in event_name and "邀请" not in event_name:
                 self.interview_num += 1
-                update(2, 0)
+                stage_update(2, 0)
             elif "OC" in event_name:
-                update(3, 0)
-            elif "挂" in event_name or "调剂" in event_name or "转岗" in event_name:
-                update(3, 1)
+                stage_update(3, 0)
+            elif (
+                "挂" in event_name
+                or "简历挂" in event_name
+                or "调剂" in event_name
+                or "转岗" in event_name
+            ):
+                stage_update(3, 1)
             elif "不匹配" in event_name:
-                update(3, 2)
+                stage_update(3, 2)
             else:
                 assert (
                     "投递" in event_name
@@ -106,24 +95,58 @@ class Submit:
                     or "邀请" in event_name
                 ), event_name
 
-    def __str__(self) -> str:
-        event_str: str = ", ".join(
-            [f"{time_str} {event_name}" for time_str, event_name in self.events]
-        )
-        return f"{self.year}.{self.events[0][0]}投递{self.company}的{self.post}岗位: {event_str}"
+        self.ignore: bool = False
+        self.progress_link: str = ""
 
-    def __repr__(self) -> str:
-        return (
-            self.company
-            + " "
-            + self.post
-            + " "
-            + self.batch
-            + " "
-            + str(self.order)
-            + " "
-            + self.stage
+    @staticmethod
+    def handle_filename(
+        filename: str,
+    ) -> tuple[str, str, str, str, list[tuple[str, str]]]:
+        submit_time, company, position, *dummy = list(
+            map(str.strip, filename[:-3].split("-"))
         )
+        year: str = util_time_str_format(submit_time[:4])
+        company = company
+        position = position
+        batch = dummy[0] if len(dummy) != 0 else "正式批"
+        events: list[tuple[str, str]] = [(util_time_str_format(submit_time[5:]), "投递")]
+        return year, company, position, batch, events
+
+    @staticmethod
+    def check_ignore(line: str) -> bool:
+        return line == "<!-- ignore -->\n"
+
+    @staticmethod
+    def get_progress_link(line: str) -> Optional[str]:
+        pattern = r"\[进度\]\((.*?)\)"
+        match = re.search(pattern, line)
+        if match is None:
+            return None
+        return match.group(1)
+
+    @classmethod
+    def from_filepath(cls, filepath: str):
+        filename = os.path.basename(filepath).removeprefix(PREFIX)
+        year, company, position, batch, events = Submit.handle_filename(filename)
+
+        ignore = False
+        progress_link: Optional[str] = None
+        with open(filepath, "r", encoding="utf-8") as f:
+            for line in f:
+                if Submit.check_ignore(line):
+                    ignore = True
+                if (dummy := Submit.get_progress_link(line)) is not None:
+                    progress_link = dummy
+                if line.startswith("## "):
+                    for event in line[3:].split("|"):
+                        event_time, event_name = map(str.strip, event.split("-"))
+                        events.append((util_time_str_format(event_time), event_name))
+
+        obj = cls(year, company, position, batch, events)
+        obj.ignore = ignore
+        if progress_link is not None:
+            obj.progress_link = progress_link
+        return obj
 
     def __lt__(self, other: "Submit"):
         self_time_str = self.events[0][0]
@@ -133,11 +156,31 @@ class Submit:
         return self_time < other_time
 
 
-submits = sorted([Submit(filepath) for filepath in filepaths])
+submits = [Submit.from_filepath(filepath) for filepath in filepaths]
+
+with open(ETCFILENAME, "r", encoding="utf-8") as f:
+    submit: Optional[Submit] = None
+    for line in f:
+        if line.startswith("+ "):
+            year, company, position, batch, events = Submit.handle_filename(line[4:])
+            if submit is not None:
+                submit.ignore = True
+                submits.append(submit)
+                submit = None
+            submit = Submit(year, company, position, batch, events)
+        elif line.startswith("  + "):
+            for event in line[3:].split("|"):
+                event_time, event_name = map(str.strip, event.split("-"))
+                assert submit is not None, "Define"
+                submit.events.append((util_time_str_format(event_time), event_name))
+        else:
+            if (
+                dummy := Submit.get_progress_link(line)
+            ) is not None and submit is not None:
+                submit.progress_link = dummy
 
 
-def print_yellow(msg: str):
-    print("\033[33m" + msg + "\033[0m")
+submits = sorted(submits)
 
 
 def print_excell_table(table: list[list[str]], pre_seq: list[str]):
@@ -179,15 +222,14 @@ def print_excell_table(table: list[list[str]], pre_seq: list[str]):
 
 
 def print_all():
-    print_yellow("总览表格")
-
+    """为未忽略未省略的投递打印总览表格"""
     table = list()
     pre_seq = ["", "", ":"]
 
     for submit in submits:
         if submit.ignore is True:
             continue
-        row = [submit.company, submit.post]
+        row = [submit.company, submit.position]
         for event in submit.events:
             event_str = event[0] + "-" + event[1]
             row.append(event_str)
@@ -197,8 +239,7 @@ def print_all():
 
 
 def print_sum():
-    print_yellow("数据统计")
-
+    """打印数据统计"""
     submit_num = 0
     quiet_num = 0
     exam_num = 0
@@ -208,23 +249,27 @@ def print_sum():
     unmatch_num = 0
     for submit in submits:
         submit_num += 1
-        if submit.order == 0:
+        if submit.stage_level == 0:
             quiet_num += 1
-        elif submit.order == 1:
+        elif submit.stage_level == 1:
             exam_num += 1
-        elif submit.order == 2:
+        elif submit.stage_level == 2:
             interview_num += 1
-        elif submit.order == 3:
-            if submit.stage == "OC":
+        elif submit.stage_level == 3:
+            if submit.stage_str == "OC":
                 oc_num += 1
-            elif submit.stage == "挂":
+            elif submit.stage_str == "挂":
                 g_num += 1
-            elif submit.stage == "不匹配":
+            elif submit.stage_str == "不匹配":
                 unmatch_num += 1
             else:
                 assert False
         else:
             assert False
+
+    if submit_num == 0:
+        print("还未进行投递")
+        return
 
     from rich.console import Console
     from rich.table import Table
@@ -253,7 +298,7 @@ def print_sum():
 
 
 def print_click():
-    print_yellow("TODO")
+    """TODO: 后面流程提示"""
     today = datetime.today().replace(hour=0, minute=0, second=0, microsecond=0)
 
     table: list[list[str]] = list()
@@ -261,7 +306,7 @@ def print_click():
 
     for submit in submits:
         year_str = submit.year
-        row = [submit.company, submit.post]
+        row = [submit.company, submit.position]
         for event in submit.events:
             if event[1] == "投递":
                 continue
@@ -274,17 +319,7 @@ def print_click():
     print_excell_table(table, [" ", ":"])
 
 
-def print_link():
-    print_yellow("Sche Link: ")
-    table: list[list[str]] = []
-    for submit in submits:
-        if submit.sche_link is not None:
-            table.append([submit.company, submit.sche_link])
-    print_excell_table(table, [":"])
-
-
 CMDS = {
-    "link": print_link,
     "all": print_all,
     "sum": print_sum,
     "click": print_click,
