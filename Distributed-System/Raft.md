@@ -1,13 +1,14 @@
 + ref：
-	+ [paper](https://raft.github.io/raft.pdf)：强烈建议先独立按照自己的学习方法读完论文再使用其他资料
-		+ 论文反复强调understandability，在选择算法组成时有限从这个方面考虑，但不免主观，使用下面两个技术让其更合适
+	+ [Raft(Extended Version)](https://raft.github.io/raft.pdf)：
+		+ 论文反复强调understandability，在选择算法组成时优先从这个方面考虑，但不免主观，使用下面两个技术让其更合适
 			+ Decomposing the problem问题划分：比如Raft将其划分成领导选举、日志变更、安全和成员变更几个子问题
 			+ Simplifying the state space
 				+ trade-off：比如Raft引入随机性，虽然会增加不确定情况，但是简化了状态空间
+	+ [raft theory](https://github.com/OneSizeFitsQuorum/raft-thesis-zh_cn)：Raft作者之一的博士论文，据说是说了Raft的更多细节，但是规模太大看不了。
+	+ [可视化](https://thesecretlivesofdata.com/raft/)：
+		+ *majority*：集群中的server在Raft启动时就相互注册，如果出现网络分区，小分区的server永远达不到majority的条件，因为这里的大多数是对当初注册进整个集群的server的数量的。
 
-	+ [可视化](https://thesecretlivesofdata.com/raft/)：完善了我对majority的理解
-	+ 6.824提供的资料：
-		+ [Students' Guide to Raft](https://thesquareplanet.com/blog/students-guide-to-raft/)：讲了在实现Raft时可能踩的坑。
+	+ [6.824关于Raft的讲义翻译](https://mit-public-courses-cn-translatio.gitbook.io/mit6-824/lecture-06-raft1)
 
 # Intro
 
@@ -26,14 +27,14 @@ Raft是一个管理Replicated Log的Consensus Algorithm
 
 	+ 但是由于Raft是中心式的，所以理论上其性能是比不上Paxos的
 
-+ Raft的安全性已经得到证明和验证，Raft的性能已经被比较。
++ Raft的安全性已经得到证明和验证，Raft的性能已经得到比较。
 
-+ Raft会以库的形式存在于服务中，即每个服务的部分由两部分组成，应用程序代码和Raft库
++ Raft会以库的形式存在于服务中。
 
 # core
 
 + 约定：
-	+ 我们称集群中的机器为server，那么自然外界的我们服务的就是client
+	+ 我们称集群中的机器为server，集群外的我们服务的就是client。
 	+ server有三个状态：leader，follower，candidate
 		+ 一般情况下：只有一个leader，其他的都是follower
 
@@ -42,8 +43,10 @@ Raft是一个管理Replicated Log的Consensus Algorithm
 + leader简介：
 	+ handle all client requests
 		>如果client向follower发请求，follower会将其重定向到leader
+
 + follower简介：
 	+ passive的，不发request，只response to request from leader and candidates
+
 + candidate简介：  
 
 转换如下图  
@@ -71,7 +74,7 @@ Raft是一个管理Replicated Log的Consensus Algorithm
 	+ `AppendEntrie` RPC：leader as server：
 		+ replicate log entry
 		+ heartbeat
-	+ 在快照压缩章节还有第三个RPC
+	+ 在快照章节还有第三个RPC
 
 ## Leader Election
 
@@ -95,7 +98,7 @@ Raft是一个管理Replicated Log的Consensus Algorithm
 		>选举分裂：如果有多个follower几乎同时发起选举，此时选票很分散，每个人都不能达成获胜条件，如果同时进入下一个任期，很可能还是这样（甚至更差），需要引入其他机制。
 
 		+ 在follower等待heartbeat期也保证大部分只有一个follower变成Candidate
-		+ 用于选举期间
+		+ 用于选举期间，论文推荐使用150–300ms
 
 ## Log Replication
 一个leader被选举出来后，它就开始服务client的request，leader有职责将log entry复制到集群的servers上。
@@ -108,7 +111,7 @@ Raft是一个管理Replicated Log的Consensus Algorithm
 + Log Entry数据结构：
 	+ Index：log entry在logs中的唯一递增正整数编号（从1开始）
 	+ Term：创建该log entry的leader的term number
-	+ cmd：如上
+	+ Command（以下简称cmd，但是代码中使用成员名Command）：如上
 
 + 复制流程：
 	1. leader将client request中的cmd包装成log entry并追加到自己的logs中，然后并发地使用`AppendEntries`将其发送给集群中的其他结点。
@@ -208,21 +211,3 @@ Raft是一个管理Replicated Log的Consensus Algorithm
 		1. leader在它的任期开始时向log中committed a blank *no-op* entry
 		2. leader在response rand-only request之前先和集群中的majority进行一个exchange heartbeat
 			>这步可以融合在普通的heartbeat中，但是那样需要依赖时序来保证安全。
-
-# Impl
-
-+ state(server data structure): Updated on stable storage before responding to RPCs
-	+ `currentTerm`：server看到的latest term
-		+ 初始化为0
-		+ 单调递增
-
-	+ `votedFor`：server在当前term投票的candidated ID（可能是none）
-	+ `log[]`：log entris
-+ Volatile state
-	+ on all servers:
-		+ `commitIndex`：server知道的committed的index of highest log entry（从0开始，单调递增）
-		+ `lastAppend`：server知道的applied to 状态机的index of highest log entry（从0开始，单调递增）
-
-	+ on leader：选举当选后初始化
-		+ `nextIndex[]`：对每个server的，要发送过去的，index of the next log entry（初始化为leader last log index +1）
-		+ `matchIndex[]`：对每个server的，leader知道的已经被replicated过去的，index of highest log entry（初始化为0，单调递增）
