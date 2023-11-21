@@ -114,7 +114,7 @@ Quick Start -> 实践 -> Manual or Reference
 
 + 信息学导论：
 	+ [x] [csdiy.wiki](https://csdiy.wiki/)：我没开玩笑，我在刚上大学时看了无数人的学习路线规划，感觉抄来抄去，但是csdiy属实是有世界观刷新感觉，强烈推荐。~~不过可能过几年Lab也是人均了（~~
-	+ [x] Crash Course Computer Science：神奇的网课，语速极快的overview了CS的各种Topic，比较推荐~~高中毕业~~。
+	+ [x] Crash Course Computer Science：神奇的网课，语速极快的overview了CS的各种topic，比较推荐~~高中毕业~~。
 
 + 编程入门：
 	>我有点遗忘在第一次接触编程的感觉了，不太能换位到一个初学者的视角；不同人进入编程世界的入口是不一样的，这个阶段可能会花一些时间找找感觉。
