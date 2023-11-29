@@ -405,16 +405,29 @@ VSCode本是一个轻量型的编辑器，轻量型意味着可以快速的打�
 		```
 	+ 即可连接
 + 文件互传：VMware Workstation有相关扩展工具，我个人使用命令`scp`
-+ 虚拟机使用本机的魔法：本质是这样，即两个机器在一个局域网下，则clash的Allow Lan模式可以让局域网中的机器都使用自己的魔法，而在这里本机和虚拟机就在一个局域网下，类似于上面的SSH原理。
-	1. 局域网已经实现。
-	2. 不能通过ping去检测，ping用的是ICMP，它的打开与否和魔法关系不大，如果想实现linux ping win，可以windows安全中心->防火墙和网络保护->高级设置->入站规则->四条ICMP回显打开。
-	3. 在win上ipconfig找到自己的IPv4地址，替换到下面位置
-	4. 通过设置linux的proxy
++ <span id="lan">虚拟机使用本机的魔法</span>：本质是两个机器在一个局域网下，而Clash的Allow Lan模式可以让局域网中的其他机器使用自己的魔法，其他类似场景也可以。
+	1. 网络条件保证，即保证在具体网，这里指的是保证本机可以SSH到虚拟机上。
+	+ 不能通过ping去检测，ping使用的ICMP，它的打开与有无魔法无关
+		+ 如果想实现linux ping win，可以`windows安全中心->防火墙和网络保护->高级设置->入站规则->四条ICMP回显打开`。
+	2. 在win上用`ipconfig`找到自己的IPv4地址，替换到下面的位置。
+	3. 设置linux方的proxy
 		```bash
 		export http_proxy=win_ip_v4_address:7890
 		export https_proxy=win_ip_v4_address:7890
 		```
-		注意export的生效范围只在当前窗口
+
+		注意`export`命令的生效范围只在当前窗口，可以将其放在rc文件中
+
+	+ 其他linux和proxy相关的命令
+		```bash
+		# 查看
+		env|grep -i proxy
+		# 取消
+		unset http_proxy
+		unset https_proxy
+		```
+
+	即便如此依然可能遇到什么`git clone`错误的问题，STFW吧。
 
 ## 硬件扩展
 见我的[讨论](../misc/Multi-computer%20Cooperation.md)
