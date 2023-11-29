@@ -46,6 +46,7 @@
 
 + 常用命令：
 	+ 格式化：手动，快捷键`Shift + Alt + f`，效果依赖于插件
+	+ 命令`Fold All`可以指定层级
 
 + 其他功能：
 	+ 名称跳转：`Ctrl + 点击名称`，首先跳转实现，再跳转定义，再弹出使用，效果依赖于插件
@@ -100,6 +101,14 @@
 
 + 补全建议：打开设置，键入`preview`，选择下面的选项  
 	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/suggest perview.png" style="zoom:64%;" div align=center />
+
++ 行字数提醒：
+	```json
+	"editor.rulers": [ 120 ],  // 可以有多个值, 比如: [ 80, 120 ]
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#ff4081"
+    }
+	```
 
 ## Plugin
 一些细小的插件（比如上面的配置中字体是需要下载插件的）不在这里汇总，对于各个语言的插件在下面各小节。
@@ -159,10 +168,10 @@
 ### C/C++
 
 + Reference
-	+ [Clang in Windows](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/index.html)
-	+ [Gcc in Linux（视频）](https://www.bilibili.com/video/BV1YG4y1v7uB)
+	+ [Clang in Windows](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/index.html)（doc）
+	+ [Gcc in Linux](https://www.bilibili.com/video/BV1YG4y1v7uB)（video）
 
-得益于Scoop，其实我在Windows下开发和Linux下开发的体验已经很接近了，区别出现在需要Unix需用调用时或者有些软件不能跨平台时。  
+得益于Scoop，其实我在Windows下开发和Linux下开发的体验已经很接近了，区别出现在需要Unix系统调用时或者有些软件不能跨平台时。  
 总之下面的配置是尽量在Windows和Linux都通用的。
 
 + 安装`gcc`、`g++`、`clangd`、`gdb`、`make`、`cmake`命令（背后的软件）
@@ -171,6 +180,7 @@
 + 插件：
 	+ C/C++和C/C++ Extension Pack（VSCode对C++官方插件）
 	+ **clangd**和Clang-Format
+	+ Better C++ syntax：对C++的高亮支持更好，好用的。
 
 	这里核心还是用`clangd`的功能，而且两个插件会出现冲突，但是我忘记为什么要都安装了
 

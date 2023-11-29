@@ -29,10 +29,12 @@ git config --global gui.encoding utf-8
 git config --global i18n.commit.encoding utf-8
 git config --global i18n.logoutputencoding utf-8
 
-git config --global http.proxy ""  # 如果使用没遇到问题就不用
-
 # 禁用不同操作系统换行符的自动转换(win: CRLF, linux: LF)
-git config --global core.autocrlf fals
+git config --global core.autocrlf false
+
+# 我还遇到过网络问题，报错形如Failed to connect to github.com port 443 after xxx ms: Couldn't connect to server, 通过下面的方法解决，如果没遇到可不执行
+# git config --global http.proxy http://127.0.0.1:7890 
+# git config --global https.proxy http://127.0.0.1:7890
 ```
 + 配置文件位置：
 	+ win：`C:\User\$User\.gitconfig`

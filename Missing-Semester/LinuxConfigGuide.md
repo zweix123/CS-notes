@@ -259,17 +259,4 @@ Obsidian提供的文件类型是`AppImage`，加上可执行权限（`chmod +x x
 
 # 虚拟机
 
-+ SSH到本机的VMware虚拟机中：
-	>Reference：[教程](https://cloud.tencent.com/developer/article/1679861#:~:text=windows%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%A6%82%E4%BD%95SSH%E8%BF%9E%E6%8E%A5VMware%E7%9A%84Linux%E8%99%9A%E6%8B%9F%E6%9C%BA%201%201%E3%80%81%E5%AE%89%E8%A3%85%E5%A5%BDUbuntu%E8%99%9A%E6%8B%9F%E6%9C%BA%202,2%E3%80%81%E5%BB%BA%E7%AB%8BIP%E6%98%A0%E5%B0%84%203%203%E3%80%81%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BASSH%204%204%E3%80%81%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%98%B2%E7%81%AB%E5%A2%99)
-
-	这个方法我只设置过一次，之后创建新的虚拟机（我一般只有一个虚拟机），只需要修改本机config的目标IP地址，就可以正常使用，但是虚拟机的IP是变化了的，不知道是什么魔法？
-
-	1. check本机和虚拟机的IP
-	2. `编辑` -> `虚拟网络编辑器` -> `VMnet8` -> `更改设置` -> `VMnet8` -> `NAT设置` -> `添加`（端口转发） -> `按要求填写`
-	3. 
-		```bash
-		sudo apt install -y openssh-client
-		sudo apt install -y openssh-server
-		sudo /etc/init.d/ssh restart         # 启动
-		```
-	+ 即可连接
+见[我的教程](./WindowsConfigGuide.md#虚拟机vmware-workstation-pro)

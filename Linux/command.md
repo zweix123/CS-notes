@@ -1,3 +1,5 @@
+ranger
+
 + Reference：
 	+ [The art of command line](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
 	+ [One Quick Start](https://linux.cn/article-6160-1.html)
