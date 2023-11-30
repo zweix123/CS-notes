@@ -206,9 +206,11 @@ Quick Start -> 实践 -> Manual or Reference
 + 分布式系统：
 	+ [ ] MIT6.824：看完了部分课程的讲义和完整的课程字幕翻译记录，主要以了解知识点为主，因为我的实习项目就是分布式存储，工业界的实践就在眼前，所以课程实现没有做。
 		+ [x] [MapReduce](./Distributed-System/MapReduce.md)
-		+ [x] [Raft](./Distributed-System/Raft.md)
-		+ [ ] Spanner
+		+ [ ] GFS
 		+ [ ] BigTable
+		+ [x] [Raft](./Distributed-System/Raft.md)
+		+ [ ] Zookeeper
+		+ [ ] Spanner
 		+ [ ] Ceph
 
 	+ [ ] 《DDIA》

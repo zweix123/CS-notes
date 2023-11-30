@@ -167,33 +167,34 @@
 
 ### C/C++
 
-+ Reference
++ Reference：
+	+ [Gcc in Linux](https://www.bilibili.com/video/BV1YG4y1v7uB)（video）：B站等风疾
 	+ [Clang in Windows](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/index.html)（doc）
-	+ [Gcc in Linux](https://www.bilibili.com/video/BV1YG4y1v7uB)（video）
 
-得益于Scoop，其实我在Windows下开发和Linux下开发的体验已经很接近了，区别出现在需要Unix系统调用时或者有些软件不能跨平台时。  
-总之下面的配置是尽量在Windows和Linux都通用的。
+>得益于Scoop，我们在win下的开发体验已经和linux下开发体验很类似了，区别只在需要系统调用和依赖软件不能跨平台时，所以下面我的配置应该是跨平台的。
 
-+ 安装`gcc`、`g++`、`clangd`、`gdb`、`make`、`cmake`命令（背后的软件）
-	+ Windows可以使用Scoop
+整体基于等风疾大佬的配置，所以可以按照他的配置先配置上，我和他的差别主要在插件使用的是`clangd`（等风疾是使用的是微软官方的`C/C++`）
+>我个人的体验上是微软的跳转太慢了，但是它Debug还是挺好的，`clangd`在新打开一个文件时也需要较长的时间生成索引文件，后面跳转就快了。  
+>所以我这里是两个插件都用，其中重叠的部分使用clangd的。
 
++ 安装`gcc`、`g++`、`clang`、`clangd`、`clang-format`、`gdb`、`lldb`、`make`、`cmake`
+	+ 关于`clangd`，请使用[VSCode clangd manual](https://clangd.llvm.org/installation.html)的做法下载
 + 插件：
-	+ C/C++和C/C++ Extension Pack（VSCode对C++官方插件）
-	+ **clangd**和Clang-Format
-	+ Better C++ syntax：对C++的高亮支持更好，好用的。
+	+ `C/C++`和`C/C++ Extension Pack`（微软对C++官方插件）
+	+ **`clangd`**和`clang-format`
+	+ `Better C++ syntax`：对C++的高亮支持更好，好用
++ `clangd`和`C/C++`两插件的冲突：将下面三个关键字Disabled
+	```
+	Intelli Sense Engine
+	Autocomplete
+	Error Squiggles
+	```
 
-	这里核心还是用`clangd`的功能，而且两个插件会出现冲突，但是我忘记为什么要都安装了
++ 文件`compile_commands.json`：`clangd`的名称跳转需要通过这个文件，该文件通常由`cmake`生成（在Linux下也有命令`bear`可生成），但是cmake生成的文件通常在构建目录下（通常命名为`build`），需要额外设置，因为`clangd`默认是从项目根目录找。
 
-	+ 解决冲突  
-		三个关键字
-		```
-		intelliSenseEngine
-		autocomplete
-		errorSquiggles
-		```
-		让它们都Disabled
-
-	+ 文件`compile_commands.json`，clangd的名称跳转是通过这个软件，这个软件通常可以由`cmake`生成，但是生成后的文件通常在构建目录下，需要设置下，比如`"cmake.copyCompileCommands": "${workspaceFolder}/build/compile_commands.json"`，或者Linux下Bear也能生成这个文件，而clangd默认是从项目根目录开找。
+	关键字`clangd.arguments`，添加`--compile-commands-dir=build`
+ 
++ cmake有代码`target_compile_options(... "-Werror" ...)`，这里表示把warning当error，这在某些项目中可能出现有很多的warning，但是项目可运行，但是在clangd这里，把warning当error了，如果文件大起来，前的的error太多了，会导致它不在处理后面的代码。而官方的`C/C++`插件似乎不受这影响。我是开发时把这个参数注释掉，修改后记得重新生成compile_commands.json文件。
 
 ### Golang
 

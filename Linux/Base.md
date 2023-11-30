@@ -24,3 +24,14 @@
 	![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Linux/Linux文件信息.png)
 
 + 目录`~/.local/bin/`防止这样的二进制文件，比如Python安装的poetry，所以想将这样的命令作为系统命令需要将这个目录放在系统命令中
+
+## 根目录下目录解析
+
+## /proc
+
+我遇到这样的事情，一个命令每个按我想的那样标准输出，怎么排查呢？首先确定它真的标准输出（即标准输出的文件描述符是指向我认为的那个文件）
+
+1. `ps aux | grep "命令"`或者`ps -ef | grep "命令"`找到对应的进程的PID
+2. `ll \proc\pid\fd`
+
+所以`\proc`目录下放着的就是各个进程的所有信息，包括`top`这样的命令的信息都是来自这里。

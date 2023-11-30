@@ -1,4 +1,4 @@
- + Reference：
++ Reference：
 	+ [Paper](http://nil.csail.mit.edu/6.824/2022/papers/mapreduce.pdf)（被最多人链接的，但是下载到pad上有密码无法修改） | [Paper](https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/mapreduce-osdi04.pdf)（824课程下的，没密码可以修改）
 	+ [叉鸽的翻译](https://blog.mrcroxx.com/posts/paper-reading/mapreduce-osdi04/#36-%E4%BB%BB%E5%8A%A1%E5%89%AF%E6%9C%AC)
 

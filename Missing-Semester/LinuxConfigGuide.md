@@ -68,7 +68,7 @@ passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 	```
 
 	```bash
-	sudo apt upgrade # 让新的包的信息更新所有软件  # 时间较长  # 我通常不用  # 尽量不要用!
+	sudo apt upgrade # 让新的包的信息更新所有软件  # 时间较长  # 我通常不用  # 尽量不要用
 	```
 
 ## 4.下载刚需软件
@@ -83,7 +83,7 @@ sudo apt install -y git
 git config --global user.name zweix
 git config --global user.email 1979803044@qq.com
 
-git config --global core.editor vim  # your favorite editor
+git config --global core.editor vim
 git config --global color.ui true
 
 sudo apt install -y zsh
@@ -259,4 +259,4 @@ Obsidian提供的文件类型是`AppImage`，加上可执行权限（`chmod +x x
 
 # 虚拟机
 
-见[我的教程](./WindowsConfigGuide.md#虚拟机vmware-workstation-pro)
+相关问题见[我的教程](./WindowsConfigGuide.md#虚拟机vmware-workstation-pro)
