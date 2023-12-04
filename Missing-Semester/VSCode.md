@@ -181,7 +181,7 @@
 	+ 关于`clangd`，请使用[VSCode clangd manual](https://clangd.llvm.org/installation.html)的做法下载
 + 插件：
 	+ `C/C++`和`C/C++ Extension Pack`（微软对C++官方插件）
-	+ **`clangd`**和`clang-format`
+	+  ** `clangd` ** 和`clang-format`
 	+ `Better C++ syntax`：对C++的高亮支持更好，好用
 + `clangd`和`C/C++`两插件的冲突：将下面三个关键字Disabled
 	```
