@@ -193,6 +193,20 @@
 + 文件`compile_commands.json`：`clangd`的名称跳转需要通过这个文件，该文件通常由`cmake`生成（在Linux下也有命令`bear`可生成），但是cmake生成的文件通常在构建目录下（通常命名为`build`），需要额外设置，因为`clangd`默认是从项目根目录找。
 
 	关键字`clangd.arguments`，添加`--compile-commands-dir=build`
+
+	+ 还有其他参数
+		```json
+		"clangd.arguments": [
+			// "--query-driver=clang",
+			"--completion-style=detailed",  // 提示风格
+			"--header-insertion=never",  // 不自动添加头文件
+			"--clang-tidy",  // 启用tidy，但是只要项目下有.tidy文件基本都会启用
+		],
+		// 疑似如果项目没有构建文件时头文件的查找路径, 个人没有使用过
+		// "clangd.fallbackFlags": [
+		// 	"-I头文件路径"
+		// ],
+		```
  
 + cmake有代码`target_compile_options(... "-Werror" ...)`，这里表示把warning当error，这在某些项目中可能出现有很多的warning，但是项目可运行，但是在clangd这里，把warning当error了，如果文件大起来，前的的error太多了，会导致它不在处理后面的代码。而官方的`C/C++`插件似乎不受这影响。我是开发时把这个参数注释掉，修改后记得重新生成compile_commands.json文件。
 
