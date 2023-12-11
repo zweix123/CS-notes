@@ -12,3 +12,8 @@
 		而Pratt就是结合递归和循环
 
 出人意料的，Pratt还能解决associativity结合性和precedence优先级
+
+
++ *parsing*: *concrete syntax* to `abstract syntax`
+	+ concrete syntax: program-as-text representation
+	+ 

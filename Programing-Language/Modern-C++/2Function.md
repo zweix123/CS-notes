@@ -118,7 +118,7 @@
 
 ### 函数模板
 
-[另一个笔记](./Generic.md#函数模板)
+[另一个笔记](Programing-Language/Modern-C++/Template.md#函数模板)
 
 ## 匹配决议
 
