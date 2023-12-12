@@ -1,81 +1,71 @@
-调教一套适合自己的工作流的收益是不错的，一个程序的工作流的核心就是开发环境——编辑器。  
++ Reference：
+	+ [Bilibili · 等疾风 · 【VS Code】四年功力 一刻掌握 速通C++插件/终端美化/工程管理 懒人必备](https://www.bilibili.com/video/BV1YG4y1v7uB/?vd_source=4ee99d4ebd507c7277fa312ed28dbdda)
+
+调教一套适合自己的工作流的收益是不错的，一个程序员的工作流核心就是开发环境——编辑器。
 
 + 我的工作流
 	+ [Windows](Missing-Semester/WindowsConfigGuide.md)
 	+ [Linux](Missing-Semester/LinuxConfigGuide.md)
 
-我其实也有一点的vim的相关配置，但是并没有把其作为主要编辑器，所有相关设置并不关键，目前也没有从VSCode到Vim迁移的刚需
-
-+ Reference：
-	+ 巨硬的VS Code [Manual](https://code.visualstudio.com/docs)
++ 关于主力编辑器的选择：我个人是这样的，如果一个新的工作流被验证效率优于目前使用的工作流，可以不顾任何学习成本迁移过去，比如从输入法从全拼到双拼的转移。
+	+ VSCode和vim的选择，我相信上限vim是优于VSCode的，但是基于Ctrl作为leaderkey的操作模式在各个软件都深入人心了，不能保证所有常用的软件都支持vim模式，最后还是选择VSCode。但vim还是我们的老前辈，对于某些vim下很好的操作积极寻找VSCode的等价操作。
 
 ## Use
 
-+ Settings：VSCode的配置分三个层级：默认->用户->工作区，同一项配置后者覆盖前者。
-	+ `Ctrl + ,`打开user setting UI
-	+ 命令`open settings`
++ VSCode命令行相关：`code`开发VSCode
++ Command Center：即UI顶部的输入框，默认项目下文件检索，通过添加前缀实现各种功能，下面是我常用的
+	+ Go to File：默认`Ctrl + E`
+	+ Go to Line:  默认`Ctrl + G`，相当于vim的`数字 + g`
+	+ Go to Symbol：默认`Ctrl + Shift + O`
+	+ Show and Run Cmd：默认`Ctrl + Shift + P`，下文说的命令即为了这里的命令，这里聊一些常用命令
+		+ `keyout`：快捷键设置页面
+		+ 选中文本大学写转换：`upper`、`lower`
+		+ 代码块折叠：`fold`和`unfold`，可以按层级折叠
 
-+ `code`
-	```bash
-	code filepath  # 打开文件
-	code folderpath  # 打开目录(推荐)
-	code .  # 打开当前目录
-	code -r xxx  # 在当前窗口打开文件或目录
-	```
++ Settings：VSCode的配置分三个层级：默认 -> 用户 -> 工作区，同一项配置后者覆盖前者：快捷键`Ctrl + ,`或者命令`open settings`
 
-+ 编辑器内命令：`Ctrl + p`：打开VSCode Comman Center
-	+ 键入文件名打开文件
-		+ 或者使用`Ctrl + Shift + E`打开资源管理器，然后使用方向键选择
-	+ 键入前缀 `>` 使用VSCode命令（或者直接快捷键 `Ctrl + Shift + p`）
-		+ 大小写转换
-		+ 代码块批量折叠控制
-	+ 键入键入`@`在当前文件按名称查找（或者直接快捷键`Ctrl + Shift + O`）
-		>怎么在多个文件按名称查找呢？在资源管理器`Ctrl + Shift + f`
+	聊到配置就要聊到`.vscode`目录，这里聊一下该目录和插件无关的文件
 
-+ Basic Editing：略
-	+ multi-cursor：
-		+ `Alt + 鼠标`
-		+ （选中） -> `Ctrl + d`
-		+ `Shift + Alt + 方向键`（Ubuntu没问题，但是在Windows下不行）
+	+ `settings.json`：即上面提到工作区范围的配置文件，这里聊一下常用的一些配置项，本文其他部分对于各个话题也会提到相关配置项
+		+ `explorer.sortOrder`：资源管理器文件排序关键字
+	+ `extensions.json`：项目下插件过滤
 
-+ 常用快捷键：
-	+ `Ctrl + ~`/`Ctrl + num`切换terminal和workspace  
-		`Ctrl + j`显示Terminal，`Ctrl + Shift + j`则是Terminal全屏
-		>这个还是挺适合我的
-	+ `Ctrl + \`左右分屏
++ 快捷键：
+	+ 按住`Shift`+方向键选中
+	+ 按住`Ctrl`使用`backspace`是按字母删除
+	+ `Ctrl + Home`和`Ctrl + End`相当于vim的`gg`和`G`
+	+ `Ctrl + f`和`Ctrl + Shift + F`是按文本查找
+
+	+ multi-cursor多光标：
+		+ `Alt`+鼠标点击
+		+ 选中文本->`Ctrl + Alt + d`：相同文本多光标
+		+ `Ctrl + Alt + a`->上下移动光标
+
+	+ `Ctrl + ~`/`Ctrl + num`光标切换terminal于workspace
+		+ `Ctrl + j`显示/关闭Terminal，`Ctrl + Shift + j`则是Terminal全屏/取消全屏
+	+ `Ctrl + b`：打开/关闭左边栏
+	+ `Ctrl + Shift b`：光标跳转/返回到资源管理器
+
+	+ 格式化：`Shift + Alt + f`，效果依赖插件，大部分项目设置为`format on save`
+
+	+ 名称跳转：
+		+ `Ctrl + 鼠标左键点击`
+		+ `Alt + 方向键左键`返回到上次光标位置：但是这个快捷键需要两个手，一般都是我正在跳转准备调回来，拿到我还要右手离开鼠标么？而我为了补全zsh的历史命令补全将Caps设置为方向键右键，于是将这个快捷键设置为`Alt + 方向键右键`实现单手操作
 
 + 常用命令：
 	+ 格式化：手动，快捷键`Shift + Alt + f`，效果依赖于插件
 	+ 命令`Fold All`可以指定层级
 
-+ 其他功能：
-	+ 名称跳转：`Ctrl + 点击名称`，首先跳转实现，再跳转定义，再弹出使用，效果依赖于插件
-		+ 如果是跳转，`Alt + Right`返回当前跳转之前（go back）
-			>注意这里反常识的是方向键右键，这和我的改键有关
-
-	+ 在写xv6时，每次编译会产生大量的文件，让资源管理视图很乱，但是每次都删除这些文件每次编译又太慢了，想到能不能按照类型排序？使用参数`explorer.sortOrder`
-
-## .vscode目录
-
-+ Reference：Manual
-	+ https://code.visualstudio.com/docs/editor/debugging#_launch-configurations
-	+ https://code.visualstudio.com/docs/editor/tasks#_custom-tasks
-
-+ `extensions.json`（[manual](https://code.visualstudio.com/docs/editor/extension-marketplace#_workspace-recommended-extensions)）：扩展推荐
-+ `setting.json`（[manual](https://code.visualstudio.com/docs/getstarted/settings#_workspace-settingsjson-location)）：工作区相关配置
-+ `task.json`（[manual](https://code.visualstudio.com/Docs/editor/tasks)）
-+ `launch.json`（[manual](https://code.visualstudio.com/docs/editor/debugging)）
-
 ## Config
 
-+ *设置同步*，本机的sync now是将本地配置上传，然后每次启动VSCode都会从云端down下来配置
-+ 关闭受限模式：
-	打开设置，键入`trust`  
++ 设置同步：UI左下角齿轮图标中的`Settings Sync is On`，自动同步。
++ 关闭受限模式：打开设置，键入`trust`
+
 	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/vscode受限模式关闭.png" style="zoom:59%;" div align=center />
 
 + 主题（背景颜色、字体颜色等等）：插件`One Dark Pro`和插件`Atom One Dark Theme`
 	>One Dark主题的优点：养眼
-	>>我真的使用过很多主题，但是用过One Dark后总感觉其他主题更刺眼，我将还要终端、vim也统一成One Dark风格
+	>>我真的使用过很多主题，但是用过One Dark后总感觉其他主题更刺眼，我将还要终端、vim也统一成One Dark风格（无了，没必要，就VSCode的One Dark主题效果最好）
 
 + 文件图标：插件`vscode-icons`
 
@@ -86,37 +76,44 @@
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/编辑器字体.png" style="zoom:60%;" div align=center />
 
 	+ 终端字体：打开设置，键入`Terminal Font Family`  
-		>需要你已经按照Shell的配置下载了对应字体
+		>需要你已经按照[Shell的配置]()下载了对应字体
 
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/终端字体.png" style="zoom:57.5%;" div align=center />
 		
 + 括号连线：打开设置，键入`bracket`，找到对应位置选择true  
+
 	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/branket.png" style="zoom:60%;" div align=center />
 
 + 柔顺：  
 	打开设置，键入`smooth`，选择下面三个选项  
+
 	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/smooth.png" style="zoom:79%;" div align=center />  
+
 	打开设置，键入`cursor` ，将下面设置为smooth  
+
 	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/cursor smooth.png" style="zoom:75%;" div align=center />  
 
 + 补全建议：打开设置，键入`preview`，选择下面的选项  
+
 	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/suggest perview.png" style="zoom:64%;" div align=center />
 
 + 行字数提醒：
 	```json
-	"editor.rulers": [ 120 ],  // 可以有多个值, 比如: [ 80, 120 ]
-    "workbench.colorCustomizations": {
-        "editorRuler.foreground": "#ff4081"
-    }
+	"editor.rulers": [ 80, 120 ],
+    // "workbench.colorCustomizations": {
+    //     "editorRuler.foreground": "#ff4081"
+    // }
 	```
 
 ## Plugin
-一些细小的插件（比如上面的配置中字体是需要下载插件的）不在这里汇总，对于各个语言的插件在下面各小节。
 
-+ 远程开发（远程开发可能是VSCode对jb家的主要优势了）
-	+ `Remote-SSH`：远程开发必备（据说有漏洞，不过我不在乎）
+>Config步骤中提到的插件不在这里汇总，各个语言开发的插件不在这里汇总。
+
++ 远程开发
+	+ `Remote-SSH`：远程开发必备
 	+ `Docker`：Docker开发必备，使用体验和Remote类似
-	对于代码补全有LSP的概念，总之有些插件想要远程发挥总也也要在远程install一份
+
+	插件是有本地的远程的概念的，当使用远程开发时，记得一些插件需要在两端都下载。
 
 ## Code
 
@@ -124,21 +121,26 @@
 
 ### Python
 
-+ 依赖环境：通过Scoop下载Python（Python3）
++ 依赖环境：
+	+ win：通过Scoop下载Python（Python3）
 + 插件推荐：
-	+ Python和Python Extension Pack（它们有依赖的插件，所以会下载很多）
+	+ Python和Python Extension Pack（它们依赖很多插件，会自动下载很多，所以下面只说它不会自动下载的）
 	+ Mypy Type Checker：类型检查
 
-+ 配置：对于Python的开发，我通常把配置放在工作区，settings如下：
++ 配置：
 	```json
 	{
 	    "[python]": {
-	        "editor.defaultFormatter": "ms-python.black-formatter",
-	        "editor.formatOnSave": true,
+	        "editor.defaultFormatter": "ms-python.black-formatter",  // 默认格式化工具
+	        "editor.formatOnSave": true,  // 保存时格式化
 	        "editor.codeActionsOnSave": {
-	            "source.organizeImports": true
+	            "source.organizeImports": true  // 保存时重排import语句
 	        },
 	    },
+	     "mypy-type-checker.args": [  // mypy类型检查
+	         "--check-untyped-defs",  // 检查类型时也要检查未标记类型的函数和方法
+	    ],
+	    // black不能重排import语句，因为这会修改代码的AST，所以重载import语句使用的是isort插件，这里配置表示isort使用black的配置
 	    "isort.args": [
 	        "--profile",
 	        "black"
@@ -146,10 +148,10 @@
 	}
 	```
 
-	功能包括Import语句的重排和去重、代码格式化，静态检查由插件管理
+	功能包括代码格式化、`import`语句的重排和去重、静态类型检查
 
-	+ 格式化：使用`black`，手动
-		+ 跳过格式化标记：
+	+ 格式化：使用`black`
+		+ 跳过格式化的标记：
 			+ 单行：`# fmt: skip`
 			+ 多行：`# fmt: off`和`# fmt: on`
 
@@ -162,28 +164,31 @@
 
 + 对第三方库的引入补全：[一个回答](https://blog.csdn.net/weixin_38165206/article/details/102903066)
 
-+ 块执行：选择代码后使用快捷键`Shift + ehter`会将这部分代码发送到Python Shell中
++ 块执行`Python: Run Selection`：选择代码后使用快捷键`Shift + Ehter`会将这部分代码发送到Python Shell中，很容易误触，我取消了这个快捷键
 + 使用`#%%`可类似Jupyter分块，而Jupyter状态下有很多快捷键
 
 ### C/C++
 
-+ Reference：
-	+ [Gcc in Linux](https://www.bilibili.com/video/BV1YG4y1v7uB)（video）：B站等风疾
-	+ [Clang in Windows](https://windowsmacos-vscode-c-llvm-clang-clangd-lldb.readthedocs.io/index.html)（doc）
+>得益于Scoop，我们在win下也有了好用的包管理器，所以我们在win下的开发体验已经和linux下类似，区别只在需要系统调用或者依赖软件不能跨平台时，所以下面的配置应该是跨平台的。
 
->得益于Scoop，我们在win下的开发体验已经和linux下开发体验很类似了，区别只在需要系统调用和依赖软件不能跨平台时，所以下面我的配置应该是跨平台的。
++ 虽然但是，还是推荐这个视频 [Bilibili · 等疾风 · 【VS Code】四年功力 一刻掌握 速通C++插件/终端美化/工程管理 懒人必备](https://www.bilibili.com/video/BV1YG4y1v7uB/?vd_source=4ee99d4ebd507c7277fa312ed28dbdda)
 
-整体基于等风疾大佬的配置，所以可以按照他的配置先配置上，我和他的差别主要在插件使用的是`clangd`（等风疾是使用的是微软官方的`C/C++`）
->我个人的体验上是微软的跳转太慢了，但是它Debug还是挺好的，`clangd`在新打开一个文件时也需要较长的时间生成索引文件，后面跳转就快了。  
->所以我这里是两个插件都用，其中重叠的部分使用clangd的。
++ 环境依赖：
+	+ 构建工具：`make`、`cmake`
+	+ 编译工具：
+		+ GNU：`gcc`、`g++`
+		+ LLVM：`clangd`、`clangd`、`clang-format`
+			+ `clangd`建议使用[VSCode clangd manual](https://clangd.llvm.org/installation.html)的方法下载
+	+ 调试工具：
+		+ GNU：`gdb`
+		+ LLVM：`lldb`
 
-+ 安装`gcc`、`g++`、`clang`、`clangd`、`clang-format`、`gdb`、`lldb`、`make`、`cmake`
-	+ 关于`clangd`，请使用[VSCode clangd manual](https://clangd.llvm.org/installation.html)的做法下载
 + 插件：
-	+ `C/C++`和`C/C++ Extension Pack`（微软对C++官方插件）
-	+  ** `clangd` ** 和`clang-format`
-	+ `Better C++ syntax`：对C++的高亮支持更好，好用
-+ `clangd`和`C/C++`两插件的冲突：将下面三个关键字Disabled
+	+ `g++`：`C/C++`、`C/C++ Extension Pack`
+		+ 对应配置文件为`./.vscode/c_cpp_properties.json`
+	+ `clang`：`clangd`、`Clang-Format`、`CodeLLDB`
+
+	两插件冲突，这部分使用clangd的，将下面三个属性设置为`Disabled`
 	```
 	Intelli Sense Engine
 	Autocomplete
@@ -210,6 +215,19 @@
  
 + cmake有代码`target_compile_options(... "-Werror" ...)`，这里表示把warning当error，这在某些项目中可能出现有很多的warning，但是项目可运行，但是在clangd这里，把warning当error了，如果文件大起来，前的的error太多了，会导致它不在处理后面的代码。而官方的`C/C++`插件似乎不受这影响。我是开发时把这个参数注释掉，修改后记得重新生成compile_commands.json文件。
 
++ cmake tool：该插件集成构建、编译、调试和测试，一般情况仅用该插件即可满足需求，两种用法
+	1. 底部状态栏有相关对应的按钮
+	2. 左端状态栏有CMake可实现同样的功能（可能不可见，右键找到CMake打勾）
+
+	在该插件某个版本前后，提供对上面两种用法更定制化的选项，详情可见选项`cmake.options.statusBarVisibility`
+
++ debug：对于特定的项目或者单文件，cmake tool不可用，此时只能返璞归真
+	1. `./vscode/tasks.json`：构建/编译任务，在这里配置如何编译出可执行文件
+	2. `./vscode/launch.json`：启动调试，在这里配置如何启动调试器
+
+	+ 你可能需要：
+		+ VSCode有很多内置的变量，这里有[所有的变量](https://code.visualstudio.com/docs/editor/variables-reference)
+
 ### Golang
 
 微软[教程](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)已经足够亲爹
@@ -231,6 +249,11 @@
 	+ `Java Extension Pack`：包含大量其他必须插件
 
 + 项目依赖管理。
+
+## Git
+
++ 切换分支
++ blame
 
 ## MarkDown
 见我的关于Markdown编辑器的[讨论](Missing-Semester/Markdown.md)
