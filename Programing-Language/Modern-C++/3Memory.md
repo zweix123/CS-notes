@@ -4,7 +4,6 @@
 + 内联：C++17之前内联函数，C++17之后内联变量：只要定义相同，可多次定义。
 	+ const缺省不内联，constexpr缺省内联
 
-
 ## const
 [ref: cv qualifier](https://en.cppreference.com/w/cpp/language/cv)
 

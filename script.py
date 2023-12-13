@@ -1,7 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-
 import os
 import re
 import string
@@ -208,90 +204,216 @@ CMDS = {
 }
 
 # ================================================================= #
+#!/usr/bin/env python3.10
+# -*- coding: utf-8 -*-
 
 import os
 import subprocess
 import sys
+from enum import Enum, auto
 from typing import Any, Callable
 
+# TODO: --help无法区分脚本是使用[]包括还是一个完成的脚本文本字符串
 
-class DryadConfig:
+DryadArg: Any = None
+
+
+class DryadFlag(Enum):
+    PrefixCmd = auto()  # 作为某个节点的键, 其值对应的脚本为子树中所有脚本的前置脚本
+    # AcceptArg = auto()  # 作为叶子的值, 表示该选项还接收一个可选参数, 并将参数放在变量DryadArg中
+    InVisible = auto()  # 作为叶子的值, 表示执行的脚本是否打印, 默认打印, 使用该标志表示不打印
+    IgnoreErr = auto()  # 作为叶子的值, 表示命令执行出错后是否停止, 默认停止, 使用该标志表示不停止
+
+
+class DryadEnv:
     SCRIPTPATH = os.path.dirname(os.path.abspath(__file__))
     CALLPATH = os.getcwd()
     OSTYPE = sys.platform
 
+    @staticmethod
+    def println():
+        """Print Dryad env."""
+        print("SCRIPTPATH", "=", DryadEnv.SCRIPTPATH)
+        print("CALLPATH  ", "=", DryadEnv.CALLPATH)
+        print("OSTYPE    ", "=", DryadEnv.OSTYPE)
+
 
 class DryadUtil:
+    ErrStopCmd = "set -eu"
+    PrefixCmds: list[str] = []
+    DryadFlags: list[DryadFlag] = []
+
     @staticmethod
-    def config():
-        if DryadConfig.OSTYPE == "win32":
-            pass
-        elif DryadConfig.OSTYPE == "linux":
-            pass
-        elif DryadConfig.OSTYPE == "darwin":
-            pass
+    def flag_push(flag: DryadFlag, data: Any):
+        assert type(flag) is DryadFlag
+        if flag == DryadFlag.PrefixCmd:
+            if type(data) is str:
+                DryadUtil.PrefixCmds.append(data)
+            elif type(data) is list:
+                for ele in data:
+                    DryadUtil.PrefixCmds.append(ele)
+            else:
+                assert False
+        elif flag == DryadFlag.InVisible:
+            DryadUtil.DryadFlags.append(flag)
+        elif flag == DryadFlag.IgnoreErr:
+            DryadUtil.DryadFlags.append(flag)
         else:
             assert False
 
     @staticmethod
-    def run_shell_cmd(
-        cmd: str,
-        pre_cmd: list[str] = [],
-        is_print_cmd_and_result_code: bool = True,
-    ) -> None:
-        assert type(cmd) is str
-        if is_print_cmd_and_result_code:
-            print("\033[33;1m" + cmd + "\033[0m")
-        cmd = "\n".join(pre_cmd) + "\n" + cmd
-        try:
-            if DryadConfig.OSTYPE == "win32":
-                assert False, "Not Impl"
-            elif DryadConfig.OSTYPE == "linux":
-                subprocess.run(["bash", "-c", cmd], check=True)
+    def flag_pop(flag: DryadFlag, data: Any):
+        assert type(flag) is DryadFlag
+        if flag == DryadFlag.PrefixCmd:
+            if type(data) is str:
+                DryadUtil.PrefixCmds.pop()
+            elif type(data) is list:
+                for ele in data:
+                    DryadUtil.PrefixCmds.pop()
             else:
-                assert False, "Not Impl"
-        except Exception as e:
-            if is_print_cmd_and_result_code:
-                print("\033[41m\033[37m" + "Fail" + "\033[0m")
-            exit(-1)
-        # if is_print_cmd_and_result_code:
-        #     print("\033[42m\033[37m" + "Pass" + "\033[0m")
+                assert False
+        elif flag == DryadFlag.InVisible:
+            DryadUtil.DryadFlags.pop()
+        elif flag == DryadFlag.IgnoreErr:
+            DryadUtil.DryadFlags.pop()
+        else:
+            assert False
 
     @staticmethod
-    def right_shift(text: str | list[str], dis: int) -> str:
-        if type(text) is str:
-            text = [text]
-        SPACE_LEN = max([len(line) for line in text]) + 42
-        ss = [
-            s if len(s) != 0 else " " * SPACE_LEN
-            for l in [map(str.strip, line.split("\n")) for line in text]
-            for s in l
-        ]
-        assert max([len(s) for s in ss]) <= SPACE_LEN
-        while not any(len(s) == 0 or s[0] != " " for s in ss):
-            ss = [s[1:] for s in ss]
-        return ("\n" + " " * dis).join(map(str.strip, ss)).strip()
+    def _run(cmd: str):
+        assert type(cmd) is str, f"arg cmd = {cmd} is not str."
+
+        if DryadEnv.OSTYPE == "win32":
+            assert False, "Not supported"
+        elif DryadEnv.OSTYPE == "linux":
+            subprocess.run(["bash", "-c", cmd], check=True)
+        else:
+            assert False, "Not supported"
+
+    @staticmethod
+    def run(cmd: str) -> None:
+        assert type(cmd) is str, f"arg cmd = {cmd} is not str."
+
+        if DryadFlag.InVisible not in DryadUtil.DryadFlags:
+            print("\033[33;1m" + cmd + "\033[0m")
+        pre_cmd = DryadUtil.PrefixCmds
+        if DryadFlag.IgnoreErr not in DryadUtil.DryadFlags:
+            pre_cmd = [DryadUtil.ErrStopCmd] + pre_cmd
+
+        cmd = "\n".join(pre_cmd) + "\n" + cmd
+
+        try:
+            DryadUtil._run(cmd)
+        except Exception as e:
+            if DryadFlag.IgnoreErr not in DryadUtil.DryadFlags:
+                if DryadFlag.InVisible not in DryadUtil.DryadFlags:
+                    print("\033[41m\033[37m" + "Fail" + "\033[0m")
+                exit(-1)
+        # print("\033[42m\033[37m" + "Pass" + "\033[0m")
+
+    @staticmethod
+    def strip_line(text: str) -> str:
+        """去除首尾空行"""
+        assert type(text) is str
+        while len(text) > 0 and text[0] == "\n":
+            text = text[1:]
+        while len(text) > 0 and text[-1] == "\n":
+            text = text[:-1]
+        return text
+
+    @staticmethod
+    def left_tab(text: str) -> str:
+        """去除文本左空列"""
+        assert type(text) is str
+        text = DryadUtil.strip_line(text)
+        lines = text.split("\n")
+        # 文本内部可能有空行, 其会影响对左空列的判断, 同时其本身还要保留, 这里暂时将其填充极大, 最后用rstrip(注意有r)消除
+        for i in range(len(lines)):
+            if len(lines[i].strip()) == 0:
+                lines[i] = " " * len(text)
+
+        def space_prefix_len(s: str) -> int:
+            # 暴力拿到一行文本左边的空格个数
+            assert "\n" not in s, "only support a line."
+            ans = 0
+            while ans + 1 < len(s) and s[: ans + 1] == " " * (ans + 1):
+                ans = ans + 1
+            return ans
+
+        max_space_prefix_len: int = min([space_prefix_len(line) for line in lines])
+        lines = [line[max_space_prefix_len:] for line in lines]
+        return "\n".join([line.rstrip() for line in lines])
+
+    @staticmethod
+    def right_shift(text: str, dist: int) -> str:
+        """整个文本右移(在左边填充空列对齐), 不会处理首行"""
+        assert type(text) is str and type(dist) is int
+        text = DryadUtil.left_tab(text)
+        lines = text.split("\n")
+        for i in range(1, len(lines)):
+            lines[i] = (" " * dist) + lines[i]
+        return "\n".join(lines)
 
 
 class Dryad:
-    def __init__(self, cmd_tree: dict, cmd_prefix: list[str] = []) -> None:
+    def __init__(self, cmd_tree: dict) -> None:
         self.cmd_tree = cmd_tree
-        self.cmd_prefix = cmd_prefix
+        self.options: list[str] = []
 
-        self.config()
-        self.main()
+        def check_cmd_tree(cmd_tree_node: dict | list | str | Callable):
+            if callable(cmd_tree_node):
+                return
+            elif type(cmd_tree_node) is str:
+                return
+            elif type(cmd_tree_node) is list:
+                [check_cmd_tree(ele) for ele in cmd_tree_node]
+            elif type(cmd_tree_node) is dict:
+                keys = []
+                for key in cmd_tree_node.keys():
+                    if type(key) is str:
+                        keys.append(key)
+                    elif type(key) is tuple:
+                        for ele in key:
+                            keys.append(ele)
+                    elif type(key) is DryadFlag:
+                        pass
+                    else:
+                        assert False
+                if len(keys) != len(set(keys)):
+                    # dict本身不会有冲突的键, 但是因为tuple支持多重选项, 就可能出现冲突了
+                    print("Commands dict has conflicting options.")
+                    exit(-1)
+            else:
+                assert False
 
-    def config(self):
-        self.cmd_tree[("-h", "--help")] = self.print_help
+        check_cmd_tree(self.cmd_tree)
 
-        if DryadConfig.OSTYPE == "win32":
-            assert False, f"{DryadConfig.OSTYPE} not yet tested, can't be used."
-        elif DryadConfig.OSTYPE == "linux":
-            self.cmd_prefix = ["set -e"] + self.cmd_prefix
+        if DryadEnv.OSTYPE == "win32":
+
+            def dfs(cmds: dict | list | str | Callable | DryadFlag):
+                if type(cmds) is str:
+                    print("run commands in win is banned.")
+                    exit(0)
+                elif type(cmds) is list:
+                    for ele in cmds:
+                        dfs(ele)
+                elif type(cmds) is dict:
+                    for son in cmds.values():
+                        dfs(son)
+                else:
+                    assert callable(cmds) or type(cmds) is DryadFlag, cmds
+
+            dfs(cmd_tree)
+
+        elif DryadEnv.OSTYPE == "linux":
+            pass
         else:
-            assert False, f"{DryadConfig.OSTYPE} not yet tested, can't be used."
+            assert False, f"{DryadEnv.OSTYPE} not yet tested, can't be used."
 
-        DryadUtil.config()
+        self.cmd_tree[("-h", "--help")] = self.print_help
+        self.cmd_tree["env"] = DryadEnv.println
+
+        self.main()
 
     def main(self):
         self.options = sys.argv[1:]
@@ -305,83 +427,145 @@ class Dryad:
         print("该脚本命令可分为两大类")
         print("  Shell Commands, help会输出命令本身")
         print("  Python Function, help会输出函数的__doc__")
-        print("命令是支持前缀递归调用的, 比如./script.py test相当于调用所有以test为前缀的命令.")
+        # "支持前缀递归调用, 如果有选项test collector, test planer, test executor三个选项, 则./script.py test则会调用三个, 注意./script te是一个错误命令, 这里的前缀指的是前缀选项"
 
-        def dfs_handle_cmds_doc(cmds: dict | list | str | Callable):
-            """递归处理命令树中命令的内容和文档"""
-            assert (
-                type(dict) is not dict
-            ), "Just for mypy, should not be passed into dict"
-            if type(cmds) is str:
-                return cmds.strip("\n")
-            elif type(cmds) is list:
-                return "\n".join([dfs_handle_cmds_doc(cmd) for cmd in cmds])
+        def bfs(cmds: list | str | Callable | DryadFlag | dict) -> str:
+            assert type(cmds) is not dict  # for mypy
+            if type(cmds) is DryadFlag:
+                return str(cmds)
+            elif type(cmds) is str:
+                return cmds
             elif callable(cmds):
-                return cmds.__doc__.strip("\n") if cmds.__doc__ is not None else "None"
+                return cmds.__doc__ if cmds.__doc__ is not None else "no doc str"
+            elif type(cmds) is list:
+                return "\n".join([bfs(cmd) for cmd in cmds])
             else:
                 assert False
 
-        def dfs_handle_opts(opt: list[str], remain_cmds: dict | Any):
-            if type(remain_cmds) is not dict:  # 递归到选项边界
-                opts = " ".join(opt)
-                doc = DryadUtil.right_shift(
-                    dfs_handle_cmds_doc(remain_cmds), len(opts + ": ")
-                )
-                print(f"\033[36m{opts}\033[0m: \033[33m{doc}\033[0m")
+        def dfs(opts: list[str], cmds: dict | Any):
+            if type(cmds) is not dict:
+                opt = " ".join(opts)
+                doc = DryadUtil.right_shift(bfs(cmds), len(opt + ": "))
+                print(f"\033[36m{opt}\033[0m: \033[33m{doc}\033[0m")
                 return
-            for k, v in remain_cmds.items():
+            for k, v in cmds.items():
                 if type(k) is tuple:
-                    opt.append("/".join(k))
+                    opts.append("/".join(k))
                 elif type(k) is str:
-                    opt.append(k)
+                    opts.append(k)
+                elif type(k) is DryadFlag:
+                    opts.append(str(k))
                 else:
                     assert False
-                dfs_handle_opts(opt, v)
-                opt.pop()
+                dfs(opts, v)
+                opts.pop()
 
-        dfs_handle_opts([], self.cmd_tree)
+        dfs([], self.cmd_tree)
 
     def dfs_run(self, cmds: dict | list | str | Callable):
         if callable(cmds):
             cmds()
         elif type(cmds) is str:
-            DryadUtil.run_shell_cmd(cmds, self.cmd_prefix)
+            DryadUtil.run(cmds)
         elif type(cmds) is list:
-            for cmd in cmds:
-                self.dfs_run(cmd)
+            # 必须放在两个循环, 即保证所有的标记都收集完毕, 影响所有的命令执行, 相当于允许标志乱序
+            [DryadUtil.flag_push(ele, None) for ele in cmds if type(ele) is DryadFlag]
+            [self.dfs_run(ele) for ele in cmds if type(ele) is not DryadFlag]
+            [DryadUtil.flag_pop(ele, None) for ele in cmds if type(ele) is DryadFlag]
         elif type(cmds) is dict:
-            for next_cmds in cmds.values():
-                self.dfs_run(next_cmds)
+            [DryadUtil.flag_push(k, v) for k, v in cmds.items() if type(k) is DryadFlag]
+            [self.dfs_run(v) for k, v in cmds.items() if type(k) is not DryadFlag]
+            [DryadUtil.flag_pop(k, v) for k, v in cmds.items() if type(k) is DryadFlag]
         else:
-            assert False, "Impossible the type branch: " + "cmds = " + str(cmds)
+            assert False
 
-    def opt_dfs(self, opts: list[str], cmds: dict | list | str | Callable):
-        if len(opts) == 0:  # 递归边界
+    def opt_dfs(self, opts: list[str], cmds: dict | Any):
+        def match(cmd_dict: dict, opt: str) -> Any | None:
+            assert type(cmd_dict) is dict and type(opt) is str
+            item: Any = None
+            for k, v in cmd_dict.items():
+                if (type(k) is str and opt == k) or (type(k) is tuple and opt in k):
+                    assert item is None, "键应该是唯一的, 构造函数中未成功检测出."
+                    item = v
+            return item
+
+        if len(opts) == 0:
             self.dfs_run(cmds)
             return
-        if type(cmds) is not dict or not (
-            any(opts[0] == ele for ele in cmds.keys() if type(ele) is not tuple)
-            or any(opts[0] in ele for ele in cmds.keys() if type(ele) is tuple)
-        ):
-            print(f"Don't supported the options: \"{' '.join(self.options)}\"")
-            print('Give it a try of option: "--help"')
+
+        if type(cmds) is not dict or match(cmds, opts[0]) is None:
+            # 如果当前的节点已经是叶子(而选项仍然没匹配完), 或者虽然是中间节点但是并没有匹配的键
+            print(f"Options \"{' '.join(self.options)}\" error", end=", ")
+            print(f"unsupported or spelled incorrectly", end=", ")
+            print(f'give it a try of option "--help"', end=".\n")
             return
-        # support default
-        if len(opts) == 1 and opts[0] != "default" and "default" in cmds.keys():
-            #  最后一个选项     这个选项不是default         “子树”命令集中有default
-            self.dfs_run(cmds["default"])  # default命令不能使用()做命令重合
-        next_cmds = {
-            k: v
-            for k, v in cmds.items()
-            if (type(k) is tuple and opts[0] in k)
-            or (type(k) is not tuple and opts[0] == k)
-        }
-        assert (
-            len(next_cmds) == 1
-        ), f"歧义参数: opts: {opts}, cmd.kets(): {cmds.keys()}, next_cmds.keys(): {next_cmds.keys()}"
-        self.opt_dfs(opts[1:], list(next_cmds.values())[0])
+
+        if DryadFlag.PrefixCmd in cmds:
+            DryadUtil.flag_push(DryadFlag.PrefixCmd, cmds[DryadFlag.PrefixCmd])
+        self.opt_dfs(opts[1:], match(cmds, opts[0]))
+        if DryadFlag.PrefixCmd in cmds:
+            DryadUtil.flag_pop(DryadFlag.PrefixCmd, cmds[DryadFlag.PrefixCmd])
 
 
-# ================================================================================= #
+def example_func():
+    print("Call example_func")
 
-Dryad(cmd_tree=CMDS)
+
+def simple_func():
+    """This is a simple function."""
+    print("Call simple_func")
+
+
+def complex_func():
+    """
+         Complex Func
+    ========================
+       args   ||  none
+     ability  ||  print
+
+    不需要参数, 功能仅打印。
+    """
+    print("Call complex_func")
+
+
+def input_func():
+    """Output DryadArg"""
+    assert DryadArg is not None
+    print(DryadArg)
+
+
+EXAMPLE_CMDS = {
+    "func": {
+        "example": example_func,
+        "simple": simple_func,
+        "complex": complex_func,
+    },
+    "bash": {
+        "common": ["echo 1", "echo 2", "echo 3"],
+        "un-vis": [DryadFlag.InVisible, "echo This is in-visible test cmd."],
+        "prefix": {
+            DryadFlag.PrefixCmd: ["cd ~", "mkdir -p .dryad_test", "cd .dryad_test"],
+            "exe1": "mkdir -p dir1 && cd dir1 && pwd",
+            "exe2": [
+                DryadFlag.IgnoreErr,
+                "mkdir dir2",
+                "cd dir2 && pwd",
+            ],
+            "exe3": [
+                DryadFlag.IgnoreErr,
+                "mkdir dir3",
+                """
+                cd dir3
+                pwd
+                """,
+            ],
+        },
+    },
+    "put": [
+        # DryadFlag.AcceptArg,
+        input_func,
+    ],
+}
+
+# Dryad(EXAMPLE_CMDS)
+Dryad(CMDS)

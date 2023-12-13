@@ -1,15 +1,29 @@
+编译器多态：泛型编程和模板
 
++ 实例化instantiation，针对具体的类型生成代码
++ 特化specialization
+	+ 对函数使用重载，对类模板进行特化
+
++ 两种多态：
+	+ 动态多态：函数重载，继承
+	+ 静态多态：就是泛型，强调对代码的复用，不同类型同构代码用同一套代码
+
++ 我们可以用`::`一个类型的成员，但是如果这个类是模板，就需要关键字`typename`。导致代码很神秘，或者表示右边的名称是类型
+
+
+```
 // template <typename T>
 // typename std::enable_if<std::is_arithmetic<T>::value>::type bin(const T &num) {
 //   std::cout << " " << num << " " << sizeof(num) << std::endl;
 // }
-
+```
 
 + 泛型：
 	+ 实现代码的重用，对于某个算法，不必关心其具体使用的类型，模板即是实现这一目的的技术
 		>C的`typedef`相当于一种类型别名，不足够代码重用。
 
 	+ 鸭子类型：性质一样的类型，比如容器，他们很多接口相同，但是并不是通过继承实现，仅仅是设置的接口相同，就是鸭子类型。
+		+ 即就是接口一样，或者性质一样的类型，怎么实现的不管。或者说就是暴力的手写。
 
 + 模板：提供参数化(parameterized)类型，让类型名作为参数传递给接收方来建立类或函数。其原理是编译器根据代码中的信息，对针对模板对某种类型生成代码，然后再编译，以这样的方式实现代码的重用。有些教材将代码中的模板代码叫做"声明"，将实例化后或者具象化后的代码叫做"定义"。
 
@@ -136,9 +150,40 @@ void swap(T& a, T& b) {
 
 >奇异递归模板模式（The Curiously Recurring Template Pattern（CRTP）
 
-## 模板元编程
+## 编译期计算/模板元编程
+>C++模板是图灵完备的
 
 variable template (C++14) [cpp ref ](https://en.cppreference.com/w/cpp/language/variable_template)
+
++ `<type_traits>`：
+	```cpp
+	typedef std::integral_constant<bool, true> true_type;
+	typedef std::integral_constant<bool, false> false_type;
+	```
+
+	```cpp
+	void f(..., true_type)
+	void f(..., false_type)
+
+	template<typename T>
+	void g(T ...) {
+		f(..., is..<T>());
+	}
+	```
+
+	+ 上面是一种用法，来决定不用重载，这个就是标签分发tag dispatch
+	+ 还能直接用在模板参数什么代码中???
+		```cpp
+		```
+
+	还有一个应用是
+
+些类型的转换。以一个常见的模板 remove_const 为例（用来去除类型里
+的 const 修饰），它的定义大致如下：
+同样，它也是利用模板的特化，针对 const 类型去掉相应的修饰。比如，如果我
+们对 const string& 应用 remove_const，就会得到 string&，即，
+remove_const<const string&>::type 等价于 string&。
+
 
 + 取模板类型参数创建另一种类型，可能需要type traits类型特性，主要在头文件`<type_traits>`中，比如
 	```cpp
@@ -169,7 +214,64 @@ variable template (C++14) [cpp ref ](https://en.cppreference.com/w/cpp/language/
 	这里的关键字`typename`就是`typedef`较于`using`的一些问题。
 
 ### SFINAE
-substitution failure is not an error替换失败非错
+substitution failure is not an error替换失败非错  
+因为有重载嘛，在编译的时候对模板实例化。并不意味不行了，这个函数同这个模板不行，编译不过，但是这个模板对应的函数名本身还有重载，那个重载肯定是确定的，它可能行。这里主要是重载决议过程的失败
+
+之后这个功能扩展了，
+
+比如根据实例化是否失败来在编译器检测类的特性
+
+
+```
+enable_if_t<has_reserve<C>::value, 本来的返回值>
+放在返回值的位置
+```
+
+即有对应成员，则启动
+
+这个还有一个功能，就是没有怎么办
+```
+enable_if_t<!has_reserve<C>::value, 本来的返回值>
+这样就行了
+```
+
+
+如果只需要考虑有呢？不需要考虑没有呢？
+
+
+```cpp
+template <typename C, typename T>
+auto append(C& container, T* ptr,
+size_t size)
+-> decltype(
+declval<C&>().reserve(1U),
+void())
+{
+```
+
+首先是declval，它只能用于这个场合，而`,`运算符是一系列求职，这里还是表示最后的值是void，
+
+
++ 在C++17中：
+
+	有
+	```cpp
+	template<typename ...>using void_t = void;
+	```
+
+	就是把所有类型都是void_t
+
+	用于
+	```cpp
+	template <typename T, typename = void_t<>> struct has_reserve : false_type {};
+	
+	template <typename T> struct has_reserve<T, void_t<decltype(declval<T&>().reserve(1U))>> : true_type {};
+	```
+
+	偏特化
+
+	上面的东西，所有类型都满足第一个模板，但并不是所有的都满足第二个，所以第二个更特别，当编译时可以对应两个，选择更他ebx的。
+
 
 ## 泛型算法
 
