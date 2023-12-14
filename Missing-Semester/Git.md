@@ -117,7 +117,7 @@ git config --global core.autocrlf false
 
 打开项目 -> Settings -> Pages(在右边) -> (在Branch下选择)master + docs -> Save -> 然后把一个index.html放到项目的docs目录下即可通过`https://用户名.github.io/项目名/`访问
 
-## Practice
+# Practice
 
 + jargon解释
 	+ Github，就是Github
@@ -130,7 +130,7 @@ git config --global core.autocrlf false
 	+ Review，审计pr代码
 	+ Merge，在这里指pr通过review，合并进项目中
 
-### 为开源项目贡献代码
+## 为开源项目贡献代码
 
 一个在Github上Public的repo(Repositories)是“开源”，任何人都可以查看代码，也能为项目贡献代码
 
@@ -183,7 +183,7 @@ git config --global core.autocrlf false
 	+ push参数`-f`
 
 
-### 多分支维护
+## 多分支维护
 
 上面提到，每次开始一个新的任务都应该开一个新的分支进行开发，这在多人开发中是必要的，那么个人开发也有必要嘛？  
 我个人觉得有的，因为在开发新的部分时常常发现上一个部分的小bug，这个时候我可能先`git reset HEAD~1`退回到上一个版本，然后把修改的文件`add`然后重新commit，但是这样太笨对吧，如果上次修改了大量的文件，或者两次修改之间有重复的文件，是不能解决的。所有个人项目开新的分支也是有必要的。
@@ -207,7 +207,7 @@ git config --global core.autocrlf false
 
 	+ 查看包括云端的分支：`git branch -a`
 
-### 查看过去版本效果的正确姿势
+## 查看过去版本效果的正确姿势
 
 >如果在开发新功能时是开一个分支就不会有下面的问题
 
@@ -217,7 +217,7 @@ git config --global core.autocrlf false
 
 + 这些信息是保存在本地的，不会随着push到云端
 
-### 修改过去版本中的记录
+## 修改过去版本中的记录
 >这是一个危险的行为，不建议模仿
 
 我的一个个人项目诞生于我对git使用很不规范的时期，有很多无用的commit，其中真的影响使用的是，我发现git clone的速度非常的慢，虽然项目中确实有挺多的静态文件，但是直觉上感觉不应该这么的慢。我在之前的某个commit中把大量的测试用图片交了上去，猜测这部分在.git目录中的记录体积很大。考虑如何删除。
@@ -250,11 +250,11 @@ git config --global core.autocrlf false
 
 果然快很多。
 
-### 将其他repo各分支push到自己的repo中
+## 将其他repo各分支push到自己的repo中
 
 下面两个情况，当项目的修改到自己的repo后，就不能再联系到学校本来的repo了，我通常是在服务器从学校clone并保留，每次拿到新的分支copy出来，把copy出来的项目去push到自己的repo，开新的实验在备份那里进行更新再copy。
 
-#### xv6
+### xv6
 每个实验都是一个分支，我们把某个分支从MIT clone到本地，然后
 ```
 git remote set-url origin 你的项目的SSH链接
@@ -262,7 +262,7 @@ git push
 ```
 这个分支就push到自己的repo下
 
-#### CS144
+### CS144
 
 与xv6的不同的是，它的每个实验在上一次实验的基础上，所以每次开新实验都是把新的分支merge到当前的分支，然后继续开发新进来的TODO  
 更新好分支后
@@ -278,12 +278,12 @@ git push origin HEAD
 git merge origin/上次实验分支名
 ```
 
-#### CMU15445
+### CMU15445
 
 哦！15445提供了更优雅的方案，我上面两个方法简直太笨了。  
 记得修改action并save
 
-### 子模块
+## 子模块
 
 + 将其他项目作为子模块：
 	```bash
