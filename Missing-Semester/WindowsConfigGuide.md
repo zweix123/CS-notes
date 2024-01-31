@@ -380,7 +380,7 @@ VSCode本是一个轻量型的编辑器，轻量型意味着可以快速的打�
 见我的[讨论](./LaTeX.md)
 
 ## UML图PlantUML
-见我的[教程](../Software-Engineering/UML.md)
+见我的[教程](misc/UML.md)
 
 ## 虚拟机VMware Workstation Pro
 

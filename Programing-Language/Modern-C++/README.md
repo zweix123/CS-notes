@@ -1,4 +1,12 @@
-+ ygg、ykiko
++ ygg、ykiko、mq白
+
++ `vector<bool>`的返回代理
+	```cpp
+	std::vector<bool> vec = {false, false, false};
+	auto first = vec[0];
+	first = true;
+	assert(vec[0] == false);  // failed
+	```
 
 # MISC
 

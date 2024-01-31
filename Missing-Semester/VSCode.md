@@ -221,6 +221,8 @@
 
 	在该插件某个版本前后，提供对上面两种用法更定制化的选项，详情可见选项`cmake.options.statusBarVisibility`
 
+	+ CMake自动执行，当项目下有CMakeLists.txt文件时，默认状态下，打开VSCode、保存CMakeLists.txt和kit or the configuration preset is changed时都会默认执行，这里取消，通过命令`cmake debug`手动执行。
+
 + debug：对于特定的项目或者单文件，cmake tool不可用，此时只能返璞归真
 	1. `./vscode/tasks.json`：构建/编译任务，在这里配置如何编译出可执行文件
 	2. `./vscode/launch.json`：启动调试，在这里配置如何启动调试器

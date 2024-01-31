@@ -1,10 +1,24 @@
+不知何时，需要在`~/.ssh/config`添加下面的别名才能正常使用SSH（对Gtihub）
+```
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+```
+可以
+```bash
+ssh -T git@github.com
+```
+
+测试下，结果应该为
+
+```
+Hi [your username]! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
 ## Intro
 >Git是一种版本管理工具，GitHub是一个代码托管平台。
 
-+ 相关资料：
-	+ [Pro Git book](https://git-scm.com/book/en/v2)
-	+ [Git User Manual](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/user-manual.html)
-	+ [可视化](http://onlywei.github.io/explain-git-with-d3/)
++ 相关资料（虽然知道你不会看）：[Pro Git book](https://git-scm.com/book/en/v2) | [Git User Manual](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/user-manual.html)
 
 ## Git
 
@@ -90,6 +104,9 @@ git config --global core.autocrlf false
 	+ `git branch`：查看分支
 	+ `git merge [branch]`：将分支合并到当前分支上
 
++ merge:
+	+ 进入合入的分支，如果`xxx`是需要合进来的分支，则命令为`git cherry-pick xxx`
+
 ## Github
 >资料：
 >+ 《GotGitHub》[电子书地址](http://www.worldhello.net/gotgithub/)
@@ -119,7 +136,7 @@ git config --global core.autocrlf false
 
 # Practice
 
-+ jargon解释
++ 名词解释
 	+ Github，就是Github
 	+ repo/Repository，Github上的项目
 	+ Public/Private，上传到Github可以设置可见性

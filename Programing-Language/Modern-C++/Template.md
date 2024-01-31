@@ -1,278 +1,74 @@
-编译器多态：泛型编程和模板
++ 多态，狭义的多态即面向对象编程范式下的多态，是一种动态的多态，通过函数重载和继承等等技术实现。还有一种多态是编译器多态、静态的多态，即泛型编程和模板编程，强调了的是对代码的复用，不同类型同构代码。
 
-+ 实例化instantiation，针对具体的类型生成代码
-+ 特化specialization
-	+ 对函数使用重载，对类模板进行特化
++ 鸭子类型（Duck typing）是一种动态类型系统的概念，它关注的是对象的行为而不是对象的类型。鸭子类型的基本思想是，当我们在编程中使用一个对象时，我们并不关心它的具体类型，而只关心它是否具有特定的方法或属性。
 
-+ 两种多态：
-	+ 动态多态：函数重载，继承
-	+ 静态多态：就是泛型，强调对代码的复用，不同类型同构代码用同一套代码
++ 这里不严格区分模板函数和函数模板、模板类和类模板。
 
-+ 我们可以用`::`一个类型的成员，但是如果这个类是模板，就需要关键字`typename`。导致代码很神秘，或者表示右边的名称是类型
-
-
-```
-// template <typename T>
-// typename std::enable_if<std::is_arithmetic<T>::value>::type bin(const T &num) {
-//   std::cout << " " << num << " " << sizeof(num) << std::endl;
-// }
-```
-
-+ 泛型：
-	+ 实现代码的重用，对于某个算法，不必关心其具体使用的类型，模板即是实现这一目的的技术
-		>C的`typedef`相当于一种类型别名，不足够代码重用。
-
-	+ 鸭子类型：性质一样的类型，比如容器，他们很多接口相同，但是并不是通过继承实现，仅仅是设置的接口相同，就是鸭子类型。
-		+ 即就是接口一样，或者性质一样的类型，怎么实现的不管。或者说就是暴力的手写。
-
-+ 模板：提供参数化(parameterized)类型，让类型名作为参数传递给接收方来建立类或函数。其原理是编译器根据代码中的信息，对针对模板对某种类型生成代码，然后再编译，以这样的方式实现代码的重用。有些教材将代码中的模板代码叫做"声明"，将实例化后或者具象化后的代码叫做"定义"。
-
-	+ 模板函数和函数模板、模板类和类模板。
-
----
-
-+ 实例化控制：模板只有在使用时才会进行实例化，所以相同的模板实例可能出现多个代码文件中，这是额外的开销
-
-	+ 实例化声明：`extern template declaration;`
-	+ 实例化定义：`template declaration;`
-
-+ variadic template可变参数模板：接受可变数目的类型参数的函数模板或类模板，TODO
-
-+ 模板类声明和实现的分离，对于一般的类，我们都是声明和定义分离的，这里可以加快编译速度。但是对于模板类来说，声明和定义的分离是不行的。如果一定要实现呢？就是使用模板实例化。
-
-+ 类型别名：
-	+ C：`typedef`
-	+ C++11：`using`
-		+ 类模板别名
-
-	```cpp
-	template<typename T> using twin = paair<T, T>
-	twin<string> authors;  // authors是一个pair<string. string>
-
-	template<typename T> using partNo = pair<T, unsigned>
-	partNo<string> books;  // books是一个pair<string, unsigned>
-	```
-
-	使用`typedef`依然可以实现，但是更复杂。
-
-# 模板
+## Template Introduction
 
 + 建立模板：
 	```cpp
 	template<class TypeName> ...
-	template<typename TypeName> ...  // C++98之后, 兼容前一种语法
+	template<typename TypeName>  ...  // C++98
 	```
 
-	这里的`TypeName`即传入的类型的名称，术语为*泛型标识符*
+	这里的`TypeName`即*泛型标识符*
 
-	+ non-type非类型参数/expression表达式参数：指定特定的类型而不是泛型作为类型参数，从传递类型变成传递某个常量
-		+ 该值只能是整型、枚举、引用或者指针
-
-		```cpp
-		template<typename T, int N>
-		```
-
-		这里的`N`即接受一个`int`型的参数，在模板中，该标识符`N`即接受的`int`类型的值的别称。
-		
-		+ 模板内的代码不能修改其值，也不能对其取址。
-		+ 在实例化模板时，用作非类型参数的值必须是常量表达式。
-
-	+ 默认类型模板参数：
-		+ 为类型参数提供默认值，类模板可以，函数模板不可以。
-		+ 为非类型参数提供默认值，类模板和函数模板都可以。
-
-+ 使用模板：
-	+ 模板内代码：在类型参数控制的区域可以把泛型标识符作为内置类型使用
-	+ 调用模板代码：通过实例化以确定类型按照模板代码生成具体的代码
-
-+ instantiation实例化：让编译器通过模板代码针对具体类型生成对应代码
-	+ 隐式实例化(implicit instantiaion)：在使用模板时，编译器自动为其生成对应类型的代码
-	+ 显式实例化(explicit instantiaion)：在代码中手动命令编译器生成对应类型代码
-		```cpp
-		template RetType funcName<type...>(type par1, ...) {}
-		template class ClassName<type...>;
-		```
-
-+ specialization具体化：不使用模板生成定义，而是专门为特定类型进行定义
++ non-type非类型参数/expression表达式参数，该值类型只能是整型、枚举、引用或者指针
 	```cpp
-	template <> RetType funcName(type par1, ...) { ... }
-	template <> class ClassName<...> {};
+	template<typename WightType WIGHT> ...
 	```
 
+	+ 模板内的代码不能修改其值，也不能对其取址
+	+ 在实例化模板时，用作非类型参数的值必须是常量表达式
+
++ 模板类型模板参数：
+
+	|          | 类型参数 | 非类型参数 |
+	| -------- | -------- | ---------- |
+	| 类模板   | 可以     | 不可以     |
+	| 函数模板 | 可以     | 可以       |
+
++ 使用模板
+
++ Instantiation实例化：让编译器通过模板代码针对具体类型生成对应代码
+	+ implicit instantiation隐式实例化：在使用模板时，编译器自动为其生成对应类型的代码
+	+ explicit instantiation显示实例化：在调用代码中手动要求编译器生成对应类型代码
+
++ Specialization具体化：不使用模板生成函数或类定义，而是专门为特定类型进行定义
+	```cpp
+	template <> ... funcName(...) { 要具体化的代码; }
+	template <> class ClassName<...> { 要具体化的代码; };
+	```
 	+ 部分具体化：
 
-## 函数模板
+### Function
 
-来个经典的
 ```cpp
-template<typename T>
-void swap(T& a, T& b) {
-	T t = a; a = b; b = t;
-}
-{
-	int a = 1, b = 2;
-	swap(a, b);       // 隐式实例化
-	swap<int>(a, b);  // 显式实例化
-}
+// 函数模板
+template<typename T> void swap(T& a, T& b) { .. }
+swap(a, b);       // 隐式实例化
+swap<int>(a, b);  // 显示实例化
 ```
 
-+ 后置返回类型(trailing return type)：
-	一般情况下，如果返回类型和参数类型有关，没问题的`template<typename T> T add(T a, T b);`，但是如果我希望生成类型这样的`double add(int a, double b);`呢？注意这里的`int`和`double`也能调换，实际上，这样的函数没有问题，发生了**类型提升**嘛，这些可以自动实现，但是在模板函数中，代码使用哪个类型参数呢？比如`template<typename T1, typename T2> ? add(T1 a, T2 b);`，这时可以引入`decltype`关键字，通过表达式自动生成正确的类型，即`decltype(a + b)`，那么新的问题，这时就用到了形参的名称，但是在返回值的位置还不知道形参的名字，这时就可以使用这样的语法`template<typename T1, typename T2> auto add(T1 a, T2 b) -> decltype(a + b);`
-
-## 类模板
-
-+ 定义类模板：
++ trailing return type后置返回类型
 	```cpp
-	template<typename T>
-	class ClassName {
-		...
-	};
+	auto 
+	decltype
 	```
 
-	+ 模板类方法定义：
-		```cpp
-		template<typename T>
-		RetType ClassName<T>::mothedName(...) {...}
-		```
+### Class
 
-+ 使用模板类：`ClassName<type> instanceName;`
++ 友元
++ CRTP, Curiously Recurring Template Pattern奇异递归模板模式
 
-+ 特例化成员，上面讨论过模板实例化和具体化，其中有部分具体化，这里的具体化是指类型参数，如果我只想具体化某种类型下模板类的某个方法呢？TODO
-
-### 友元
-
-+ 非模板友元，模板类中的常规友元是所有模板类的友元
-+ 模板友元：
-+ 约束(bound)模板友元：TODO
-+ 非约束(unbound)模板友元：TODO
-
-### CRTP
-
->奇异递归模板模式（The Curiously Recurring Template Pattern（CRTP）
-
-## 编译期计算/模板元编程
+# 编译器计算/模板元编程
 >C++模板是图灵完备的
 
-variable template (C++14) [cpp ref ](https://en.cppreference.com/w/cpp/language/variable_template)
+## `type_traits`
+>[cpp ref](https://en.cppreference.com/w/cpp/header/type_traits)
 
-+ `<type_traits>`：
-	```cpp
-	typedef std::integral_constant<bool, true> true_type;
-	typedef std::integral_constant<bool, false> false_type;
-	```
++ [`std::intergral_constant`](https://en.cppreference.com/w/cpp/types/integral_constant)
 
-	```cpp
-	void f(..., true_type)
-	void f(..., false_type)
-
-	template<typename T>
-	void g(T ...) {
-		f(..., is..<T>());
-	}
-	```
-
-	+ 上面是一种用法，来决定不用重载，这个就是标签分发tag dispatch
-	+ 还能直接用在模板参数什么代码中???
-		```cpp
-		```
-
-	还有一个应用是
-
-些类型的转换。以一个常见的模板 remove_const 为例（用来去除类型里
-的 const 修饰），它的定义大致如下：
-同样，它也是利用模板的特化，针对 const 类型去掉相应的修饰。比如，如果我
-们对 const string& 应用 remove_const，就会得到 string&，即，
-remove_const<const string&>::type 等价于 string&。
-
-
-+ 取模板类型参数创建另一种类型，可能需要type traits类型特性，主要在头文件`<type_traits>`中，比如
-	```cpp
-	std::remove_const<T>::type          //C++11: const T → T 
-	std::remove_const_t<T>              //C++14 等价形式
-	
-	std::remove_reference<T>::type      //C++11: T&/T&& → T 
-	std::remove_reference_t<T>          //C++14 等价形式
-	
-	std::add_lvalue_reference<T>::type  //C++11: T → T& 
-	std::add_lvalue_reference_t<T>      //C++14 等价形式
-	```
-	值得一提的是，C++11版本使用的是`typedef`相关的技术，而C++14的接口才是类型别名`using`的相关技术
-
-	实际上可以
-	```cpp
-	template <class T> 
-	using remove_const_t = typename remove_const<T>::type;
-	
-	template <class T> 
-	using remove_reference_t = typename remove_reference<T>::type;
-	
-	template <class T> 
-	using add_lvalue_reference_t =
-		typename add_lvalue_reference<T>::type; 
-	```
-
-	这里的关键字`typename`就是`typedef`较于`using`的一些问题。
-
-### SFINAE
-substitution failure is not an error替换失败非错  
-因为有重载嘛，在编译的时候对模板实例化。并不意味不行了，这个函数同这个模板不行，编译不过，但是这个模板对应的函数名本身还有重载，那个重载肯定是确定的，它可能行。这里主要是重载决议过程的失败
-
-之后这个功能扩展了，
-
-比如根据实例化是否失败来在编译器检测类的特性
-
-
-```
-enable_if_t<has_reserve<C>::value, 本来的返回值>
-放在返回值的位置
-```
-
-即有对应成员，则启动
-
-这个还有一个功能，就是没有怎么办
-```
-enable_if_t<!has_reserve<C>::value, 本来的返回值>
-这样就行了
-```
-
-
-如果只需要考虑有呢？不需要考虑没有呢？
-
-
-```cpp
-template <typename C, typename T>
-auto append(C& container, T* ptr,
-size_t size)
--> decltype(
-declval<C&>().reserve(1U),
-void())
-{
-```
-
-首先是declval，它只能用于这个场合，而`,`运算符是一系列求职，这里还是表示最后的值是void，
-
-
-+ 在C++17中：
-
-	有
-	```cpp
-	template<typename ...>using void_t = void;
-	```
-
-	就是把所有类型都是void_t
-
-	用于
-	```cpp
-	template <typename T, typename = void_t<>> struct has_reserve : false_type {};
-	
-	template <typename T> struct has_reserve<T, void_t<decltype(declval<T&>().reserve(1U))>> : true_type {};
-	```
-
-	偏特化
-
-	上面的东西，所有类型都满足第一个模板，但并不是所有的都满足第二个，所以第二个更特别，当编译时可以对应两个，选择更他ebx的。
-
-
-## 泛型算法
-
-+ 在`std`名称空间定义，大部分包含在`<algorithm>`头文件，少部分包含在`<numeric>`头文件中（数值泛型算法）
+## SFINAE
+>Substitution Failure Is Not An Error，替换失败非错

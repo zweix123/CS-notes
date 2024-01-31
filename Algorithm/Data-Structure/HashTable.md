@@ -26,3 +26,5 @@ private:
 ## 开放寻址法线性探测可扩展哈希表实现、测试和分析
 
 [实现代码](https://github.com/zweix123/ACT/blob/main/include/stl/hashtable.h) | [测试代码](https://github.com/zweix123/ACT/blob/main/test/test_stl_hash_table.cpp) | 分析见代码注释
+
+## Swiss Table

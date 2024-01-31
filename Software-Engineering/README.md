@@ -1,1 +1,0 @@
-Wheeler is often quoted as saying "All problems in computer science can be solved by another level of indirection." or "All problems in computer science can be solved by another level of indirection, except for the problem of too many layers of indirection." This has been called the fundamental theorem of software engineering.
