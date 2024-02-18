@@ -203,7 +203,7 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 ### 5.1.PowerShell7
 
 + 安装：[Manual](https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3)（官方推荐winget）
-+ 更新：`winget update Microsoft.PowerShell`
++ 更新：reinstall
 + 使用：快捷键`win + r`键入`pwsh`打开一个命令行程序
 + pwsh在打开后会运行`$PROFILE`这个脚本（直接在命令行中输入这个命令即可查看脚本位置）
 	+ 所以可以把这个文件当做Linux中Bash的`.bashrc`文件

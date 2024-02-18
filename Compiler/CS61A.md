@@ -3,6 +3,9 @@
 	+ （在大概调研之后）我使用的版本是[CS 61A Fall 2020](https://inst.eecs.berkeley.edu/~cs61a/fa20/)，课程在[B站](https://www.bilibili.com/video/BV1s3411G7yM)有收录，打开双语体验颇佳。
 
 
+	+ + [CS 61A FALL 2020](https://inst.eecs.berkeley.edu/~cs61a/fa20/)：大概调研了一下，首先最新版的video不全，然后课程分Summer和Fall，秋季似乎因为时间长所以内容多，最终结合资料全面程度选择FALL 2020这一版。
+
+
 + Python相关
 	+ `and`、`or`和`not`仅仅表达与或非，与其他编程语言含义无二。
 	+ False Value in Pytrhon: False, 0, '', None

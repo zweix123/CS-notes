@@ -1,3 +1,38 @@
+file(GLOB_RECURSE srcs CONFIGURE_DEPENDS *.cpp)
+foreach(v ${srcs})
+    string(REGEX MATCH "pingpong/.*" relative_path ${v})
+    string(REGEX REPLACE "pingpong/" "" target_name ${relative_path})
+    string(REGEX REPLACE ".cpp" "" target_name ${target_name})
+
+    add_executable(${target_name} ${v})
+endforeach()
+
+
+foreach(file ${files})
+    # message(${file})
+    string(REGEX MATCH "low-latency-insert/.*" relative_path ${file})
+
+    # message(${relative_path})
+    string(REGEX REPLACE "low-latency-insert/" "" target_name ${relative_path})
+    string(REGEX REPLACE ".cpp" "" target_name ${target_name})
+
+    # message(${target_name})
+    add_executable(${target_name} ${file})
+    target_link_libraries(${target_name} ${LINK_LIBS})
+endforeach()
+
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+add_subdirectory(./tinydb)
+
+# add_subdirectory(./pingpong)
+
+# CONFIGURE_DEPENDS  在make时自动寻找文件的变化
+# GLOB与GLOB_RECURSE 是否递归
+
+
+
+
 > 相信你已经掌握了Makefile
 
 > CMake较于Makefile解决什么问题
@@ -105,4 +140,6 @@ else()  # 可省略
     ...
 endif()
 ```
+
+
 

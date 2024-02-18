@@ -67,6 +67,10 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ 一个插件往往提供大量的功能，同时提供了对这些功能的快捷键自定义，需要打磨出自己一套操作，可选项太多了很容易冲突。
 	+ 如果用Git维护内容和格式（`.obsidian/`），这个文件`.obsidian/workspace.json`变化频繁，很容易冲突，后来我直接把它gitignore了
 
+### 插件
+
++ obsidian-map-view
+
 # 导出
 
 ## 导出成PDF

@@ -8,11 +8,11 @@
 	+ [Linux](Missing-Semester/LinuxConfigGuide.md)
 
 + 关于主力编辑器的选择：我个人是这样的，如果一个新的工作流被验证效率优于目前使用的工作流，可以不顾任何学习成本迁移过去，比如从输入法从全拼到双拼的转移。
-	+ VSCode和vim的选择，我相信上限vim是优于VSCode的，但是基于Ctrl作为leaderkey的操作模式在各个软件都深入人心了，不能保证所有常用的软件都支持vim模式，最后还是选择VSCode。但vim还是我们的老前辈，对于某些vim下很好的操作积极寻找VSCode的等价操作。
+	+ VSCode和vim的选择，我相信上限vim是优于VSCode的，但是基于Ctrl作为leaderkey的操作模式在各个软件都深入人心了，不能保证所有常用的软件都支持vim模式，最后还是选择VSCode。但vim还是我们的老前辈，对于某些vim下很好的操作模式积极寻找VSCode的等价操作。
 
 ## Use
 
-+ VSCode命令行相关：`code`开发VSCode
++ VSCode命令行相关：命令`code`，打开VSCode，`code .`则是在当前目录打开VSCode
 + Command Center：即UI顶部的输入框，默认项目下文件检索，通过添加前缀实现各种功能，下面是我常用的
 	+ Go to File：默认`Ctrl + E`
 	+ Go to Line:  默认`Ctrl + G`，相当于vim的`数字 + g`
@@ -114,6 +114,9 @@
 	+ `Docker`：Docker开发必备，使用体验和Remote类似
 
 	插件是有本地的远程的概念的，当使用远程开发时，记得一些插件需要在两端都下载。
+
++ Git Blame
++ Cmake
 
 ## Code
 

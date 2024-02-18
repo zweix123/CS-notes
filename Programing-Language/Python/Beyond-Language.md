@@ -106,3 +106,30 @@ pip --help         # [沟通]
 	+ 虚拟环境使用和全局环境不同的Python：`poetry env use [解释器路径]`
 
 		>注意，poetry虚拟环境用的是virtualenv，而它已经放弃对Python3.6的支持，所以poetry也是这样的。[issue](https://github.com/python-poetry/poetry/issues/8185)
+
+
+	+ 一些坑点：在`pyproject.toml`中描述Python版本的格式为：
+		```
+		[tool.poetry.dependencies]
+		python = "^3.12"
+		```
+
+		但是可能遇到这种错误
+		```
+		The current project's supported Python range (>=3.12,<4.0) is not compatible with some of the required packages Python requirement:
+		  - pyside6 requires Python <3.13,>=3.8, so it will not be satisfied for Python >=3.13,<4.0
+		```
+
+		你可能会感到疑惑，我设置的版本大于3.12，且实际的虚拟环境的版本就是3.12，这个数字明明符合库要求的`[3.8, 3.13)`
+
+		但是实际上，它比较的是区间`[3.8. 3.13)`和`[3.12, +∞)`，我们发现这两个区间有对称差集，所以出了问题。
+
+		把配置中改成类似
+		```
+		[tool.poetry.dependencies]
+		python = ">=3.10, <3.13"
+		```
+
+		就行
+
+		值得注意的是，我们发现来自依赖库的报错肯定是这个库本身要求安装的Python版本，如果这是一个你的库，那么像上面那样设置也会导致别人也遇到同样的限制，而使用`^`则宽泛的多
