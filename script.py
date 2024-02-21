@@ -30,7 +30,7 @@ def cnt_impl():
                 for c in line:
                     if c in string.ascii_letters:  # 英文
                         cnt_en += 1
-                    elif c.isalpha():  # 中文, isalpha()会得到英文和中文, 但是英文已经在上面的if筛选了
+                    elif c.isalpha():  # 中文: isalpha得到中英文, 但英文已被分支
                         cnt_zh += 1
                     elif c.isdigit():  # 数字
                         cnt_dg += 1
@@ -39,16 +39,12 @@ def cnt_impl():
                     else:  # 标点符号
                         cnt_pu += 1
 
-    print_table(
-        [
-            ("总共", str(len(filepaths)), "文章"),
-            ("字母: ", str(cnt_en), "个"),
-            ("汉字: ", str(cnt_zh), "字"),
-            ("数字: ", str(cnt_dg), "位"),
-            ("标点: ", str(cnt_pu), "个"),
-            ("共约", str(int(cnt_zh + cnt_en // 6 + cnt_dg // 32)), "字"),
-        ]
-    )
+    print("文章", str(len(filepaths)), "个"),
+    print("字母", str(cnt_en), "个"),
+    print("汉字", str(cnt_zh), "字"),
+    print("数字", str(cnt_dg), "位"),
+    print("标点", str(cnt_pu), "个"),
+    print("共约", str(int(cnt_zh + cnt_en // 6 + cnt_dg // 32)), "字"),
 
 
 CMDS = {
