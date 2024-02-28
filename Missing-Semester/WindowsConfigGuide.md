@@ -306,11 +306,6 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 		scoop checkup
 		```
 
-+ 必装软件
-	```bash
-	scoop install unxutils  # 看名字就知道为啥了吧
-	```
-
 + 相关命令：  
 	```powershell  
 	scoop --help  # 查看帮助
@@ -328,6 +323,9 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 + 软件多版本：一般可以通过指定文件名为`文件名@版本号`的方式下载特定版本
 	+ Python：`scoop install python310`
 	+ 版本切换：使用命令`scoop reset [app]@[version]`
+
++ 其他：
+	+ 关于软件`unxutils`：这里有很多Linux常用命令，用来补齐Windows和Linux命令不同的问题，但是我没有安装，首先Powershell7本身就有很多和Linux一致的命令，部分会单独安装。而这里不仅有基本的命令，还有`zsh`这样的命令， 至少给我带来的一个问题是在VSCode使用CMake插件会造成输出乱码已经部分情况不能编译。所以卸载了这个。
 
 ### 7.Git
 
