@@ -119,47 +119,12 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 	+ `F2`作为开关System Proxy的快捷键
 
 ## 4.笔记软件Obsidian
->为什么选择这款软件作为我的Markdown编辑器见我的关于Markdown编辑器的[讨论](./Markdown.md#Obsidian)
 
-+ Obsidian默认安装C盘：不处理，软件位置右键快捷方式查看
-	>这个软件的核心其实是配置（项目目录下`.obsidian`文件夹），而配置文件是在对应的项目下的，可以不占C盘空间
+该软件跨平台，我在Windows、Linux甚至IOS（IPad）上使用它。所以这里记录其仅关于Windows的东西（下载），其他的（为什么选择它以及其他操作）放在另外的位置
 
-+ 插件推荐：
-	+ Obsidian Git（需要下载Git）多机同步必备
-	 >我的配置：`Ctrl + Alt + s -> backup(commit and push)、Ctrl + Alt + L -> pull`  
-	 >>会有冲突（主要是和腾家IM）使用`Ctrl + Alt + C -> commit, Ctrl + Alt + H -> push`  
-	 >
-	 >>该插件提供定时操作，个人习惯没有使用，上面的快捷键设计是统筹后的结果
++ 安装：Obsidian默认安装C盘：不处理，软件位置右键快捷方式查看。
 
-	+ Advanced Tabled：Makedown表格相关补全  
-		这里我是这样考虑，该插件为操作表格提供了大量的自定义，但是抽象程度低意味着复杂，索性它提供了图形化的处理，鉴于表格的使用本就不多，所以没有设置快捷键。
-
-	+ TiKZJaz：可以使用LaTeX的宏包TiKZ
-
----
-
-+ 快捷键推荐：
-	+ 按住`Ctrl`使用`+`或者`-`控制系统字体大小
-	+ 按住`Ctrl`使用鼠标滚轮控制编辑器字体大小
-	+ `Ctrl + \`左右分屏（和VSCode统一）
-
-+ 问题处理：
-	+ `项目根目录/.obsidian/workspace.json`的修改相当频繁，不及时push和pull比较麻烦  
-		比如对于报错：
-		```
-		error: Your local changes to the following files would be overwritten by merge:
-				.obsidian/workspace.json
-		Please commit your changes or stash them before you merge.
-		Aborting
-		```
-		可通过下面命令解决  
-		```powershell
-		git checkout .\.obsidian\workspace.json  # win
-		```
-		```bash
-		git checkout ./.obsidian/workspace.json  # linux
-		```
-		后我将该文件放在`.gitignore`中
+	该软件是围绕项目的，一个项目的相关配置放在项目目录下的`.obsidian`目录中。而这部分配置文件放在对应的项目下，所以不占C盘空间。
 
 ## 5.命令行
 

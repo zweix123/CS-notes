@@ -1,17 +1,21 @@
-我个人对Markdown的理解是把它当作Word的一种“受限”的实现，因为Word在提供丰富功能的同时以带来了极高的学习成本，依照奥卡姆剃刀原理，Markdown简单易用、功能小但足够。而且Markdown到HTML的转换非常自然容易。
++ Why：为什么需要Markdown
 
-- [语法学习](#语法学习)
-- [Editor](#editor)
-	- [Obsidian](#obsidian)
-- [导出](#导出)
-	- [导出成PDF](#导出成pdf)
-	- [导出成HTML](#导出成html)
-- [奇技淫巧](#奇技淫巧)
-	- [用Markdown写论文](#用markdown写论文)
-	- [用Markdown写幻灯片](#用markdown写幻灯片)
+	对于文字处理，首先想到的是微软的Word，但是对于笔记的场景中，它首当其冲的一个问题是——"冗余"，它有相当多的功能，而我们只需要很少的部分，那么多余的部分都是造成负担。Markdown则是更清亮的一个系统。
 
-# 语法学习
-个人建议Markdown语法/Markdown方言/LaTeX简单语法/Markdown内置graph语法都不需要刻意记忆：全面浏览、随用随查最好。
++ What：什么是Markdown
+
+	在Word中，"内容"和"排版"是不分离的，即对于部分内容，控制对应格式。这是复杂的原因之一。有将其分离的排版或者系统。
+
+	+ 基于标记的排版系统：LaTeX、Typest
+	+ 标记语言：HTML、Markdown
+
+	具体的，针对记笔记的几个核心需求，标题、分段、列表、表格、图片，它以非常jm d简单的语法给予支持。
+
+	除此之外，现代的网站都是用HTML写的，而Markdown向HTML的转换非常自然，所以Markdown也是很多博客的首选。
+
++ How：怎么学Markdown：不用学，没几个语法。
+
+Word是没有语法的概念，功能都集合在软件中。Markdown是一种语言，渲染它需要具体的软件。下面聊聊Markdown编辑器。
 
 # Editor
 
@@ -28,17 +32,20 @@
 
 每种编辑器各有优缺点，我的选择是按照自己的习惯选择的，下面描述一下心路历程，请读者结合各编辑器特点自行选择
 
-+ Typora：即时渲染能力极强，在其加持下，甚至感觉不到Markdown语法；可以管理项目、可以查看小标题（两者只能同时看到一个）；维护本地文件，上云需要其他手段；收费使用。
++ Typora：即时渲染能力效果好，在其加持下，甚至感觉不到Markdown语法；可以管理项目、可以查看小标题（两者只能同时看到一个）；维护本地文件，上云需要其他手段；收费使用。性能在字数达到一定程度后很卡。
 + 有道云笔记：免费，自动上云；编辑模式有即时渲染和双屏，体感一般。文件不能源码导出。
 + VSCode结合插件(Markdown Preview Enhanced、Markdown All in One)：只能双屏编辑，但是VSCode编辑能力极强；能看大纲；维护本地文件，上云需要其他手段。
-+ Obsidian：即时渲染能力略逊于Typora，可同时查看目录和大纲，维护本地项目，可通过插件上云，免费且全平台支持，插件丰富。
++ Obsidian：即时渲染效果略逊于Typora，可同时查看目录和大纲，维护本地项目，可通过插件上云，免费且全平台支持，插件丰富。性能目前还未遇到性能问题。
 + Notion：不了解。
 
 最后我选择是用Obsidian维护笔记项目，其他Markdown文件使用VSCode作为副驾驶
 >没有选择VSCode做主力的原因是，想象一下，项目结构、源码、渲染结果、大纲同时出现屏幕上得多挤，所以还是得要即时渲染。
 
 ## Obsidian
-Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同时也带来了“抽象成本”。  
+Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同时也带来了“抽象成本”。 
+
+### 从Typora到Obsidian
+
 下面讨论我从Typora转向Obsidian的心路历程
 
 + Typora的即时渲染做的很好，对Makedown本身的语法补全非常到位，而这方面Obsidian略有差距
@@ -65,11 +72,15 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 	+ 性能很怪，当一个文章的链接（就是普通的外链）很多时，即时渲染会出现bug（方向键无效，不能渲染）
 	+ 既然选择以项目为中心，为什么不能提供右键打开当前目录的选项？后面也能理解了，谁tm有那么多笔记项目？
 	+ 一个插件往往提供大量的功能，同时提供了对这些功能的快捷键自定义，需要打磨出自己一套操作，可选项太多了很容易冲突。
-	+ 如果用Git维护内容和格式（`.obsidian/`），这个文件`.obsidian/workspace.json`变化频繁，很容易冲突，后来我直接把它gitignore了
 
-### 插件
+### 插件推荐
 
-+ obsidian-map-view
++ Obsidian Git：多机同步必备，取消所有快捷键，因为核心功能主要有三个（如果熟悉Git的话）：add + commit、push、pull。而Obsidian也有类似VSCode的命令行模式（快捷键`Ctrl + p`或者`Command + p`），输出前缀`git`即有上面提到的几个选项，甚至在PC上，我都是命令行手动管理。
+
++ Advanced Tabled：Markdown表格相关补全，它存在大量的自定义，抽象程度低就意味着复杂，索性它提供了图形化的操作，鉴于表格用的本来就不多。我干脆没有设计快捷键。
+
++ TiKZJaz：可以使用LaTeX的宏包TiKZ
++ Obsidian-map-view
 
 # 导出
 

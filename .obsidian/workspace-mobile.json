@@ -1,0 +1,152 @@
+{
+  "main": {
+    "id": "f946d29bc3bdf3cb",
+    "type": "split",
+    "children": [
+      {
+        "id": "d636d6944494978d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "38e3d1774f8e9903",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6958a9b1d55a2c5b",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "e3a0b2933365ee86",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "c778f8ee08602141",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "407db5074e913b00",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "a8c0cf9f60f11d23",
+        "type": "leaf",
+        "state": {
+          "type": "all-properties",
+          "state": {
+            "sortOrder": "frequency",
+            "showSearch": false,
+            "searchQuery": ""
+          }
+        }
+      },
+      {
+        "id": "9217797bfcec14db",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "be77713fedb1510b",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "fbbc31f75c7a653c",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "e07695fea0ee4c47",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "d62070fc90e74ab6",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 2
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "38e3d1774f8e9903",
+  "lastOpenFiles": [
+    "Missing-Semester/IPadConfigGuide.md",
+    "README.md",
+    "Missing-Semester/IPadConfgGuide.md",
+    "Missing-Semster/IPadconfgGuide.md",
+    "Missing-Semster",
+    "sam.md",
+    "Missing-Semester/LinuxConfigGuide.md",
+    "Missing-Semester/LinuxConfigGuid.md",
+    "Missing-Semester/WindowsConfigGuide.md",
+    "Missing-Semester/Semantic Versioning.md",
+    "Missing-Semester/Markdown.md",
+    "Missing-Semester/README.md"
+  ]
+}

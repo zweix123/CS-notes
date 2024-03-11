@@ -1,5 +1,6 @@
 <!-- https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/ -->
 
+
 ## 前言
 
 + 该项目是我个人的笔记，部分会刻意制作成Blog，但大部分仍然是我个人的Note，除非特殊声明，否则不建议作为学习资料。
@@ -31,6 +32,8 @@
 + 开发机配置指南：正所谓工欲善其事必先利其器，这真不是差生文具多，是实打实的生产力提升。
 	+ [win 开发机配置指南](Missing-Semester/WindowsConfigGuide.md)：如题
 	+ [linux 开发机配置指南](Missing-Semester/LinuxConfigGuide.md)：如题
+	+ Apple系列：
+		+ [IPad学习机配置指南](Missing-Semester/IPadConfigGuide)：如题
 
 	特别的，我还有
 	+ [VSCode配置指南](Missing-Semester/VSCode.md)：如题，涉及通用配置和对于各个语言的开发配置
