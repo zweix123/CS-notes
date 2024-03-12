@@ -6,7 +6,7 @@
 + Reference：
 	+ [分布式一致性与共识算法](https://draveness.me/consensus/)
 
-我们已经在[这里](Distributed-System/README.md)讨论了一些分布式系统中的一致性问题和共识算法，而区块链是典型的分布式场景，且面对拜占庭将军问题
+我们已经在[这里](../Distributed-System/README.md)讨论了一些分布式系统中的一致性问题和共识算法，而区块链是典型的分布式场景，且面对拜占庭将军问题
 
 + POW, Proof-of-Work工作量证明
 	+ 内容：请求服务的节点必须解决一个**一般难度但是feasible可行的问题**且该问题验证容易

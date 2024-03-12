@@ -2,3 +2,6 @@
 **/.mypy_cache/
 # .vscode/
 **/__pycache__/
+
+# ds ctrl img
+.stash

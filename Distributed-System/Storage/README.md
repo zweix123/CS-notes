@@ -24,4 +24,4 @@
 
 ### Replicated State Machine
 
-![复制状态机模型](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Distributed-System/复制式状态机架构.png)
+![复制状态机模型](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Distributed-System/Storage/复制式状态机架构.png)

@@ -1,19 +1,221 @@
 import os
+import re
+import shutil
 
 from dryads import Dryads  # type: ignore
 from rich.progress import track
 
 
-def print_execel():
-    raise Exception("not imple")
+def read_md(filepath: str) -> str:
+    with open(filepath, "r", encoding="utf-8") as f:
+        return str(f.read())
 
 
-def print_table(data: list[tuple[str, ...]]) -> None:
-    assert all(len(line) == len(data[0]) for line in data)
-    pass
+def write_md(filepath: str, text: str) -> None:
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(text)
 
 
-def cnt_impl():
+def get_link_for_img(text: str) -> list[str]:
+    patterns: list[str] = [
+        r"!\[.*?\]\((.*?)\)",
+        r"<img.*?src=[\'\"](.*?)[\'\"].*?>",
+    ]
+    return [item for pattern in patterns for item in re.findall(pattern, text)]
+
+
+def get_link_for_link(text: str) -> list[str]:
+    patterns: list[str] = [
+        r"(?<!!)\[.*?\]\((.*?)\)",
+        r"<a.*?href=[\'\"](.*?)[\'\"].*?>",
+    ]
+
+    return [item for pattern in patterns for item in re.findall(pattern, text)]
+
+
+RESOURCE_PATH = "resource"
+STASH_PATH = ".stash"
+
+
+def link():
+    """检查链接可达性（不包含图床）"""
+    CS_NOTES_PRE = "https://github.com/zweix123/CS-notes/blob/master"
+
+    links: list[tuple[str, str]] = []  # (filepath, link)
+
+    for root, dirs, files in os.walk("."):
+        root_path_split = root.split(os.sep)
+        root_path_split = root_path_split[1:]
+        if len(root_path_split) > 0 and (
+            root_path_split[0].startswith(".")
+            or root_path_split[0] in (RESOURCE_PATH, STASH_PATH)
+        ):
+            continue
+        for f in files:
+            filepath = os.path.join(root, f)
+            for link in get_link_for_link(read_md(filepath)):
+                links.append((filepath, link))
+
+    self_links: list[tuple[str, str]] = []
+    out_links: list[tuple[str, str]] = []
+    else_links: list[tuple[str, str]] = []
+
+    for filepath, link in links:
+        if link.startswith(CS_NOTES_PRE):
+            self_links.append((filepath, link))
+        elif link.startswith(("http", "www")):
+            out_links.append((filepath, link))
+        else:
+            else_links.append((filepath, link))
+
+    for x, y in else_links:
+        print(x, y)
+
+
+def img():
+    """检测图片"""
+    """
+    三种对象
+        文本文件路径
+        图片链接路径
+        资源实际路径
+    文本文件路径Y 图片链接路径Y 资源实际路径N: 图片不在, 无法正常显示
+    文本文件路径Y 图片链接路径N 资源实际路径Y: 不可能, 无法判断资源实际路径正确
+    文本文件路径N 图片链接路径Y 资源实际路径Y: 文件是被mv过的, 拷贝资源并修改
+    文本文件路径N 图片链接路径N 资源实际路径N: 假如文本文件的Path和图片链接的name拼起来和资源路径存在, 则说明重命名
+    """
+    PREFIX = "https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/"
+
+    class Path:
+        def __init__(self, path: list[str], name: str) -> None:
+            self.path = path
+            self.name = name
+
+        def __hash__(self) -> int:
+            return hash("@".join(self.path + [self.name]))
+
+        def __eq__(self, other) -> bool:
+            return self.path == other.path and self.name == other.name
+
+        def __str__(self) -> str:
+            return str(self.path) + "+" + str(self.name)
+
+        def __repr__(self) -> str:
+            return repr(self.path) + "+" + repr(self.name)
+
+    md_img: dict[Path, list[Path]] = {}
+    res: set[Path] = set()  # resource
+
+    unlocal: list[tuple[str, str]] = []  # 不使用PREFIX前缀的图片链接
+    matched: set[Path] = set()  # 成功匹配的, 用来筛选未使用的资源
+    unmatched: set[Path] = set()  # 通过matched剔除res, 资源
+    unfind: list[tuple[Path, Path]] = []  # 找不到资源的链接
+    mved: list[Path] = []  # 被移动的mved, 需要特殊处理, Markdown
+    rename: list[Path] = []  # 文本和图片重命名而忘记文本中的内容链接变化, Markdown
+
+    for root, dirs, files in os.walk("."):
+        root_path_split = root.split(os.sep)
+        root_path_split = root_path_split[1:]
+        if len(root_path_split) > 0 and (
+            root_path_split[0].startswith(".")
+            or root_path_split[0] in (RESOURCE_PATH, STASH_PATH)
+        ):
+            continue
+        for f in files:
+            filepath = os.path.join(root, f)
+            links = get_link_for_img(read_md(filepath))
+            md = Path(root_path_split, f)
+            md_img[md] = []
+
+            for link in links:
+                if not link.startswith(PREFIX):
+                    unlocal.append((filepath, link))
+                else:
+                    link = link[len(PREFIX) :]
+                    link_split = link.split("/")
+                    assert len(link_split) > 0
+                    img = Path(link_split[:-1], link_split[-1])
+                    md_img[md].append(img)
+    for root, dirs, files in os.walk(RESOURCE_PATH):
+        root_path_split = root.split(os.sep)
+        root_path_split = root_path_split[1:]
+        for f in files:
+            res.add(Path(root_path_split, f))
+
+    for md, imgs in md_img.items():
+
+        for img in imgs:
+            if md.path == img.path:
+                if img in res:
+                    matched.add(img)
+                else:
+                    unfind.append((md, img))
+            else:
+                if img in res:
+                    mved.append(md)
+                else:
+                    if Path(md.path, img.name) in res:
+                        rename.append(md)
+                    else:
+                        assert False, str(md) + " " + str(img)
+
+    def handle_rename():
+        print("rename", rename)
+        for md in rename:
+            for img in md_img[md]:
+                if md.path != img.path and img not in res:
+                    assert Path(md.path, img.name) in res
+                    filepath = os.path.join(".", *md.path, md.name)
+                    old_link = PREFIX + "/".join(img.path + [img.name])
+                    new_link = PREFIX + "/".join(md.path + [img.name])
+                    write_md(filepath, read_md(filepath).replace(old_link, new_link))
+
+                    matched.add(Path(md.path, img.name))
+
+    handle_rename()
+
+    def handle_mved():
+        print("mved", mved)
+        for md in mved:
+            for img in md_img[md]:
+                if md.path != img.path and img in res:
+                    filepath = os.path.join(".", *md.path, md.name)
+                    old_link = PREFIX + "/".join(img.path + [img.name])
+                    new_link = PREFIX + "/".join(md.path + [img.name])
+                    old_path = os.path.join(".", RESOURCE_PATH, *img.path, img.name)
+                    new_path = os.path.join(".", RESOURCE_PATH, *md.path, img.name)
+                    new_dir = os.path.join(".", RESOURCE_PATH, *md.path)
+
+                    if not os.path.exists(new_dir):
+                        os.makedirs(new_dir)
+                    assert not os.path.exists(new_path), "命名冲突: " + new_path
+                    shutil.move(old_path, new_path)
+                    write_md(filepath, read_md(filepath).replace(old_link, new_link))
+                    matched.add(img)
+
+    handle_mved()
+
+    unmatched.update(set([r for r in list(res) if r not in matched]))
+
+    def handle_unmatched():
+        print("unmatched", unmatched)
+
+        if not os.path.exists(STASH_PATH):
+            os.mkdir(STASH_PATH)
+        for tar in unmatched:
+            path = os.path.join(".", RESOURCE_PATH, *tar.path, tar.name)
+            new_path = os.path.join(STASH_PATH, tar.name)
+            os.path.exists(path)
+            shutil.move(path, new_path)
+
+    handle_unmatched()
+
+    print("unlocal", unlocal)
+    print("unfind", unfind)
+
+
+def cnt():
+    """统计字数"""
     import string
 
     cnt_en, cnt_zh, cnt_dg, cnt_pu = (0 for _ in range(4))
@@ -48,7 +250,9 @@ def cnt_impl():
 
 
 CMDS = {
-    "cnt": cnt_impl,
+    "cnt": cnt,
+    "img": img,
+    "link": link,
 }
 
 Dryads(CMDS)

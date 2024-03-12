@@ -22,7 +22,7 @@
 	+ 该软件issue极多（不能说是好事还是坏事），你遇到的问题很可能别人也遇到过（至少我的两次都是）
 + 对于服务端，确保防火墙打开端口`24800`
 + 无论是服务端还是客户端，在设置中关闭SSL  
-	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/设置入口.png" width=“100px”><img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/SSL选项.png" style="zoom:81%">
+	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/misc/设置入口.png" width=“100px”><img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/misc/SSL选项.png" style="zoom:81%">
 + 确保你的键盘没有打开Scroll Lock
 
 ### 下载
@@ -36,14 +36,14 @@
 
 #### 服务端
 1. 设置（窗口）：  
-	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/设置服务端.png" width="255px"><img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/设置机器相对位置.png" width="500px">
+	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/misc/设置服务端.png" width="255px"><img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/misc/设置机器相对位置.png" width="500px">
 
 2. 运行：点击运行
 
 #### 客户端
 
 1. 设置（服务端IP）：  
-	![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/客户端设置.png)
+	![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/misc/客户端设置.png)
 
 2. 运行：点击运行
 
