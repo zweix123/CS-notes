@@ -8,7 +8,7 @@
 
 ## 搭建环境
 
-1. 购买云服务器、配置服务器（[linux云服务器配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/LinuxConfigGuide.md)）、配置堡垒机（AC Terminal和本地）的SSH。
+1. 购买云服务器、配置服务器（[linux云服务器配置指南](../../Missing-Semester/LinuxConfigGuide.md)）、配置堡垒机（AC Terminal和本地）的SSH。
 2. 在服务器上安装docker（[教程](https://yeasy.gitbook.io/docker_practice/install/ubuntu)）。
 3. 将Acwing的Django课程Docker镜像scp到云服务器上：
 	```bash

@@ -9,7 +9,7 @@
    ```cpp
    template<typename T>
    void debug(const initializer_list<T>& vec)
-   	{cout << "[ "; for_each(vec.begin(), vec.end(), [](T v){ cout << v << " "; }); cout << "]"; }
+   	{cout << "[ "; for_each(vec.begin(), vec.end(), [] (T v) { cout << v << " "; }); cout << "]"; }
    ```
 
    + 调用：`debug({var1, var2, var3 ...});`
@@ -144,7 +144,7 @@
 >       */
 >       int op = 0;
 >       for_each(res.rbegin(), res.rend(), 
->           [&](char &c) {c ^= op; op = op == 1 || c == '1' ? 1 : 0; } );
+>           [&] (char &c) {c ^= op; op = op == 1 || c == '1' ? 1 : 0; } );
 >       /*
 >       * + 利用for_each遍历string，利用反向迭代器实现逆序遍历
 >       * + lambda表达式中如果op遇到了1或者自己本来是1就是1，否则是0

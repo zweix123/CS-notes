@@ -3,14 +3,15 @@
 
 import os
 import re
-import sys
 import time
 import unicodedata
 from datetime import datetime
 from typing import Optional
 
+from dryads import Dryads  # type: ignore
+
 PREFIX = "1-"
-print(f"uuid = {PREFIX[:-1]}")
+# print(f"uuid = {PREFIX[:-1]}")
 ETCFILENAME = "etc.md"
 
 filepaths = [
@@ -70,10 +71,18 @@ class Submit:
             if "测评" in event_name or "评测" in event_name:
                 self.eval_num += 1
                 stage_update(1, 0)
-            elif "笔" in event_name and "约" not in event_name and "邀请" not in event_name:
+            elif (
+                "笔" in event_name
+                and "约" not in event_name
+                and "邀请" not in event_name
+            ):
                 self.exam_num += 1
                 stage_update(1, 1)
-            elif "面" in event_name and "约" not in event_name and "邀请" not in event_name:
+            elif (
+                "面" in event_name
+                and "约" not in event_name
+                and "邀请" not in event_name
+            ):
                 self.interview_num += 1
                 stage_update(2, 0)
             elif "OC" in event_name:
@@ -109,7 +118,9 @@ class Submit:
         company = company
         position = position
         batch = dummy[0] if len(dummy) != 0 else "正式批"
-        events: list[tuple[str, str]] = [(util_time_str_format(submit_time[5:]), "投递")]
+        events: list[tuple[str, str]] = [
+            (util_time_str_format(submit_time[5:]), "投递")
+        ]
         return year, company, position, batch, events
 
     @staticmethod
@@ -326,12 +337,4 @@ CMDS = {
 }
 
 
-try:
-    from dryad import Dryad  # type: ignore
-except Exception as e:
-    print("git clone https://github.com/zweix123/dryad.git")
-    print("cd dryad")
-    print("pip install .")
-    exit(-1)
-
-Dryad(cmd_tree=CMDS)
+Dryads(CMDS)

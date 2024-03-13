@@ -1,5 +1,5 @@
 # Win机器开发机配置指南
->[姊妹篇：Linux开发机配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/LinuxConfigGuide.md)
+>[姊妹篇：Linux开发机配置指南](./LinuxConfigGuide.md)
 
 + 精华：
 	+ [命令行](#5.命令行)：为Windows配置一个相当优雅的命令行环境，让你在win中有近似unix的命令行体验
@@ -319,7 +319,7 @@ VSCode本是一个轻量型的编辑器，轻量型意味着可以快速的打�
 >这部分对我个人来说也是必须的，但未必适用于其他开发者，VSCode足以在可接受的成本内满足要求，所以没有将该软件放在必装软件中
 
 + 安装：亲爹Scoop
-+ 配置和使用：我的[文章](https://github.com/zweix123/CS-notes/blob/master/Linux/Editor.md)
++ 配置和使用：我的[文章](../Linux/Editor.md)
 	>实际上vim是一个可玩性很高的编辑器，这里引用的文章不仅有vim的基本用法，可能还会有我倒腾vim的记录。
 
 ## 图片悬停Snipaste
@@ -343,7 +343,7 @@ VSCode本是一个轻量型的编辑器，轻量型意味着可以快速的打�
 见我的[讨论](./LaTeX.md)
 
 ## UML图PlantUML
-见我的[教程](misc/UML.md)
+见我的[教程](./misc/UML.md)
 
 ## 虚拟机VMware Workstation Pro
 

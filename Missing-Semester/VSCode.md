@@ -4,8 +4,8 @@
 调教一套适合自己的工作流的收益是不错的，一个程序员的工作流核心就是开发环境——编辑器。
 
 + 我的工作流
-	+ [Windows](Missing-Semester/WindowsConfigGuide.md)
-	+ [Linux](Missing-Semester/LinuxConfigGuide.md)
+	+ [Windows](./WindowsConfigGuide.md)
+	+ [Linux](./LinuxConfigGuide.md)
 
 + 关于主力编辑器的选择：我个人是这样的，如果一个新的工作流被验证效率优于目前使用的工作流，可以不顾任何学习成本迁移过去，比如从输入法从全拼到双拼的转移。
 	+ VSCode和vim的选择，我相信上限vim是优于VSCode的，但是基于Ctrl作为leaderkey的操作模式在各个软件都深入人心了，不能保证所有常用的软件都支持vim模式，最后还是选择VSCode。但vim还是我们的老前辈，对于某些vim下很好的操作模式积极寻找VSCode的等价操作。
@@ -76,7 +76,7 @@
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/编辑器字体.png" style="zoom:60%;" div align=center />
 
 	+ 终端字体：打开设置，键入`Terminal Font Family`  
-		>需要你已经按照[Shell的配置]()下载了对应字体
+		>需要你已经按照[Shell的配置](./WindowsConfigGuide.md#53windows-terminal)下载了对应字体
 
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/终端字体.png" style="zoom:57.5%;" div align=center />
 		
@@ -261,7 +261,7 @@
 + blame
 
 ## MarkDown
-见我的关于Markdown编辑器的[讨论](Missing-Semester/Markdown.md)
+见我的关于Markdown编辑器的[讨论](./Markdown.md)
 
 + 插件：
 	+ 渲染：Markdown Preview Enhanced：`Ctrl + k v`

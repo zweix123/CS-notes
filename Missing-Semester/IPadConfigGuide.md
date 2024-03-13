@@ -14,7 +14,7 @@
 首先它使使用完整的Linux内核，实际上，如果你想在它上面做更大的开发也是可以的。我主要需要通过它安装Git
 
 + 下载：直接App Store下载即可。
-+ 配置：类似Linux，参见[Linux配置指南](Missing-Semester/LinuxConfigGuide)
++ 配置：类似Linux，参见[Linux配置指南](./LinuxConfigGuide)
 	+ 配置SSH
 	+ 下载并配置Git
 

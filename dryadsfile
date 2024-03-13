@@ -39,11 +39,29 @@ STASH_PATH = ".stash"
 
 def link():
     """检查链接可达性（不包含图床）"""
-    CS_NOTES_PRE = "https://github.com/zweix123/CS-notes/blob/master"
+    """
+    内部链接: 相对路径[#标题]
+    外部链接: http开头或者www开头
+    """
 
-    links: list[tuple[str, str]] = []  # (filepath, link)
+    class Link:
+        def __init__(self, filep: str, linen: int, linkc: str) -> None:
+            # 这里确实命名比较奇怪
+            self.filep: str = filep
+            self.linen: int = linen
+            self.linkc: str = linkc
 
-    for root, dirs, files in os.walk("."):
+        def __str__(self) -> str:
+            return str(self.filep) + ":" + str(self.linen) + " " + str(self.linkc)
+
+        def __repr__(self) -> str:
+            return repr(self.filep) + ":" + repr(self.linen) + " " + repr(self.linkc)
+
+    ZWEIX_CS_NOTES_PREFIX = "https://github.com/zweix123/CS-notes/blob/master"
+
+    links: list[Link] = []
+
+    for root, _, files in os.walk("."):
         root_path_split = root.split(os.sep)
         root_path_split = root_path_split[1:]
         if len(root_path_split) > 0 and (
@@ -52,24 +70,40 @@ def link():
         ):
             continue
         for f in files:
+            if not f.endswith("md"):
+                continue
             filepath = os.path.join(root, f)
-            for link in get_link_for_link(read_md(filepath)):
-                links.append((filepath, link))
+            with open(filepath, "r", encoding="utf-8") as fhandle:
+                for linen, linec in enumerate(fhandle):
+                    linec = linec.strip()
+                    for link in get_link_for_link(linec):
+                        links.append(Link(filepath, linen, link))
 
-    self_links: list[tuple[str, str]] = []
-    out_links: list[tuple[str, str]] = []
-    else_links: list[tuple[str, str]] = []
+    internal_links: list[Link] = []
+    external_links: list[Link] = []
 
-    for filepath, link in links:
-        if link.startswith(CS_NOTES_PRE):
-            self_links.append((filepath, link))
-        elif link.startswith(("http", "www")):
-            out_links.append((filepath, link))
+    for l in links:
+        assert not l.linkc.startswith(ZWEIX_CS_NOTES_PREFIX)
+        if l.linkc.startswith(("http", "www")):
+            external_links.append(l)
         else:
-            else_links.append((filepath, link))
+            assert l.linkc.startswith((".", "#"))
+            internal_links.append(l)
 
-    for x, y in else_links:
-        print(x, y)
+    def print_links(name: str, links: list[Link]) -> None:
+        print(name)
+        for l in links:
+            print(l)
+
+    def handle_internal():
+        print_links("internal_links", internal_links)
+
+    handle_internal()
+
+    def handle_external():
+        print_links("external_links", external_links)
+
+    handle_external()
 
 
 def img():
@@ -104,16 +138,16 @@ def img():
             return repr(self.path) + "+" + repr(self.name)
 
     md_img: dict[Path, list[Path]] = {}
-    res: set[Path] = set()  # resource
+    res: set[Path] = set()  # 资源
 
-    unlocal: list[tuple[str, str]] = []  # 不使用PREFIX前缀的图片链接
-    matched: set[Path] = set()  # 成功匹配的, 用来筛选未使用的资源
+    unlocal: list[tuple[str, str]] = []  # 不使用PREFIX前缀的图片链接, (filepath, link)
+    matched: set[Path] = set()  # 成功匹配的, 用来筛选未使用的资源, 资源
     unmatched: set[Path] = set()  # 通过matched剔除res, 资源
-    unfind: list[tuple[Path, Path]] = []  # 找不到资源的链接
+    unfind: list[tuple[Path, Path]] = []  # 找不到资源的链接, (filepath, link)
     mved: list[Path] = []  # 被移动的mved, 需要特殊处理, Markdown
     rename: list[Path] = []  # 文本和图片重命名而忘记文本中的内容链接变化, Markdown
 
-    for root, dirs, files in os.walk("."):
+    for root, _, files in os.walk("."):
         root_path_split = root.split(os.sep)
         root_path_split = root_path_split[1:]
         if len(root_path_split) > 0 and (
@@ -122,6 +156,8 @@ def img():
         ):
             continue
         for f in files:
+            if not f.endswith("md"):
+                continue
             filepath = os.path.join(root, f)
             links = get_link_for_img(read_md(filepath))
             md = Path(root_path_split, f)
@@ -136,7 +172,7 @@ def img():
                     assert len(link_split) > 0
                     img = Path(link_split[:-1], link_split[-1])
                     md_img[md].append(img)
-    for root, dirs, files in os.walk(RESOURCE_PATH):
+    for root, _, files in os.walk(RESOURCE_PATH):
         root_path_split = root.split(os.sep)
         root_path_split = root_path_split[1:]
         for f in files:
@@ -168,6 +204,7 @@ def img():
                     filepath = os.path.join(".", *md.path, md.name)
                     old_link = PREFIX + "/".join(img.path + [img.name])
                     new_link = PREFIX + "/".join(md.path + [img.name])
+
                     write_md(filepath, read_md(filepath).replace(old_link, new_link))
 
                     matched.add(Path(md.path, img.name))
@@ -189,8 +226,10 @@ def img():
                     if not os.path.exists(new_dir):
                         os.makedirs(new_dir)
                     assert not os.path.exists(new_path), "命名冲突: " + new_path
+
                     shutil.move(old_path, new_path)
                     write_md(filepath, read_md(filepath).replace(old_link, new_link))
+
                     matched.add(img)
 
     handle_mved()
@@ -202,10 +241,11 @@ def img():
 
         if not os.path.exists(STASH_PATH):
             os.mkdir(STASH_PATH)
-        for tar in unmatched:
-            path = os.path.join(".", RESOURCE_PATH, *tar.path, tar.name)
-            new_path = os.path.join(STASH_PATH, tar.name)
-            os.path.exists(path)
+        for r in unmatched:
+            path = os.path.join(".", RESOURCE_PATH, *r.path, r.name)
+            new_path = os.path.join(STASH_PATH, r.name)
+            assert os.path.exists(path)
+
             shutil.move(path, new_path)
 
     handle_unmatched()

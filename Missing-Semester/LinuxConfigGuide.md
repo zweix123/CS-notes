@@ -1,7 +1,7 @@
 # LinuxConfigGuide
 >Linux有众多发行版、机器也分云服务器、虚拟机和物理机，该指南并没有限制某种机器，对独属于某种机器的问题会单独说明，请读者选择对您有帮助的部分
 
-[姊妹篇：Win机器开发机配置指南](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/WindowsConfigGuide.md)
+[姊妹篇：Win机器开发机配置指南](./WindowsConfigGuide.md)
 
 + 指南中涉及的软件配置[地址](https://github.com/zweix123/linux-config)，在README中提供详细的使用方法和说明，请在完成下面步骤后再使用这份配置。
 
@@ -102,18 +102,18 @@ bash ./install.sh
 ### 文本编辑器
 
 Linux下的文本编辑器非常之多，上面使用vi就是一种，选择看个人喜好  
-且也是一种可玩性很好的软件，所以[单拿出来](https://github.com/zweix123/CS-notes/blob/master/Linux/Editor.md)，记录有配置和用法
+且也是一种可玩性很好的软件，所以[单拿出来](../Linux/Editor.md)，记录有配置和用法
 
 ### 终端复用器
 
 tmux
 
-+ 使用：我的[笔记](https://github.com/zweix123/CS-notes/blob/master/Linux/Tmux.md)
++ 使用：我的[笔记](../Linux/Tmux.md)
 
 ### Git
 
 + 配置：我的[教程](./Git.md#config)
-+ 使用：我的[笔记](https://github.com/zweix123/CS-notes/blob/master/Missing-Semester/Git.md)
++ 使用：我的[笔记](./Git.md)
 
 ### zsh
 
@@ -227,7 +227,7 @@ xmodmap -e "keycode 66 = Right NoSymbol Right"
 	+ `dpkg -r 软件名`：不清除配置卸载
 	+ `dpkg -P 软件名`：清除配置卸载
 
-+ config：内容多且散，而且无关平台，我将其放在这个[教程](https://github.com/zweix123/CS-notes/blob/master/blog/VSCode.md)
++ config：内容多且散，而且无关平台，我将其放在这个[教程](./VSCode.md)
 
 ### AppImage
 这里以Obsidian为例
