@@ -10,24 +10,26 @@ from typing import Optional
 
 from dryads import Dryads  # type: ignore
 
-PREFIX = "1-"
-# print(f"uuid = {PREFIX[:-1]}")
-ETCFILENAME = "etc.md"
+VERSION = "1"  # 24届本科秋招
+# VERSION = "2"  # 24届本科春招
+ETCFILE = "etc.md"
+FILEPRE = VERSION + "-"
+assert not (ETCFILE.endswith(".md") and ETCFILE.startswith(FILEPRE))
 
 filepaths = [
-    os.path.abspath(filename)
+    filename
     for filename in os.listdir(".")
-    if filename.startswith(PREFIX)
+    if filename.endswith(".md") and filename.startswith(FILEPRE)
 ]
 
 
 def util_time_str_format(time_str: str) -> str:
     try:
-        date_obj = time.strptime(time_str, "%Y")
+        date_obj = time.strptime(time_str, "%Y")  # 1-12
         return time.strftime("%Y", date_obj)
     except Exception:
         try:
-            date_obj = time.strptime(time_str, "%m.%d")
+            date_obj = time.strptime(time_str, "%m.%d")  # (1-12).(1-28/29/30/31)
             return time.strftime("%m.%d", date_obj)
         except Exception:
             assert False, f"{time_str}既不是年份也不是月日"
@@ -111,13 +113,11 @@ class Submit:
     def handle_filename(
         filename: str,
     ) -> tuple[str, str, str, str, list[tuple[str, str]]]:
-        submit_time, company, position, *dummy = list(
-            map(str.strip, filename[:-3].split("-"))
+
+        submit_time, company, position, batch = list(
+            map(str.strip, filename.split("-"))
         )
         year: str = util_time_str_format(submit_time[:4])
-        company = company
-        position = position
-        batch = dummy[0] if len(dummy) != 0 else "正式批"
         events: list[tuple[str, str]] = [
             (util_time_str_format(submit_time[5:]), "投递")
         ]
@@ -137,8 +137,8 @@ class Submit:
 
     @classmethod
     def from_filepath(cls, filepath: str):
-        filename = os.path.basename(filepath).removeprefix(PREFIX)
-        year, company, position, batch, events = Submit.handle_filename(filename)
+        filename = os.path.basename(filepath).removeprefix(FILEPRE).removesuffix(".md")
+        year, company, position, batch, events = Submit.handle_filename(filename[:-3])
 
         ignore = False
         progress_link: Optional[str] = None
@@ -149,7 +149,8 @@ class Submit:
                 if (dummy := Submit.get_progress_link(line)) is not None:
                     progress_link = dummy
                 if line.startswith("## "):
-                    for event in line[3:].split("|"):
+                    line = line.removeprefix("## ")
+                    for event in line.split("|"):
                         event_time, event_name = map(str.strip, event.split("-"))
                         events.append((util_time_str_format(event_time), event_name))
 
@@ -169,21 +170,25 @@ class Submit:
 
 submits = [Submit.from_filepath(filepath) for filepath in filepaths]
 
-with open(ETCFILENAME, "r", encoding="utf-8") as f:
+with open(ETCFILE, "r", encoding="utf-8") as f:
     submit: Optional[Submit] = None
     for line in f:
-        if line.startswith("+ "):
-            year, company, position, batch, events = Submit.handle_filename(line[4:])
+        if line.startswith("# "):
+            line = line.removeprefix("# ")
             if submit is not None:
                 submit.ignore = True
                 submits.append(submit)
                 submit = None
-            submit = Submit(year, company, position, batch, events)
-        elif line.startswith("  + "):
-            for event in line[3:].split("|"):
-                event_time, event_name = map(str.strip, event.split("-"))
-                assert submit is not None, "Define"
-                submit.events.append((util_time_str_format(event_time), event_name))
+            if line.startswith(FILEPRE):
+                line = line.removeprefix(FILEPRE)
+                year, company, position, batch, events = Submit.handle_filename(line)
+                submit = Submit(year, company, position, batch, events)
+        elif line.startswith("## "):
+            if submit is not None:
+                line = line.removeprefix("## ")
+                for event in line.split("|"):
+                    event_time, event_name = map(str.strip, event.split("-"))
+                    submit.events.append((util_time_str_format(event_time), event_name))
         else:
             if (
                 dummy := Submit.get_progress_link(line)
@@ -194,7 +199,8 @@ with open(ETCFILENAME, "r", encoding="utf-8") as f:
 submits = sorted(submits)
 
 
-def print_excell_table(table: list[list[str]], pre_seq: list[str]):
+def print_row_table(table: list[list[str]], seps: list[str]):  # 黑盒魔法
+    # seps, 每一行间隔的间隔号，默认`,`
     n = len(table)
     if n <= 0:
         return
@@ -228,14 +234,14 @@ def print_excell_table(table: list[list[str]], pre_seq: list[str]):
                 print(table[i][j], end="")
             else:
                 print(table[i][j].ljust(ele_width[i][j]), end="")
-                print("," if j >= len(pre_seq) else pre_seq[j], end="")
+                print("," if j >= len(seps) else seps[j], end="")
         print()
 
 
 def print_all():
     """为未忽略未省略的投递打印总览表格"""
     table = list()
-    pre_seq = ["", "", ":"]
+    seps = [" ", " ", ":"]
 
     for submit in submits:
         if submit.ignore is True:
@@ -246,7 +252,7 @@ def print_all():
             row.append(event_str)
         table.append(row)
 
-    print_excell_table(table, pre_seq)
+    print_row_table(table, seps)
 
 
 def print_sum():
@@ -313,7 +319,8 @@ def print_click():
     today = datetime.today().replace(hour=0, minute=0, second=0, microsecond=0)
 
     table: list[list[str]] = list()
-    table.append(["today", "", today.strftime("%m.%d-%A")])
+
+    print_row_table(table, [" ", ":"])
 
     for submit in submits:
         year_str = submit.year
@@ -326,8 +333,12 @@ def print_click():
             if event_data >= today:
                 row.append(event[0] + "-" + event_data.strftime("%A") + "-" + event[1])
         if len(row) > 2:
+
             table.append(row)
-    print_excell_table(table, [" ", ":"])
+
+    if len(table) > 0:
+        table.append(["today", "", today.strftime("%m.%d-%A")])
+    print_row_table(table, [" ", ":"])
 
 
 CMDS = {
