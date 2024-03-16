@@ -148,3 +148,16 @@
 
 # 1-2023.11.16-PingCAP-数据库内核优化器研发工程师-秋招正式批
 通过员工在推特的账号邮箱投递，当发现我的简历的时候我已经入职DDB了。
+
+# 2-2024.3.16-网易雷火-游戏研发工程师(杭州)-春招
+
+# 2-2024.3.16-字节-飞书后端(杭州)-日常实习
+[进度](https://jobs.bytedance.com/referral/campus/pc/position/application?token=MzsxNzA5NjM0Mjg1MDMzOzcyNTQwMDE2ODM0MjgxNjUxNzk7MDsx)
+
+# 2-2024.3.16-腾讯-软件开发后台开发方向-实习
+[进度](https://join.qq.com/progress.html)
+
+# 2-2024.3.16-百度-C++-实习
+工具研发组
+C++/Go研发实习生
+[进度](https://talent.baidu.com/jobs/center)
