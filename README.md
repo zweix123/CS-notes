@@ -1,6 +1,5 @@
 <!-- https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/ -->
 
-
 ## 前言
 
 + 该项目是我个人的笔记，部分会刻意制作成Blog，但大部分仍然是我个人的Note，除非特殊声明，否则不建议作为学习资料。
@@ -25,6 +24,10 @@
 
 	+ [Teach Yourself Computer Science](https://teachyourselfcs.com/)
 	+ [PingCAP Awesome Database Learning](https://github.com/pingcap/awesome-database-learning)
+
++ 有启发性的文章：
+	+ [1%慢请求优化](https://drmingdrmer.github.io/math/engineering/2014/07/24/slow-request.html)
+	+ [互联网中对象访问频率的91分布](https://drmingdrmer.github.io/tech/2019/10/30/zipf.html)
 
 ## Blogs
 
