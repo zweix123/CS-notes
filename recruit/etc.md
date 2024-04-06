@@ -150,12 +150,15 @@
 通过员工在推特的账号邮箱投递，当发现我的简历的时候我已经入职DDB了。
 
 # 2-2024.3.16-网易雷火-游戏研发工程师(杭州)-春招
+[进度](https://campus.163.com/app/personal/apply?tab=leihuo)
+
+## 3.30-笔试
+
+三小时四道题，最后一道是大模拟，压力较大。
 
 # 2-2024.3.16-字节-飞书后端(杭州)-日常实习
 [进度](https://jobs.bytedance.com/referral/campus/pc/position/application?token=MzsxNzA5NjM0Mjg1MDMzOzcyNTQwMDE2ODM0MjgxNjUxNzk7MDsx)
 
-# 2-2024.3.16-腾讯-软件开发后台开发方向-实习
-[进度](https://join.qq.com/progress.html)
 
 # 2-2024.3.16-百度-C++-实习
 工具研发组

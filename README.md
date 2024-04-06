@@ -9,7 +9,7 @@
 + 本人保留自省的权力，即你看到的内容不一定代表本人最新的认知和观点。
 + 项目下所有文章除特别声明外，均采用[CC BY-NC-SA 协议](https://creativecommons.org/licenses/by-nc-sa/4.0/)，转载请严格准守。
 
-## Reference
+## Links
 
 + [CSRankings: Computer Science Rankings](https://csrankings.org/#/fromyear/2016/toyear/2024/index?arch&mod&world)
 
@@ -17,11 +17,13 @@
 	+ [阮一峰的网络日志](https://www.ruanyifeng.com/blog/)：每周五更新，自上而下分别是封面图，博客，科技动态，文章，软件，工具，资源，图片，文摘，言论。部分内容由用户投稿，时常能出现让人眼前一亮的玩意。
 	+ [潘乱的乱翻书](https://www.xiaoyuzhoufm.com/podcast/61358d971c5d56efe5bcb5d2)：不定期更新，大部分内容为针对一个互联网问题或产品要求互联网从业者进行讨论，相当于是业务方面的学习。
 	+ [数据库内核月报](http://mysql.taobao.org/monthly/)：阿里某团队维护，每月更新。
+	+ [美团技术团队](https://tech.meituan.com/)：美团维护，不定期更新。
 	+ [RustTalk](https://rusttalk.github.io/)：R！
  
-+ RoadMap：
-	>记录在这里并不意味着推荐。
++ CS RoadMap：
+	>除非特殊声明，否则记录在这里并不意味着推荐。
 
+	+ [CS DIY](https://csdiy.wiki/)：这个是真推荐
 	+ [Teach Yourself Computer Science](https://teachyourselfcs.com/)
 	+ [PingCAP Awesome Database Learning](https://github.com/pingcap/awesome-database-learning)
 
@@ -41,7 +43,7 @@
 	特别的，我还有
 	+ [VSCode配置指南](./Missing-Semester/VSCode.md)：如题，涉及通用配置和对于各个语言的开发配置
 
-+ [个人校招记录](./recruit/README.md)：个人校招记录。
++ [面经](./recruit/README.md)
 + [Python语言之外](./Programing-Language/Python/Beyond-Language.md)：个人在Python中遇到的坑，探索的工作流。
 + 其他：
 	+ [侵入式数据结构和非侵入式数据结构的区别](./Algorithm/Data-Structure-and-Sort/侵入式和非侵入式数据结构。md)
@@ -107,7 +109,7 @@
 
 + 下面的文字无形中成为学习资料的推荐，但是这里有一个问题，比如我对一个领域是入门，此时我选择一份资料，即使它客观上很差甚至有错误，我也能学到东西，同时无法识别出中间的错误。比如 《C++ Primer Plus》，这是我的第一本 C++语法书，后面再提到它我只评价是语言版本落后，但是实际上其中有很多知识是错误的，这是别人识别出来的，在我看的过程中是没有能力辨别的，这就导致我无法对学习资料做出正确的判断。
 
-+ 对于涉及项目（实践结果是一个项目）的部分，我会在下面使用这个🤏emoji进行标注，表示相关项目体量比较小，适合作为练手项目，但不足以写在（本科校招）简历上。定量的说，我希望代码行数在3k行以下的使用该符号标记；值得讨论的是，比如《Crafting interpreters》中涉及的Lox的C语言解释器，其代码行数虽然在3k行，但是由于是C语言实现的且麻雀虽小五脏俱全，其实思维难度不小，但是由于其代码全部开源且相当于有逐行解释的手册，所以认为其是练手项目；而xv6 lab中虽然学生添加的代码比较少，但是由于整个xv6项目规模不小且整个 lab 思维难度较大，所以认为是可以写在简历上的。而诸如B站小彭老师的一些课程，实现Vector或者实现Json，则毋庸置疑是练手项目，而像BusTub lab这种整个项目在3w行左右，学生添加的行数在4k行左右的则毋庸置疑是可以写在简历上的项目。
++ 对于涉及项目（实践结果是一个项目）的部分，我会在下面使用这个🤏emoji进行标注，表示相关项目体量比较小，适合作为练手项目，但不足以写在（本科校招）简历上。定量的说，我希望代码行数在3k行以下的使用该符号标记；值得讨论的是，比如《Crafting interpreters》中涉及的Lox的C语言解释器，其代码行数虽然在3k行，但是由于是C语言实现的且麻雀虽小五脏俱全，其实思维难度不小，但是由于其代码全部开源且相当于有逐行解释的手册，所以认为其是练手项目；而xv6 lab中虽然学生添加的代码比较少，但是由于整个xv6项目规模不小且整个lab思维难度较大，所以认为是可以写在简历上的。而诸如B站小彭老师的一些课程，实现Vector或者实现Json，则毋庸置疑是练手项目，而像BusTub lab这种整个项目在3w行左右，学生添加的行数在4k行左右的则毋庸置疑是可以写在简历上的项目。
 
 + 大学基础：
 	+ [How to ask questions the smart way](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)【⭐】：
@@ -270,6 +272,7 @@
 
 			+ [ ] 短篇小说《乡村教师》：老师和孩子们无意中拯救了整个地球。
 			+ [ ] 短篇小说《中国太阳》：双线叙事，一个人从农村的无知状态，到整个人类最激进的宇宙开发者。
+			+ [ ] 《超新星纪元》
 
 		+ 阿西莫夫
 			+ [x] 短篇小说《最后的问题》：超级AI与人类发展到整个宇宙最广泛物种。
@@ -300,6 +303,7 @@
 		+ [ ] 《刻意练习》
 		+ [ ] 《思考，快与慢》
 		+ [ ] 金一南《胜者思维》
+		+ [ ] 《为什么我们总是在防御》
 		+ 吴军：
 			+ [ ] 文明之光
 			+ [ ] 大学之路
