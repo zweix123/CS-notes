@@ -37,7 +37,7 @@ git config --global user.email xxx@xxx  # 设置全局邮箱地址
 git config --global core.editor vim  # your favorite editor
 git config --global color.ui true
 
-# 设置语言, 不然语言显示的是编码
+# 设置语言, 不然语言显示的是乱码(Win)
 git config --global core.quotepath false
 git config --global gui.encoding utf-8
 git config --global i18n.commit.encoding utf-8

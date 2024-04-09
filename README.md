@@ -9,7 +9,7 @@
 + 本人保留自省的权力，即你看到的内容不一定代表本人最新的认知和观点。
 + 项目下所有文章除特别声明外，均采用[CC BY-NC-SA 协议](https://creativecommons.org/licenses/by-nc-sa/4.0/)，转载请严格准守。
 
-## Links
+## 链接
 
 + [CSRankings: Computer Science Rankings](https://csrankings.org/#/fromyear/2016/toyear/2024/index?arch&mod&world)
 
@@ -31,23 +31,30 @@
 	+ [1%慢请求优化](https://drmingdrmer.github.io/math/engineering/2014/07/24/slow-request.html)
 	+ [互联网中对象访问频率的91分布](https://drmingdrmer.github.io/tech/2019/10/30/zipf.html)
 
-## Blogs
+## 输出
 
-+ [Blogs](./blog/README.md)：只赠有缘人
++ [博客](./blog/README.md)：只赠有缘人
++ [面经](./recruit/README.md)：只赠有缘人
 + 开发机配置指南：正所谓工欲善其事必先利其器，这真不是差生文具多，是实打实的生产力提升。
-	+ [win 开发机配置指南](./Missing-Semester/WindowsConfigGuide.md)：如题
-	+ [linux 开发机配置指南](./Missing-Semester/LinuxConfigGuide.md)：如题
-	+ Apple系列：
-		+ [IPad学习机配置指南](./Missing-Semester/IPadConfigGuide)：如题
 
-	特别的，我还有
-	+ [VSCode配置指南](./Missing-Semester/VSCode.md)：如题，涉及通用配置和对于各个语言的开发配置
+	>个人在大学之前主要使用Windows，大学后逐渐接触Linux，且把各种形态（云服务器、虚拟机、物理机）都用遍了，最后觉得将其作为服务器，然后从擅长GUI的操作系统（Windows）SSH过去是一个比较舒服的姿势；工作之后使用macOS。这导致下面的配置指南有前后关系，虽然将共有部分拿出来单独做文章，但是这种前后关系仍然有体现。
 
-+ [面经](./recruit/README.md)
+	+ [Windows开发机配置指南](./Missing-Semester/WindowsConfigGuide.md)：如题
+	+ [Linux开发机配置指南](./Missing-Semester/LinuxConfigGuide.md)：如题
+	+ Apple系：
+		+ [IPad学习机配置指南](Missing-Semester/iPadConfigGuide.md)：如题
+		+ [Mac开发机配置指南](Missing-Semester/macConfigGuide.md)：如题
+
+	和平台无关的
+	
+	+ [SSH](Missing-Semester/SSH.md)：
+	+ [Git](Missing-Semester/Git.md)：
+	+ [Markdown](Missing-Semester/Markdown.md)：笔记
+	+ [VSCode](Missing-Semester/VSCode.md)：
+
 + [Python语言之外](./Programing-Language/Python/Beyond-Language.md)：个人在Python中遇到的坑，探索的工作流。
-+ 其他：
-	+ [侵入式数据结构和非侵入式数据结构的区别](./Algorithm/Data-Structure-and-Sort/侵入式和非侵入式数据结构。md)
-	+ [不同编程范式的量化交易回测系统](./Quant/Survey-BackTest.md)
++ [侵入式数据结构和非侵入式数据结构的区别](./Algorithm/Data-Structure-and-Sort/侵入式和非侵入式数据结构。md)
++ [不同编程范式的量化交易回测系统](./Quant/Survey-BackTest.md)
 + 软件推荐：
 	+ 命令`neofetch`：现代风格地查看机器信息
 	+ [命令](https://github.com/sharkdp/fd#installation)`fd`：按文件名递归查找

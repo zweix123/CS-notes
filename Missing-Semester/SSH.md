@@ -1,3 +1,11 @@
+## TLDR
+
+```bash
+ssh-keygen
+
+ssh-copy-id 服务器别名
+```
+
 + 功能：
 	+ 连接服务器
 	+ 使用代码托管平台

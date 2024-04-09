@@ -1,5 +1,4 @@
-# Win机器开发机配置指南
->[姊妹篇：Linux开发机配置指南](./LinuxConfigGuide.md)
+# Windows机器开发机配置指南
 
 + 精华：
 	+ [命令行](#5.命令行)：为Windows配置一个相当优雅的命令行环境，让你在win中有近似unix的命令行体验
@@ -96,14 +95,11 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 	https://azurezeng.github.io/static/HE-GoogleRedirect.json
 	```
 + 插件推荐：
-	+ YouTube双语字幕
-		+ 字幕位置有点碍眼
 	+ 默认翻译、划词翻译（全文翻译收费）和沉浸式翻译（开源）：默认翻译用于最普遍的全文翻译，划词翻译用于PDF翻译，沉浸式翻译用于网站单段翻译和逐段全文翻译
 	+ 油猴脚本
 		+ 这里推荐一款我开发的关于哔哩哔哩的脚本，[地址](https://github.com/zweix123/BilibiliProgressBar)
 	+ crxMouse Chrome手势：后退、前进、顶部、底部，对文件图片链接的打开
 	+ Vimium：Vim用户的福音，嘎嘎好用。
-	+ epub阅读器
 
 ## 2.解压缩7z
 一款简单的解压缩软件
@@ -120,7 +116,7 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 
 ## 4.笔记软件Obsidian
 
-该软件跨平台，我在Windows、Linux甚至IOS（IPad）上使用它。所以这里记录其仅关于Windows的东西（下载），其他的（为什么选择它以及其他操作）放在另外的位置
+该软件跨平台，我在Windows、Linux、macOS甚至iPadOS上使用它，所以这里仅记录和Windows相关的内容（下载），其他（为什么选择它以及其他操作）放在[Markdown](./Markdown.md)
 
 + 安装：Obsidian默认安装C盘：不处理，软件位置右键快捷方式查看。
 
@@ -329,22 +325,6 @@ VSCode本是一个轻量型的编辑器，轻量型意味着可以快速的打�
 + 截屏后`Ctrl + T`可将截屏悬浮在屏幕上
 + `F3`可以将剪切板的内容转化成图片悬浮在屏幕上
 
-## 启动器
-类似Mac上的Alfred，先Mark下
-
-## 思维导图
-
-我在最开始是使用思维导图记笔记的，直到现在我也觉得树形结构是比流式结构更好的笔记结构，此时随机选择了[Xmind8](https://xmind.cn/download/xmind8/)（是8而不是最新版，这个可能不是最好看的，但是我觉得是操作最合理高效的）。随机笔记规模的扩大就有了渲染性能和文件管理的问题，这个时候使用Markdown；此时思维导图这个形式只是偶尔使用，最后发现没必要在为这偶尔使用的需求留着一个软件了，换到[markmap](https://markmap.js.org/)框架（有VSCode插件）
-
-## 幻灯片jyyslide-md
-见我的[讨论](./slide.md)
-
-## 论文LaTeX
-见我的[讨论](./LaTeX.md)
-
-## UML图PlantUML
-见我的[教程](./misc/UML.md)
-
 ## 虚拟机VMware Workstation Pro
 
 + 我的使用方式：主要是为我在win机器上提供一个linux环境，所以我使用的场景一般是打开后就放在后台，然后通过SSH或者VSCode的remote（本质也是SSH）连过去，我们发现上面的场景几乎不需要VMware Workstation的图形化界面，索性VMWare为我们提供了命令行的操作形式
@@ -393,5 +373,8 @@ VSCode本是一个轻量型的编辑器，轻量型意味着可以快速的打�
 
 	即便如此依然可能遇到什么`git clone`错误的问题，STFW吧。
 
+## 启动台
+类似mac上的Spotlight（或者Alfred）
+
 ## 硬件扩展
-见我的[讨论](../misc/Multi-computer%20Cooperation.md)
+见我的[讨论](../misc/多机.md)

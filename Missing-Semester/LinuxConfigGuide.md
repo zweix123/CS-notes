@@ -74,31 +74,6 @@ passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 ## 4.下载刚需软件
 >Linux下通常有包管理器，下面的软件没有说明下载方式的软件一般都可以通过包管理器下载
 
-下面是Ubuntu的汇总脚本，个人使用，用户根目录使用，需要交互
-```bash
-sudo apt install -y vim
-sudo apt install -y tmux
-sudo apt install -y git
-
-git config --global user.name zweix
-git config --global user.email 1979803044@qq.com
-
-git config --global core.editor vim
-git config --global color.ui true
-
-sudo apt install -y zsh
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-mkdir Configs
-cd Configs
-git clone git@github.com:zweix123/linux-config.git
-cd linux-config
-bash ./backup.sh
-bash ./install.sh
-```
-
 ### 文本编辑器
 
 Linux下的文本编辑器非常之多，上面使用vi就是一种，选择看个人喜好  
