@@ -1,7 +1,9 @@
 import os
 import re
 import shutil
+from io import StringIO
 
+import pandas as pd
 from dryads import Dryads  # type: ignore
 from rich.progress import track
 
@@ -289,10 +291,30 @@ def cnt():
     print("共约", str(int(cnt_zh + cnt_en // 6 + cnt_dg // 32)), "字"),
 
 
+def md2xlsx():
+    content = ""
+    with open("营养学.md", "r", encoding="utf-8") as f:
+        content = str(f.read())
+    data = StringIO(content.replace(" ", ""))
+    df = pd.read_csv(data, sep="|", index_col=0).dropna(axis=1, how="all").iloc[1:]
+    df.to_excel("营养学.xlsx", index=False)
+
+
+def xlsx2md():
+    data = pd.read_excel("营养学.xlsx")
+    markdown_table_content = data.to_markdown(index=False)
+    with open("营养学.md", "w", encoding="utf-8") as f:
+        f.write(markdown_table_content)
+
+
 CMDS = {
     "cnt": cnt,
     "img": img,
     "link": link,
+    "yy": {
+        "md2xlsx": md2xlsx,
+        "xlsx2md": xlsx2md,
+    },
 }
 
 Dryads(CMDS)
