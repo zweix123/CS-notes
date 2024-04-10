@@ -3,7 +3,7 @@
 
 [姊妹篇：Win机器开发机配置指南](./WindowsConfigGuide.md)
 
-+ 指南中涉及的软件配置[地址](https://github.com/zweix123/linux-config)，在README中提供详细的使用方法和说明，请在完成下面步骤后再使用这份配置。
++ 指南中涉及的软件配置[地址](https://github.com/zweix123/unix-config)，在README中提供详细的使用方法和说明，请在完成下面步骤后再使用这份配置。
 
 ## 0.机器检查
 
@@ -161,7 +161,7 @@ tmux
 
 ## 5.导入软件配置
 
-导入[我的配置](https://github.com/zweix123/linux-config)
+导入[我的配置](https://github.com/zweix123/unix-config)
 
 ## 其他开发环境
 
