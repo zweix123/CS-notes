@@ -389,12 +389,7 @@ int bind(int sockfd, struct sockaddr *myaddr, socklen_t addrlen);
     int_addr_t inet_addr(const char * string):
     //	-> 成功时返回32位大端序整数型值，失败时返回INADDR_NONE
     ```
-  
-    
-
-
 
 # 通用
 
 + 可移植操作系统接口Portable Operating System Interface, POSIX：是为Unix操作系统建立的标准
-

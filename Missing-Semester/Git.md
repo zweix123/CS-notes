@@ -1,24 +1,6 @@
-不知何时，需要在`~/.ssh/config`添加下面的别名才能正常使用SSH（对Gtihub）
-```
-Host github.com
-  Hostname ssh.github.com
-  Port 443
-```
-可以
-```bash
-ssh -T git@github.com
-```
-
-测试下，结果应该为
-
-```
-Hi [your username]! You've successfully authenticated, but GitHub does not provide shell access.
-```
-
-## Intro
 >Git是一种版本管理工具，GitHub是一个代码托管平台。
 
-+ 相关资料（虽然知道你不会看）：[Pro Git book](https://git-scm.com/book/en/v2) | [Git User Manual](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/user-manual.html)
++ Ref: [Pro Git book](https://git-scm.com/book/en/v2) | [Git User Manual](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/user-manual.html)
 
 ## Git
 
@@ -29,7 +11,9 @@ Hi [your username]! You've successfully authenticated, but GitHub does not provi
 	+ 版本结构：树结构，树中每个节点代表一个代码版本
 	+ HEAD：指向当前节点的最新节点
 ![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/git区.png)  
+
 ### Config
+
 ```bash
 git config --global user.name xxx  # 设置全局用户名
 git config --global user.email xxx@xxx  # 设置全局邮箱地址
@@ -37,7 +21,7 @@ git config --global user.email xxx@xxx  # 设置全局邮箱地址
 git config --global core.editor vim  # your favorite editor
 git config --global color.ui true
 
-# 设置语言, 不然语言显示的是乱码(Win)
+# 设置语言, 不然语言显示的是乱码(Win and Mac)
 git config --global core.quotepath false
 git config --global gui.encoding utf-8
 git config --global i18n.commit.encoding utf-8
@@ -58,7 +42,7 @@ git config --global core.autocrlf false
 ```
 + 配置文件位置：
 	+ win：`C:\User\$User\.gitconfig`
-	+ linux：`~/.gitconfig`
+	+ linux/mac：`~/.gitconfig`
 
 ### Use
 + Init: 进入项目目录下：
@@ -108,10 +92,26 @@ git config --global core.autocrlf false
 	+ 进入合入的分支，如果`xxx`是需要合进来的分支，则命令为`git cherry-pick xxx`
 
 ## Github
->资料：
->+ 《GotGitHub》[电子书地址](http://www.worldhello.net/gotgithub/)
+
++ Ref: [《GotGitHub》](http://www.worldhello.net/gotgithub/)
 
 ### Config
+
+不知何时，需要在`~/.ssh/config`添加下面的别名才能正常使用SSH（对Gtihub）
+```
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+```
+可以
+```bash
+ssh -T git@github.com
+```
+
+测试下，结果应该为
+```
+Hi [your username]! You've successfully authenticated, but GitHub does not provide shell access.
+```
 
 ### Use
 

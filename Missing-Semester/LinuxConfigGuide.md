@@ -1,10 +1,6 @@
 # LinuxConfigGuide
 >Linux有众多发行版、机器也分云服务器、虚拟机和物理机，该指南并没有限制某种机器，对独属于某种机器的问题会单独说明，请读者选择对您有帮助的部分
 
-[姊妹篇：Win机器开发机配置指南](./WindowsConfigGuide.md)
-
-+ 指南中涉及的软件配置[地址](https://github.com/zweix123/unix-config)，在README中提供详细的使用方法和说明，请在完成下面步骤后再使用这份配置。
-
 ## 0.机器检查
 
 + `ping`检查网络：
@@ -77,13 +73,13 @@ passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 ### 文本编辑器
 
 Linux下的文本编辑器非常之多，上面使用vi就是一种，选择看个人喜好  
-且也是一种可玩性很好的软件，所以[单拿出来](../Linux/Editor.md)，记录有配置和用法
+且也是一种可玩性很好的软件，所以[单拿出来](Linux/vi.md)，记录有配置和用法
 
 ### 终端复用器
 
 tmux
 
-+ 使用：我的[笔记](../Linux/Tmux.md)
++ 使用：我的[笔记](Linux/tmux.md)
 
 ### Git
 
@@ -91,73 +87,6 @@ tmux
 + 使用：我的[笔记](./Git.md)
 
 ### zsh
-
-+ shell通识：
-	+ `echo $SHELL`查看使用shell
-	+ `cat /etc/shells`查看机器有的shell程序
-	+ `chsh -s shell绝对路径`设置默认shell
-		>[关于chsh](https://wangchujiang.com/linux-command/c/chsh.html)
-
----
-
-主要通过zsh和oh-my-zsh，前者是和bash一样的一个shell，但是它有更强的拓展性，但是想通过配置利用这些扩展性比较复杂，oh-my-zsh相当于一种辅助配置工具
-
-1. 下载`zsh`：[Manual](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)，一行命令即可  
-	```bash
-	sudo apt install -y zsh
-	```
-	更新默认shell：`chsh -s $(which zsh)`
-	>实际上这边建议不要着急修改，在clone oh-my-zsh会提示是否修改默认shell
-
-2. 下载oh-my-posh：[Manual](https://github.com/ohmyzsh/ohmyzsh/wiki)
-	```bash
-	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	```
-	>这里提供国内镜像源：`https://gitee.com/mirrors/oh-my-zsh`，clone到本地修改名字为`.oh-my-zsh`即可
-	
-	>我在使用VMware workstation时出现错误，通过这两个博客解决（[一个](https://blog.csdn.net/m0_56681539/article/details/127912811)、[另一个](https://blog.csdn.net/u014454538/article/details/123563034)）
-
-+ 命令：
-	+ 刷新配置效果：`source ~/.zshrc`
-
-+ `~/.zshrc`：oh-my-zsh配置文件
-	+ 语法：
-		+ `ZSH_THERE="random"`：配置主题，这里使用随机主题
-		+ `plugins=(插件1 插件2 ... 插件n)`：配置插件，插件名之间空格隔开
-
-+ `~/.oh-my-posh`：oh-my-zsh配置
-	+ `~/.oh-my-zsh/plugins/`插件目录：每个目录即为一个插件名，目录下的`.sh`文件可查看其逻辑
-		>不过下面的两个插件并没有安装在这里
-
-+ 插件推荐：
-	>插件的能否下载依照Github的可连接程度，注意本机clone下载后scp到服务器的方法中，如果本机和服务器的OS不同的情况下，可能由于编码原因报错
-
-	+ `git`：默认安装，手动配置，为git命令提供缩写，可在插件目录下的sh文件查看
-	+ `z`：默认安装，手动配置，目录快速跳转（后不再使用）
-		+ history：`~/.z`
-		+ 命令：`z 目录`
-	+ `zsh-syntax-highlighting`：手动安装，手动配置，语法高亮
-		```bash
-		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-		```
-		下面提供国内镜像
-		```bash
-		git clone https://gitee.com/Annihilater/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-		```		
-
-	+ `zsh-autosuggestions`：手动安装，手动配置，命令历史补全
-
-		```bash
-		git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-		```
-		>这里的网址就是没有`.git`，Manual中就没有  
-
-		下面提供国内镜像
-		```bash
-		git clone https://gitee.com/phpxxo/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-		```
-	+ `zsh-completions`：更好的Tab补全？似乎不太需要。
-	+ `command-not-found`：无需下载
 
 ## 5.导入软件配置
 

@@ -15,7 +15,7 @@
 
 + PyPi和TestPyPi：TODO
 + black and mypy: TODO
-+ VSCode Settings: TODo
++ VSCode Settings: TODO
 
 # Install
 
@@ -33,7 +33,7 @@ sudo apt install python3.6
 sudo apt install python3.10
 ```
 
->[我的Scoop教程](../../Missing-Semester/WindowsConfigGuide.md#6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8scoop)
+>[我的Scoop笔记](../../Missing-Semester/WindowsConfigGuide.md#6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8scoop)
 
 Scoop只维护大版本的Python3，而`python`表示最新版的Python；两种方式下载解释器的可执行文件名称不同，Scoop为`python310`的形式，`apt`是`python3.10`的形式。我们可以通过指定小版本的命令来执行不同的版本。
 

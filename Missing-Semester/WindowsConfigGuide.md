@@ -124,80 +124,6 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 
 ## 5.命令行
 
-### 前置知识
-
-+ 什么是命令行？  
-	命令行、终端、工作台、Shell在很多语境下都是语义重叠的  
-	+ 命令行通常是最大范围的语义
-	+ 终端很多时候和命令行重叠，有时特指Window Terminal或者Terminal，下面会指关于颜色的部分
-	+ 工作台：请不用使用这个名词
-	+ Shell有时单指执行命令的程序，linux中bash是一种shell，win中的cmd是一种shell
-
-+ win中怎么打开一个命令行？
-	+ 快捷键`win + r`键入`cmd`弹出一个窗口即为一个命令行程序，其中的Shell是cmd
-	+ 键入`powershell`弹出一个shell使用windows powershell的命令行程序
-
-值得强调的，在win11中Windows Terminal（下面会提到）是默认安装的，快捷键`win + r`键入`wt`即打开一个软件，它的样子是属于Windows Terminal的，但是"内核"使用的cmd这个Shell，同样这个”内核“是可以替换的，我们下面会将其替换成Powershell7。
-
-+ 为什么要配置命令行？
-	+ 功能上
-		+ win上的命令行并不优秀（至少cmd是这样的），比如查看当前目录文件的命令`ls`，cmd是不支持的
-		+ 有些扩展功能比如历史命令补全是非常好用、非常提高生产力的，很有必要添加这种功能
-	+ 样式上
-		+ 真的会好看很多
-
-+ 配置思路：（这里提供全局的观念，下面会有具体配置步骤）
-	+ 功能上：
-		+ 更换Shell为`PowerShell7`（注意这不是Windows PowerShell），它支持Linux的相关命令
-			>ps7（PowerShell7的简称）有很多独特的功能，比如独特的命令、独特的管道
-
-		+ 使用程序oh-my-posh提供功能上的增强，主要是历史命令补全
-		+ 使用Windows Terminal提供类似Tmux的功能
-	+ 样式上：（这方面是审美和使用习惯，我会提供我的配置，您可以再做定制）
-		+ 信息的输出，比如用户名、主机名、当前路径、Git状态，甚至时间、电量，这里使用oh-my-posh对这些信息进行排布和染色，即主题
-		+ 底层的配置，比如字体、字体大小、颜色定义，这里通过Windows Terminal
-
-		>关于颜色，颜色是个连续的概念，但是命令行程序只需要几种颜色，这里由”终端“确定某种颜色比如Red到底是什么样的（在这里颜色变成离散的概念），然后上层程序比如Shell通过设置好的Red进行染色，比如将用户名染色成Red。除了Shell之外比如Vim同样是在命令行上运行的程序，所以这里的对Red的设定也会影响到它。
-
-+ 我的[配置](https://github.com/zweix123/posh-config)，项目README中有使用方法（需要在下载完下面三个软件后再导入配置）
-
-### 5.1.PowerShell7
-
-+ 安装：[Manual](https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3)（官方推荐winget）
-+ 更新：reinstall
-+ 使用：快捷键`win + r`键入`pwsh`打开一个命令行程序
-+ pwsh在打开后会运行`$PROFILE`这个脚本（直接在命令行中输入这个命令即可查看脚本位置）
-	+ 所以可以把这个文件当做Linux中Bash的`.bashrc`文件
-
-+ Powershell7的ls对输出的目录的美化需要下载额外模块：（下载比较慢）
-	```powershell
-	Install-Module PSColor
-	```
-
-### 5.2.oh-my-posh
-
-+ 安装：[Manual](https://ohmyposh.dev/docs/installation/windows)（官方推荐使用winget）
-+ 使用：还记得pwsh在打开后运行一个脚本嘛？我们只要把调用oh-my-posh的相关命令放在那里就可以用了，这里比较重要的是**主题**的选择
-
-### 5.3.Windows Terminal
-
->win10需要下载，win11自带
-
-+ 安装：使用国内网在Microsoft Store直接搜索下载（[Manual](https://github.com/microsoft/terminal#installing-and-running-windows-terminal)推荐）
-+ 使用：
-	+ 快捷键`win + r`键入`wt`打开一个Windows Terminal
-		>报错：报错VCRUNTIME140_1.dll缺失：在C盘搜寻文件，将其复制到`C:\Windows\System\`即可
-
-	+ 在文件资源管理器中右键在终端打开
-
-+ 配置（涉及字体种类、字体大小、字体粗细、窗口大小、窗口打开位置、打开后模式、快捷键、配色方案等等）
-	+ 下载字体（[下载链接](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip)）这里用的是Manual推荐的`MesloLGM NF`字体，通过链接下载并解压发现并没有对应名称的文件夹，而是一种`.ttf`文件  
-		打开观察（主要关注安装按钮和字体命令字段（关于字体文件名中的部分含义：`Regular`常规、`Italic`斜体、`Bold`加粗  ））
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/字体打开.png" style="zoom:50%;" div align=center />  
-		我们把字体名称`MesloLGM NF`的所有形态都下载  
-
-	+ 更多配色见[Windows Terminal Themes](https://windowsterminalthemes.dev/)
-
 ## 6.包管理器Scoop
 
 **Scoop非常强大，几乎任何你想下载的命令行程序或者依赖软件都可以去search一下，几乎都有！**  
@@ -315,7 +241,7 @@ VSCode本是一个轻量型的编辑器，轻量型意味着可以快速的打�
 >这部分对我个人来说也是必须的，但未必适用于其他开发者，VSCode足以在可接受的成本内满足要求，所以没有将该软件放在必装软件中
 
 + 安装：亲爹Scoop
-+ 配置和使用：我的[文章](../Linux/Editor.md)
++ 配置和使用：我的[文章](Linux/vi.md)
 	>实际上vim是一个可玩性很高的编辑器，这里引用的文章不仅有vim的基本用法，可能还会有我倒腾vim的记录。
 
 ## 图片悬停Snipaste
@@ -377,4 +303,4 @@ VSCode本是一个轻量型的编辑器，轻量型意味着可以快速的打�
 类似mac上的Spotlight（或者Alfred）
 
 ## 硬件扩展
-见我的[讨论](../misc/多机.md)
+见我的[讨论](硬件/多机协同.md)

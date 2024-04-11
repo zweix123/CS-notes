@@ -11,7 +11,7 @@
 
 ## 现代编辑器UI设计
 
-+ Menu Bar菜单栏：顶部，左包含`File`、`Help`等等**选项卡**，右包含**最小化**、**全屏**、**关闭** Button按钮
++ Menu Bar菜单栏：顶部，左包含`File`、`Help`等等**选项卡**，右包含**最小化**、**全屏**、**关闭** Button按钮（坐井观天了，MacOS不是这样的）
 + Status Bar状态栏：底部
 + Activity bar活动栏：最左侧，上包含插件或者基本功能，下包含账户和设置
 + Side Bar：左Primary Side Bar，右Secondary Side Bar
