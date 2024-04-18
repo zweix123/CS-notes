@@ -71,6 +71,11 @@
 	Install-Module PSColor
 	```
 
++ 更新：当有新版本的pwsh时在打开命令行时会出现提示，比较烦，更新即可。
+	```powershell
+	winget update Microsoft.PowerShell
+	```
+
 ### oh-my-posh
 
 + 安装：[Manual](https://ohmyposh.dev/docs/installation/windows)（官方推荐使用winget）
