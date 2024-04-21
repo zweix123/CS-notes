@@ -76,7 +76,7 @@
 		+ Multi-Paxos
 	+ Raft：Multi-Paxos的变种
 
-+ 区块链的共识算法，区块链可以说是拜占庭将军问题了，和当前主题不同，在[这里](../Web3/README.md)讨论
++ 区块链的共识算法，区块链可以说是拜占庭将军问题了，和当前主题不同，在[这里](Interdisciplinary/Web3/README.md)讨论
 
 ### Split Brain脑裂
 
