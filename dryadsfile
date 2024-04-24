@@ -1,10 +1,13 @@
 import os
 import re
 import shutil
+from datetime import datetime
 from io import StringIO
 
+import openpyxl
 import pandas as pd
-from dryads import Dryads  # type: ignore
+from dryads import Dryads, run_shell_cmd  # type: ignore
+from git import Repo
 from rich.progress import track
 
 
@@ -291,23 +294,130 @@ def cnt():
     print("共约", str(int(cnt_zh + cnt_en // 6 + cnt_dg // 32)), "字"),
 
 
+MISC_DIR_PATH = "misc"
+NUTRITION_FILE_NAME = "Nutrition.md"
+NUTRITION_FILE_PATH = os.path.join(MISC_DIR_PATH, NUTRITION_FILE_NAME)
+
+
+def tutrition_check_start_table(line: str):
+    return line == "<!-- table_start -->\n"
+
+
+def tutrition_check_end_table(line: str):
+    return line == "<!-- table_end -->\n"
+
+
 def md2xlsx():
-    content = ""
-    with open("营养学.md", "r", encoding="utf-8") as f:
-        content = str(f.read())
-    data = StringIO(content.replace(" ", ""))
-    df = pd.read_csv(data, sep="|", index_col=0).dropna(axis=1, how="all").iloc[1:]
-    df.to_excel("营养学.xlsx", index=False)
+    with open(NUTRITION_FILE_PATH, "r", encoding="utf-8") as f:
+
+        def handle_table():
+            xlsx_name_line = f.readline()
+            xlsx_name = xlsx_name_line[
+                xlsx_name_line.index("<!--")
+                + len("<!--")
+                + 1 : xlsx_name_line.index("-->")
+            ].strip()
+            xlsx_file_path = os.path.join(MISC_DIR_PATH, xlsx_name + ".xlsx")
+            content = ""
+            for line in f:
+                if tutrition_check_end_table(line):
+                    break
+                content += line
+            content = content.strip()
+            if len(content) == 0:
+                workbook = openpyxl.Workbook()
+                workbook.save(xlsx_file_path)
+                return
+
+            data = StringIO(content.replace(" ", ""))
+            df = (
+                pd.read_csv(data, sep="|", index_col=0)
+                .dropna(axis=1, how="all")
+                .iloc[1:]
+            )
+
+            df.to_excel(xlsx_file_path, index=False)
+
+        for line in f:
+            if tutrition_check_start_table(line):
+                handle_table()
 
 
 def xlsx2md():
-    data = pd.read_excel("营养学.xlsx")
-    markdown_table_content = data.to_markdown(index=False)
-    with open("营养学.md", "w", encoding="utf-8") as f:
-        f.write(markdown_table_content)
+    content = ""
+    with open(NUTRITION_FILE_PATH, "r", encoding="utf-8") as f:
+
+        def handle_table():
+            nonlocal content
+
+            xlsx_name_line = f.readline()
+            content += xlsx_name_line
+            xlsx_name = xlsx_name_line[
+                xlsx_name_line.index("<!--")
+                + len("<!--")
+                + 1 : xlsx_name_line.index("-->")
+            ].strip()
+            xlsx_file_path = os.path.join(MISC_DIR_PATH, xlsx_name + ".xlsx")
+            if not os.path.exists(xlsx_file_path):
+                print(f"excell file {xlsx_file_path} is not exists.")
+                exit(-1)
+
+            data = pd.read_excel(xlsx_file_path)
+            data = data.replace("\n", "<br>", regex=True)
+            markdown_table_content = data.to_markdown(index=False).strip()
+            content += markdown_table_content + "\n"
+
+            for line in f:
+                if tutrition_check_end_table(line):
+                    content += line
+                    break
+
+        for line in f:
+            if tutrition_check_start_table(line):
+                content += line
+                handle_table()
+            else:
+                content += line
+
+    write_md(NUTRITION_FILE_PATH, content)
+
+
+def upload():
+    assert os.getcwd().endswith("CS-notes")
+    repo = Repo(os.getcwd())
+    last_commit_datetime = repo.head.commit.committed_datetime.replace(tzinfo=None)
+    today_datetime = datetime(
+        year=datetime.now().year, month=datetime.now().month, day=datetime.now().day
+    )
+    run_shell_cmd("git status")
+    input()
+
+    run_shell_cmd("git add .")
+    if last_commit_datetime > today_datetime:
+        run_shell_cmd("git commit --amend --no-edit")
+    else:
+        run_shell_cmd(f'git commit -m "{str(today_datetime)}"')
+
+    run_shell_cmd("git push -f")
+
+
+def run():
+    content = ""
+    with open("README.md", "r", encoding="utf-8") as f:
+        for line in f:
+            num = 0
+            while line.startswith("  "):
+                num += 1
+                line = line[2:]
+
+            content += "\t" * num + line
+    with open("README.md", "w", encoding="utf-8") as f:
+        f.write(content)
+    pass
 
 
 CMDS = {
+    "run": run,
     "cnt": cnt,
     "img": img,
     "link": link,
@@ -315,6 +425,7 @@ CMDS = {
         "md2xlsx": md2xlsx,
         "xlsx2md": xlsx2md,
     },
+    "upload": upload,
 }
 
 Dryads(CMDS)

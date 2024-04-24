@@ -19,11 +19,11 @@
 	+ [数据库内核月报](http://mysql.taobao.org/monthly/)：阿里某团队维护，每月更新。
 	+ [美团技术团队](https://tech.meituan.com/)：美团维护，不定期更新。
 	+ [RustTalk](https://rusttalk.github.io/)：R！
- 
-+ CS RoadMap：
-	>除非特殊声明，否则记录在这里并不意味着推荐。
 
-	+ [CS DIY](https://csdiy.wiki/)：这个是真推荐
++ CS RoadMap：
+	>仅作记录，不作推荐
+
+	+ [CS DIY](https://csdiy.wiki/)
 	+ [Teach Yourself Computer Science](https://teachyourselfcs.com/)
 	+ [PingCAP Awesome Database Learning](https://github.com/pingcap/awesome-database-learning)
 
@@ -78,12 +78,12 @@
 ## 笔记意义
 
 1. 在初学时
-   + 在学习时记下笔记有助于记忆  
-   + 在整理时重构笔记有助于搭建知识体系  
+	 + 在学习时记下笔记有助于记忆  
+	 + 在整理时重构笔记有助于搭建知识体系  
 		 随着进一步学习，我们对同一知识的理解发生变化，会动态的调整笔记（重构知识体系的过程）
 
 2. 在实践时  
-   通过笔记快速的回忆起学习时的理解或者查找对应的知识点
+	 通过笔记快速的回忆起学习时的理解或者查找对应的知识点
 
 但随着时间的推移，笔记的作用减少了
 
@@ -160,97 +160,113 @@
 
 	+ [ ] CS61A（SICP, Structure and Interpretation of Computer Programs）： CS-DIY的第一门课，还没看过， SCIP也被称为是一个常看常新的书，比较向往，先Mark下。
 	+ [x] Acwing Linux 基础课/Missing-Semester：这两门课有一小部分重叠，主要讲 Linux 的操作和工具，我觉得非常实用，前者内容更少，所以讲的更细致（给了很多演示），但是它是服务于它自己后面的课程的，够细但不够多，所以需要后者作为补充；后者非常的全面，会讲到我们在实际开发中会遇到但是不会有人系统讲的东西。强烈推荐。
- 
-+ 编程语言：
-	>语言是互通的，一个新语言的诞生必然要考虑用户教育成本，一个显而易见的方案就是和之前的语言更像。  
-	>所以我在编程语言的学习方案从开始是系统的看大部头的书籍到后是面看 Quick Start 文档然后直接上手。
 
-	+ C：
++ 计算机系统基础：
+		+ [ ] CSAPP/CMU15-213：纯纯看书，没有做课后作业 、 没有看课程录像。先鸽了。
+
+### 编程语言
+
+>语言是互通的，一个新语言的诞生必然要考虑用户教育成本，一个显而易见的方案就是和之前的语言更像。  
+>所以我在编程语言的学习方案从开始是系统的看大部头的书籍到后是面看 Quick Start 文档然后直接上手。
+
++ C：
 		+ [x] 《C Primer Plus》：C 语言学习的不二之选，我当时有 C 语言基础，但是不够系统，于是看的这本书，用了五天五夜，看完后可以在小范围当语言律师了。
 
-	+ C++：
-		>[StackOver 上的 C++书籍推荐](https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
++ C++：
 
-		+ [x] 《C++ Primer Plus》：不评价，不推荐。
+	>[StackOver 上的 C++书籍推荐](https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
 
-		 下面的几本书真是值得反复刷呀。
+
+	+ [x] 《C++ Primer Plus》：不评价，不推荐。
+
+			下面的几本书真是值得反复刷呀。
 
 		+ [x] 《C++ Primer》（以下简称 c3p）：毫无疑问的成为C++初学者的第一本书，比较推荐，但我个人认为它还是有股 C++98 味儿。
 
-		 下面的几本书必须要二刷，因为c3p毫无疑问是给新手准备的，但是C++太深奥了，刚看完 c3p肯定要继续看下面来学习更Modern的特性和最佳实践，但是在没有足够实践的基础上绝对是理解不到位的，在充分实践后再来看会有崭新的体验。
+			下面的几本书必须要二刷，因为c3p毫无疑问是给新手准备的，但是C++太深奥了，刚看完 c3p肯定要继续看下面来学习更Modern的特性和最佳实践，但是在没有足够实践的基础上绝对是理解不到位的，在充分实践后再来看会有崭新的体验。
 
 		+ [x] 现代 C++30讲/32讲：一个课程的文字记录，是《C++ Primer》必要补充。本身更多是提纲挈领的说明一些要点，对细节想要更深刻的理解肯定要看更多的资料。或者它本来就是一个提纲，为我们打开Modern C++的大门。
 		+ [x] 《Effective Modern C++》：本来想看《Effective C++》的，它被称为 Effective 类书籍的鼻祖，但看评价觉得它不够Modern，而这本书是它的continuation和correction。强烈推荐！惊叹于 C++的博大精深，这本书对我个人而言说清了很多我过去模棱两可的事情，看完之后越发感觉自己还是 C++的初学者。
 
-		 我也想大言不惭的表达下该如何学习 C++，推荐叔叔的[博客](https://zclll.com/index.php/cpp/get_started_cpp.html)。好吧我写不出比叔叔更好的，"眼前有景道不得，崔颢题诗在上头"，算了算了。
-		
+		我也想大言不惭的表达下该如何学习 C++，推荐叔叔的[博客](https://zclll.com/index.php/cpp/get_started_cpp.html)。好吧我写不出比叔叔更好的，"眼前有景道不得，崔颢题诗在上头"，算了算了。
+	
 		+ [ ] 《C++ Templates The Complete Guide》
 		+ [ ] 《C++函数式编程》\[塞尔维亚\]伊凡·库奇
 
-	+ Python：
++ Python：
 		+ Manual：Python这种语言看Manual就行啦
 		+ B站码农高天，他是CPython的Contributor，Python相关教程很不错，适合想精深Python的。
-	+ Golang：
++ Golang：
 		+ Manual，Golang官方的Tour of Go就非常好呀。
 		+ https://github.com/golang/groupcache
-	+ Rust：
++ Rust：
 		+ [ ] 《The Rust Programming Language》 | 中文出版书《Rust权威指南》 | 中文在线版《Rust程序设计语言》 | Rust Book：
 		+ [x] [rustlings](https://github.com/rust-lang/rustlings)：真的不由得感叹一句 “ 太现代了！”，它的思路是提供很多无法编译的Rust代码，然后供我们修改，在实践中理解Rust的各种语法（显然这些 Bug 涉及的语法特性应该是难度递增的）。它的特色是提供了全自动交互环境，就像玩游戏闯关一样。具体的，我以我的流程为例，将项目Fork到自己的github中，然后clone下来，在本地搭建好Rust相关环境后，编译`rustlings`。然后在项目目录下打开VSCode，不需要Explorer，整个屏幕就有一个编辑区和终端，然后让他们左右放置（以往我都是上下放置），然后在终端启动 `rustlings watch`，就会自动找到最近的需要修改的代码，VSCode的终端是可以点击链接打开，自然就拿到了需要修改的文件，然后保存，终端自动重新测试，错了给出编译报错，成了给出下一个需要修改的 Bug。这就很像游戏呀。然后`rustlings watch`是有`hint`的，因为我没有学过Rust，直接以练代学，所以基本每个我都`hint`一下，它会给出Rust Book的链接，这个时候我再去看书。整个学习体验棒极了。
 		+ [ ] 《Rust By Practice》：
 		+ [ ] 《Programming Rust - Fast, Safe Systems Development》：
 		+ [ ] 《Hands-On Concurrency With Rust》：
 
-+ 数据结构/算法竞赛：
-	+ [x] Acwing算法全家桶，我不想评价Acwing和yxc，但结合性价比，这个可能是国内最适合初学者的一套教程了。
+### 数据结构
 
-+ 编译原理：
-	>编译原理在整体计算机知识体系中似乎是一个比较独立的部分，但是我个人感觉非常有学习的必要
-	>+ 它为我们展示了计算机看待程序的视角
-	>+ 它为我们展示设计编程语言的方方面面
++ [x] Acwing算法全家桶，我不想评价Acwing和yxc，但结合性价比，这个可能是国内最适合初学者的一套教程了。
 
-	+ [x] 《Crafting interpreters》【🤏】：这本书自底向上手把手的带读者使用C语言实现一个有闭包、类、垃圾回收的动态类型语言。是我2023年看到的最好的技术书（这个受到了 《Effective Modern C++》的冲击），总之非常推荐。
-	+ [ ] 华盛顿大学课程《Programming Languages》：
+### 编译原理
 
-+ 体系结构：
-	>个人感觉计算机组成原理 、 体系结构 、 操作系统（的一部分）并不能泾渭分明的划分，这里以体系结构统称
 
-	+ [x] 王道考研的计组课：应付期末，草草看完。
-	+ [ ] CSAPP/CMU15-213：纯纯看书，没有做课后作业 、 没有看课程录像。先鸽了。
-	+ [ ] 南大ICS PA：只看了余子豪的课，还没来得及做实验，应该也鸽了。
+>编译原理在整体计算机知识体系中似乎是一个比较独立的部分，但是我个人感觉非常有学习的必要
+>+ 它为我们展示了计算机看待程序的视角
+>+ 它为我们展示设计编程语言的方方面面
+
++ [x] 《Crafting interpreters》【🤏】：这本书自底向上手把手的带读者使用C语言实现一个有闭包、类、垃圾回收的动态类型语言。是我2023年看到的最好的技术书（这个受到了 《Effective Modern C++》的冲击），总之非常推荐。
++ [ ] 华盛顿大学课程《Programming Languages》：
++ [ ] 《Essential of compilation》
+
+### 体系结构
+
+>个人感觉计算机组成原理 、 体系结构 、 操作系统（的一部分）并不能泾渭分明的划分，这里以体系结构统称
+
++ [x] 王道考研的计组课：应付期末，草草看完。
+
++ [ ] 南大ICS PA：只看了余子豪的课，还没来得及做实验，应该也鸽了。
 		+ 让我对计算机底层有了全新的理解
 		+ 学到了很多对 Coder 来说很珍贵的的品质：Unix 哲学 、 如何提问 、STFW/STFM/RTFSC 等等
 		+ 相信机器是永远正确的，相信 Bugs 一定是能观测，可复现，你能够解决的。如果不是，那一定是没有找对合适的工具，没掌握正确的调试手法。
-	+ 计算机组成与设计：软件/硬件接口 by H & P
-	+ Computer Architecture·A Quantitaive Approach（量化方法）
-	+ 存储
++ 计算机组成与设计：软件/硬件接口 by H & P
++ Computer Architecture·A Quantitaive Approach（量化方法）
++ 存储
 		+ [ ] 《数据存储-架构与技术》舒继武
-	+ [ ] [CS152](https://inst.eecs.berkeley.edu/~cs152/sp24/)：[videos](https://www.bilibili.com/video/BV1yP411U7xh/?buvid=YD4427D0E2F425F24DC3B3E141423100995B&from_spmid=search.search-result.0.0&is_story_h5=false&mid=GEs0LBvW7TE0b7OO54MY4A%3D%3D&p=1&plat_id=116&share_from=ugc&share_medium=iphone&share_plat=ios&share_session_id=B1036BC8-7F30-4F71-97DB-0D6EC7ED0B04&share_source=QQ&share_tag=s_i&spmid=united.player-video-detail.0.0&timestamp=1706339671&unique_k=Vv6ultm&up_id=7006687&vd_source=4ee99d4ebd507c7277fa312ed28dbdda)，川流严选，先mark下。
++ [ ] [CS152](https://inst.eecs.berkeley.edu/~cs152/sp24/)：[videos](https://www.bilibili.com/video/BV1yP411U7xh/?buvid=YD4427D0E2F425F24DC3B3E141423100995B&from_spmid=search.search-result.0.0&is_story_h5=false&mid=GEs0LBvW7TE0b7OO54MY4A%3D%3D&p=1&plat_id=116&share_from=ugc&share_medium=iphone&share_plat=ios&share_session_id=B1036BC8-7F30-4F71-97DB-0D6EC7ED0B04&share_source=QQ&share_tag=s_i&spmid=united.player-video-detail.0.0&timestamp=1706339671&unique_k=Vv6ultm&up_id=7006687&vd_source=4ee99d4ebd507c7277fa312ed28dbdda)，川流严选，先mark下。
 
-+ 操作系统
-	+ [x] 王道考研的操统课：应付期末，草草看完。
-	+ [x] MIT6.S081：资料方面只看了xv6 Manual和野生课程内容翻译，然后直接啃实验，以实践为主，缺乏理论由OSTEP补充。
-	+ [x] 南大蒋炎岩操作系统/OSTEP：蒋老师说他的课是OSTEP导读，但蒋老师的课很有个人风格，推荐课程；蒋老师评价OSTEP为最好的自学OS的资料，我的第一本英文书，全程在地铁上看完的，没有课后作业，没有记笔记，非常推荐（其实中文版就翻译的挺好，没必要硬啃英文版）
+### 操作系统
 
-+ 计算机网络
-	+ [x] 谢希仁的《计算机网络》（第七版）：教材
-	+ [x] Stanford CS144（2023）：使用C++20实现了字节流、重组器、TCP的两端、数据链路层和网络层的接口、IP的路由选择。其中的项目结构（包括CMake相关代码）和几个Util类（地址的封装、文件描述符的封装、Socket的封装）都挺值得学习的。做完才意识到删除了往年最难的部分，难度低了很多，应该适合新手。遗憾的是这就导致后几个实验比较零碎，未能得到一个完整可用的TCP协议实现。
++ [x] 王道考研的操统课：应付期末，草草看完。
++ [x] MIT6.S081：资料方面只看了xv6 Manual和野生课程内容翻译，然后直接啃实验，以实践为主，缺乏理论由OSTEP补充。
++ [x] 南大蒋炎岩操作系统/OSTEP：蒋老师说他的课是OSTEP导读，但蒋老师的课很有个人风格，推荐课程；蒋老师评价OSTEP为最好的自学OS的资料，我的第一本英文书，全程在地铁上看完的，没有课后作业，没有记笔记，非常推荐（其实中文版就翻译的挺好，没必要硬啃英文版）
 
-+ 数据库
-	+ [x] 王珊、萨师煊的《数据库系统概念》（第五版）：教材
-		>萨师煊先生是我国数据库的奠基人。
-	+ [x] 《Build Your Own Redis with C/C++》和《Build Your Own Database From Scratch》【🤏】：分别用C with STL实现mini Redis和Go实现mini关系型数据库，我个人完成了第一个和第二个的 B+Tree 部分（有bug），第一本中我将作者的 C 实现改成Modern C++实现，但是对于侵入式数据结构还是一股C味儿，后面有机会可能结合CRTP重写。对于第二本，写出的 B+Tree不符合预期，而且作者使用的B+Tree是比较特殊的变种，作者没有好好描述、网上也没有很好的描述，于是作罢，以后有机会写15445吧。嘻嘻，写完15445的B+Tree了，果然要科学的多（拉踩一波）。
+### 计算机网络
 
-	+ [x] <span id="CMU15445">CMU 15445 Lab 2023 Spring：在23年春季版本中，我们首先实现一个面向磁盘的内存管理器作为整个数据库的基础，然后实现一个很有意思的数据结构B+Tree来实现数据库索引，这也是我选择23春季版本而不是秋季版本的原因。之后则是深入到数据库的相关概念中，火山模型和事务系统。还有其他的涉及优化的可选作业，我是最小实现，没有做任何优化。首先要感谢老师 、 助教和其他为该项目贡献的人，是你们的付出才有了如此精致的课程。其次是十分感谢群友，没有群友前辈的点拨我是万万不能完成的。我在这个过程中，也遇到一些坑，收集整理一些资料，在[这里](./Database-System/CMU15445.md)，我过了一遍，保证符合学术诚信，这里包括我遇到的坑点，还有对相关知识的整理，比如 B+Tree 伪代码里面的数值逻辑和模糊概念的梳理，还有关于事务系统这个名词之间的关系和限制（Project4 的 Handout 有点离谱）。这个过程中，特别是 P3 和 P4，看来很多前辈的文章攻略，我个人觉得这是不违反学术诚信的，因为客观开发项目也是需要文档手册的，而 Handout 真的不是一个好手册；当然，jyy 老师也说过，在工业场景，并不是所有问题都有答案和指导，在没有指导的情况下完成也是需要训练的。但是这里过于离谱，没有说明算法流程可以接受，但是相关概念也没有说清，是甚至需要对照野生样例反推语义；当然这又涉及另一个话题，“ 共享测试样例 ” 是不是不违反学术诚信，见仁见智吧，没这个我真过不了了呀，太菜了。然后是这个[bustub_2023spring_backup](https://github.com/zweix123/bustub_2023spring_backup)，这是 23 春季起始代码的副本，当然正常途径是 reset 或者找 release，但是我当时并不知道这样的方法，不管怎么这个可以给您节省一些时间。除此之外，这里添加了两个部分，一个 `script.py` 的脚本，这个本身也是我常用的一个命令行工具框架。一方面，这里收纳整理实现所需要的命令，`--help` 即可查看，这个存在的必要是什么？命令还需要整理？实际上，15445 的每个测试（或者 format 或者 submit），都需要两个命令以上，当然可以通过`&&`和历史命令补全来实现，但是终究是麻烦，该脚本提供了简写，除此之外，这样也让可以 “ 记住 ” 所有命令成为可能，我个人的调试方法几乎只有一种方法，那就是打日志，我需要高频的重复运行测试代码，所以对我个人很有用。另一个方面，这里有三个有意思的命令，`viz` 是按照代码中持久的命令生成 B+Tree 可视化，`viz-repr` 是以交互的形式生成 B+Tree 可视化，使用的都是 15445 提供给我们的工具，前者帮助我们快速的复现错误的 B+Tree 形态，后者的使用体验我相信和 15445 提供给的 Web 的体验一样。它帮助我在 P2 非常快速的发现了出现错误的样例。还有一个是 `terier-debug`，这里借用 6.824 中的工具中的一些技巧，将多个线程的日志并排的按时间输出（不过我用的并不多）。所以这个脚本极大的提高了我的开发和排查效率。另一个是更多的测试，它和前面的脚本是对应的，收集了一些我使用的民间测试样例（还有一些纠错）。希望可以给大家帮助，祝各位武运昌隆。</span>
++ [x] 谢希仁的《计算机网络》（第七版）：教材
++ [x] Stanford CS144（2023）：使用C++20实现了字节流、重组器、TCP的两端、数据链路层和网络层的接口、IP的路由选择。其中的项目结构（包括CMake相关代码）和几个Util类（地址的封装、文件描述符的封装、Socket的封装）都挺值得学习的。做完才意识到删除了往年最难的部分，难度低了很多，应该适合新手。遗憾的是这就导致后几个实验比较零碎，未能得到一个完整可用的TCP协议实现。
 
-	+ [ ] B站Moody老师，相当于15445的课程翻译。
-	+ [ ] CMU 15-721
+### 数据库
 
-+ 高性能/并行计算：
-	+ [ ] MIT 6.172 Performance Engineering Of Software Systems
-	+ [ ] 《Programming Massively Parallel Processors： A Hands-on Approach 4th Edition》
++ [x] 王珊、萨师煊的《数据库系统概念》（第五版）：教材
+>萨师煊先生是我国数据库的奠基人。
++ [x] 《Build Your Own Redis with C/C++》和《Build Your Own Database From Scratch》【🤏】：分别用C with STL实现mini Redis和Go实现mini关系型数据库，我个人完成了第一个和第二个的 B+Tree 部分（有bug），第一本中我将作者的 C 实现改成Modern C++实现，但是对于侵入式数据结构还是一股C味儿，后面有机会可能结合CRTP重写。对于第二本，写出的 B+Tree不符合预期，而且作者使用的B+Tree是比较特殊的变种，作者没有好好描述、网上也没有很好的描述，于是作罢，以后有机会写15445吧。嘻嘻，写完15445的B+Tree了，果然要科学的多（拉踩一波）。
 
-+ 分布式系统：
-	+ [ ] MIT6.824：看完了部分课程的讲义和完整的课程字幕翻译记录，主要以了解知识点为主，因为我的实习项目就是分布式存储，工业界的实践就在眼前，所以课程实现没有做。
++ [x] <span id="CMU15445">CMU 15445 Lab 2023 Spring：在23年春季版本中，我们首先实现一个面向磁盘的内存管理器作为整个数据库的基础，然后实现一个很有意思的数据结构B+Tree来实现数据库索引，这也是我选择23春季版本而不是秋季版本的原因。之后则是深入到数据库的相关概念中，火山模型和事务系统。还有其他的涉及优化的可选作业，我是最小实现，没有做任何优化。首先要感谢老师 、 助教和其他为该项目贡献的人，是你们的付出才有了如此精致的课程。其次是十分感谢群友，没有群友前辈的点拨我是万万不能完成的。我在这个过程中，也遇到一些坑，收集整理一些资料，在[这里](./Database-System/CMU15445.md)，我过了一遍，保证符合学术诚信，这里包括我遇到的坑点，还有对相关知识的整理，比如 B+Tree 伪代码里面的数值逻辑和模糊概念的梳理，还有关于事务系统这个名词之间的关系和限制（Project4 的 Handout 有点离谱）。这个过程中，特别是 P3 和 P4，看来很多前辈的文章攻略，我个人觉得这是不违反学术诚信的，因为客观开发项目也是需要文档手册的，而 Handout 真的不是一个好手册；当然，jyy 老师也说过，在工业场景，并不是所有问题都有答案和指导，在没有指导的情况下完成也是需要训练的。但是这里过于离谱，没有说明算法流程可以接受，但是相关概念也没有说清，是甚至需要对照野生样例反推语义；当然这又涉及另一个话题，“ 共享测试样例 ” 是不是不违反学术诚信，见仁见智吧，没这个我真过不了了呀，太菜了。然后是这个[bustub_2023spring_backup](https://github.com/zweix123/bustub_2023spring_backup)，这是 23 春季起始代码的副本，当然正常途径是 reset 或者找 release，但是我当时并不知道这样的方法，不管怎么这个可以给您节省一些时间。除此之外，这里添加了两个部分，一个 `script.py` 的脚本，这个本身也是我常用的一个命令行工具框架。一方面，这里收纳整理实现所需要的命令，`--help` 即可查看，这个存在的必要是什么？命令还需要整理？实际上，15445 的每个测试（或者 format 或者 submit），都需要两个命令以上，当然可以通过`&&`和历史命令补全来实现，但是终究是麻烦，该脚本提供了简写，除此之外，这样也让可以 “ 记住 ” 所有命令成为可能，我个人的调试方法几乎只有一种方法，那就是打日志，我需要高频的重复运行测试代码，所以对我个人很有用。另一个方面，这里有三个有意思的命令，`viz` 是按照代码中持久的命令生成 B+Tree 可视化，`viz-repr` 是以交互的形式生成 B+Tree 可视化，使用的都是 15445 提供给我们的工具，前者帮助我们快速的复现错误的 B+Tree 形态，后者的使用体验我相信和 15445 提供给的 Web 的体验一样。它帮助我在 P2 非常快速的发现了出现错误的样例。还有一个是 `terier-debug`，这里借用 6.824 中的工具中的一些技巧，将多个线程的日志并排的按时间输出（不过我用的并不多）。所以这个脚本极大的提高了我的开发和排查效率。另一个是更多的测试，它和前面的脚本是对应的，收集了一些我使用的民间测试样例（还有一些纠错）。希望可以给大家帮助，祝各位武运昌隆。</span>
+
++ [ ] B站Moody老师，相当于15445的课程翻译。
++ [ ] CMU 15-721
+
+
+### 高性能/并行计算
+
++ [ ] MIT 6.172 Performance Engineering Of Software Systems
++ [ ] 《Programming Massively Parallel Processors： A Hands-on Approach 4th Edition》
+
+### 分布式系统
++ [ ] MIT6.824：看完了部分课程的讲义和完整的课程字幕翻译记录，主要以了解知识点为主，因为我的实习项目就是分布式存储，工业界的实践就在眼前，所以课程实现没有做。
 		+ [x] [MapReduce](./Distributed-System/MapReduce.md)
 		+ [ ] GFS
 		+ [ ] BigTable
@@ -259,17 +275,19 @@
 		+ [ ] Spanner
 		+ [ ] Ceph
 
-	+ [ ] 《DDIA》, 《Direct Data-independent acquisition》
-	+ [ ] 《凤凰架构》
++ [ ] 《DDIA》, 《Direct Data-independent acquisition》
++ [ ] 《凤凰架构》
 
-+ 图形化：
-	+ GAMES系列
+### 图形化
 
-+ AI相关（广义）
-	+ dlsys, [Deep Learning Systems](https://dlsyscourse.org/)：
++ GAMES系列
 
-+ 业务开发：
-	+ [x] Acwing工程课的Django和前端：优势的很简单，缺点是太简单；低年级可以看看，否则没必要了。
+### AI
++ dlsys, [Deep Learning Systems](https://dlsyscourse.org/)：
+
+### 业务开发
+
++ [x] Acwing工程课的Django和前端：优势的很简单，缺点是太简单；低年级可以看看，否则没必要了。
 
 ## 人文学科
 

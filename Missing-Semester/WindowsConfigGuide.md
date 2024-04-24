@@ -303,4 +303,4 @@ VSCode本是一个轻量型的编辑器，轻量型意味着可以快速的打�
 类似mac上的Spotlight（或者Alfred）
 
 ## 硬件扩展
-见我的[讨论](misc/硬件/多机协同.md)
+见我的[讨论](misc/devices/多机协同.md)
