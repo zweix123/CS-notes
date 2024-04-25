@@ -14,7 +14,8 @@
 + 从[IPython](https://ipython.org/)到[Jupyter](https://jupyter.org/)
 
 + PyPi和TestPyPi：TODO
-+ black and mypy: TODO
++ mypy: TODO
++ black and isort: TODO
 + VSCode Settings: TODO
 
 # Install

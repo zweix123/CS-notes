@@ -1,4 +1,4 @@
-+ Reference：
++ Refs：
 	+ [Bilibili · 等疾风 · 【VS Code】四年功力 一刻掌握 速通C++插件/终端美化/工程管理 懒人必备](https://www.bilibili.com/video/BV1YG4y1v7uB/?vd_source=4ee99d4ebd507c7277fa312ed28dbdda)
 
 调教一套适合自己的工作流的收益是不错的，一个程序员的工作流核心就是开发环境——编辑器。

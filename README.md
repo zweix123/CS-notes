@@ -1,6 +1,6 @@
 <!-- https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/ -->
 
-## 前言
+## 声明
 
 + 该项目是我个人的笔记，部分会刻意制作成Blog，但大部分仍然是我个人的Note，除非特殊声明，否则不建议作为学习资料。
 + 该笔记部分插图来自各种书籍、课程或其他资料，若涉及任何版权行为，请联系我，我将删除内容。
@@ -60,7 +60,6 @@
 	+ [Markdown](Missing-Semester/Markdown.md)：笔记
 	+ [VSCode](Missing-Semester/VSCode.md)：
 
-+ [Python语言之外](./Programing-Language/Python/Beyond-Language.md)：个人在Python中遇到的坑，探索的工作流。
 + [侵入式数据结构和非侵入式数据结构的区别](./Algorithm/Data-Structure-and-Sort/侵入式和非侵入式数据结构。md)
 + [不同编程范式的量化交易回测系统](Interdisciplinary/Quant/Survey-BackTest.md)
 + 软件推荐：
