@@ -177,6 +177,8 @@
 + 块执行`Python: Run Selection`：选择代码后使用快捷键`Shift + Ehter`会将这部分代码发送到Python Shell中，很容易误触，我取消了这个快捷键
 + 使用`#%%`可类似Jupyter分块，而Jupyter状态下有很多快捷键
 
++ `Intellicode Api Examples › Python: Enabled`：关闭，暂时不知道为什么TODO
+
 ### C/C++
 
 >得益于Scoop，我们在win下也有了好用的包管理器，所以我们在win下的开发体验已经和linux下类似，区别只在需要系统调用或者依赖软件不能跨平台时，所以下面的配置应该是跨平台的。
