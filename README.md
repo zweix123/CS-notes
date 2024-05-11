@@ -194,6 +194,7 @@
 	+ [ ] 《Rust By Practice》：
 	+ [ ] 《Programming Rust - Fast, Safe Systems Development》：
 	+ [ ] 《Hands-On Concurrency With Rust》：
+	+ [ ] [《Learn Rust the Dangerous Way》](https://cliffle.com/p/dangerust/)
 
 ### 数据结构
 
