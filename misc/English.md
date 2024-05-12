@@ -192,4 +192,17 @@
 	+ 重复指代先行词
 	+ 起连词作用，连接两个有独立主谓结构的简单句
 
++ 主语关系代词：who、which、that
++ 宾语关系代词（动词宾语）：who、whom、which、that
+	+ whom用于调度做宾语
++ 宾语关系代词（介词宾语）：who、whom、which
+	+ whom用于人的**介词前置**
++ 状语关系副词：when、where、why
++ 定语关系限定词：whose、which
++ 补语关系代词：which、that
+
 ### 副词性从句——状语从句
+
+## misc
+
++ `There`开始的句型其实是一个倒装句，比如`There exist certain traditions in Fujian`，本质是`traditions exist there`

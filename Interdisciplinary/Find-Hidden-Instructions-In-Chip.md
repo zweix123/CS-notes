@@ -19,8 +19,19 @@
 	+ 依赖文档：需要先验知识，无法发现未知指令
 
 
-we use a buffer of 15 0 bytes as the starting
-candidate. The instruction is executed, and its length (in bytes)
-is observed. The byte at the end of the instruction is then
-incremented. For example, in the case of the 15 byte zero
-buffer, the instruction will be observed to be two bytes long
+
+1. 15个字节的buffer
+2. 从一个长度开始，递增该长度buffer中的低字节
+3. 检测当前指令，如果**指令长度变化**或者**异常**
+
+
+
+## Resolving Instruction Lengths: injector
+
++ 方法：
+	+ disassembling：但是不能处理未记载指令
+	+ trag flag：观察指令之前前后的instruction pointer，但是不能处理抛出异常的指令
++ 要求：
+	+ injector需要可以识别不同的mode下的指令
+
++ 页错误分析

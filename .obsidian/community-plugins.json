@@ -1,7 +1,5 @@
 [
   "obsidian-git",
   "obsidian-dynamic-toc",
-  "table-editor-obsidian",
-  "obsidian-tikzjax",
-  "obsidian-excalidraw-plugin"
+  "table-editor-obsidian"
 ]
