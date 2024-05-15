@@ -70,6 +70,8 @@
 
 + 关于在Windows上编程时出现的语言问题，解决方案：控制面板 -> 时钟和区域 -> 区域 -> 管理 -> 更改系统区域设置 -> 打开Beta版
 	+ 默认是没有开的，此时比如使用C++的`std::cout`输出中文是乱码，但是打开后，对于其他的在win上的在未打开时进行压缩的压缩包，在我们机器上进行解压会有乱码。
+	+ 该选项不开且在编程中可能遇到问题的场景：
+		+ 软件`perl`，LaTeX的包管理器tlmgr依赖它
 
 + 不能进入`C:\Program Files\WindowsApps`目录：[solution](https://jingyan.baidu.com/article/1876c852de26a0c80b1376c5.html)
 
