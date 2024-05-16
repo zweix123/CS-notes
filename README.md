@@ -43,18 +43,14 @@
         + [IPad学习机配置指南](Missing-Semester/iPadConfigGuide.md)：如题
         + [Mac开发机配置指南](Missing-Semester/macConfigGuide.md)：如题
 
-    和平台无关的
-    + [SSH](Missing-Semester/SSH.md)：
-    + [Git](Missing-Semester/Git.md)：
-    + [Markdown](Missing-Semester/Markdown.md)：笔记
-    + [VSCode](Missing-Semester/VSCode.md)：
+    和平台无关的：[SSH](Missing-Semester/SSH.md) | [Git](Missing-Semester/Git.md) | [Markdown](Missing-Semester/Markdown.md) | [VSCode](Missing-Semester/VSCode.md) | [LaTeX](Missing-Semester/LaTeX.md)
 
 + [侵入式数据结构和非侵入式数据结构的区别](./Algorithm/Data-Structure-and-Sort/侵入式和非侵入式数据结构。md)
 + [不同编程范式的量化交易回测系统](Interdisciplinary/Quant/Survey-BackTest.md)
 + 软件推荐：
     + 命令`neofetch`：现代风格地查看机器信息
-    + [命令](https://github.com/sharkdp/fd#installation)`fd`：按文件名递归查找
-    + 命令`rg`，特别的`alias rg='rg --hidden --no-follow --max-columns 255 --no-heading --column -F'`：按文本内容递归查找
+    + [命令](https://github.com/sharkdp/fd#installation)`fd`（好用！）：按文件名递归查找
+    + 命令`rg`（好用！），特别的`alias rg='rg --hidden --no-follow --max-columns 255 --no-heading --column -F'`：按文本内容递归查找
         >`ag`已经是历史的眼泪了
 
     + `ranger`，当然，它同样有了新的实现，比如用Golang实现的`lf`，用Rust实现的`Yazi`
