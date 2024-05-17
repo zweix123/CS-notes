@@ -67,3 +67,13 @@
 ## 结果
 
 作者将代码在一下处理器执行：Intel Core i7-4650U, Intel Quark SoC X1000, Intel Pentium, AMD Geode NX1500, AMD C-50, VIA Nano U3500, VIA C7-M, Transmeta TM5700, and another.
+
+# Hardware Backdoors in x86 CPUs
+
+
+
+# X86架构处理器隐藏指令检测与功能分析
+
++ ref：
+	+ 知网检索
+
