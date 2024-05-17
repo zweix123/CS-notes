@@ -1,3 +1,5 @@
++ Ref：
+	+ [知乎 · 槿灵兮 · 【LaTeX】针对萌新自学者的入门教程](https://zhuanlan.zhihu.com/p/521649367?utm_source=zhihu)
 
 ## 环境
 
@@ -42,6 +44,7 @@ Tex Live by Scoop and VSCode in Windows
 		tlmgr install epstopdf subfigure appendix  # 图表
 		tlmgr install ulem xcolor environ letltxmacro enumitem stringenc trimspaces soul algorithm2e genmisc  # 字符 & 字体
 		tlmgr install cleveref titling placeins minted tocloft biblatex biber  # 其他, 主要是我校毕业论文模板的依赖包
+		tlmgr install latexindent  # 格式化工具
 		```
 
 		面对一个模板的报错，可以尝试从是否缺乏某个依赖包的角度考虑（通过看log）
