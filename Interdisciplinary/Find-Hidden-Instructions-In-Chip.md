@@ -70,8 +70,6 @@
 
 # Hardware Backdoors in x86 CPUs
 
-
-
 # X86架构处理器隐藏指令检测与功能分析
 
 + ref：
