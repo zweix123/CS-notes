@@ -6,10 +6,7 @@ Docker是一种类似虚拟机的软件，可以管理多个image镜像，每个
 这个[手册](https://yeasy.gitbook.io/docker_practice/install)比官网好用
 
 ## Config
-docker很多命令需要sudo，为了避免麻烦，可以将当前用户放入到安装时自动创建的docker用户组中
-```bash
-sudo usermod -aG docker $USER
-```
+同样按照上述手册
 
 ## Image
 

@@ -1,5 +1,6 @@
 + Ref：
 	+ [知乎 · 槿灵兮 · 【LaTeX】针对萌新自学者的入门教程](https://zhuanlan.zhihu.com/p/521649367?utm_source=zhihu)
+	+ [LaTeX 入门与进阶](https://latex.lierhua.top/zh/)
 
 ## 环境
 

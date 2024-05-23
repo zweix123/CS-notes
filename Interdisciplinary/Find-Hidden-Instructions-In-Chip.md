@@ -36,6 +36,7 @@ Domas's Sandsifter      |    optimization: prefix instruction
 	+ 软件错误
 	+ Hypervisor Flaw
 	+ 硬件勘误
++ 意义：
 
 ## tunneling指令搜索
 
