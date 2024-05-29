@@ -100,7 +100,7 @@
 
 	+ 更多配色见[Windows Terminal Themes](https://windowsterminalthemes.dev/)
 
-## Unix: Linux and macOS
+在·## Unix: Linux and macOS
 
 + shell通识：
 	+ `echo $SHELL`查看使用shell
