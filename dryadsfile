@@ -401,23 +401,7 @@ def upload():
     run_shell_cmd("git push -f")
 
 
-def run():
-    content = ""
-    with open("README.md", "r", encoding="utf-8") as f:
-        for line in f:
-            num = 0
-            while line.startswith("  "):
-                num += 1
-                line = line[2:]
-
-            content += "    " * num + line
-    with open("README.md", "w", encoding="utf-8") as f:
-        f.write(content)
-    pass
-
-
 CMDS = {
-    "run": run,
     "cnt": cnt,
     "img": img,
     "link": link,

@@ -289,6 +289,9 @@ BigTable────►LSM Tree───►LevelDB────►RocksDB
 ### AI相关
 
 + dlsys, [Deep Learning Systems](https://dlsyscourse.org/)：
++ [动手实战人工智能](https://aibydoing.com/intro)
++ [llya Sutskever 30u30](https://www.reddit.com/r/ArtificialInteligence/comments/1cpbh1s/ilya_sutskever_if_you_really_learn_all_of_these/?rdt=49832&onetap_auto=true&one_tap=true)
+
 
 ### 业务开发
 
