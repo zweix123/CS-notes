@@ -55,6 +55,7 @@
 
     + `ranger`，当然，它同样有了新的实现，比如用Golang实现的`lf`，用Rust实现的`Yazi`
     + Mind Markdown，用Markdown来生成简易思维导图
+    + [noti](https://github.com/variadico/noti)：在终端使用的命令完成时弹窗提示的工具
 
 + Tips：
     + PDF文件下载：zlibrary+谷歌搜索关键字末尾添加`filetype:pdf`

@@ -396,7 +396,7 @@ def upload():
     if last_commit_datetime > today_datetime:
         run_shell_cmd("git commit --amend --no-edit")
     else:
-        run_shell_cmd(f'git commit -m "{str(today_datetime)}"')
+        run_shell_cmd(f'git commit -m "{today_datetime.strftime('%Y-%m-%d')}"')
 
     run_shell_cmd("git push -f")
 
