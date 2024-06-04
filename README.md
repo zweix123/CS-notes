@@ -54,13 +54,14 @@
         >`ag`已经是历史的眼泪了
 
     + `ranger`，当然，它同样有了新的实现，比如用Golang实现的`lf`，用Rust实现的`Yazi`
-    + Mind Markdown，用Markdown来生成简易思维导图
     + [noti](https://github.com/variadico/noti)：在终端使用的命令完成时弹窗提示的工具
 
 + Tips：
     + PDF文件下载：zlibrary+谷歌搜索关键字末尾添加`filetype:pdf`
 
 ## 笔记意义
+
+### 来自大学三年
 
 1. 在初学时
      + 在学习时记下笔记有助于记忆  
@@ -77,17 +78,12 @@
 
 此时笔记更像是 ” 当年攻城略地时的纪念品 “。
 
+### 来自实习一年
+
 + 现在(初次实习)看来笔记不是一个结果，而是一个过程。工作之后，少有整块时间学习，又通勤时间过长，故基本是在地铁上学的，读资料的时候确实感觉学到了东西但是很快忘记。不能即时记笔记意味着不能很好的构建（并重构）知识框架，也不能通过整理进行反复记忆。这就是导致学完之后对知识的吸收很少，如果能充分记笔记可能会有更好的学习效果。花有重开日人无再少年呀。
 
 + 在最开始刚接触一个领域时，任何知识对我都是新的，于是笔记是非常详细的。  
     随着我对这个领域的深入和实践，对最基本的概念已经有了自己的理解，此时再事无巨细的记录只会徒增复杂性，此时的笔记侧重重点难点或者整体框架。
-
-### 几个原则
-
-1. 熵增定律：  
-     不要去追求极致的秩序，因为那意味着巨大的成本和极大的不稳定性
-2. 奥卡姆剃刀：如无必要，勿增实体
-3. 抽象与平衡：过低的抽象带来了思维负担，过高的抽象意味着抽象成本。
 
 # RoadMap
 
@@ -112,7 +108,7 @@
 + 对于涉及项目（实践结果是一个项目）的部分，我会在下面使用这个🤏emoji进行标注，表示相关项目体量比较小，适合作为练手项目，但不足以写在（本科校招）简历上。定量的说，我希望代码行数在3k行以下的使用该符号标记；值得讨论的是，比如《Crafting interpreters》中涉及的Lox的C语言解释器，其代码行数虽然在3k行，但是由于是C语言实现的且麻雀虽小五脏俱全，其实思维难度不小，但是由于其代码全部开源且相当于有逐行解释的手册，所以认为其是练手项目；而xv6 lab中虽然学生添加的代码比较少，但是由于整个xv6项目规模不小且整个lab思维难度较大，所以认为是可以写在简历上的。而诸如B站小彭老师的一些课程，实现Vector或者实现Json，则毋庸置疑是练手项目，而像BusTub lab这种整个项目在3w行左右，学生添加的行数在4k行左右的则毋庸置疑是可以写在简历上的项目。
 
 + 大学基础：
-    + [How to ask questions the smart way](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)【⭐】：
+    + [How to ask questions the smart way](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)：
     + [x] 上海交通大学生存手册：[我的书评](https://www.zhihu.com/question/23633140/answer/2247825107)
     + 杭州电子科技大学CS指南：个人没有看完，但是可可佬说很好，这里也推荐下。
 
@@ -155,7 +151,7 @@
 >所以我在编程语言的学习方案从开始是系统的看大部头的书籍到后是面看 Quick Start 文档然后直接上手。
 
 + C：
-	+ [ ] 《C Primer Plus》：C 语言学习的不二之选，我当时有 C 语言基础，但是不够系统，于是看的这本书，用了五天五夜，看完后可以在小范围当语言律师了。
+	+ [x] 《C Primer Plus》：C 语言学习的不二之选，我当时有 C 语言基础，但是不够系统，于是看的这本书，用了五天五夜，看完后可以在小范围当语言律师了。
 
 + C++：
 
@@ -184,6 +180,7 @@
 + Golang：
 	+ Manual，Golang官方的Tour of Go就非常好呀。
 	+ https://github.com/golang/groupcache
+	+ [Go语言设计与实现](https://draveness.me/golang/)：从名字也能管中窥豹，这不是讲Golang语法和项目的书籍，而是讲它是怎么实现的
 + Rust：
 	+ [ ] 《The Rust Programming Language》 | 中文出版书《Rust权威指南》 | 中文在线版《Rust程序设计语言》 | Rust Book：
 	+ [x] [rustlings](https://github.com/rust-lang/rustlings)：真的不由得感叹一句 “ 太现代了！”，它的思路是提供很多无法编译的Rust代码，然后供我们修改，在实践中理解Rust的各种语法（显然这些 Bug 涉及的语法特性应该是难度递增的）。它的特色是提供了全自动交互环境，就像玩游戏闯关一样。具体的，我以我的流程为例，将项目Fork到自己的github中，然后clone下来，在本地搭建好Rust相关环境后，编译`rustlings`。然后在项目目录下打开VSCode，不需要Explorer，整个屏幕就有一个编辑区和终端，然后让他们左右放置（以往我都是上下放置），然后在终端启动 `rustlings watch`，就会自动找到最近的需要修改的代码，VSCode的终端是可以点击链接打开，自然就拿到了需要修改的文件，然后保存，终端自动重新测试，错了给出编译报错，成了给出下一个需要修改的 Bug。这就很像游戏呀。然后`rustlings watch`是有`hint`的，因为我没有学过Rust，直接以练代学，所以基本每个我都`hint`一下，它会给出Rust Book的链接，这个时候我再去看书。整个学习体验棒极了。
@@ -292,7 +289,6 @@ BigTable────►LSM Tree───►LevelDB────►RocksDB
 + dlsys, [Deep Learning Systems](https://dlsyscourse.org/)：
 + [动手实战人工智能](https://aibydoing.com/intro)
 + [llya Sutskever 30u30](https://www.reddit.com/r/ArtificialInteligence/comments/1cpbh1s/ilya_sutskever_if_you_really_learn_all_of_these/?rdt=49832&onetap_auto=true&one_tap=true)
-
 
 ### 业务开发
 

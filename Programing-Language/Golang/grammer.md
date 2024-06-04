@@ -1,5 +1,5 @@
 + 块：小括号
-	```go
+    ```go
 	import (
 		...
 	)
@@ -387,8 +387,6 @@ func main() {
     *   接收者的类型定义和方法声明必须在同一包内
     *   不能为内建类型声明方法（所以上面使用别名）
 
-+ 
-
 ### 接口
 
 接口类型是由一组方法签名定义的集合。  
@@ -431,6 +429,37 @@ type 接口名 interface {
 当一个结构体的成员是另一个结构体**名**时，就像这个结构体有了一个没有类型的field，在构造时需要显示构造，在使用时可以递归调用成员或方法，但是也可以直接调用（就像这些方法来自最外层结构体一样），实际上最外层结构体继承了内部结构体的所有成员和方法
 
 ## 泛型
->妹想到吧，1.18后，Go也添加了对泛型的支持——类型参数
+>1.18添加对范型的支持——类型参数
 
 [source](https://gobyexample-cn.github.io/generics)
+
+
+# Goroutine
+
++ 并发模型：时间片轮转
+
+## channels
+
++ [缓冲](https://gobyexample-cn.github.io/channel-buffering)：
+
+### 无锁!
+
+https://gobyexample-cn.github.io/stateful-goroutines
+
+## sync
+
+### join
+
+```go
+import "sync"
+
+var wg sync.WaitGroup
+
+wg.Add(数字)  // 调用协程前
+
+wg.Done()  // 协程中
+
+wg.Wait()  // 等待到计数器回到0
+```
+
+### Mutex

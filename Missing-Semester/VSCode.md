@@ -14,15 +14,10 @@
 
 ## Use
 
-+ VSCode命令行相关：命令`code`，打开VSCode，`code .`则是在当前目录打开VSCode
-+ Command Center：即UI顶部的输入框，默认项目下文件检索，通过添加前缀实现各种功能，下面是我常用的
-	+ Go to File：默认`Ctrl + E`
-	+ Go to Line:  默认`Ctrl + G`，相当于vim的`数字 + g`
-	+ Go to Symbol：默认`Ctrl + Shift + O`
-	+ Show and Run Cmd：默认`Ctrl + Shift + P`，下文说的命令即为了这里的命令，这里聊一些常用命令
-		+ `keyout`：快捷键设置页面
-		+ 选中文本大学写转换：`upper`、`lower`
-		+ 代码块折叠：`fold`和`unfold`，可以按层级折叠
+[keyboard](./keyboard.md#VSCode)
+
+## Config
+
 
 + Settings：VSCode的配置分三个层级：默认 -> 用户 -> 工作区，同一项配置后者覆盖前者：快捷键`Ctrl + ,`或者命令`open settings`
 
@@ -31,34 +26,6 @@
 	+ `settings.json`：即上面提到工作区范围的配置文件，这里聊一下常用的一些配置项，本文其他部分对于各个话题也会提到相关配置项
 		+ `explorer.sortOrder`：资源管理器文件排序关键字
 	+ `extensions.json`：项目下插件过滤
-
-+ 快捷键：
-	+ 按住`Shift`+方向键选中
-	+ 按住`Ctrl`使用`backspace`是按字母删除
-	+ `Ctrl + Home`和`Ctrl + End`相当于vim的`gg`和`G`
-	+ `Ctrl + f`和`Ctrl + Shift + F`是按文本查找
-
-	+ multi-cursor多光标：
-		+ `Alt`+鼠标点击
-		+ 选中文本->`Ctrl + Alt + d`：相同文本多光标
-		+ `Ctrl + Alt + a`->上下移动光标
-
-	+ `Ctrl + ~`/`Ctrl + num`光标切换terminal于workspace
-		+ `Ctrl + j`显示/关闭Terminal，`Ctrl + Shift + j`则是Terminal全屏/取消全屏
-	+ `Ctrl + b`：打开/关闭左边栏
-	+ `Ctrl + Shift b`：光标跳转/返回到资源管理器
-
-	+ 格式化：`Shift + Alt + f`，效果依赖插件，大部分项目设置为`format on save`
-
-	+ 名称跳转：
-		+ `Ctrl + 鼠标左键点击`
-		+ `Alt + 方向键左键`返回到上次光标位置：但是这个快捷键需要两个手，一般都是我正在跳转准备调回来，拿到我还要右手离开鼠标么？而我为了补全zsh的历史命令补全将Caps设置为方向键右键，于是将这个快捷键设置为`Alt + 方向键右键`实现单手操作
-
-+ 常用命令：
-	+ 格式化：手动，快捷键`Shift + Alt + f`，效果依赖于插件
-	+ 命令`Fold All`可以指定层级
-
-## Config
 
 + 在Mac中，由于是移动`.app`文件到`/Applications`目录下，`PATH`下没有`code`这个命令，需要在Shell的rc文件中添加
   ```bash
