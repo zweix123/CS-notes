@@ -1,10 +1,15 @@
+# obsidian
 .obsidian/workspace.json
+
+# VSCode
+
+# Python
 **/.mypy_cache/
-# .vscode/
 **/__pycache__/
 
-# ds ctrl img
-.stash
-
-# Nutrition
+# Script
+.stash/
 **/*.xlsx
+
+# macOS
+**/*.DS_Store

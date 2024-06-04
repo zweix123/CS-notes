@@ -12,13 +12,15 @@
   "showFrontmatter": true,
   "showIndentGuide": true,
   "spellcheck": false,
-  "alwaysUpdateLinks": true,
+  "alwaysUpdateLinks": false,
   "newLinkFormat": "absolute",
   "useMarkdownLinks": true,
   "showUnsupportedFiles": true,
-  "autoPairMarkdown": false,
+  "autoPairMarkdown": true,
   "autoPairBrackets": true,
   "vimMode": false,
   "autoConvertHtml": false,
-  "focusNewTab": false
+  "focusNewTab": false,
+  "useTab": false,
+  "smartIndentList": true
 }

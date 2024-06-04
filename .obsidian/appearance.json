@@ -5,7 +5,8 @@
   "translucency": false,
   "nativeMenus": false,
   "showViewHeader": true,
-  "cssTheme": "Minimal",
+  "cssTheme": "",
   "monospaceFontFamily": "",
-  "textFontFamily": ""
+  "textFontFamily": "",
+  "baseFontSizeAction": true
 }

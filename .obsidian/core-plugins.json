@@ -2,16 +2,8 @@
   "file-explorer",
   "global-search",
   "switcher",
-  "graph",
-  "backlink",
   "canvas",
-  "outgoing-link",
-  "tag-pane",
-  "properties",
-  "page-preview",
-  "note-composer",
   "command-palette",
-  "bookmarks",
   "outline",
   "word-count"
 ]
