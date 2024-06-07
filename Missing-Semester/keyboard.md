@@ -101,21 +101,17 @@ macOS这样处理的好处是在CLI时代的快捷键依然保留，比如在命
 + 查找：`Ctrl/Command+f`（当前文件）和`Ctrl/Command + Shift + f`（当前项目）
 + 多光标：
     + Alt/Option+鼠标点击
-    + 选中文本->``/`Command`+d`：相同文本多光标
-        + 如果对全文全部相同文本都出现光标：`Command+F2`
-    + Option+Command+方向键上下
+    + 选中文本->`Command+d`/`Ctrl+Alt+d`：相同文本多光标
+        + 如果希望全文全部相同文本都选中（并出现光标）：`Command`/`Ctrl`+`F2`
+    + `Ctrl + Alt`/`Option + Command`->方向键上下
 
-+ `Ctrl + ~`/`Ctrl + num`光标切换terminal于workspace
++ `Ctrl + ~`/`Ctrl + num`光标切换terminal与workspace
     + `Ctrl + j`显示/关闭Terminal，`Ctrl + Shift + j`则是Terminal全屏/取消全屏
-+ `Ctrl + b`：打开/关闭左边栏
-+ `Ctrl + Shift b`：光标跳转/返回到资源管理器
++ `Ctrl`/`Command` + `b`：打开/关闭左边栏
 
-+ 格式化：`Shift + Alt + f`，效果依赖插件，大部分项目设置为`format on save`
++ 格式化：`Shift`/`Option`+`Alt`+`f`，效果依赖插件，大部分项目设置为`format on save`
 
 + 名称跳转：
-    + `Ctrl + 鼠标左键点击`
-    + `Alt + 方向键左键`返回到上次光标位置：但是这个快捷键需要两个手，一般都是我正在跳转准备调回来，拿到我还要右手离开鼠标么？而我为了补全zsh的历史命令补全将Caps设置为方向键右键，于是将这个快捷键设置为`Alt + 方向键右键`实现单手操作
-
-+ 常用命令：
-	+ 格式化：手动，快捷键`Shift + Alt + f`，效果依赖于插件
-	+ 命令`Fold All`可以指定层级
+    + `Ctrl`/`Commad`+`鼠标左键点击`
+    + `Alt`/`Option`+`方向键Right`：`Go Back`
+        >原因见上
