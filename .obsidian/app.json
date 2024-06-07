@@ -12,7 +12,7 @@
   "showFrontmatter": true,
   "showIndentGuide": true,
   "spellcheck": false,
-  "alwaysUpdateLinks": false,
+  "alwaysUpdateLinks": true,
   "newLinkFormat": "absolute",
   "useMarkdownLinks": true,
   "showUnsupportedFiles": true,

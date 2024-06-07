@@ -14,7 +14,7 @@
 
 ## Use
 
-[keyboard](./keyboard.md#VSCode)
+[Keyboard](Missing-Semester/Keyboard.md#VSCode)
 
 ## Config
 

@@ -1,34 +1,52 @@
-+ 对Windows用户来说，Mac的Command键是什么？
-    >来自Windows老用户的疑问。
+## What is the Command key for Windows?
+>来自Windows老用户的疑问。
 
-    在CLI时代，修饰键使用Ctrl，在GUI时代，又多了很多快捷键，如何设计？Windows选择直接复用Ctrl，而Mac则选择添加新的修饰键，即Command。
+在CLI时代，修饰键使用Ctrl，在GUI时代，又多了很多快捷键，如何设计？Windows选择直接复用Ctrl（实际上还是添加了Windows键的，但是就像霸王龙的前肢），而Mac则选择添加新的修饰键，即Command。
 
-    所以
+所以
 
-    被人熟知的Ctrl+c是复制，Ctrl+v是粘贴，则在Mac中分别是Command+c和Command+v
-    >有人可能觉得Ctrl+cv最直觉，这是可能是因为Windows的市场占有率太大了。
+被人熟知的Ctrl+c是复制，Ctrl+v是粘贴，则在Mac中分别是Command+c和Command+v
+>有人可能觉得Ctrl+cv最直觉，这可能是因为Windows的市场占有率太大了。
 
-    macOS这样处理的好处是在CLI时代的快捷键依然保留，比如在命令行中Ctrl+a是Home，Ctrl+e是End。同样的操作可能在Windows中可能无法实现。
-    >这里macOS中也有坏处，就是Home、End或者其等价操作在终端用不了，必须用使用Ctrl做修饰键的。
+macOS这样处理的好处是在CLI时代的快捷键依然保留，比如在命令行中Ctrl+a是Home，Ctrl+e是End。同样的操作在Windows中可能无法实现。
+>这里macOS中也有坏处，就是Home、End或者其等价操作在终端用不了，必须用使用Ctrl做修饰键的。
 
-+ 键盘选择与配置：
-    + 外接键盘使用84键盘且必须有`Home`、`End`、`Insert`、`Delete`，因为Windows在CLI和GUI中混用`Ctrl`导致`Ctrl + c/v`并不能在任何环境都适用，只有`Ctrl + Insert`作为复制、`Shfit + Insert`作为粘贴，才能在各种环境（win、terminal、vim、ssh to linux、ssh to linux and vim、ssh to linux and tmux）都适用。通过改建基本可以兼容两平台。
-        >实际上MacBook自带键盘真挺好的。
+## 键盘选择
+由于在Windows中，只有`Ctrl+Insert`/`Shift+Insert`才能在任何环境（Windows GUI，Windows Terminla，Vim，SSH to Linux，SSH to Linux and Vim，SSH to Linux and Tmux）都适用，且我确实使用数字键盘次数很少。故选择必须有`Home`、`End`、`Insert`、`Delete`的84键盘，且该键盘必须支持Windows和Mac两个平台。
+>实际上我用拯救者的全键盘和MacBook的键盘也挺开心的【捂脸】
 
-    + 切换输入法：`Ctrl + space` and `Control + space`，其中MacBook上左下角修饰键顺序为`Fn` -> `Control` -> `Option` -> `Command`，鉴于`Control`的使用频率远远大于`Fn`，使用设置交换两者位置。
-    + 关于`Cap Lock`：个人输入大写通常通过`Shift`，几乎不用`Cap Lock`，但它的位置又非常的好，业界有很多对其按照个人习惯改键的方案，我是将其改成“方向键右键”（非常逆天）
-        + Windows：通过修改注册表修改
-        + Mac：MacBook键盘不能修改，外接键盘通过改建软件（VIA）修改
-        + VSCode：在Windows中将`Go back`改成`Alt+right`（逆天）实现单手光标跳转；在macOS由于自带键盘无法修改还是使用默认的`Ctrl+减号`
-    
-+ 触控板
+## 改键
 
-    |      | Windows  | macOS    |
-    | ---- | -------- | -------- |
-    | 左键 | 单指轻点 | 单指重点 |
-    | 右键 | 双指轻点 | 双指重点 |
++ Windows笔记本自带键盘通过注册表将`Caps Lock`键改成方向键右键`rigth`
++ 外界键盘同样利用改键软件将`Caps Lock`键改成方向键右键`rigth`
++ MacBook交换左下角`Fn`和`Control`的位置，这是因为`Control`的使用频率远远大于`Fn`
+    + 实际上我也希望修改它的`Caps Lock`但是没有优雅（简约）的方案
+---
++ 将`Caps Lock`键改成方向键右键`rigth`的作用
+    >个人大写输入使用`Shift`，几乎不用`Caps Lock`，而其位置又非常的好，市面上有很多关于其改键方案。
 
-    各有好处，轻点确实更舒服，但是容易误触。
+    1. oh-my-zsh/oh-my-posh的历史命令补全是方向键右键，但是右手移动过去比较慢，正好输入命令中`Tab`比较常用，`Caps Lock`在它下面，可以用同一个手指按。用来加速历史命令补全
+    2. 在VSCode中跳转通常是按住`Ctrl`/`Command`然后鼠标左键点击名称，但是跳转过去之后怎么回来呢？我将快捷键设置成`Alt+Right`/`Option+Right`，就能实现单手`Go Back`（否则默认快捷键需要两个手）
+
+## 其他键盘相关设置
+
++ 输入法软件：默认
++ 拼音设置：双拼且不自动扩展到全拼
++ 中英切换：只保留`Ctrl`/`Control` + `Space`
++ 全半角和中英标点的切换设置为无
++ 翻页只有+/-
++ 设置默认英文
+
+## 触控板
+
+|      | Windows  | macOS    |
+| ---- | -------- | -------- |
+| 左键 | 单指轻点 | 单指重点 |
+| 右键 | 双指轻点 | 双指重点 |
+
+各有好处，轻点确实更舒服，但是容易误触。
+
+# 快捷键
 
 ## 软件
 
@@ -83,7 +101,7 @@
 + 查找：`Ctrl/Command+f`（当前文件）和`Ctrl/Command + Shift + f`（当前项目）
 + 多光标：
     + Alt/Option+鼠标点击
-    + 选中文本->`Command+d`：相同文本多光标
+    + 选中文本->``/`Command`+d`：相同文本多光标
         + 如果对全文全部相同文本都出现光标：`Command+F2`
     + Option+Command+方向键上下
 

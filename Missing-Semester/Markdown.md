@@ -94,4 +94,4 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 ## 用Markdown写幻灯片
 
-见我的[讨论](./slide.md)
+见我的[讨论](Missing-Semester/Slide.md)
