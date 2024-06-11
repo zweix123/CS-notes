@@ -1,9 +1,8 @@
 ## TLDR
 
 ```bash
-ssh-keygen
-
-ssh-copy-id 服务器别名
+ssh-keygen  # 执行该命令生成密钥
+ssh-copy-id 服务器别名  # 将公钥上传到服务器
 ```
 
 + 功能：

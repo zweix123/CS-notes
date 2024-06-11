@@ -24,7 +24,7 @@ passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
 
 ## 2.配置SSH
 
->[这](./SSH.md)是我的SSH小教程：
+[我的SSH笔记](./SSH.md)
 
 1. 配置：
 	```bash
@@ -87,6 +87,8 @@ tmux
 + 使用：我的[笔记](./Git.md)
 
 ### zsh
+
+[我的zsh配置笔记](./TerminalConfigGuide.md#unix-linux-and-macos)
 
 ## 5.导入软件配置
 

@@ -1,4 +1,4 @@
-+ ref：
++ Ref：
 	+ [Bilibili · 等疾风 · 【VS Code】四年功力 一刻掌握 速通C++插件/终端美化/工程管理 懒人必备](https://www.bilibili.com/video/BV1YG4y1v7uB/?vd_source=4ee99d4ebd507c7277fa312ed28dbdda)
 
 调教一套适合自己的工作流的收益是不错的，一个程序员的工作流核心就是开发环境——编辑器。
@@ -10,14 +10,13 @@
 
 官网下载安装包安装
 
-+ 在Mac中，安装包的格式是`dmg`文件，然后点击会要求一个拖动的动作，即在路径`/Applications`下创建对应的`.app`文件（本质是目录），但是VSCode在点击之后直接在当前目录创建，需要手动移入到正确的路径中。
++ 在Mac中，安装包的格式是`dmg`文件，然后点击会要求一个拖动的动作，即在路径`/Applications`下创建对应的`.app`文件（本质是目录），但是VSCode在点击之后直接在当前目录创建，需要手动移入到正确的路径中；所以建议将dmg文件先放在Application下再点击。
 
 ## Use
 
 [Keyboard](Missing-Semester/Keyboard.md#VSCode)
 
 ## Config
-
 
 + Settings：VSCode的配置分三个层级：默认 -> 用户 -> 工作区，同一项配置后者覆盖前者：快捷键`Ctrl + ,`或者命令`open settings`
 
@@ -50,7 +49,7 @@
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/编辑器字体.png" style="zoom:60%;" div align=center />
 
 	+ 终端字体：打开设置，键入`Terminal Font Family`  
-		>需要你已经按照[Shell的配置](./WindowsConfigGuide.md#53windows-terminal)下载了对应字体
+		>需要你已经按照[Shell的配置](./TerminalConfigGuide.md#font-download)下载了对应字体
 
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/终端字体.png" style="zoom:57.5%;" div align=center />
 		
@@ -80,7 +79,6 @@
 	```
 
 ## Plugin
-
 >Config步骤中提到的插件不在这里汇总，各个语言开发的插件不在这里汇总。
 
 + 远程开发
@@ -88,9 +86,6 @@
 	+ `Docker`：Docker开发必备，使用体验和Remote类似
 
 	插件是有本地的远程的概念的，当使用远程开发时，记得一些插件需要在两端都下载。
-
-+ Git Blame
-+ Cmake
 
 ## Code
 
@@ -221,23 +216,9 @@
 	+ `Auto Rename Tag`：补全
 	+ `Live Server`：启动服务渲染页面
 
-### Java
-
-+ JDK：
-	+ Windows：use scoop, refer to [the site](https://github.com/ScoopInstaller/Java/wiki)
-
-+ 插件：
-	+ `Java Extension Pack`：包含大量其他必须插件
-
-+ 项目依赖管理。
-
-## Git
-
-+ 切换分支
-+ blame
-
 ## MarkDown
-见我的关于Markdown编辑器的[讨论](./Markdown.md)
+
+[我的MarkDown笔记](./Markdown.md)
 
 + 插件：
 	+ 渲染：Markdown Preview Enhanced：`Ctrl + k v`
@@ -245,8 +226,6 @@
 		+ 提供补全
 		+ 生成目录
 
-## Mind Mapping
-
-插件markmap
-
 ## LaTeX
+
+[我的LaTeX笔记](./LaTeX.md)

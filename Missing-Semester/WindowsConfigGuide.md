@@ -63,43 +63,53 @@
 |     | 电源按钮 | 休眠  | 休眠  |
 |     | 关盖   | 不使用 | 不使用 |
 
-+ <>
++ 关于<span id="win-code">Windows上的编码问题</space>，是一个很经典的问题。
+    + 现象：
+        + 终端C++的`std::cout`输出中文是乱码
+        + 软件perl可能会出问题，而LaTeX的包管理器tlmgr依赖它
+    + 解决方案：控制面板 -> 时钟和区域 -> 区域 -> 管理 -> 更改系统区域设置 -> 打开Beta版
+    + 方案问题：
+        + 会影响解压缩软件，比如在没有开启Beta版的机器压缩的压缩包，在开启Beta版的机器解压会乱骂
+            >该选择是默认关闭的，可以想象，几乎相当于我们接收的任何压缩包都不能在本地解压 : )
 
-
-+ 关于在Windows上编程时出现的语言问题，解决方案：控制面板 -> 时钟和区域 -> 区域 -> 管理 -> 更改系统区域设置 -> 打开Beta版
-	+ 默认是没有开的，此时比如使用C++的`std::cout`输出中文是乱码，但是打开后，对于其他的在win上的在未打开时进行压缩的压缩包，在我们机器上进行解压会有乱码。
-	+ 该选项不开且在编程中可能遇到问题的场景：
-		+ 软件`perl`，LaTeX的包管理器tlmgr依赖它
-
-+ 不能进入`C:\Program Files\WindowsApps`目录：[solution](https://jingyan.baidu.com/article/1876c852de26a0c80b1376c5.html)
-
-+ 升级到专业版或企业版，这样的场景比如连接到win的服务器就需要使用win的remote功能，这种功能家庭版没有，如何升级请STFW
-	+ Reference
-		+ https://blog.csdn.net/qq_32682301/article/details/116003700
++ 其他问题：
+    + [不能进入`C:\Program Files\WindowsApps`目录](https://jingyan.baidu.com/article/1876c852de26a0c80b1376c5.html
+    + [升级到专业版或者企业版](https://blog.csdn.net/qq_32682301/article/details/116003700)：Why？remote到win服务器（好小众的需求）
 
 # 必装软件
 
-## 1.浏览器Chrome或Edge
+## 1.浏览器Chrome
 
-我一直使用Chrome，由于工作原因在部分机器上需要使用Edge，不过Microsoft Edge浏览器也改为Chromium内核，可直接同步数据。
+### Edge
 
-Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息和配置。
+由于工作原因在部分机器上使用Edge，不过现在Microsoft Edge也是Chromium内核，可以直接同步。
 
 + Edge在win上默认每个选项卡是一个窗口，很反直觉，解决方案如下：
 	+ win10：`设置` -> `系统` -> `多任务处理` -> `Alt + Tab`，打开就知道了。
 	+ win11：`设置` -> `系统` -> `多任务处理` -> "对齐或按Alt + Tab时显示应用中的标签页"改为"不显示选项卡"。
+
+---
+
+Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息和配置。
 
 + Chrome默认安装C盘：不处理，软件位置右键快捷方式查看位置
 + 谷歌需要人工验证：使用插件Header Editor（[教程](https://blog.azurezeng.com/recaptcha-use-in-china/)）
 	```
 	https://azurezeng.github.io/static/HE-GoogleRedirect.json
 	```
+
 + 插件推荐：
-	+ 默认翻译、划词翻译（全文翻译收费）和沉浸式翻译（开源）：默认翻译用于最普遍的全文翻译，划词翻译用于PDF翻译，沉浸式翻译用于网站单段翻译和逐段全文翻译
-	+ 油猴脚本
-		+ 这里推荐一款我开发的关于哔哩哔哩的脚本，[地址](https://github.com/zweix123/BilibiliProgressBar)
-	+ crxMouse Chrome手势：后退、前进、顶部、底部，对文件图片链接的打开
-	+ Vimium：Vim用户的福音，嘎嘎好用。
+    >这里做通用性的推荐，专业功能的插件可能没有在这里记录。
+
+    + 油猴脚本：
+    + 翻译：
+        + 默认翻译：简单阅览网页时使用
+        + 划词翻译：顾名思义，还能打开pdf文件做划词翻译，后面几乎不用了
+        + 沉浸式翻译：不能确定其功能是否cover划词翻译，其主要是可以网站全文翻译且保留原文原样式
+        + Youtube字幕翻译：
+    + 键鼠：
+        + crxMouse Chrome手势：前进后退、顶部底部、链接图片打开
+        + Vimium：Vim用户的福音，嘎嘎好用
 
 ## 2.解压缩7z
 一款简单的解压缩软件
@@ -116,13 +126,15 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 
 ## 4.笔记软件Obsidian
 
-该软件跨平台，我在Windows、Linux、macOS甚至iPadOS上使用它，所以这里仅记录和Windows相关的内容（下载），其他（为什么选择它以及其他操作）放在[Markdown](./Markdown.md)
+该软件跨平台，我在Windows、Linux、macOS甚至iPadOS上使用它，所以这里仅记录和Windows相关的内容（下载），其他（为什么选择它以及其他操作）放在[我的Markdown笔记](./Markdown.md#Editor)
 
 + 安装：Obsidian默认安装C盘：不处理，软件位置右键快捷方式查看。
 
 	该软件是围绕项目的，一个项目的相关配置放在项目目录下的`.obsidian`目录中。而这部分配置文件放在对应的项目下，所以不占C盘空间。
 
 ## 5.命令行
+
+[Windows命令行](./TerminalConfigGuide.md#windows)
 
 ## 6.包管理器Scoop
 
@@ -241,7 +253,7 @@ VSCode本是一个轻量型的编辑器，轻量型意味着可以快速的打�
 >这部分对我个人来说也是必须的，但未必适用于其他开发者，VSCode足以在可接受的成本内满足要求，所以没有将该软件放在必装软件中
 
 + 安装：亲爹Scoop
-+ 配置和使用：我的[文章](misc/vi-vim-nvim.md)
++ 配置和使用：我的[文章](../misc/vi-vim-nvim.md)
 	>实际上vim是一个可玩性很高的编辑器，这里引用的文章不仅有vim的基本用法，可能还会有我倒腾vim的记录。
 
 ## 图片悬停Snipaste
@@ -299,12 +311,11 @@ VSCode本是一个轻量型的编辑器，轻量型意味着可以快速的打�
 
 	即便如此依然可能遇到什么`git clone`错误的问题，STFW吧。
 
-## 启动台
+## 启动机
 类似mac上的Spotlight（或者Alfred）
 
-Wow
-
-我就只要 Command + Space键入软件名能打开软件
++ Wox：通过`Ctrl+Space`键入软件名打开
 
 ## 硬件扩展
-见我的[讨论](misc/devices/多机协同.md)
+
+见我的[讨论](../misc/hardware.md)

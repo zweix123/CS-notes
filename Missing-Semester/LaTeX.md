@@ -2,15 +2,14 @@
 	+ [知乎 · 槿灵兮 · 【LaTeX】针对萌新自学者的入门教程](https://zhuanlan.zhihu.com/p/521649367?utm_source=zhihu)
 	+ [LaTeX 入门与进阶](https://latex.lierhua.top/zh/)
 
-## 环境
+## Config
 
 + 在线：比较有名的一款是overleaf，我个人使用的是[texpage](https://www.texpage.com/)，原因在于某些模板在overleaf如果有中文则格式不符合预期，后面本地环境跑起来之后一直使用本地。下面详细讲本地。
 
-Tex Live by Scoop and VSCode in Windows
+==Tex Live by Scoop and VSCode in Windows==
 
 + 编译工具：软件包Tex Live，包含一款LaTeX编辑器XeLaTeX，而且我使用Scoop进行安装（[我的Scoop教程](./WindowsConfigGuide.md#6包管理器scoop)）
 	>LaTeX的编译工具有很多，宛如古神的低语，我个人将下面这个跑的通的方案作为黑盒，慢慢了解全貌。
-
 
 	```powershell
 	scoop bucket add scoopet https://github.com/ivaquero/scoopet
@@ -24,9 +23,7 @@ Tex Live by Scoop and VSCode in Windows
 		Locale 'Chinese (Simplified)_China.936' is unsupported, and may crash the interpreter.
 		```
 
-		其原因是Windows非常经典的编码问题，解决方案是：控制面板 -> 时钟和区域 -> 区域 -> 管理 -> 更改系统区域设置 -> 打开Beta版。
-
-	>实际上在Windows上如果这个不开，在编码过程肯定也会出现其他问题。
+		其原因是Windows非常经典的编码问题，关于这个问题在[Windows编码问题](./WindowsConfigGuide.md#win-code)
 
 	+ 包管理tlmgr配置：
 
@@ -58,3 +55,7 @@ Tex Live by Scoop and VSCode in Windows
 
 + 其他：
 	+ [`.gitignore`](https://github.com/zweix123/zstu-graduation-thesis-latex-template/blob/master/.gitignore)
+
+## Usage
+
++ 你一定需要[Zotero](./zotero.md)

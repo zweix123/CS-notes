@@ -93,14 +93,14 @@
 	+ 在文件资源管理器中右键在终端打开
 
 + 配置（涉及字体种类、字体大小、字体粗细、窗口大小、窗口打开位置、打开后模式、快捷键、配色方案等等）
-	+ 下载字体（[下载链接](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip)）这里用的是Manual推荐的`MesloLGM NF`字体，通过链接下载并解压发现并没有对应名称的文件夹，而是一种`.ttf`文件  
+	+ <span id="font-download">下载字体</span>（[下载链接](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip)）这里用的是Manual推荐的`MesloLGM NF`字体，通过链接下载并解压发现并没有对应名称的文件夹，而是一种`.ttf`文件  
 		打开观察（主要关注安装按钮和字体命令字段（关于字体文件名中的部分含义：`Regular`常规、`Italic`斜体、`Bold`加粗  ））
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/字体打开.png" style="zoom:50%;" div align=center />  
 		我们把字体名称`MesloLGM NF`的所有形态都下载  
 
 	+ 更多配色见[Windows Terminal Themes](https://windowsterminalthemes.dev/)
 
-在·## Unix: Linux and macOS
+## Unix: Linux and macOS
 
 + shell通识：
 	+ `echo $SHELL`查看使用shell

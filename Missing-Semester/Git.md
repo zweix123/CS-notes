@@ -93,7 +93,7 @@ git config --global core.autocrlf false
 
 ## Github
 
-+ Ref: [《GotGitHub》](http://www.worldhello.net/gotgithub/)
++ Ref: [《GotGitHub》](http://www.worldhello.net/gotgithub/) | [我的SSH笔记](./SSH.md)
 
 ### Config
 
@@ -306,7 +306,7 @@ git merge origin/上次实验分支名
 	```bash
 	git submodule add <repository-url> <local-path>
 	```
-
+     
 + 克隆时：
 	```bash
 	git submodule update --init --recursive
