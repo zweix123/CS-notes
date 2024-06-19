@@ -101,15 +101,31 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 + 插件推荐：
     >这里做通用性的推荐，专业功能的插件可能没有在这里记录。
 
-    + 油猴脚本：
-    + 翻译：
-        + 默认翻译：简单阅览网页时使用
-        + 划词翻译：顾名思义，还能打开pdf文件做划词翻译，后面几乎不用了
-        + 沉浸式翻译：不能确定其功能是否cover划词翻译，其主要是可以网站全文翻译且保留原文原样式
-        + Youtube字幕翻译：
-    + 键鼠：
-        + crxMouse Chrome手势：前进后退、顶部底部、链接图片打开
-        + Vimium：Vim用户的福音，嘎嘎好用
+    + 被动技能：
+        + Header Editor：如上
+        + AdGuard广告拦截器：如名
+        + GNOME Shell集成：忘记干啥的了，感觉是默认的，不敢删除，懒的查
+
+    + Buff技能：
+        + 键鼠：
+            + crxMouse Chrome手势：前进后退、顶部底部、链接图片打开
+            + Vimium：Vim用户的福音，嘎嘎好用
+        + AI：
+            + New Bing Anywhere
+    + 主动技能：
+        + 油猴脚本：
+        + 身份验证器：用于Github等平台的双重认证
+        + 翻译：
+            + 默认翻译：简单阅览网页时使用
+            + 划词翻译：
+            + 沉浸式翻译：不能确定其功能是否cover划词翻译，其主要是可以网站全文翻译且保留原文原样式
+            + Youtube字幕翻译：
+        + Zotero：
+            + Zotero Connector
+        + 信息收集：
+            + RSSHub Radar
+            + Feedly Mini
+            + Cubox
 
 ## 2.解压缩7z
 一款简单的解压缩软件
@@ -233,7 +249,7 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 + 配置SSH：[我的教程](./SSH.md)
 + Github配置：`Setting -> SSH and GPG keys -> New SSH key -> 拷贝公钥`（配置公钥用于自己通过SSH链接去`push`）
 
-## 8.编辑器:VSCode
+## 8.编辑器VSCode
 VSCode本身是编辑器，在插件的支持下扩展出丰富的功能（<strike>极具可玩性</strike>）
 
 + install：STFW

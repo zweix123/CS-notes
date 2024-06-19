@@ -32,6 +32,7 @@ macOS这样处理的好处是在CLI时代的快捷键依然保留，比如在命
 
 + 输入法软件：默认
 + 拼音设置：双拼且不自动扩展到全拼
+    + 双拼输入法使用微软
 + 中英切换：只保留`Ctrl`/`Control` + `Space`
 + 全半角和中英标点的切换设置为无
 + 翻页只有+/-
@@ -105,7 +106,8 @@ macOS这样处理的好处是在CLI时代的快捷键依然保留，比如在命
         + 如果希望全文全部相同文本都选中（并出现光标）：`Command`/`Ctrl`+`F2`
     + `Ctrl + Alt`/`Option + Command`->方向键上下
 
-+ `Ctrl + ~`/`Ctrl + num`光标切换terminal与workspace
++ `Ctrl+~`/`Ctrl+num`光标切换terminal与workspace
+    + 在macOS上，在中文输入法下，`Control+~`，是输入`·`，需要单独将`Contrl+·`配置成和`Control+~`功能一样才行。
     + `Ctrl + j`显示/关闭Terminal，`Ctrl + Shift + j`则是Terminal全屏/取消全屏
 + `Ctrl`/`Command` + `b`：打开/关闭左边栏
 

@@ -79,12 +79,12 @@ Obsidian之于Typora，就像VSCode之于Jetbrains：后者在提供功能的同
 
 + Advanced Tabled：Markdown表格相关补全，它存在大量的自定义，抽象程度低就意味着复杂，索性它提供了图形化的操作，鉴于表格用的本来就不多。我干脆没有设计快捷键。
 
-## 奇技淫巧
+## VSCode
 
 ### 使用Markdown写思维导图
 
-[](./Mind-Map.md)
+[Mind-Map](./Mind-Map.md)
 
-## 使用Markdown写幻灯片
+### 使用Markdown写幻灯片
 
-[](./slide.md)
+[slide](./slide.md)

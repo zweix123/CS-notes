@@ -1,5 +1,5 @@
 + Ref：
-	+ [Bilibili · 等疾风 · 【VS Code】四年功力 一刻掌握 速通C++插件/终端美化/工程管理 懒人必备](https://www.bilibili.com/video/BV1YG4y1v7uB/?vd_source=4ee99d4ebd507c7277fa312ed28dbdda)
+	+ [Bilibili · 等疾风 · 【VS Code】四年功力 一刻掌握 速通C++插件/终端美化/工程管理 懒人必备](https://www.bilibili.com/video/BV1YG4y1v7uB/?vd_source=4ee99d4ebd507c7277fa312ed28dbdda)：强烈推荐这个视频，除了C++之外还有很多通用配置，我的配置基本从这里出发。
 
 调教一套适合自己的工作流的收益是不错的，一个程序员的工作流核心就是开发环境——编辑器。
 
@@ -78,18 +78,100 @@
     // }
 	```
 
-## Plugin
->Config步骤中提到的插件不在这里汇总，各个语言开发的插件不在这里汇总。
+### Plugin
 
-+ 远程开发
-	+ `Remote-SSH`：远程开发必备
-	+ `Docker`：Docker开发必备，使用体验和Remote类似
+1. 这里不仅会记录辅助性插件（比如支持不同文件类型的插件，比如Git相关的），还会记录专用性的（比如语言开发，比如Markdown的编辑），但后者具体的配置和说明会分布在不同的章节，这里会提供章节链接；没有专门说明则在这里说明。
+2. 插件之间往往有依赖关系，也会记录在这里，以不同级的无序列表表示，一般来说，一个插件的安装，会自动安装其依赖的插件。
 
-	插件是有本地的远程的概念的，当使用远程开发时，记得一些插件需要在两端都下载。
++ [Config](#config)：
+    + Atom One Dark Theme
+    + vscode-icons
+    + FiraCode font
+
++ 远程开发：VSCode较于JB家的IDE值得说的优点就是远程开发功能了，我们假设你本机是win，无论是那么当你需要Linux环境（无论时WSL、服务器还是虚拟机）时，都推荐使用SSH（服务器肯定是SSH，WSL我个人没有用过，虚拟机虽然相当于完整机器但是仍然建议通过SSH过去开发），而VSCode的Remote插件可以达到一个很自然的开发流程和体验。
+    + Remote - SSH：远程开发必备
+        + Remote - SSH: Editing Configuration Files
+        + Remote Explorer
+
++ Docker：与远程开发类似
+    + Docker
+    + Dev Containers
+
++ 文件支持：
+    + JSON：默认提供
+    + YAML：
+        + YAML
+    + TOML：
+    + Makefile：
+        + Makefile Tools
+    + CMake：
+        + C++相关插件依赖的CMake Tools
+
++ [Python](#python)：
+    + Python Extension Pack
+        + autoDocstring - Python Docstring Generator
+        + Python
+            + Pylance
+            + Python Debugger
+        + Jinja
+        + Django
+        + IntelliCode
+            + IntelliCode API Usage Examples
+        + Python Indent
+        + Python Environment Manager
+    + 格式化相关：
+        + Black Formatter：库black
+        + isort：import排序相关，需要配置
+    + 类型提示：
+        + Mypy Type Checker：库mypy
+
++ [C++](#cc)
+    + C/C++ Extension Pack
+        + C/C++
+        + C/C++ Themes：没用
+        + CMake Tools
+    + llvm相关：
+        + clangd：好用
+        + Clangd-Format：好用
+        + CodeLLDB：听说好用
+    + Better C++ Syntax
+
++ Golang：[微软教程](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)和[debug tutor](https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code)
+    + Go
+    + Go Nightly
+
++ Web：
+	+ Auto Rename Tag：补全
+	+ Live Server：启动服务渲染页面
+
++ Markdown：[我的MarkDown笔记](./Markdown.md)
+    + Markdown All in One：Yes，All in One
+        >Markdown的渲染还有插件Markdown Preview Enhanced，据说更好看，我没有使用
+
+	+ Markmap：使用Markdown生成思维导图
+
++ LaTeX：[我的LaTeX笔记](./LaTeX.md)
+    + LaTeX Workshop
+    + BibTeX formatter
+
++ Git：VSCode内置一些Git相关功能，比如TOOD
+    + Git Blame：短小精悍的插件，在状态栏显示光标当前位置的Git Blame
+
+    >还有Gitlens和Git Graph插件，暂时没有使用
+
++ 其他：
+    + Project Manager：VSCode是围绕项目的，该插件会出现在Explorer上面，用于在不同项目之前跳转，虽然我基本不用，将是Explorer图标太靠上了，用Project Manager的图标占位。
+    + Better Comments：注释增强，TODO的高亮之类的。
+
+### Copilot
+
+我也不知道为啥我有资质，因为VSCode和Github都是微软家的，用起来好方便啊！
+
++ 插件：
+    + Github Copilot
+        + Github Copilot Chat
 
 ## Code
-
-+ VSCode较于JB家的IDE值得说的优点就是远程开发功能了，我们假设你本机是win，无论是那么当你需要Linux环境（无论时WSL、服务器还是虚拟机）时，都推荐使用SSH（服务器肯定是SSH，WSL我个人没有用过，虚拟机虽然相当于完整机器但是仍然建议通过SSH过去开发），而VSCode的Remote插件可以达到一个很自然的开发流程和体验。
 
 ### Python
 
@@ -203,29 +285,3 @@
 
 	+ 你可能需要：
 		+ VSCode有很多内置的变量，这里有[所有的变量](https://code.visualstudio.com/docs/editor/variables-reference)
-
-### Golang
-
-微软[教程](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)已经足够亲爹
-
-+ how to debug: [tutor](https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code)
-
-### Web
-
-+ 插件：
-	+ `Auto Rename Tag`：补全
-	+ `Live Server`：启动服务渲染页面
-
-## MarkDown
-
-[我的MarkDown笔记](./Markdown.md)
-
-+ 插件：
-	+ 渲染：Markdown Preview Enhanced：`Ctrl + k v`
-	+ 编辑：Markdown All in One
-		+ 提供补全
-		+ 生成目录
-
-## LaTeX
-
-[我的LaTeX笔记](./LaTeX.md)
