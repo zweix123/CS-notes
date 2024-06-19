@@ -4,7 +4,7 @@ import shutil
 from datetime import datetime
 from io import StringIO
 
-import openpyxl
+# import openpyxl
 import pandas as pd
 from dryads import Dryads, run_shell_cmd  # type: ignore
 from git import Repo
@@ -308,39 +308,40 @@ def tutrition_check_end_table(line: str):
 
 
 def md2xlsx():
-    with open(NUTRITION_FILE_PATH, "r", encoding="utf-8") as f:
+    pass
+    # with open(NUTRITION_FILE_PATH, "r", encoding="utf-8") as f:
 
-        def handle_table():
-            xlsx_name_line = f.readline()
-            xlsx_name = xlsx_name_line[
-                xlsx_name_line.index("<!--")
-                + len("<!--")
-                + 1 : xlsx_name_line.index("-->")
-            ].strip()
-            xlsx_file_path = os.path.join(MISC_DIR_PATH, xlsx_name + ".xlsx")
-            content = ""
-            for line in f:
-                if tutrition_check_end_table(line):
-                    break
-                content += line
-            content = content.strip()
-            if len(content) == 0:
-                workbook = openpyxl.Workbook()
-                workbook.save(xlsx_file_path)
-                return
+    #     def handle_table():
+    #         xlsx_name_line = f.readline()
+    #         xlsx_name = xlsx_name_line[
+    #             xlsx_name_line.index("<!--")
+    #             + len("<!--")
+    #             + 1 : xlsx_name_line.index("-->")
+    #         ].strip()
+    #         xlsx_file_path = os.path.join(MISC_DIR_PATH, xlsx_name + ".xlsx")
+    #         content = ""
+    #         for line in f:
+    #             if tutrition_check_end_table(line):
+    #                 break
+    #             content += line
+    #         content = content.strip()
+    #         if len(content) == 0:
+    #             workbook = openpyxl.Workbook()
+    #             workbook.save(xlsx_file_path)
+    #             return
 
-            data = StringIO(content.replace(" ", ""))
-            df = (
-                pd.read_csv(data, sep="|", index_col=0)
-                .dropna(axis=1, how="all")
-                .iloc[1:]
-            )
+    #         data = StringIO(content.replace(" ", ""))
+    #         df = (
+    #             pd.read_csv(data, sep="|", index_col=0)
+    #             .dropna(axis=1, how="all")
+    #             .iloc[1:]
+    #         )
 
-            df.to_excel(xlsx_file_path, index=False)
+    #         df.to_excel(xlsx_file_path, index=False)
 
-        for line in f:
-            if tutrition_check_start_table(line):
-                handle_table()
+    #     for line in f:
+    #         if tutrition_check_start_table(line):
+    #             handle_table()
 
 
 def xlsx2md():

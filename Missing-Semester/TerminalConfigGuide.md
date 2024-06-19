@@ -102,69 +102,60 @@
 
 ## Unix: Linux and macOS
 
-+ shell通识：
-	+ `echo $SHELL`查看使用shell
-	+ `cat /etc/shells`查看机器有的shell程序
-	+ `chsh -s shell绝对路径`设置默认shell
-		>[关于chsh](https://wangchujiang.com/linux-command/c/chsh.html)
+方案：zsh and oh-my-zsh
 
----
++ 命令
+    + `echo $SHELL`查看使用shell
+    + `cat /etc/shells`查看机器有的shell程序
+    + `chsh -s shell绝对路径`设置默认shell，比如zsh是`chsh -s $(which zsh)`
+    + 重新载入Shell的配置：`source shell的rc文件`，比如zsh是`source ~/.zshrc`
 
-主要通过zsh和oh-my-zsh，前者是和bash一样的一个shell，但是它有更强的拓展性，但是想通过配置利用这些扩展性比较复杂，oh-my-zsh相当于一种辅助配置工具
 
-1. 下载`zsh`：[Manual](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)，一行命令即可  
+0. 下载`zsh`（macOS不需要）：[Manual](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)，一行命令即可  
 	```bash
 	sudo apt install -y zsh
 	```
-	更新默认shell：`chsh -s $(which zsh)`
-	>实际上这边建议不要着急修改，在clone oh-my-zsh会提示是否修改默认shell
 
-2. 下载oh-my-posh：[Manual](https://github.com/ohmyzsh/ohmyzsh/wiki)
+    + 更新默认shell：`chsh -s $(which zsh)`
+        >实际上这边建议不要着急修改，在clone oh-my-zsh会提示是否修改默认shell
+
+1. 下载oh-my-posh：[Manual](https://github.com/ohmyzsh/ohmyzsh/wiki)
 	```bash
 	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	```
-	>这里提供国内镜像源：`https://gitee.com/mirrors/oh-my-zsh`，clone到本地修改名字为`.oh-my-zsh`即可
-	
-	>我在使用VMware workstation时出现错误，通过这两个博客解决（[一个](https://blog.csdn.net/m0_56681539/article/details/127912811)、[另一个](https://blog.csdn.net/u014454538/article/details/123563034)）
+	>使用国内源（`https://gitee.com/mirrors/oh-my-zsh`），Clone到本地修改名字为`.oh-my-zsh`即可
 
-+ 命令：
-	+ 刷新配置效果：`source ~/.zshrc`
+    + 我在使用VMware workstation时出现错误，通过这两个博客解决（[一个](https://blog.csdn.net/m0_56681539/article/details/127912811)、[另一个](https://blog.csdn.net/u014454538/article/details/123563034)）
 
-+ `~/.zshrc`：oh-my-zsh配置文件
-	+ 语法：
-		+ `ZSH_THERE="random"`：配置主题，这里使用随机主题
-		+ `plugins=(插件1 插件2 ... 插件n)`：配置插件，插件名之间空格隔开
+2. 安装插件（插件推荐）：
 
-+ `~/.oh-my-posh`：oh-my-zsh配置
-	+ `~/.oh-my-zsh/plugins/`插件目录：每个目录即为一个插件名，目录下的`.sh`文件可查看其逻辑
-		>不过下面的两个插件并没有安装在这里
+	+ git：默认安装，手动配置，为git命令提供缩写，可在插件目录下的sh文件查看
+	+ command-not-found：默认安装，手动配置
+	+ zsh-completions：默认安装，手动配置，功能不知道x.x
+	+ zsh-syntax-highlighting：手动安装，手动配置，语法高亮
 
-+ 插件推荐：
-	>插件的能否下载依照Github的可连接程度，注意本机clone下载后scp到服务器的方法中，如果本机和服务器的OS不同的情况下，可能由于编码原因报错
+        ```bash
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+        ```
 
-	+ `git`：默认安装，手动配置，为git命令提供缩写，可在插件目录下的sh文件查看
-	+ `z`：默认安装，手动配置，目录快速跳转（后不再使用）
-		+ history：`~/.z`
-		+ 命令：`z 目录`
-	+ `zsh-syntax-highlighting`：手动安装，手动配置，语法高亮
-		```bash
-		git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-		```
-		下面提供国内镜像
-		```bash
-		git clone https://gitee.com/Annihilater/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-		```		
+        使用国内源：
 
-	+ `zsh-autosuggestions`：手动安装，手动配置，命令历史补全
+        ```bash
+        git clone https://gitee.com/Annihilater/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+        ```
 
-		```bash
-		git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-		```
-		>这里的网址就是没有`.git`，Manual中就没有  
+    + zsh-autosuggestions：手动安装，手动配置，命令历史补全
 
-		下面提供国内镜像
-		```bash
-		git clone https://gitee.com/phpxxo/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-		```
-	+ `zsh-completions`：更好的Tab补全？似乎不太需要。
-	+ `command-not-found`：无需下载
+        ```bash
+        git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+        ```
+
+        这里的网址就是没有`.git`，Manual中就没有  
+
+        使用国内源：
+
+        ```bash
+        git clone https://gitee.com/phpxxo/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+        ```
+
+3. 导入[我的配置](https://github.com/zweix123/unix-config)

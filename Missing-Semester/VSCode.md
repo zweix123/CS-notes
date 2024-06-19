@@ -26,10 +26,7 @@
 		+ `explorer.sortOrder`：资源管理器文件排序关键字
 	+ `extensions.json`：项目下插件过滤
 
-+ 在Mac中，由于是移动`.app`文件到`/Applications`目录下，`PATH`下没有`code`这个命令，需要在Shell的rc文件中添加
-  ```bash
-  export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-  ```
++ 如果VSCode下载后，Shell依然找不到`code`命令，可以打开VSCode快捷键`Command + Shift + P`打开命令行，输入install，选择`Shell Command: Install 'code' commands in PATH`
 
 + 设置同步：UI左下角齿轮图标中的`Settings Sync is On`，自动同步。
 + 关闭受限模式：打开设置，键入`trust`

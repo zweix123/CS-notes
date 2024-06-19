@@ -1,9 +1,16 @@
 ## TLDR
 
-```bash
-ssh-keygen  # 执行该命令生成密钥
-ssh-copy-id 服务器别名  # 将公钥上传到服务器
-```
++ 生成密钥：
+    ```bash
+    ssh-keygen
+    ```
+
++ 将公钥上传到服务器
+    ```bash
+    ssh-copy-id 服务器别名
+    ```
+
+## ssh
 
 + 功能：
 	+ 连接服务器
@@ -28,7 +35,9 @@ ssh-copy-id 服务器别名  # 将公钥上传到服务器
 				2. 方法二：本机使用命令添加公钥：`ssh-copy-id 服务器别名`
 			+ 将公钥内容放在Github用户的Setting的SSH keys中即可向该用户的项目中push  
 				`Setting -> SSH and GPG keys -> New SSH key -> 拷贝公钥`
+
 	 + `config`：为云服务机配置别名
+
 		```
 		# 格式
 		Host 别名
@@ -39,6 +48,7 @@ ssh-copy-id 服务器别名  # 将公钥上传到服务器
 		必须Tab缩进，多个服务器别名用空行分开
   
 	 + `authorized_keys`：如上所述
+
 	 + `known_hosts`和`know_hosts.old`：记录本机ssh到的机器（包括云服务机和Github）
 
 ## 文件传输：`scp`、`sshpass` and `ftp`

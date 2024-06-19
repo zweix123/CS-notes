@@ -11,41 +11,44 @@
 macOS这样处理的好处是在CLI时代的快捷键依然保留，比如在命令行中Ctrl+a是Home，Ctrl+e是End。同样的操作在Windows中可能无法实现。
 >这里macOS中也有坏处，就是Home、End或者其等价操作在终端用不了，必须用使用Ctrl做修饰键的。
 
-## 键盘选择
+## 个人外接键盘喜好
+
 由于在Windows中，只有`Ctrl+Insert`/`Shift+Insert`才能在任何环境（Windows GUI，Windows Terminla，Vim，SSH to Linux，SSH to Linux and Vim，SSH to Linux and Tmux）都适用，且我确实使用数字键盘次数很少。故选择必须有`Home`、`End`、`Insert`、`Delete`的84键盘，且该键盘必须支持Windows和Mac两个平台。
 >实际上我用拯救者的全键盘和MacBook的键盘也挺开心的【捂脸】
 
+# 配置
+
++ 通用配置：
+    + 输入法使用默认输入法软件
+    + 输入法只保留ABC和拼音
+    + 输入法默认使用英文
+    + 拼音设置为双拼且不自动扩展到全拼，双拼布局使用微软
+    + 输入法切换只使用Ctrl/Control + Space
+
++ Windows：
+    + 全半角和中英标点的切换设置为无
+    + 翻页只有+/-
++ macOS：
+    + 按下地球键时“不执行任何操作”：Fn/地球键只体现Fn
+    + 将F1、F2等键用作标准功能键：需要按下Fn才能使用F键的功能
+    + “所有输入法”：
+        + 关闭使用大写锁定键切换“ABC”输入法
+        + 关闭自动纠正拼写
+        + 关闭自动大写字母的首字母
+        + 关闭连按两下空格插入句号
+
 ## 改键
 
-+ Windows笔记本自带键盘通过注册表将`Caps Lock`键改成方向键右键`rigth`
-+ 外界键盘同样利用改键软件将`Caps Lock`键改成方向键右键`rigth`
-+ MacBook交换左下角`Fn`和`Control`的位置，这是因为`Control`的使用频率远远大于`Fn`
-    + 实际上我也希望修改它的`Caps Lock`但是没有优雅（简约）的方案
----
-+ 将`Caps Lock`键改成方向键右键`rigth`的作用
-    >个人大写输入使用`Shift`，几乎不用`Caps Lock`，而其位置又非常的好，市面上有很多关于其改键方案。
++ Windows笔记本自带键盘：通过注册表将`Caps Lock`键改成方向键右键`rigth`
++ MacBook自带键盘：交换左下角`Fn`和`Control`的位置，这是因为`Control`的使用频率远远大于`Fn`
+    + 实际上我也希望修改它的`Caps Lock`为方向键右键`right`但是没有优雅（简约）的方案
++ 外界键盘：利用改键软件将`Caps Lock`键改成方向键右键`rigth`
 
-    1. oh-my-zsh/oh-my-posh的历史命令补全是方向键右键，但是右手移动过去比较慢，正好输入命令中`Tab`比较常用，`Caps Lock`在它下面，可以用同一个手指按。用来加速历史命令补全
-    2. 在VSCode中跳转通常是按住`Ctrl`/`Command`然后鼠标左键点击名称，但是跳转过去之后怎么回来呢？我将快捷键设置成`Alt+Right`，就能实现单手`Go Back`（否则默认快捷键需要两个手）。当然这是在Windows和Linux，在macOS上没有好的方案，使用默认的`Contrl + -`。
+将`Caps Lock`键改成方向键右键`rigth`的作用
+>个人大写输入使用`Shift`，几乎不用`Caps Lock`，而其位置又非常的好，市面上有很多关于其改键方案。
 
-## 其他键盘相关设置
-
-+ 输入法软件：默认
-+ 拼音设置：双拼且不自动扩展到全拼
-    + 双拼输入法使用微软
-+ 中英切换：只保留`Ctrl`/`Control` + `Space`
-+ 全半角和中英标点的切换设置为无
-+ 翻页只有+/-
-+ 设置默认英文
-
-## 触控板
-
-|      | Windows  | macOS    |
-| ---- | -------- | -------- |
-| 左键 | 单指轻点 | 单指重点 |
-| 右键 | 双指轻点 | 双指重点 |
-
-各有好处，轻点确实更舒服，但是容易误触。
+1. oh-my-zsh/oh-my-posh的历史命令补全是方向键右键，但是右手移动过去比较慢，正好输入命令中`Tab`比较常用，`Caps Lock`在它下面，可以用同一个手指按。用来加速历史命令补全
+2. 在VSCode中跳转通常是按住`Ctrl`/`Command`然后鼠标左键点击名称，但是跳转过去之后怎么回来呢？我将快捷键设置成`Alt+Right`，就能实现单手`Go Back`（否则默认快捷键需要两个手）。当然这是在Windows和Linux，在macOS上没有好的方案，使用默认的`Contrl + -`。
 
 # 快捷键
 

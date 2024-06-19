@@ -48,6 +48,14 @@ Python在下载第三方库时，有些库会提供可执行文件，这些文�
 
 + 特别的，在Scoop中，我通常使用`scoop install python`维护全局使用的库，比如`dryads`、`black`、`mypy`，因为它通常的最新的Python版本，而其他小版本则仅仅用来给虚拟环境的不同版本提供解释器（下面会聊）。
 
+## Config
+
+```bash
+python3 -m pip install black
+python3 -m pip install mypy
+python3 -m pip install dryads
+```
+
 # Use
 
 + 脚本语言的Shebang，在Unix系统中，在代码的开头添加

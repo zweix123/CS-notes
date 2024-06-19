@@ -2,7 +2,15 @@
 按照[Manual](https://go.dev/doc/install)操作即可。
 
 ## Config
-无
+
+```bash
+go env -w GO111MODULE=on
+go env -w GOSUMDB=off
+```
+
+```bash
+go env -w GOPROXY=???
+```
 
 ### Go的依赖管理
 

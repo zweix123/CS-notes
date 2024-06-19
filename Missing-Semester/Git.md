@@ -1,8 +1,8 @@
 >Git是一种版本管理工具，GitHub是一个代码托管平台。
 
-+ Ref: [Pro Git book](https://git-scm.com/book/en/v2) | [Git User Manual](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/user-manual.html)
-
 ## Git
+
++ Ref: [Pro Git book](https://git-scm.com/book/en/v2) | [Git User Manual](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/user-manual.html)
 
 + 工作区worksapce：仓库所在的目录，是独立于各个分支的。
 + 暂存区Stage/索引Index：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，也是独立于各个分支的。
@@ -14,13 +14,14 @@
 
 ### Config
 
+第一时间设置
 ```bash
 git config --global user.name xxx  # 设置全局用户名
 git config --global user.email xxx@xxx  # 设置全局邮箱地址
+```
 
-git config --global core.editor vim  # your favorite editor
-git config --global color.ui true
-
+必选设置
+```bash
 # 设置语言, 不然语言显示的是乱码(Win and Mac)
 git config --global core.quotepath false
 git config --global gui.encoding utf-8
@@ -29,7 +30,16 @@ git config --global i18n.logoutputencoding utf-8
 
 # 禁用不同操作系统换行符的自动转换(win: CRLF, linux: LF)
 git config --global core.autocrlf false
+```
 
+可选设置
+```bash
+git config --global core.editor vim  # your favorite editor
+git config --global color.ui true
+```
+
+其他设置
+```bash
 # 我还遇到过网络问题，报错形如Failed to connect to github.com port 443 after xxx ms: Couldn't connect to server, 通过下面的方法解决，如果没遇到可不执行
 # git config --global http.proxy http://127.0.0.1:7890 
 # git config --global https.proxy http://127.0.0.1:7890
@@ -40,9 +50,10 @@ git config --global core.autocrlf false
 # git config --global --unset http.proxy
 # git config --global --unset https.proxy
 ```
+
 + 配置文件位置：
 	+ win：`C:\User\$User\.gitconfig`
-	+ linux/mac：`~/.gitconfig`
+	+ unix：`~/.gitconfig`
 
 ### Use
 + Init: 进入项目目录下：
@@ -97,20 +108,20 @@ git config --global core.autocrlf false
 
 ### Config
 
-不知何时，需要在`~/.ssh/config`添加下面的别名才能正常使用SSH（对Gtihub）
++ 上传公钥：STFW
+    + 前置[SSH笔记](./SSH.md)
+
++ SSH相关配置：在`~/.ssh/config`（无则创建）添加。
+
 ```
 Host github.com
-  Hostname ssh.github.com
-  Port 443
-```
-可以
-```bash
-ssh -T git@github.com
+    Hostname ssh.github.com
+    Port 443
 ```
 
-测试下，结果应该为
-```
-Hi [your username]! You've successfully authenticated, but GitHub does not provide shell access.
+检测是否配置成功
+```bash
+ssh -T git@github.com
 ```
 
 ### Use
@@ -311,3 +322,4 @@ git merge origin/上次实验分支名
 	```bash
 	git submodule update --init --recursive
 	```
+	
