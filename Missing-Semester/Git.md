@@ -41,14 +41,14 @@ git config --global color.ui true
 其他设置
 ```bash
 # 我还遇到过网络问题，报错形如Failed to connect to github.com port 443 after xxx ms: Couldn't connect to server, 通过下面的方法解决，如果没遇到可不执行
-# git config --global http.proxy http://127.0.0.1:7890 
-# git config --global https.proxy http://127.0.0.1:7890
+git config --global http.proxy http://127.0.0.1:7890 
+git config --global https.proxy http://127.0.0.1:7890
 # 查看
-# git config --global http.proxy
-# git config --global https.proxy
+git config --global http.proxy
+git config --global https.proxy
 # 取消
-# git config --global --unset http.proxy
-# git config --global --unset https.proxy
+git config --global --unset http.proxy
+git config --global --unset https.proxy
 ```
 
 + 配置文件位置：
