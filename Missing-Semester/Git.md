@@ -93,6 +93,8 @@ git config --global --unset https.proxy
 	可以同于合并最近的几个commit
 
 + 关于分支：
+    >关于命令`git checkout`，它既能用于切换分支，又能恢复工作树，不是很直觉，推荐使用`git switch`和`git resotre`
+
 	+ `git branch [branch]`创建分支
 	+ `git checkout [branch]`切换分支
 	`git checkout -b [branch]`创建并切换分支

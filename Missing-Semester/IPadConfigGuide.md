@@ -1,46 +1,8 @@
- >STFW: Search the Friendly Web 
++ 个人在购入IPad的发心是作为小型笔记本嵌入学习工作流，但遇到关键问题“IPadOS是不是macOS且大概率以后也不会”，导致IPad作为一个Coder的生产力工具非常尴尬。只能以非常别扭的姿势完成一些东西。故放弃，只作为非常专门的功能。
 
-# 1.网络
++ 基本配置：同macOS，[笔记](./macConfigGuid.md)。
 
-1. 美区账号：STFW
-2. 学会如何付款购买软件：STFW
-3. 软件：我个人使用OneClick
-	>因为我没有学会如何付款
+## 网络
 
-4. 你还需要一个魔法，请问下身边的朋友。
-
-# 2.终端iSH
-
-首先它使使用完整的Linux内核，实际上，如果你想在它上面做更大的开发也是可以的。我主要需要通过它安装Git
-
-+ 下载：直接App Store下载即可。
-+ 配置：类似Linux，参见[Linux配置指南](./LinuxConfigGuide)
-	+ 配置SSH
-	+ 下载并配置Git
-
-	注意发行版版本
-	```
-	localhost:~# cat /etc/os-release 
-	NAME="Alpine Linux"
-	ID=alpine
-	VERSION_ID=3.14.3
-	PRETTY_NAME="Alpine Linux v3.14"
-	HOME_URL="https://alpinelinux.org/"
-	BUG_REPORT_URL="https://bugs.alpinelinux.org/"
-	```
-
-	包管理器为`apk`，即`apk add`
-
-# Obsidian
-
-+ 下载：App Store
-+ 配置：相关教程都可以在Obsidian官方英文论坛中找到，仅仅论坛中的教程即可，不用去其他社区，反而混淆视听。
-
-	这里说一下重点和教程没提到的
-
-	+ 将iSH挂载到IPad文件系统中`mount`的参数`-t`使用`ios-unsafe`而非`ios`，不然Git相关操作特别慢。
-	+ 在Obsidian需要配置插件（较于PC），主要是用户名和邮箱。
-
-	还有一些问题，在[IPad中的Obsidian-Git插件没有完整的功能](https://github.com/denolehov/obsidian-git/issues/459)，具体的，目前的情况是不能在不离开Obsidia的情况下完成所有同步操作。
-
-	我个人在PC也是大部分通过命令行同步，虽然不爽，但是可以接受。
+1. 美区账号
+2. 免费软件，个人推荐。。。，其他同PC端。

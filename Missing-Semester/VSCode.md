@@ -152,9 +152,7 @@
     + BibTeX formatter
 
 + Git：VSCode内置一些Git相关功能，比如TOOD
-    + Git Blame：短小精悍的插件，在状态栏显示光标当前位置的Git Blame
-
-    >还有Gitlens和Git Graph插件，暂时没有使用
+    + 有诸多插件，但是个人感觉太臃肿，还没有时间配置。
 
 + 其他：
     + Project Manager：VSCode是围绕项目的，该插件会出现在Explorer上面，用于在不同项目之前跳转，虽然我基本不用，将是Explorer图标太靠上了，用Project Manager的图标占位。
