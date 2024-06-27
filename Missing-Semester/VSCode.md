@@ -132,6 +132,13 @@
         + Clangd-Format：好用
         + CodeLLDB：听说好用
     + Better C++ Syntax
+    + cmake
+        + 上面提到的CMake Tools
+        + CMake Language Support
+            >还有一个语言支持插件CMake，但是没有这个鲜艳。
+
+            + .NET Install Tool
+        + cmake-format
 
 + Golang：[微软教程](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)和[debug tutor](https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code)
     + Go
@@ -140,6 +147,7 @@
 + Web：
 	+ Auto Rename Tag：补全
 	+ Live Server：启动服务渲染页面
+	+ Thunder client：HTTP Client，对比postman
 
 + Markdown：[我的MarkDown笔记](./Markdown.md)
     + Markdown All in One：Yes，All in One
@@ -151,14 +159,17 @@
     + LaTeX Workshop
     + BibTeX formatter
 
-+ Git：VSCode内置一些Git相关功能，比如TOOD
-    + 有诸多插件，但是个人感觉太臃肿，还没有时间配置。
++ Git：
+    + 内置功能
+    + gitignore
+    + Git Blame
+    + 没有使用gitlens，这玩意太臃肿了。
 
 + 其他：
     + Project Manager：VSCode是围绕项目的，该插件会出现在Explorer上面，用于在不同项目之前跳转，虽然我基本不用，将是Explorer图标太靠上了，用Project Manager的图标占位。
     + Better Comments：注释增强，TODO的高亮之类的。
 
-### Copilot
+#### Copilot
 
 我也不知道为啥我有资质，因为VSCode和Github都是微软家的，用起来好方便啊！
 
