@@ -36,6 +36,9 @@
     + [1%慢请求优化](https://drmingdrmer.github.io/math/engineering/2014/07/24/slow-request.html)
     + [互联网中对象访问频率的91分布](https://drmingdrmer.github.io/tech/2019/10/30/zipf.html)
 
++ Tools：
+    + `https://ipinfo.io/$ip/loc`：获取公网IP的坐标
+
 ## 输出
 
 + [博客](./blog/README.md)：只赠有缘人

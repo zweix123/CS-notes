@@ -1,3 +1,16 @@
+```
+-Wall -Wextra -Weffc++
+-Werror=uninitialized
+-Werror=return-type
+-Wconversion
+-Werror=unused-result
+-Werror=suggest-override
+-Wzero-as-null-pointer-constant
+-Wmissing-declarations
+-Wold-style-cast
+-Wnon-virtual-dtor
+```
+
 ## gcc
 
 ```bash
