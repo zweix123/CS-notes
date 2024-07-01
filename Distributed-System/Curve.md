@@ -39,9 +39,6 @@ curveadm clean --id ID  # 清理服务(清楚数据)，不提供参数id则通�
 ## CurveTool
 截止到2023.03.03，正在将旧工具`curve_ops_tool`（C++）向新工具`curve`（Golang）重构（[进度](https://github.com/opencurve/curve/tree/master/tools-v2#comparison-of-old-and-new-commands)）
 
-### v1
-[source code](https://github.com/opencurve/curve/tree/master/src/tools) | [use guide](https://github.com/opencurve/curve/blob/master/docs/cn/curve_ops_tool.md)
-
 ### v2
 [source code](https://github.com/opencurve/curve/tree/master/tools-v2) | [Intor](https://github.com/opencurve/curve/blob/master/docs/cn/curve%E5%B7%A5%E5%85%B7.md) | [develop guide](https://github.com/opencurve/curve/blob/master/tools-v2/docs/zh/develop.md)
 

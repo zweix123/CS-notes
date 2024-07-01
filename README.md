@@ -53,7 +53,7 @@
 
     和平台无关的：[SSH](Missing-Semester/SSH.md) | [Git](Missing-Semester/Git.md) | [Markdown](Missing-Semester/Markdown.md) | [VSCode](Missing-Semester/VSCode.md) | [LaTeX](Missing-Semester/LaTeX.md)
 
-+ [侵入式数据结构和非侵入式数据结构的区别](./Algorithm/Data-Structure-and-Sort/侵入式和非侵入式数据结构。md)
++ [侵入式数据结构和非侵入式数据结构的区别](./Algorithm/Junior-Data-Structure/侵入式和非侵入式数据结构.md)
 + [不同编程范式的量化交易回测系统](Interdisciplinary/Quant/Survey-BackTest.md)
 + 软件推荐：
     + 命令`neofetch`：现代风格地查看机器信息

@@ -17,12 +17,12 @@
 这些被基类“限制”的方法，就是系统给到用户的权利，同时用户也只有这些权利，用户的代码是被限制的，必须实现哪些方法，也只能实现这些方法，这些方法也只能在规定的时间被调用。
 
 所以这类平台的实盘交易模式是下面这样的  
-<img alt="事件驱动交易系统运行模型" src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Quant/event-model-real.png" style="width:42%" >
+<img alt="事件驱动交易系统运行模型" src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Interdisciplinary/Quant/event-model-real.png" style="width:42%" >
 网关不断的监控市场，在检测到某些事件的发生时，则告知事件驱动引擎，继而自动的运行策略中的代码，而代码中的逻辑也通过网关和市场进行交互
 
 该模型的好处是实现了用户代码的复用，在回测部分不需要修改用户的策略代码，网关直接变身阴阳壶，在回测时不对接真实的市场，而是对接自己的“市场模拟程序”，也就是回测系统，其他的什么都不需要变化。因为事件驱动引擎不知道自己是因为哪里来的事件而驱动。这样回测系统只需要“自顾自”的模拟数据，在发生对应事件时告知网关，然后和网关进行交互。  
 但是这个过程似乎没有那么解耦？因为回测系统要和网关交互，难道要等策略进行决策嘛？不是的，因为用户的行为不会影响市场数据（比如一个人会下巨大的单继而影响市场价格？），所以回测系统只需要不断的产生数据（包括事件），用户策略只需要（通过事件驱动引擎）依次执行即可，然后其行为通过独立的（是回测系统中独立的子模块）账户资金管理进行处理即可。
-<img alt="事件驱动交易系统运行模型" src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Quant/event-model-backtest.png" style="width:42%" >
+<img alt="事件驱动交易系统运行模型" src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Interdisciplinary/Quant/event-model-backtest.png" style="width:42%" >
 
 ### 发明者模式
 

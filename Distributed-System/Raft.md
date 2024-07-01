@@ -14,7 +14,7 @@
 
 Raft是一个管理Replicated Log的Consensus Algorithm
 
-+ 什么是Replication：[笔记](./Storage/README.md#replication)
++ 什么是Replication：[笔记]()
 + 什么是Consensus：[笔记](./README.md#consistenct-issues-and-consensus-algorithms)
 + 什么是Paxos：在Raft之前，Paxos几乎是一致性算法的代名词
 	+ 缺点：

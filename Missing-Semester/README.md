@@ -29,7 +29,7 @@
 	+ `Ctrl + d`：退出会话/中断连接
 
 + 文件权限：一共10位，第一位表示该文件是目录`d`还是文件`-`，剩下9位中3位1组，分别表示当前用户（文件所属用户）权限、组和用户权限和其他用户权限；组内的3位分别表示是否可读`r`、是否可写`w`、是否可执行`x`，可以用数字0到7表示。命令`ls`以及参数`-l`可查看
-	![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Linux/Linux文件信息.png)
+	![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/Linux文件信息.png)
 
 + 重定向：
 	+ 文件描述符：`0`表标准输入，`1`表标准输出，`2`表标准错误

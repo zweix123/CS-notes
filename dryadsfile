@@ -1,416 +1,402 @@
+import functools
 import os
 import re
 import shutil
+import threading
 from datetime import datetime
-from io import StringIO
 
-# import openpyxl
-import pandas as pd
+import requests
 from dryads import Dryads, run_shell_cmd  # type: ignore
 from git import Repo
-from rich.progress import track
+
+## constants
+
+RES_DIR = "resource"
+PIC_LINK_PRE = "https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/"
+CS_NOTES_PRE = "https://github.com/zweix123/CS-notes/blob/master/"
+
+
+## utils
 
 
 def read_md(filepath: str) -> str:
+    assert filepath.endswith(".md"), f"read_md can't read {filepath}."
+    assert os.path.exists(filepath), f"{filepath} is not exists."
     with open(filepath, "r", encoding="utf-8") as f:
         return str(f.read())
 
 
-def write_md(filepath: str, text: str) -> None:
+def write_md(filepath: str, content: str) -> None:
+    assert filepath.endswith(".md"), f"write_md can't write {filepath}."
+    assert os.path.exists(os.sep.join(filepath.split(os.sep)[:-1])), "目录不存在"
     with open(filepath, "w", encoding="utf-8") as f:
-        f.write(text)
+        f.write(content)
 
 
-def get_link_for_img(text: str) -> list[str]:
+def extract_piclinks(content: str) -> list[str]:
     patterns: list[str] = [
         r"!\[.*?\]\((.*?)\)",
         r"<img.*?src=[\'\"](.*?)[\'\"].*?>",
     ]
-    return [item for pattern in patterns for item in re.findall(pattern, text)]
+    return [item for pattern in patterns for item in re.findall(pattern, content)]
 
 
-def get_link_for_link(text: str) -> list[str]:
+def extract_alllinks(content: str) -> list[str]:
     patterns: list[str] = [
         r"(?<!!)\[.*?\]\((.*?)\)",
         r"<a.*?href=[\'\"](.*?)[\'\"].*?>",
     ]
-
-    return [item for pattern in patterns for item in re.findall(pattern, text)]
-
-
-RESOURCE_PATH = "resource"
-STASH_PATH = ".stash"
+    return [item for pattern in patterns for item in re.findall(pattern, content)]
 
 
-def link():
-    """检查链接可达性（不包含图床）"""
-    """
-    内部链接: 相对路径[#标题]
-    外部链接: http开头或者www开头
-    """
+class walk:
+    # 跳过项目根目录下的某些目录: 点目录, resource
+    def __init__(self, start_path="."):
+        self._walk = os.walk(start_path)
 
-    class Link:
-        def __init__(self, filep: str, linen: int, linkc: str) -> None:
-            # 这里确实命名比较奇怪
-            self.filep: str = filep
-            self.linen: int = linen
-            self.linkc: str = linkc
+    def __iter__(self):
+        return self
 
-        def __str__(self) -> str:
-            return str(self.filep) + ":" + str(self.linen) + " " + str(self.linkc)
-
-        def __repr__(self) -> str:
-            return repr(self.filep) + ":" + repr(self.linen) + " " + repr(self.linkc)
-
-    ZWEIX_CS_NOTES_PREFIX = "https://github.com/zweix123/CS-notes/blob/master"
-
-    links: list[Link] = []
-
-    for root, _, files in os.walk("."):
-        root_path_split = root.split(os.sep)
-        root_path_split = root_path_split[1:]
-        if len(root_path_split) > 0 and (
-            root_path_split[0].startswith(".")
-            or root_path_split[0] in (RESOURCE_PATH, STASH_PATH)
-        ):
-            continue
-        for f in files:
-            if not f.endswith("md"):
-                continue
-            filepath = os.path.join(root, f)
-            with open(filepath, "r", encoding="utf-8") as fhandle:
-                for linen, linec in enumerate(fhandle):
-                    linec = linec.strip()
-                    for link in get_link_for_link(linec):
-                        links.append(Link(filepath, linen, link))
-
-    internal_links: list[Link] = []
-    external_links: list[Link] = []
-
-    for l in links:
-        assert not l.linkc.startswith(ZWEIX_CS_NOTES_PREFIX)
-        if l.linkc.startswith(("http", "www")):
-            external_links.append(l)
-        else:
-            assert l.linkc.startswith((".", "#"))
-            internal_links.append(l)
-
-    def print_links(name: str, links: list[Link]) -> None:
-        print(name)
-        for l in links:
-            print(l)
-
-    def handle_internal():
-        print_links("internal_links", internal_links)
-
-    handle_internal()
-
-    def handle_external():
-        print_links("external_links", external_links)
-
-    handle_external()
+    def __next__(self):
+        try:
+            while True:
+                root, dirnames, filenames = next(self._walk)
+                root_path_split = root.split(os.sep)
+                root_path_split = root_path_split[1:]  # 去掉表示当前目录的'.'
+                if len(root_path_split) > 0 and (
+                    root_path_split[0].startswith(".")
+                    or root_path_split[0] in (RES_DIR,)
+                ):
+                    continue
+                return root, dirnames, [f for f in filenames if f.endswith(".md")]
+        except StopIteration:
+            raise StopIteration
 
 
-def img():
-    """检测图片"""
-    """
-    三种对象
-        文本文件路径
-        图片链接路径
-        资源实际路径
-    文本文件路径Y 图片链接路径Y 资源实际路径N: 图片不在, 无法正常显示
-    文本文件路径Y 图片链接路径N 资源实际路径Y: 不可能, 无法判断资源实际路径正确
-    文本文件路径N 图片链接路径Y 资源实际路径Y: 文件是被mv过的, 拷贝资源并修改
-    文本文件路径N 图片链接路径N 资源实际路径N: 假如文本文件的Path和图片链接的name拼起来和资源路径存在, 则说明重命名
-    """
-    PREFIX = "https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/"
+def get_all_markdown() -> list[str]:
+    return [
+        os.path.join(root, filename)
+        for root, _, filenames in walk()
+        for filename in filenames
+    ]
 
-    class Path:
+
+## main
+
+
+def wc():
+    """统计: 文章数, 总行数, 总字数"""
+    # 字的定义是中文汉字和英文单词
+    #   中文汉字不包含中文标点符号
+    #   英文单词不会检测拼写, 而是通过非英文字符划分得到, 故有误差
+    import string
+
+    filepaths: list[str] = get_all_markdown()
+
+    cnt_line: int = 0
+    cnt_word: int = 0
+
+    cur_word: str = ""  # 是cur, 不是cnt, 表示当前单词(如果有)
+    for filepath in filepaths:
+        with open(filepath, "r", encoding="utf-8") as f:
+            for line in f:
+                cnt_line += 1
+                for c in line:
+                    if c in string.ascii_letters:  # 英文大小写字母
+                        cur_word += c
+                    else:
+                        if len(cur_word) != 0:
+                            cnt_word += 1
+                            cur_word = ""
+                        if c.isalpha():  # 汉字
+                            # isalpha方法对英文字母也判是, 但英文字母已经在上面的分支筛选
+                            cnt_word += 1
+    print(len(filepaths), cnt_line, cnt_word)
+
+
+def pic():
+    """图床"""
+
+    class Path:  # 文件路径和URL
         def __init__(self, path: list[str], name: str) -> None:
-            self.path = path
-            self.name = name
+            self.path: list[str] = path
+            self.name: str = name
 
         def __hash__(self) -> int:
             return hash("@".join(self.path + [self.name]))
 
-        def __eq__(self, other) -> bool:
+        def __eq__(self, other) -> bool:  # 不能使用类型标注x.x
             return self.path == other.path and self.name == other.name
 
-        def __str__(self) -> str:
-            return str(self.path) + "+" + str(self.name)
-
         def __repr__(self) -> str:
-            return repr(self.path) + "+" + repr(self.name)
+            return str(self.path) + " " + str(self.name)
 
-    md_img: dict[Path, list[Path]] = {}
-    res: set[Path] = set()  # 资源
+        def __str__(self) -> str:
+            return self.__repr__()
 
-    unlocal: list[tuple[str, str]] = []  # 不使用PREFIX前缀的图片链接, (filepath, link)
-    matched: set[Path] = set()  # 成功匹配的, 用来筛选未使用的资源, 资源
-    unmatched: set[Path] = set()  # 通过matched剔除res, 资源
-    unfind: list[tuple[Path, Path]] = []  # 找不到资源的链接, (filepath, link)
-    mved: list[Path] = []  # 被移动的mved, 需要特殊处理, Markdown
-    rename: list[Path] = []  # 文本和图片重命名而忘记文本中的内容链接变化, Markdown
+        def to_path(self) -> str:
+            return os.sep.join(self.path + [self.name])
 
-    for root, _, files in os.walk("."):
+        def to_resource(self) -> str:
+            return os.sep.join([".", RES_DIR] + self.path + [self.name])
+
+    md2pic: dict[Path, list[Path]] = {}
+    resources: set[Path] = set()
+
+    # 三种路径: 文本文件路径, 图片链接路径, 资源实际路径
+    #              Y           Y           Y
+    matched: list[tuple[Path, Path]] = []  # list[文件路径, 图片链接]
+    #                                        资源路径和图片链接对应
+    #              Y           Y           N
+    unmatched: list[tuple[Path, Path]] = []  # list[文件路径, 图片链接]
+    #              N           Y           Y 文本文件被移动过, 而没有更新对应的图片资源, 需要移动图片资源并修改部分图片链接
+    #                                        该场景还有另外一种可能, 就是文本文件和资源文件一起移动过, 但是文本文件中的路径没有(全部)修改
+    #                                        这样的结果是三种均不匹配, 但是文本文件去掉文件名的路径和图片链接文件名拼接在资源实际路径中有
+    need_move_and_modify: list[tuple[Path, Path]] = []  # list[(文件路径, 图片路径)]
+    need_modify: list[tuple[Path, Path]] = []  # list[(文件路径, 图片路径)]
+    #              Y           N           Y
+    #              Y           N           N
+    #              N           Y           N
+    #              N           N           Y
+    # 以上四种情况均是不可能发生的
+
+    for root, _, filenames in walk():
+        root_path_split = root.split(os.sep)
+        root_path_split = root_path_split[1:]  # 去掉'.'
+        for filename in filenames:
+            filepath = os.path.join(root, filename)
+            piclinks = extract_piclinks(read_md(filepath))
+            mdpath = Path(root_path_split, filename)
+            md2pic[mdpath] = []
+            for piclink in piclinks:
+                if not piclink.startswith(PIC_LINK_PRE):
+                    print(f"未本地维护: filepath = {filepath}, piclink = {piclink}")
+                    continue
+                piclink = piclink[len(PIC_LINK_PRE) :]
+                piclink_split = piclink.split("/")
+                assert len(piclink_split) > 0, piclink
+                md2pic[mdpath].append(Path(piclink_split[:-1], piclink_split[-1]))
+    for root, _, filenames in os.walk(RES_DIR):
         root_path_split = root.split(os.sep)
         root_path_split = root_path_split[1:]
-        if len(root_path_split) > 0 and (
-            root_path_split[0].startswith(".")
-            or root_path_split[0] in (RESOURCE_PATH, STASH_PATH)
-        ):
-            continue
-        for f in files:
-            if not f.endswith("md"):
-                continue
-            filepath = os.path.join(root, f)
-            links = get_link_for_img(read_md(filepath))
-            md = Path(root_path_split, f)
-            md_img[md] = []
+        for filename in filenames:
+            resources.add(Path(root_path_split, filename))
 
-            for link in links:
-                if not link.startswith(PREFIX):
-                    unlocal.append((filepath, link))
-                else:
-                    link = link[len(PREFIX) :]
-                    link_split = link.split("/")
-                    assert len(link_split) > 0
-                    img = Path(link_split[:-1], link_split[-1])
-                    md_img[md].append(img)
-    for root, _, files in os.walk(RESOURCE_PATH):
-        root_path_split = root.split(os.sep)
-        root_path_split = root_path_split[1:]
-        for f in files:
-            res.add(Path(root_path_split, f))
-
-    for md, imgs in md_img.items():
-
-        for img in imgs:
-            if md.path == img.path:
-                if img in res:
-                    matched.add(img)
-                else:
-                    unfind.append((md, img))
-            else:
-                if img in res:
-                    mved.append(md)
-                else:
-                    if Path(md.path, img.name) in res:
-                        rename.append(md)
+    for mdpath, picpaths in md2pic.items():
+        for picpath in picpaths:
+            if mdpath.path == picpath.path:  # 文本文件和图片链接对应
+                if picpath in resources:  # 图片在资源中
+                    matched.append((mdpath, picpath))
+                else:  # 图片不在资源中
+                    unmatched.append((mdpath, picpath))
+            else:  # 文本文件和图片链接不对应
+                if picpath in resources:  # 图片在资源中
+                    need_move_and_modify.append((mdpath, picpath))
+                else:  # 图片不在资源
+                    if Path(mdpath.path, picpath.name) in resources:
+                        need_modify.append((mdpath, picpath))
                     else:
-                        assert False, str(md) + " " + str(img)
+                        assert False, f"{str(mdpath), str(picpath)}"
 
-    def handle_rename():
-        print("rename", rename)
-        for md in rename:
-            for img in md_img[md]:
-                if md.path != img.path and img not in res:
-                    assert Path(md.path, img.name) in res
-                    filepath = os.path.join(".", *md.path, md.name)
-                    old_link = PREFIX + "/".join(img.path + [img.name])
-                    new_link = PREFIX + "/".join(md.path + [img.name])
+    op = input("可能需要移动部分图片资源并修改部分图片链接(Y/N, default=N): ")
+    assert op == "" or op == "Y" or op == "N", f'"{op}"不支持'
+    is_op = op == "Y"
 
-                    write_md(filepath, read_md(filepath).replace(old_link, new_link))
+    for f, p in unmatched:
+        print(f"不匹配, mdpath = {f}, picpath = {p}")
 
-                    matched.add(Path(md.path, img.name))
+    for mdpath, picpath in need_move_and_modify:
+        print(f"需要移动: mdpath = {mdpath}, picpath = {picpath}")
+        dirpath: str = os.sep.join([".", RES_DIR])
+        assert os.path.exists(dirpath), "防御式编程"
+        for name in mdpath.path:
+            dirpath = os.sep.join([dirpath, name])
+            if not os.path.exists(dirpath):
+                if is_op:
+                    os.makedirs(dirpath)
+                print(f"创建目录 dirpath = {dirpath}")
+        src_path = os.sep.join([".", RES_DIR] + picpath.path + [picpath.name])
+        dst_path = os.sep.join([dirpath, picpath.name])
+        print(f"将 src_path = {src_path} 移动到 src_path = {dst_path}")
+        if is_op:
+            shutil.move(src_path, dst_path)
+        if is_op:  # move处理好, 该modify了
+            need_modify.append((mdpath, picpath))
 
-    handle_rename()
+    for mdpath, picpath in need_modify:
+        print(f"需要修改: mdpath = {mdpath}, picpath = {picpath}")
+        old_link = PIC_LINK_PRE + "/".join(picpath.path + [picpath.name])
+        new_link = PIC_LINK_PRE + "/".join(mdpath.path + [picpath.name])
+        print(f"从 old_link = {old_link} 修改为 new_link = {new_link}")
+        assert os.path.exists(
+            os.path.join(".", RES_DIR, *mdpath.path, picpath.name)
+        ), "防御式编程"
+        if is_op:
+            write_md(
+                os.path.join(*mdpath.path, mdpath.name),
+                read_md(os.path.join(*mdpath.path, mdpath.name)).replace(
+                    old_link, new_link
+                ),
+            )
+    for mdpath, picpath in matched:
+        if picpath in resources:
+            resources.remove(picpath)
+    for mdpath, picpath in need_modify:
+        if picpath in resources:
+            resources.remove(picpath)
+    for mdpath, picpath in need_move_and_modify:
+        if picpath in resources:
+            resources.remove(picpath)
 
-    def handle_mved():
-        print("mved", mved)
-        for md in mved:
-            for img in md_img[md]:
-                if md.path != img.path and img in res:
-                    filepath = os.path.join(".", *md.path, md.name)
-                    old_link = PREFIX + "/".join(img.path + [img.name])
-                    new_link = PREFIX + "/".join(md.path + [img.name])
-                    old_path = os.path.join(".", RESOURCE_PATH, *img.path, img.name)
-                    new_path = os.path.join(".", RESOURCE_PATH, *md.path, img.name)
-                    new_dir = os.path.join(".", RESOURCE_PATH, *md.path)
-
-                    if not os.path.exists(new_dir):
-                        os.makedirs(new_dir)
-                    assert not os.path.exists(new_path), "命名冲突: " + new_path
-
-                    shutil.move(old_path, new_path)
-                    write_md(filepath, read_md(filepath).replace(old_link, new_link))
-
-                    matched.add(img)
-
-    handle_mved()
-
-    unmatched.update(set([r for r in list(res) if r not in matched]))
-
-    def handle_unmatched():
-        print("unmatched", unmatched)
-
-        if not os.path.exists(STASH_PATH):
-            os.mkdir(STASH_PATH)
-        for r in unmatched:
-            path = os.path.join(".", RESOURCE_PATH, *r.path, r.name)
-            new_path = os.path.join(STASH_PATH, r.name)
-            assert os.path.exists(path)
-
-            shutil.move(path, new_path)
-
-    handle_unmatched()
-
-    print("unlocal", unlocal)
-    print("unfind", unfind)
+    for resource in resources:
+        print(f"冗余资源: resource = {resource.to_resource()}")
 
 
-def cnt():
-    """统计字数"""
-    import string
+def link():
+    """链接探活"""
+    # 链接可以分成两类
+    # 1. 网址
+    # 2. 项目内跳转
+    #    1. 绝对路径
+    #    2. 绝对路径
+    #    上面两个分类都可能通过#进行标题跳转(其中相对路径中可能没有路径直接以#开头)
 
-    cnt_en, cnt_zh, cnt_dg, cnt_pu = (0 for _ in range(4))
-    filepaths = [
-        os.path.join(root, f)
-        for root, dirs, files in os.walk(".")
-        for f in files
-        if f.endswith("md")
-    ]
+    class Link:
+        def __init__(self, file: str, line: int, link: str) -> None:
+            self.file = file  # 链接所属文件路径
+            self.line = line  # 链接在文件的哪一行
+            self.link = link  # 链接本身
 
-    for filepath in track(filepaths):
-        with open(filepath, "r", encoding="utf-8") as f:
-            for line in f:
-                for c in line:
-                    if c in string.ascii_letters:  # 英文
-                        cnt_en += 1
-                    elif c.isalpha():  # 中文: isalpha得到中英文, 但英文已被分支
-                        cnt_zh += 1
-                    elif c.isdigit():  # 数字
-                        cnt_dg += 1
-                    elif c.isspace():  # 空格
-                        pass
-                    else:  # 标点符号
-                        cnt_pu += 1
+        def replace(
+            self,
+            file: str | None = None,
+            line: int | None = None,
+            link: str | None = None,
+        ) -> "Link":
+            if file is None:
+                file = self.file
+            if line is None:
+                line = self.line
+            if link is None:
+                link = self.link
+            return Link(file, line, link)
 
-    print("文章", str(len(filepaths)), "个"),
-    print("字母", str(cnt_en), "个"),
-    print("汉字", str(cnt_zh), "字"),
-    print("数字", str(cnt_dg), "位"),
-    print("标点", str(cnt_pu), "个"),
-    print("共约", str(int(cnt_zh + cnt_en // 6 + cnt_dg // 32)), "字"),
+        def __str__(self) -> str:
+            return str(self.file) + ":" + str(self.line) + " " + str(self.link)
 
+    net_links: list[Link] = []
+    path_links: list[Link] = []
 
-MISC_DIR_PATH = "misc"
-NUTRITION_FILE_NAME = "Nutrition.md"
-NUTRITION_FILE_PATH = os.path.join(MISC_DIR_PATH, NUTRITION_FILE_NAME)
+    def classify(link: Link):
+        def is_abs_path(p: str) -> bool:
+            assert not p.startswith("http"), p
+            if len(p) == 0:
+                return False
+            assert p.count("#") in (0, 1), "防御式编程"
+            p = p.split("#")[0]
+            return os.path.exists(p)
 
-
-def tutrition_check_start_table(line: str):
-    return line == "<!-- table_start -->\n"
-
-
-def tutrition_check_end_table(line: str):
-    return line == "<!-- table_end -->\n"
-
-
-def md2xlsx():
-    pass
-    # with open(NUTRITION_FILE_PATH, "r", encoding="utf-8") as f:
-
-    #     def handle_table():
-    #         xlsx_name_line = f.readline()
-    #         xlsx_name = xlsx_name_line[
-    #             xlsx_name_line.index("<!--")
-    #             + len("<!--")
-    #             + 1 : xlsx_name_line.index("-->")
-    #         ].strip()
-    #         xlsx_file_path = os.path.join(MISC_DIR_PATH, xlsx_name + ".xlsx")
-    #         content = ""
-    #         for line in f:
-    #             if tutrition_check_end_table(line):
-    #                 break
-    #             content += line
-    #         content = content.strip()
-    #         if len(content) == 0:
-    #             workbook = openpyxl.Workbook()
-    #             workbook.save(xlsx_file_path)
-    #             return
-
-    #         data = StringIO(content.replace(" ", ""))
-    #         df = (
-    #             pd.read_csv(data, sep="|", index_col=0)
-    #             .dropna(axis=1, how="all")
-    #             .iloc[1:]
-    #         )
-
-    #         df.to_excel(xlsx_file_path, index=False)
-
-    #     for line in f:
-    #         if tutrition_check_start_table(line):
-    #             handle_table()
-
-
-def xlsx2md():
-    content = ""
-    with open(NUTRITION_FILE_PATH, "r", encoding="utf-8") as f:
-
-        def handle_table():
-            nonlocal content
-
-            xlsx_name_line = f.readline()
-            content += xlsx_name_line
-            xlsx_name = xlsx_name_line[
-                xlsx_name_line.index("<!--")
-                + len("<!--")
-                + 1 : xlsx_name_line.index("-->")
-            ].strip()
-            xlsx_file_path = os.path.join(MISC_DIR_PATH, xlsx_name + ".xlsx")
-            if not os.path.exists(xlsx_file_path):
-                print(f"excell file {xlsx_file_path} is not exists.")
-                exit(-1)
-
-            data = pd.read_excel(xlsx_file_path)
-            data = data.replace("\n", "<br>", regex=True)
-            markdown_table_content = data.to_markdown(index=False).strip()
-            content += markdown_table_content + "\n"
-
-            for line in f:
-                if tutrition_check_end_table(line):
-                    content += line
-                    break
-
-        for line in f:
-            if tutrition_check_start_table(line):
-                content += line
-                handle_table()
+        if len(link.link) == 0:
+            print(f"链接没有网址: link = {link}")
+        elif link.link.startswith("http"):
+            net_links.append(link)
+        elif is_abs_path(link.link):
+            path_links.append(link)
+        elif link.link.startswith("."):  # 相对路径
+            p = os.path.normpath(os.path.join(*link.file.split(os.sep)[:-1], link.link))
+            if is_abs_path(p):
+                path_links.append(link.replace(link=p))
             else:
-                content += line
+                print(f"路径不存在: link = {link}, p = {p}")
+        elif link.link.startswith("#"):  # 锚点
+            path_links.append(link.replace(link=link.file + link.link))
+        else:
+            print(f"无法分类: {link}")
 
-    write_md(NUTRITION_FILE_PATH, content)
+    for filepath in get_all_markdown():
+        with open(filepath, "r", encoding="utf-8") as f:
+            for i, line in enumerate(f, start=1):
+                for link in extract_alllinks(line):
+                    classify(Link(os.path.normpath(filepath), i, link))
+
+    for path_link in path_links:
+        if "#" not in path_link.link:
+            if not os.path.exists(path_link.link):
+                print(f"路径不存在: link = {path_link}")
+        else:
+            assert path_link.link.count("#") == 1
+            p = path_link.link.split("#")[0]
+            if not os.path.exists(p):
+                print(f"路径不存在: link = {path_link}")
+            else:
+                net_links.append(path_link.replace(link=CS_NOTES_PRE + path_link.link))
+
+    def check(url):
+        HEADERS = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+        }
+        try:
+            response = requests.head(url, headers=HEADERS, allow_redirects=True)
+            return response.status_code == 200
+        except Exception as e:
+            return False
+
+    invalid_print_lock = threading.Lock()
+    threads: list[threading.Thread] = []
+
+    def invalid_print(*args, **kwargs):
+        with invalid_print_lock:
+            print(*args, **kwargs)
+
+    def handle(link: Link):
+        if not check(link.link):
+            invalid_print(f"链接失效: link = {link}")
+
+    for net_link in net_links:
+        t = threading.Thread(target=functools.partial(handle, net_link))
+        t.start()
+        threads.append(t)
+
+    for t in threads:
+        t.join()
 
 
 def upload():
+    """上传GitHub"""
+    MESSAGE_FORMAT = "commit by dryads on %s"
     assert os.getcwd().endswith("CS-notes")
     repo = Repo(os.getcwd())
-    last_commit_datetime = repo.head.commit.committed_datetime.replace(tzinfo=None)
-    today_datetime = datetime(
-        year=datetime.now().year, month=datetime.now().month, day=datetime.now().day
+    last_commit = repo.head.commit
+    last_commit_message = str(last_commit.message).strip()
+    last_commit_datetime = last_commit.committed_datetime.replace(tzinfo=None)
+    last_commit_day_datetime = last_commit_datetime.replace(
+        hour=0, minute=0, second=0, microsecond=0
     )
+    today_day_datetime = datetime.now().replace(
+        hour=0, minute=0, second=0, microsecond=0
+    )
+    message = MESSAGE_FORMAT.format(today_day_datetime.strftime("%Y-%m-%d"))
     run_shell_cmd("git status")
     input()
-
     run_shell_cmd("git add .")
-    if last_commit_datetime > today_datetime:
-        run_shell_cmd("git commit --amend --no-edit")
+    if (
+        last_commit_day_datetime != today_day_datetime
+        or not last_commit_message.startswith(MESSAGE_FORMAT.format(""))
+    ):
+        # 上次提交不是今天或者提交不是由dryads产生的, 则提交新信息
+        run_shell_cmd(f'git commit -m "{message}"')
+        run_shell_cmd("git push")
     else:
-        run_shell_cmd(f'git commit -m "{today_datetime.strftime('%Y-%m-%d')}"')
+        # 否则使用上次的提交
+        run_shell_cmd("git commit --amend --no-edit")
+        run_shell_cmd("git push --force")
 
-    run_shell_cmd("git push -f")
 
-
-CMDS = {
-    "cnt": cnt,
-    "img": img,
-    "link": link,
-    "yy": {
-        "md2xlsx": md2xlsx,
-        "xlsx2md": xlsx2md,
-    },
-    "upload": upload,
-}
-
-Dryads(CMDS)
+Dryads(
+    {
+        "wc": wc,
+        "pic": pic,
+        "link": link,
+        "upload": upload,
+    }
+)

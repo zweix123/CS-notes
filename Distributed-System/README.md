@@ -58,7 +58,7 @@
 	>+ A：可用性Availability
 	>+ P：分区容错性Partition tolerance
 
-	+ 来自加州伯克利大学的Eric Brewer的[论文](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.67.6951&rep=rep1&type=pdf)
+	+ 来自加州伯克利大学的Eric Brewer的[论文]()
 	+ 内容：**证明**在**异步**的网络模型中，节点由于没有时钟、仅仅能够根据接收的消息做判断，导致系统只能在一致性、可用性和分区容错性，这三种特性中保证两种
 		+ 这里的一致性是强一致性或者说绝对一致性
 		+ 现实世界不存在绝对异步的网络环境，就算时钟不能相同、但时钟的更新频率可以完全相同
@@ -136,4 +136,4 @@
 
 ### Replicated State Machine
 
-![复制状态机模型](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Distributed-System/Storage/复制式状态机架构.png)
+![复制状态机模型](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Distributed-System/复制式状态机架构.png)

@@ -1,36 +1,10 @@
->concurrency并发，不是coroutine协程，因为GIL的存在，Python的多线程不能真的有多个线程在并行的跑，以至于实际上在并发模型上线程和协程有很多相像之处，所以在一起讨论。
+>Concurrency并发，不是Coroutine协程，因为GIL的存在，Python的多线程不能真的有多个线程在并行的跑，以至于实际上在并发模型上线程和协程有很多相像之处，所以在一起讨论。
 
 # 线程
->第一个多核CPU IBM的Power4出现在2001，而多线程的概念在上个世纪五六十年代就已经出现了，那么这半个多实际的时间多线程在干嘛呢？
+
+>第一个多核CPU IBM的Power4出现在2001，而多线程的概念在上个世纪五六十年代就已经出现了，那么这半个多世纪的时间多线程在干嘛呢？
 
 主要是IO瓶颈问题，当前现在协程也行了，而且协程还没有竞争冒险。但是协程有一个无法回避的问题：必须显式的放权，这在大量IO中没有问题，因为每个task都会频繁的放权，但是在计算密集时，调度就成了问题，在协程中显式的放权会有一些问题（影响代码的优雅、对Task的时间消耗难以估计，如果Task调用其他函数则无法在函数中放权。而多线程则可以自动调度。
-
-## threading.Thread
-
-一种写法
-```python
-class Task(threading.Thread):
-	def __init__(self, ...):
-		...
-		super.__init__()
-	def run(self):
-		...
-
-t = Task(...)
-```
-另一种写法
-```python
-t = Thread(target=一个函数)
-```
-
-<hr>
-
-使用：
-```python
-t.start()  # 放到后台运行，当前线程不阻塞
-
-t.join()  # 阻塞当前线程，等待t的
-```
 
 # 协程
 
@@ -39,7 +13,7 @@ t.join()  # 阻塞当前线程，等待t的
 	+ gevent
 	+ tornado
 
-## Pre: GIL
+## 什么是GIL
 >Global Interpreter lock
 
 + 首先要知道什么是进程和线程
@@ -65,8 +39,7 @@ t.join()  # 阻塞当前线程，等待t的
 	+ C extension（复杂问题在C方面解决）
 	+ 使用没有GIL的Python解释器（Jthon、IronPython）
 
-
-## 基于Generator协程
+## 基于Generator的协程
 >根本没有准备定义，感性理解下吧
 
 + 在Python的语境下，Coroutine两种语义
@@ -99,10 +72,7 @@ t.join()  # 阻塞当前线程，等待t的
 
 `asyncio.gather(若干cotoutine或者task或者future)`返回future类似变量，可以用`await 变量`去建立当前taks对这里所有task的依赖（相当于await的2），并等待所有（相当于await的3）返回时各个task的返回作为一个list返回
 
-### asyncio
-
-
-## 基于greenlet协程
+## 基于greenlet的协程
 
 
 # 进程

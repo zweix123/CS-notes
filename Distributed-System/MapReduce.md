@@ -49,7 +49,7 @@ Google要处理互联网上海量的数据，对于这样数量级的数据，�
 
 >这是一个批处理的工作流
 
-<img alt= "mapreduce figure 1" src = "https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Distributed-System/mapreduce-figure-1.png" width=80%>
+<img alt="mapreduce figure 1" src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Distributed-System/mapreduce-figure-1.png" width=80%>
 
 ### 系统调用
 

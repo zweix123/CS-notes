@@ -38,9 +38,9 @@
 + 格式：16位二进制（65535个）
 + 类型：
 	1. 服务端使用的端口号：
-		1. [wellknown port number熟知端口号/系统端口号](www.iana.org)：0~1023  
+		1. [wellknown port number熟知端口号/系统端口号](https://www.iana.org)：0~1023  
 			![](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Network/常用的熟知端口号.png)
-			可在[这里](www.iana.org)查到，是IANA指派给TCP/IP最重要的应用程序的
+			可在[这里](https://www.iana.org)查到，是IANA指派给TCP/IP最重要的应用程序的
 
 		2. 登记端口号/短暂端口号：1024~49151  
 			需要在IANA上登记避免重复

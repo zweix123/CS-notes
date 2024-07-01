@@ -21,7 +21,7 @@
 
 
 + References：
-	+ [Crafting interpreters](http://www.craftinginterpreters.com/)：全开源，我愿称之为学习编译原理最好的第一本书；[代码](https://github.com/munificent/craftinginterpreters) | [翻译](https://readonly.link/books/https://raw.githubusercontent.com/GuoYaxiang/craftinginterpreters_zh/main/book.json)
+	+ [Crafting interpreters](http://www.craftinginterpreters.com/)：全开源，我愿称之为学习编译原理最好的第一本书；[代码](https://github.com/munificent/craftinginterpreters) | [翻译](http://readonly.link/books/https://raw.githubusercontent.com/GuoYaxiang/craftinginterpreters_zh/main/book.json)
 	+ [Essentials of Compilation](https://github.com/IUCompilerCourse)
 
  

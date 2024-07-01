@@ -142,3 +142,82 @@ pip --help         # [沟通]
 		就行
 
 		值得注意的是，我们发现来自依赖库的报错肯定是这个库本身要求安装的Python版本，如果这是一个你的库，那么像上面那样设置也会导致别人也遇到同样的限制，而使用`^`则宽泛的多
+
+# PyPI
+
+>教程宗旨：以实践的方式了解相关概念，且严守”如彼必要，勿增实体“的原则，对实践需要的概念保证讲清，其他概念可以去官方手册中找。
+
++ 什么是PyPI？通过`pip install 包名`下载的包就是在这里下载的。
++ 有什么值得注意的？
+    + 除了PyPI，还有TestPyPI，两者用法几乎一致，后者顾名思义，就是给测试的项目准备的。
+    + 包名在PyPI或者TestPyPI（两个名称空间）中都是唯一的，不能发布和已经发布的包同名的包（即使大小写不同）
+    + 包的版本号唯一，对于某个特定的版本不能重复发，即使逆序发。
+
+>这里以PyPI为例讲解流程。
+
+本教程使用Poetry进行项目构建和打包，如果不使用该工具，这篇教程可能没有那么好用。
+
+0. 创建PyPI账号并申请token
+    + 有三个名称，username，password，token。
+    + token有对应的”作用域“，建议先创建一个全局的，用来创建项目，然后针对创建好的项目，再创建专门的token
+        + PyPI中创建项目只能通过本地的命令，而不能先通过Web创建。
+    + token是一个以`pypi-`开头的较长的字符，不能通过粘贴板在终端中复制（有对应的方法，只是直觉的，比如使用快捷键，不行，具体看[文档]()），比较长，通常将其放在`$HOME/.pypirc`文件中，格式如下
+
+        ```
+        [distutils]
+          index-servers =
+            pypi
+            项目名1
+            项目名2
+        
+        [pypi]
+          username = __token__
+          password = 全局token
+        [项目名1]
+          repository = https://upload.pypi.org/legacy/
+          username = __token__
+          password = 项目1的token
+        ...
+        ```
+
+1. 定义项目，项目结构格式如下
+
+    ```
+    项目根目录/
+    ├── LICENSE
+    ├── pyproject.toml
+    ├── README.md
+    ├── src/
+    │   └── 包名/
+    │       ├── __init__.py
+    │       └── example.py
+    └── tests/
+    ```
+
+    + `pyproject.toml`使用poetry去init项目时自动生成。
+
+2. 构建打包项目
+
+    ```
+    poetry build
+    ```
+
+    + 在项目下创建`dist`目录，下面包含一个`.tar.gz`文件和一个`.whl`文件
+
+3. 上传到PyPI：
+
+    ```
+    python3 -m twine upload --verbose --repository pypi dist/*
+    ```
+
+    + 之后更新使用命令，下面的`项目名`指的是在`.pypirc`中定义的项目名，记得更新`pyproject.toml`中的版本（还记得版本只能唯一么）并打包。
+
+    ```
+    python3 -m twine upload --verbose --repository pypi dist/* 项目名
+    ```
+
+4. 现在也能通过`pip`下载这个库了。
+
+5. 通常，是在GitHub开发，怎么在某些时机（push或者merge）时自动去PyPI上更新呢？
+
+## GitHub流水线与PyPI

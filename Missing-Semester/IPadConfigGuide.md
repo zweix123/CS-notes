@@ -1,6 +1,6 @@
 + 个人在购入IPad的发心是作为小型笔记本嵌入学习工作流，但遇到关键问题“IPadOS是不是macOS且大概率以后也不会”，导致IPad作为一个Coder的生产力工具非常尴尬。只能以非常别扭的姿势完成一些东西。故放弃，只作为非常专门的功能。
 
-+ 基本配置：同macOS，[笔记](./macConfigGuid.md)。
++ 基本配置：同macOS，[笔记](./macConfigGuide.md)。
 
 ## 网络
 

@@ -14,7 +14,7 @@
 
 ## Use
 
-[Keyboard](Missing-Semester/Keyboard.md#VSCode)
+[Keyboard](./keyboard.md#vscode)
 
 ## Config
 
@@ -29,6 +29,8 @@
 + 如果VSCode下载后，Shell依然找不到`code`命令，可以打开VSCode快捷键`Command + Shift + P`打开命令行，输入install，选择`Shell Command: Install 'code' commands in PATH`
 
 + 设置同步：UI左下角齿轮图标中的`Settings Sync is On`，自动同步。
+    + 规则：云上配置、端的配置，当一个端打开VSCode时，其配置将会被云上配置覆盖；当端修改配置时，会上传到云上。
+        + 但我遇到这样的场景：针对插件，当活跃的一端删除时，删除后，另一段打开，并不会删除，返回删除的端再打开会下载回来。
 + 关闭受限模式：打开设置，键入`trust`
 
 	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/vscode受限模式关闭.png" style="zoom:59%;" div align=center />
@@ -82,23 +84,21 @@
 
 + [Config](#config)：
     + Atom One Dark Theme
+    + One Dark Pro
     + vscode-icons
-    + FiraCode font
+    + FiraCode font - Professional Font for Developers
 
 + 远程开发：VSCode较于JB家的IDE值得说的优点就是远程开发功能了，我们假设你本机是win，无论是那么当你需要Linux环境（无论时WSL、服务器还是虚拟机）时，都推荐使用SSH（服务器肯定是SSH，WSL我个人没有用过，虚拟机虽然相当于完整机器但是仍然建议通过SSH过去开发），而VSCode的Remote插件可以达到一个很自然的开发流程和体验。
     + Remote - SSH：远程开发必备
         + Remote - SSH: Editing Configuration Files
         + Remote Explorer
 
-+ Docker：与远程开发类似
-    + Docker
-    + Dev Containers
-
 + 文件支持：
     + JSON：默认提供
     + YAML：
         + YAML
     + TOML：
+        + Even Better TOML
     + Makefile：
         + Makefile Tools
     + CMake：
@@ -129,8 +129,6 @@
         + CMake Tools
     + llvm相关：
         + clangd：好用
-        + Clangd-Format：好用
-        + CodeLLDB：听说好用
     + Better C++ Syntax
     + cmake
         + 上面提到的CMake Tools
@@ -147,7 +145,7 @@
 + Web：
 	+ Auto Rename Tag：补全
 	+ Live Server：启动服务渲染页面
-	+ Thunder client：HTTP Client，对比postman
+	+ Thunder client：HTTP Client，类似postman
 
 + Markdown：[我的MarkDown笔记](./Markdown.md)
     + Markdown All in One：Yes，All in One
