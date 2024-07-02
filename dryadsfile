@@ -363,7 +363,7 @@ def link():
 
 def upload():
     """上传GitHub"""
-    MESSAGE_FORMAT = "commit by dryads on %s"
+    MESSAGE_FORMAT = "commit by dryads on {}"
     assert os.getcwd().endswith("CS-notes")
     repo = Repo(os.getcwd())
     last_commit = repo.head.commit
