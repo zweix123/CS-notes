@@ -113,3 +113,9 @@ https://snapdrop.net/
 上面是键鼠共享，系统、算力都是各自的，但是这个是指定其他设备作为副屏
 
 ## win向ipad键鼠共享：向日葵app
+
+## 平板做PC的数控板
+
+https://github.com/H-M-H/Weylus
+
+无敌了，PC跨平台，移动端非侵入式。
