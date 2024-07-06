@@ -37,7 +37,7 @@
 + 管道：
 + `xargs`：
 
-更多见[Shell 编程](Programing-Language/Bash.md)
+更多见[Shell 编程](Programming-Language/Bash.md)
 
 ## 开发必要软件使用
 

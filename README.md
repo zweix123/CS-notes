@@ -4,7 +4,6 @@
 <a href="#锚点">链接</a>
 -->
 
-
 ## 声明
 
 + 该项目是我个人的笔记，部分会刻意制作成Blog，但大部分仍然是我个人的Note，除非特殊声明，否则不建议作为学习资料。
@@ -13,6 +12,22 @@
 + 文中所有内容，与本人现在，之前或者将来的雇佣公司或组织无关。
 + 本人保留自省的权力，即你看到的内容不一定代表本人最新的认知和观点。
 + 项目下所有文章除特别声明外，均采用[CC BY-NC-SA 协议](https://creativecommons.org/licenses/by-nc-sa/4.0/)，转载请严格准守。
+
+## 说明
+
+关于本项目文件结构
++ 大部分以学科为名作一级子目录，比如Algorithm（数据结构与算法）、Compiler（编译原理）、Database-System（数据库）、Distributed-System（分布式系统）、Math（数学）、Network（计算机网络）、Operating-System（操作系统）
+    + Programming-Language（编程语言）：语言相关，前端相关几种语言放在Fonted二级子目录中；除了之外还有部分静态分析的东西
++ Interdisciplinary（交叉学科）
+    + 人工智能
+    + 量化
+    + Web3
++ blog：推荐给同学们看的
++ misc：不推荐的
++ MIssing-Semester的
+
+
+
 
 ## 链接
 
@@ -42,7 +57,7 @@
 ## 输出
 
 + [博客](./blog/README.md)：只赠有缘人
-+ [面经](./recruit/README.md)：只赠有缘人
++ [面经](blog/recruit/README.md)：只赠有缘人
 + 开发机配置指南：正所谓工欲善其事必先利其器，这真不是差生文具多，是实打实的生产力提升。
 
     + [Windows开发机配置指南](./Missing-Semester/WindowsConfigGuide.md)：如题
