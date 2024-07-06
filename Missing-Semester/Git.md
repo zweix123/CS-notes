@@ -20,6 +20,8 @@ git config --global user.name xxx  # 设置全局用户名
 git config --global user.email xxx@xxx  # 设置全局邮箱地址
 ```
 
++ 这里全局的，在Git维护的现实下使用上面的命令且不使用标志`--global`可单独为该项目设置，信息存储在`项目根目录/.git/config`中。
+
 必选设置
 ```bash
 # 设置语言, 不然语言显示的是乱码(Win and Mac)

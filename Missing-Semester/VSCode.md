@@ -166,6 +166,7 @@
 + 其他：
     + Project Manager：VSCode是围绕项目的，该插件会出现在Explorer上面，用于在不同项目之前跳转，虽然我基本不用，将是Explorer图标太靠上了，用Project Manager的图标占位。
     + Better Comments：注释增强，TODO的高亮之类的。
+    + AutoCorrect：中文拼接与格式检测
 
 #### Copilot
 
