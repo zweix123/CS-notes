@@ -1,6 +1,6 @@
 ## 招聘感悟
 
-见[该项目blog子目录](../blog/)下部分文章
+见[该项目blog子目录](../../blog/)下部分文章
 
 ## 数据统计
 
@@ -66,7 +66,7 @@
 	+ 拓竹：据说2023年真挣钱了，行业龙头，实习都能给到1w，都能给年终。
 + 其他：智元机器人、达坦科技、risingwave
 + 量化：正定、天王星、Optiver、HRT、思勰、博普、乾象、碟威、衍复、富途、拾贝、宽德、Jane Street、牵星科技、非凸、佳期、metabit、九坤、世纪前沿、远澜
-	![China Quant](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/recruit/China-Quant.jpg)
+	![China Quant](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/blog/recruit/China-Quant.jpg)
 
 <!--
 # 启思码二面

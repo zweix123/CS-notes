@@ -108,4 +108,4 @@ body
 ```
 
 ### 语义标签
-<img alt="img_sem_elements.gif" src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Frontend/语义标签.gif" style="cursor: pointer;">
+<img alt="img_sem_elements.gif" src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Programming-Language/Frontend/语义标签.gif" style="cursor: pointer;">
