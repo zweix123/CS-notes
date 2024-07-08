@@ -204,6 +204,25 @@
 
 ### 广义存储
 
++ 谷歌三件套
+    + MapReduce
+    + GFS
+    + BigTable
+        + LevelDB
+            + RocksDB
+
+    上一个时代的批处理分布式系统Hadoop和HBase就分别是MapReduce和BigTable的开源实现
+
++ 一致性协议：
+    + Raft
+        + ectd：Raft的开源实现
+    + Zookeeper
+        + Zookeeper：Zookeeper的开源实现
+    + Paxos：世界上只有一种分布式协议，那就是Paxos
+
++ Spanner
++ Ceph
+
 #### 数据库
 
 + [x] 王珊、萨师煊的《数据库系统概念》（第五版）：教材
