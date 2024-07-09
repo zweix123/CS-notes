@@ -8,3 +8,10 @@
         + 存储使用RocksDB
             + 主从复制：使用RocksDB CheckPoint+WAL来实现全量和增量同步
         + 协议解析使用Libevent网络库
+
+
+## Codis->Kedis方案
+
+VIP -> Proxy -> gossip with redis custer：希望业务就像访问单个实例一样访问集群，实际情况？
+
+使用LVS -> proxy
