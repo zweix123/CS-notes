@@ -121,6 +121,11 @@
         + isort：import排序相关，需要配置
     + 类型提示：
         + Mypy Type Checker：库mypy
+    + Jupyter
+        + Jupyter Keymap
+        + Jupyter Notebooks Renderers
+        + Jupyter Slide Show
+        + Jupyter Cell Tags
 
 + [C++](#cc)
     + C/C++ Extension Pack
