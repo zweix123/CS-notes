@@ -173,7 +173,7 @@
     + Better Comments：注释增强，TODO的高亮之类的。
     + AutoCorrect：中文拼接与格式检测
     + Compare Folder：重大升级！非常好用！
-
+    + Wakatime：统计编程情况
 #### Copilot
 
 我也不知道为啥我有资质，因为VSCode和Github都是微软家的，用起来好方便啊！
