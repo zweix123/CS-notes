@@ -236,66 +236,133 @@
 
 ### C/C++
 
->得益于Scoop，我们在win下也有了好用的包管理器，所以我们在win下的开发体验已经和linux下类似，区别只在需要系统调用或者依赖软件不能跨平台时，所以下面的配置应该是跨平台的。
++ Ref：
+    + [Bilibili · 等疾风 · 【VS Code】四年功力 一刻掌握 速通C++插件/终端美化/工程管理 懒人必备](https://www.bilibili.com/video/BV1YG4y1v7uB/?vd_source=4ee99d4ebd507c7277fa312ed28dbdda)
 
-+ 虽然但是，还是推荐这个视频 [Bilibili · 等疾风 · 【VS Code】四年功力 一刻掌握 速通C++插件/终端美化/工程管理 懒人必备](https://www.bilibili.com/video/BV1YG4y1v7uB/?vd_source=4ee99d4ebd507c7277fa312ed28dbdda)
++ 软件安装：
+    + Unix：对应包管理器，比如Ubuntu的apt，macOS的brew
+    + Win：Scoop
 
 + 环境依赖：
-	+ 构建工具：`make`、`cmake`
-	+ 编译工具：
-		+ GNU：`gcc`、`g++`
-		+ LLVM：`clangd`、`clangd`、`clang-format`
-			+ `clangd`建议使用[VSCode clangd manual](https://clangd.llvm.org/installation.html)的方法下载
-	+ 调试工具：
-		+ GNU：`gdb`
-		+ LLVM：`lldb`
+    + 构建工具：cmake、make
+    + 编译工具：
+        + gcc
+    + 调试工具：
+        + gdb
+
+        据说lldb更快，但是我没有使用过
+
+    + 其他（但很重要）
+        + 代码提示：clangd：推荐使用[VSCode clangd doc](https://clangd.llvm.org/installation.html)的方法下载
+        + 代码格式化：clangd-format
 
 + 插件：
-	+ `g++`：`C/C++`、`C/C++ Extension Pack`
-		+ 对应配置文件为`./.vscode/c_cpp_properties.json`
-	+ `clang`：`clangd`、`Clang-Format`、`CodeLLDB`
+    + C/C++ Extension Pack（依赖C/C++、C/C++ Themes、**CMake Tools**）
+        + 对应的配置文件为`.vscode/c_cpp_properties.json`
+        + 该插件并非提示与跳转的主力，下面的clangd才是，两插件有冲突，经验上看，将下面三个属性设置为Disabled
+            + `Intelli Sense Engine`
+            + `Autocomplete`
+            + `Error Squiggles`
+    + clangd
+    + Clang-Format
+    + CMake Tools（已经随C/C++ Extension Pack一起下载）：该插件集成构建、编译、调试和测试
+        + 底部状态栏有相应的按钮
+        + 左边活动栏有相应的图标
 
-	两插件冲突，这部分使用clangd的，将下面三个属性设置为`Disabled`
-	```
-	Intelli Sense Engine
-	Autocomplete
-	Error Squiggles
-	```
+        上面两个位置的状态可定制，详情见选择`cmake.options.statusBarVisibility`
 
-+ 文件`compile_commands.json`：`clangd`的名称跳转需要通过这个文件，该文件通常由`cmake`生成（在Linux下也有命令`bear`可生成），但是cmake生成的文件通常在构建目录下（通常命名为`build`），需要额外设置，因为`clangd`默认是从项目根目录找。
+    如果使用lldb进行调试，则需要插件CodeLLDB，但是我没有使用过
 
-	关键字`clangd.arguments`，添加`--compile-commands-dir=build`
++ 前置知识：
+    + compile_commands.json：clangd的功能依赖该文件
+        + cmake生成
+        + bear生成
 
-	+ 还有其他参数
-		```json
-		"clangd.arguments": [
-			// "--query-driver=clang",
-			"--completion-style=detailed",  // 提示风格
-			"--header-insertion=never",  // 不自动添加头文件
-			"--clang-tidy",  // 启用tidy，但是只要项目下有.tidy文件基本都会启用
-		],
-		// 疑似如果项目没有构建文件时头文件的查找路径, 个人没有使用过
-		// "clangd.fallbackFlags": [
-		// 	"-I头文件路径"
-		// ],
-		```
- 
-+ cmake有代码`target_compile_options(... "-Werror" ...)`，这里表示把warning当error，这在某些项目中可能出现有很多的warning，但是项目可运行，但是在clangd这里，把warning当error了，如果文件大起来，前的的error太多了，会导致它不在处理后面的代码。而官方的`C/C++`插件似乎不受这影响。我是开发时把这个参数注释掉，修改后记得重新生成compile_commands.json文件。
+        通常将该文件放在构建目录下（构建目录通常命名为build），需要额外设置，因为clangd默认从项目根目录找
 
-+ cmake tool：该插件集成构建、编译、调试和测试，一般情况仅用该插件即可满足需求，两种用法
-	1. 底部状态栏有相关对应的按钮
-	2. 左端状态栏有CMake可实现同样的功能（可能不可见，右键找到CMake打勾）
+        关键字`clangd.arguments`，添加`--compile-commands-dir=build`
 
-	在该插件某个版本前后，提供对上面两种用法更定制化的选项，详情可见选项`cmake.options.statusBarVisibility`
++ 调试：上面提到，cmake插件基本可以满足所有开发需求，但是有些项目或者单文件，CMake Tools不可用，则返璞归真
 
-	+ CMake自动执行，当项目下有CMakeLists.txt文件时，默认状态下，打开VSCode、保存CMakeLists.txt和kit or the configuration preset is changed时都会默认执行，这里取消，通过命令`cmake debug`手动执行。
+    + 前置知识：
+        + `.vscode/tasks.json`：构建/编译任务，在这里配置如何编译出可执行文件
+        + `.vsocde/launch.json`：启动调试，在这里配置如何如何启动调试器（比如制定可执行文件位置或者执行参数）
+        + 文档：
+            + 内次变量：[所有的变量](https://code.visualstudio.com/docs/editor/variables-reference)
 
-+ debug：对于特定的项目或者单文件，cmake tool不可用，此时只能返璞归真
-	1. `./vscode/tasks.json`：构建/编译任务，在这里配置如何编译出可执行文件
-	2. `./vscode/launch.json`：启动调试，在这里配置如何启动调试器
+    下面是示例与说明
 
-	+ 你可能需要：
-		+ VSCode有很多内置的变量，这里有[所有的变量](https://code.visualstudio.com/docs/editor/variables-reference)
+一些变量
+```
+${workspaceFolder}: 项目根目录
+${fileDirname}: 当前文件所在路径
+```
+
+```json
+// tasks.json
+{
+    "version": "2.0.0", // 指定配置文件的版本, 确保与VSCode调试器兼容, 一般选择2.0.0
+    "tasks": [ // 如果构建包含多个任务，则划分成多个元素
+        {
+            "type": "shell", // VSCode选择哪类执行器, 一般选择shell, 其他的还有process(直接作为一个进程执行命令)
+            "label": "任务名称",
+            "command": "任务使用的命令",
+            "args": [
+                "参数1",
+                "参数2"
+            ],
+            "options": {
+                "cwd": "${fileDirname}" // 任务执行的目录
+                // 还可以添加环境变量等
+            },
+            "problemMatcher": [ // 用于将任务输出映射到问题的错误和警告的匹配器, 即将输出的错误信息映射到VSCode的问题面板
+                "$gcc" // 通常选择这个, 其他的我也不懂
+            ],
+            "group": {
+                "kind": "build", // 有三种选择: build, test, none
+                "isDefault": true // 默认
+            },
+            "detail": "任务说明"
+        }
+    ],
+}
+```
+
+```json
+// launch.json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0", // 指定配置文件的版本, 确保与VSCode调试器兼容, 一般选择2.0.0
+    "configurations": [ // 多个可选的调试
+        {
+            "name": "调试名称",
+            "type": "cppdbg", // 调试器类型, 还有python, node, go
+            "request": "launch", // 请求类型, 有launch(启动新调试会话)和attach()还有run(只执行，不调试)
+            "program": "调试可执行文件路径", // 可以使用变量进行拼接
+            "args": [], // 可执行文件的参数
+            "stopAtEntry": false, // 是否在程序入口处停止
+            "cwd": "${fileDirname}", // 程序运行时的工作目录
+            "environment": [], // 环境变量
+            "externalConsole": false, // 是否使用外部控制台运行程序，false表示在VSCode的集成终端中运行。
+            "MIMode": "gdb", // 调试器的机器接口模式, 还有lldb
+            "miDebuggerPath": "调试器可执行文件路径",
+            "setupCommands": [ // 表示会话开始时, 要执行的调试器命令
+                {
+                    "description": "描述",
+                    "text": "调试器命令",
+                    "ignoreFailures": true // 是否忽略命令执行失败
+                }
+            ],
+            "preLaunchTask": "调试前执行的任务的名称, 即label",
+        }
+    ]
+}
+```
+
++ 其他实践
+    + cmake有代码`target_compile_options(... "-Werror" ...)`，这里表示把warning当error，这在某些项目中可能出现有很多的warning，但是项目可运行，但是在clangd这里，把warning当error了，如果文件大起来，前的的error太多了，会导致它不在处理后面的代码。而官方的`C/C++`插件似乎不受这影响。我是开发时把这个参数注释掉，修改后记得重新生成compile_commands.json文件。
 
 ### Go
 
