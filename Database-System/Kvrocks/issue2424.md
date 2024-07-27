@@ -1,3 +1,5 @@
+该文档废弃，在这里[Discussios · Difficulties in designing documents for Top-K data structures and commands #2449](https://github.com/apache/kvrocks/discussions/2449)做进一步讨论。
+
 [Support Top-K data structure and commands #2424](https://github.com/apache/kvrocks/issues/2424)
 
 # 前置调研
@@ -131,10 +133,8 @@ $$
 
 论文提到的性能优化，有两个问题，怎么找到Top-k的最小值，阈值怎么选择。所以还是使用小根堆。
 
-因为可以使用数组实现小根堆，所以有两个方案
+即需要数据结构为：哈希表列表
 
-+ 哈希表列表+小根堆
-+ 哈希表列表+数组
 
 ## 命令设计
 
