@@ -1,42 +1,47 @@
-## TLDR
+# SSH
 
-+ 生成密钥：
-    ```bash
-    ssh-keygen
-    ```
++ 基本前置知识：
+    + 非对称加密：私钥生成公钥，公钥不能反推私钥，只有私钥可以匹配公钥
+        + 作为SSH的客户端，即我们本地的机器，拥有私钥；将对应的公钥放在SSH的服务端上（比如云服务器，比如Github），这样当我们向服务端连接的时候，对方可以识别我们的身份。
 
-+ 将公钥上传到服务器
-    ```bash
-    ssh-copy-id 服务器别名
-    ```
 
-## ssh
++ 配置目录路径：
+    + Win：`C:\User\$用户名\.ssh\`
+    + Unix：`~/.ssh/`
 
-+ 功能：
-	+ 连接服务器
-	+ 使用代码托管平台
-
-+ 配置目录：`C:\User\$用户名\.ssh\`（Windows）、`~/.ssh/`（Linux）
-	```
-	├── authorized_keys
-	├── config
-	├── id_rsa
-	├── id_rsa.pub
-	├── known_hosts
-	└── known_hosts.old
++ 配置目录内容：
+	```bash
+	├── authorized_keys  # 服务端存储客户端公钥的文件, 按行划分
+	├── config           # 客户端SSH配置
+	├── id_rsa           # 私钥, 一定不要公开
+	├── id_rsa.pub       # 公钥, 放在服务端的就是这个
+	├── known_hosts      # 记录本机ssh到的机器（包括云服务机和Github）, 不用管理
+	└── known_hosts.old  # 同上
 	```
 
-	+ `id_rsa`和`id_rsa.pub`：使用RSA加密算法的公钥和秘钥。
-		+ 生成命令：`ssh-keygen`，之后一路回车
+## Server
 
-		+ 应用：
-			+ 将公钥内容放在服务器的`authorized_keys`中即可实现免密登录
-				1. 方法一：手动copy，多个秘钥用回车隔开
-				2. 方法二：本机使用命令添加公钥：`ssh-copy-id 服务器别名`
-			+ 将公钥内容放在Github用户的Setting的SSH keys中即可向该用户的项目中push  
-				`Setting -> SSH and GPG keys -> New SSH key -> 拷贝公钥`
+<!--
+1. 生成上述目录
+    ```bash
+    ssh-keygen && touch ~/.ssh/authorized_keys ~/.ssh/config  # 之后一路回车+y
+    ```
+-->
 
-	 + `config`：为云服务机配置别名
+## Client
+
++ 普通连接：`ssh 用户名@IP地址`
+
+1. 生成密钥：`ssh-keygen`，然后一路回车
+2. 将密钥放在服务端上：
+    - 将公钥内容放在服务器的`authorized_keys`中即可实现免密登录
+        - 方法一：手动copy，多个秘钥用回车隔开
+        - 方法二：本机使用命令添加公钥：`ssh-copy-id 服务器别名`
+    - 将公钥内容放在Github用户的Setting的SSH keys中即可向该用户的项目中push：`Setting -> SSH and GPG keys -> New SSH key -> 拷贝公钥`
+        - 测试方法：`sh -T git@github.com`
+
+- `config`文件：
+    - 功能一：为云服务机配置别名
 
 		```
 		# 格式
@@ -45,11 +50,12 @@
 			User 登录用户
 			Port 端口  # 不必须
 		```
+		
 		必须Tab缩进，多个服务器别名用空行分开
-  
-	 + `authorized_keys`：如上所述
 
-	 + `known_hosts`和`know_hosts.old`：记录本机ssh到的机器（包括云服务机和Github）
+## Server
+
+# 其他相关命令
 
 ## 文件传输：`scp`、`sshpass` and `ftp`
 

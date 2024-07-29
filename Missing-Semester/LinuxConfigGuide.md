@@ -1,5 +1,15 @@
 # LinuxConfigGuide
->Linux有众多发行版、机器也分云服务器、虚拟机和物理机，该指南并没有限制某种机器，对独属于某种机器的问题会单独说明，请读者选择对您有帮助的部分
+>Linux有众多发行版、机器也分云服务器、虚拟机和物理机，该指南并没有限制某种场景，对独属于某种场景的问题会单独说明，请读者选择对您有帮助的部分。
+
++ 笔者使用该指南搭建的Linux发行版有：
+    + Ubuntu：20.04，22
+    + Centos：6.7
+    如何查看Linux发行版和版本：
+
+    ```bash
+    uname -a
+    lsb_release -a
+    ```
 
 ## 0.机器检查
 
@@ -9,35 +19,30 @@
 	+ 外网：`ping www.youtube.com -c 4`
 
 ## 1.创建用户
-
->建议为机器创建非root用户，后续使用在非root用户中
+>建议为机器创建非root用户，后续使用也在非root用户中，如果当前用于已经是非root用户，则不需要创建
 
 ```bash
 adduser 用户名 # 创建用户
 # 需要填写密码、重复密码以及其他信息，其他信息无脑回车即可，最后Y确认
-usermod -aG sudo 用户名 # 给用户分配sudo权限
-# 用户在第一次使用sudo时要求输入root用户密码
 passwd 用户名 # 修改用户密码, 这种方法也可以修改root用户
+hostname 用户名  # 修改主机名, 需要重启终端才可以查看修改
 
-# hostname 主机名  # 可修改主机名, 需要重启终端才可以查看修改
+# 给用户分配sudo权限
+usermod -aG sudo 用户名  # Ubuntu
+usermod -aG wheel 用户名  # Centos
 ```
 
 ## 2.配置SSH
 
 [我的SSH笔记](./SSH.md)
 
-1. 配置：
-	```bash
-	ssh-keygen && touch ~/.ssh/authorized_keys ~/.ssh/config  # 之后一路回车+y
-	```
++ 需要配置的部分（具体配置操作见上面链接）
+    + 服务器配置：
+    + 本地（连接服务器）的配置
+        1. 为服务器配置别名
+        2. 在服务器上传密钥
 
-2. **将公钥放置到GitHub上**  
-	+ 测试：
-		```
-		ssh -T git@github.com
-		```
-
-## 3.修改软件源
+## 3.修改软件源（只在Ubuntu使用过）
 
 + 源位置：`/etc/apt/sources.list`
 
