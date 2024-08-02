@@ -367,7 +367,8 @@ ${fileDirname}: 当前文件所在路径
 ### Go
 
 + 插件：[别忘了Go和VSCode都是微软家的](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)
-
+    + 修改format tool：打开设置页，搜索`Go: Format Tool`，选择
+    + 添加hint：添加设置：`"go.lintTool": "golangci-lint"`
 + 当使用Ctrl/Command+鼠标左键进行跳转时，由于Golang的库通常是网络路径，VSCode会将其识别成网络，此时的跳转变成了跳转链接，但是我们实际上是希望文件跳转，则在settings.json（我通常是在项目下）添加
     ```json
     "[go]": {

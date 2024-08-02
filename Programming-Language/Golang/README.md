@@ -1,28 +1,43 @@
 ## Install
-按照[Manual](https://go.dev/doc/install)操作即可。
+1. 用当前系统常用的包管理器
+2. 按照[Manual](https://go.dev/doc/install)下载
 
 ## Config
 
-```bash
-go env -w GO111MODULE=on
-go env -w GOSUMDB=off
-```
+`go help env`查看什么是Go环境变量
 
-```bash
-go env -w GOPROXY=???
-```
++ 关于Go环境，建议讲对应变量设置在环境变量中（`export`语句放在rc文件里），而不是通过`go env -w`语句设置。
 
-### Go的依赖管理
++ Go环境变量：`GO111MODULE`，应该默认为`on`，如果不是，请设置。
++ Go环境变量：`GOPROXY`，代理，通常是需要设置的。
+    + 国内官方：`https://goproxy.io,direct`
 
-## Command
+## Go Command
 
-+ Ref：
-    + [GO 命令教程](https://docs.kilvn.com/go_command_tutorial/)
+`go help`
 
-## Go项目文件结构
+## Go Project Structure
 
-+ Ref：
-    + [Standard Go Project Layout](https://github.com/golang-standards/project-layout/blob/master/README_zh.md)
+[Standard Go Project Layout](https://github.com/golang-standards/project-layout/blob/master/README_zh.md)
+
+## Go Style
+
++ [Uber Go Style Guide](https://github.com/xxjwxc/uber_go_guide_cn?tab=readme-ov-file)
+    + 配置：[VSCode](../../Missing-Semester/VSCode.md#Golang)
+        + 推荐使用`goimports`，更熟悉`gofmt`，实际上，`goimports`是`gofmt`的扩展。
+        + 推荐使用`golangci-hint`，虽然Go已经把代码规范写在编译器里了，但是这个可能有更严格的代码规范，比如类似警告变错误这种。
+    + `nil`是一个有效的`[]Slice`
+
+### 名称命名规范
+
++ Go在语法层面通过名称首字母的大小写控制来控制是否**导出**
+
++ 项目名：小写，使用中划线划分单词
++ 文件名：小写，使用下划线划分单词
++ module名：使用反向域名，规范同项目名
++ package名/目录名：小写不使用下划线，package名和目录相同
++ 其他（接口名/结构体名/函数名/变量名）：使用驼峰命名法作为基本规范
+    + 常量：全大写使用下划线
 
 ## 槽点
 
