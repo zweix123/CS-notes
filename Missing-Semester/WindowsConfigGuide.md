@@ -1,8 +1,8 @@
-# Windows机器开发机配置指南
+# Windows机器开发机配置指南【已完结】
 
 + 精华：
 	+ [命令行](#5.命令行)：为Windows配置一个相当优雅的命令行环境，让你在win中有近似unix-like系统中的命令行体验
-	+ [包管理器Scoop](#6包管理器scoop)：十分建议您千万不要错过这样一款包管理器，它极大的改善了我的开发环境
+	+ [包管理器Scoop](#6.包管理器scoop)：十分建议您千万不要错过这样一款包管理器，它极大的改善了我的开发环境
 
 # 前言
 
@@ -44,10 +44,9 @@
 	+ 系统可能会默认下载一些软件，比如视频或音乐软件，这些通常下载在C盘，我都是卸载然后如果需要再重新安装
 	+ 简约风格，扫描一下桌面把不需要的东西去掉，甚至背景都换成黑色
 
-
 + 导入备份：数据目录
 
-+ [键盘相关设置](./keyboard.md)：包括键位和输入法。
++ [键盘相关设置](Missing-Semester/Keyboard.md)：包括键位和输入法。
 
 + 文件的查看：
 	+ 打开文件扩展名
@@ -80,78 +79,92 @@
 
 ## 1.浏览器Chrome
 
-### Edge
-
-由于工作原因在部分机器上使用Edge，不过现在Microsoft Edge也是Chromium内核，可以直接同步。
-
-+ Edge在win上默认每个选项卡是一个窗口，很反直觉，解决方案如下：
-	+ win10：`设置` -> `系统` -> `多任务处理` -> `Alt + Tab`，打开就知道了。
-	+ win11：`设置` -> `系统` -> `多任务处理` -> "对齐或按Alt + Tab时显示应用中的标签页"改为"不显示选项卡"。
-
----
-
-Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息和配置。
-
-+ Chrome默认安装C盘：不处理，软件位置右键快捷方式查看位置
-+ 谷歌需要人工验证：使用插件Header Editor（[教程](https://blog.azurezeng.com/recaptcha-use-in-china/)）
-	```
-	https://azurezeng.github.io/static/HE-GoogleRedirect.json
-	```
-
-+ 插件推荐：
-    >这里做通用性的推荐，专业功能的插件可能没有在这里记录。
-
-    + 被动技能：
-        + Header Editor：如上
-        + GNOME Shell集成：忘记干啥的了，感觉是默认的，不敢删除，懒的查
-        + 标签分组扩展：无敌好用
-
-    + Buff技能：
-        + 键鼠：
-            + crxMouse Chrome手势：前进后退、顶部底部、链接图片打开
-            + Vimium：Vim用户的福音，嘎嘎好用
-        + AI：
-            + New Bing Anywhere
-    + 主动技能：
-        + 油猴脚本：
-            + 
-        + 身份验证器：用于Github等平台的双重认证
-        + 翻译：
-            + 默认翻译：简单阅览网页时使用
-            + 划词翻译：
-            + 沉浸式翻译：不能确定其功能是否cover划词翻译，其主要是可以网站全文翻译且保留原文原样式
-            + Youtube字幕翻译：
-        + Zotero：
-            + Zotero Connector
-        + 信息收集：
-            + RSSHub Radar
-            + Feedly Mini
-            + Cubox
+我的所有机器（任何操作系统）都使用Chrome作为浏览器，所以忽略平台汇总在一处，这是[跳转链接](./README.md#浏览器-chrome)。
 
 ## 2.解压缩7z
 一款简单的解压缩软件
 
-+ win11似乎不需要额外的解压缩软件
++ win11不需要额外的解压缩软件
 
 ## 3.科学上网Clash
-懂得都懂
->记得软件安装包和梯子的备份
 
-+ 配置：
-	+ 开机自启动
-	+ `F2`作为开关System Proxy的快捷键
+所有的机器都需要代理，我在所有平台使用的都是Clash系列，操作大差不差，且配置互通，所以忽略平台汇总在一处，这是[跳转链接](./README.md#代理-clash系)。
 
 ## 4.笔记软件Obsidian
 
-该软件跨平台，我在Windows、Linux、macOS甚至iPadOS上使用它，所以这里仅记录和Windows相关的内容（下载），其他（为什么选择它以及其他操作）放在[我的Markdown笔记](./Markdown.md#Editor)
-
-+ 安装：Obsidian默认安装C盘：不处理，软件位置右键快捷方式查看。
-
-	该软件是围绕项目的，一个项目的相关配置放在项目目录下的`.obsidian`目录中。而这部分配置文件放在对应的项目下，所以不占C盘空间。
+该软件是跨平台的，所以汇总在一处，这是[跳转链接]()。
 
 ## 5.命令行
 
-[Windows命令行](./TerminalConfigGuide.md#windows)
+### 5.0.前置知识
+
+值得强调的，在win11中Windows Terminal（下面会提到）是默认安装的，快捷键`win + r`键入`wt`即打开一个软件，它的样子是属于Windows Terminal的，但是"内核"使用的cmd这个Shell，同样这个”内核“是可以替换的，我们下面会将其替换成Powershell7。
+
++ 为什么要配置命令行？
+	+ 功能上
+		+ win上的命令行并不优秀（至少cmd是这样的），比如查看当前目录文件的命令`ls`，cmd是不支持的
+		+ 有些扩展功能比如历史命令补全是非常好用、非常提高生产力的，很有必要添加这种功能
+	+ 样式上
+		+ 真的会好看很多
+
++ 配置思路：（这里提供全局的观念，下面会有具体配置步骤）
+	+ 功能上：
+		+ 更换Shell为`PowerShell7`（注意这不是Windows PowerShell），它支持Linux的相关命令
+			>ps7（PowerShell7的简称）有很多独特的功能，比如独特的命令、独特的管道
+
+		+ 使用程序oh-my-posh提供功能上的增强，主要是历史命令补全
+		+ 使用Windows Terminal提供类似Tmux的功能
+	+ 样式上：（这方面是审美和使用习惯，我会提供我的配置，您可以再做定制）
+		+ 信息的输出，比如用户名、主机名、当前路径、Git状态，甚至时间、电量，这里使用oh-my-posh对这些信息进行排布和染色，即主题
+		+ 底层的配置，比如字体、字体大小、颜色定义，这里通过Windows Terminal
+
+		>关于颜色，颜色是个连续的概念，但是命令行程序只需要几种颜色，这里由”终端“确定某种颜色比如Red到底是什么样的（在这里颜色变成离散的概念），然后上层程序比如Shell通过设置好的Red进行染色，比如将用户名染色成Red。除了Shell之外比如Vim同样是在命令行上运行的程序，所以这里的对Red的设定也会影响到它。
+
+### 5.1.PowerShell7
+
++ 安装：[Manual](https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3)（官方推荐winget）
++ 更新：reinstall
++ 使用：快捷键`win + r`键入`pwsh`打开一个命令行程序
++ pwsh在打开后会运行`$PROFILE`这个脚本（直接在命令行中输入这个命令即可查看脚本位置）
+	+ 所以可以把这个文件当做Linux中Bash的`.bashrc`文件
+
++ Powershell7的ls对输出的目录的美化需要下载额外模块：（下载比较慢）
+	```powershell
+	Install-Module PSColor
+	```
+
++ 更新：当有新版本的pwsh时在打开命令行时会出现提示，比较烦，更新即可。
+	```powershell
+	winget update Microsoft.PowerShell
+	```
+
+### 5.2.oh-my-posh
+
++ 安装：[Manual](https://ohmyposh.dev/docs/installation/windows)（官方推荐使用winget）
++ 使用：还记得pwsh在打开后运行一个脚本嘛？我们只要把调用oh-my-posh的相关命令放在那里就可以用了，这里比较重要的是**主题**的选择
+
+### 5.3.Windows Terminal
+
+>win10需要下载，win11自带
+
++ 安装：使用国内网在Microsoft Store直接搜索下载（[Manual](https://github.com/microsoft/terminal#installing-and-running-windows-terminal)推荐）
++ 使用：
+	+ 快捷键`win + r`键入`wt`打开一个Windows Terminal
+		>报错：报错VCRUNTIME140_1.dll缺失：在C盘搜寻文件，将其复制到`C:\Windows\System\`即可
+
+	+ 在文件资源管理器中右键在终端打开
+
++ 配置（涉及字体种类、字体大小、字体粗细、窗口大小、窗口打开位置、打开后模式、快捷键、配色方案等等）
+	+ <span id="font-download">下载字体</span>（[下载链接](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Meslo.zip)）这里用的是Manual推荐的`MesloLGM NF`字体，通过链接下载并解压发现并没有对应名称的文件夹，而是一种`.ttf`文件  
+		打开观察（主要关注安装按钮和字体命令字段（关于字体文件名中的部分含义：`Regular`常规、`Italic`斜体、`Bold`加粗  ））
+		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/字体打开.png" style="zoom:50%;" div align=center />  
+		我们把字体名称`MesloLGM NF`的所有形态都下载  
+
+	+ 更多配色见[Windows Terminal Themes](https://windowsterminalthemes.dev/)
+
+### 5.4.导入配置
+
++ 我的[配置](https://github.com/zweix123/posh-config)，项目README中有使用方法
 
 ## 6.包管理器Scoop
 
@@ -243,12 +256,10 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 + 其他：
 	+ 关于软件`unxutils`：这里有很多Linux常用命令，用来补齐Windows和Linux命令不同的问题，但是我没有安装，首先Powershell7本身就有很多和Linux一致的命令，部分会单独安装。而这里不仅有基本的命令，还有`zsh`这样的命令， 至少给我带来的一个问题是在VSCode使用CMake插件会造成输出乱码已经部分情况不能编译。所以卸载了这个。
 
-### 7.Git
+### 7.SSH&Git
 
 + 安装：`scoop install git`
-+ 配置：[我的教程](./Git.md#config)
-+ 配置SSH：[我的教程](./SSH.md)
-+ Github配置：`Setting -> SSH and GPG keys -> New SSH key -> 拷贝公钥`（配置公钥用于自己通过SSH链接去`push`）
++ 配置：[我的教程]()
 
 ## 8.编辑器VSCode
 VSCode本身是编辑器，在插件的支持下扩展出丰富的功能（<strike>极具可玩性</strike>）
@@ -261,26 +272,12 @@ VSCode本身是编辑器，在插件的支持下扩展出丰富的功能（<stri
 
 + configs：内容多且散，且无关平台，我将其放在这个[教程](../Missing-Semester/VSCode.md)
 
-# 工具软件
+# 其他软件
 
-## 基于命令行的编辑器
++ [这里]()是一些汇总，有一些非常出彩值得特别推荐，后面有精力会放在当前文档，主要指图片悬停、启动器等。
 
-VSCode本是一个轻量型的编辑器，轻量型意味着可以快速的打开，但随着我们给它装了大量的插件，它开始变得臃肿，此时如果有轻度的编辑，再使用它就不再流畅了（无论是命令行打开还是图形化打开），我们需要一个更轻量型的编辑器。  
-得益于强大的包管理器Scoop和我调教好的终端，我们可以有近似Linux的命令行体验，所以我选择vi系列作为这个轻度编辑器。
->这部分对我个人来说也是必须的，但未必适用于其他开发者，VSCode足以在可接受的成本内满足要求，所以没有将该软件放在必装软件中
-
-+ 安装：亲爹Scoop
-+ 配置和使用：我的[文章](../misc/vi-vim-nvim.md)
-	>实际上vim是一个可玩性很高的编辑器，这里引用的文章不仅有vim的基本用法，可能还会有我倒腾vim的记录。
-
-## 图片悬停Snipaste
-优秀的截图软件，很好用，开源，解压即用。
-
-+ `F1`截屏
-+ 截屏后`Ctrl + T`可将截屏悬浮在屏幕上
-+ `F3`可以将剪切板的内容转化成图片悬浮在屏幕上
-
-## 虚拟机VMware Workstation Pro
+## 虚拟机
+>VMware Workstation Pro
 
 + 我的使用方式：主要是为我在win机器上提供一个linux环境，所以我使用的场景一般是打开后就放在后台，然后通过SSH或者VSCode的remote（本质也是SSH）连过去，我们发现上面的场景几乎不需要VMware Workstation的图形化界面，索性VMWare为我们提供了命令行的操作形式
 	```bash
@@ -327,12 +324,3 @@ VSCode本是一个轻量型的编辑器，轻量型意味着可以快速的打�
 		```
 
 	即便如此依然可能遇到什么`git clone`错误的问题，STFW吧。
-
-## 启动机
-类似mac上的Spotlight（或者Alfred）
-
-+ Wox：通过`Ctrl+Space`键入软件名打开
-
-## 硬件扩展
-
-见我的[讨论](../misc/hardware.md)
