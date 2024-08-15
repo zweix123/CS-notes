@@ -1,11 +1,10 @@
 # LinuxConfigGuide
+
 >Linux有众多发行版、机器也分云服务器、虚拟机和物理机，该指南并没有限制某种场景，对独属于某种场景的问题会单独说明，请读者选择对您有帮助的部分。
 
-+ 笔者使用该指南搭建的Linux发行版有：
-    + Ubuntu：20.04，22
-    + Centos：6.7
-    如何查看Linux发行版和版本：
+这里的包管理器是Ubuntu的`apt`，如果是其他发行版，要使用对应的包管理器。
 
++ 查看Linux发行版和版本的命令：
     ```bash
     uname -a
     lsb_release -a
@@ -19,7 +18,8 @@
 	+ 外网：`ping www.youtube.com -c 4`
 
 ## 1.创建用户
->建议为机器创建非root用户，后续使用也在非root用户中，如果当前用于已经是非root用户，则不需要创建
+
+>建议为机器创建非root用户，后续使用也在非root用户中，如果当前用户已经是非root用户，则不需要创建
 
 ```bash
 adduser 用户名 # 创建用户
@@ -34,17 +34,13 @@ usermod -aG wheel 用户名  # Centos
 
 ## 2.配置SSH
 
-[我的SSH笔记](./SSH.md)
++ 配置：[我的教程](./SSH&Git.md#21-ssh)，通常作为服务端和客户端都要配置（作为服务端本机连接，作为客户端连接Github）
 
-+ 需要配置的部分（具体配置操作见上面链接）
-    + 服务器配置：
-    + 本地（连接服务器）的配置：
-        1. 为服务器配置别名
-        2. 在服务器上传密钥：推荐使用命令`ssh-copy-id`
+## 3.修改软件源
 
-## 3.修改软件源（只在Ubuntu使用过）
+>目前只适合Ubuntu
 
-+ 源位置：`/etc/apt/sources.list`
++ 文件位置：`/etc/apt/sources.list`
 
 1. 备份：
 	```bash
@@ -52,10 +48,6 @@ usermod -aG wheel 用户名  # Centos
 	```
 
 2. 按照系统版本选择合适的源：
-	>查看系统版本的命令
-	>```bash
-	>lsb_release -a
-	>```
 
 	>[清华源](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)、[中科大源](https://mirrors.ustc.edu.cn/repogen/)
 
@@ -75,25 +67,28 @@ usermod -aG wheel 用户名  # Centos
 ## 4.下载刚需软件
 >Linux下通常有包管理器，下面的软件没有说明下载方式的软件一般都可以通过包管理器下载
 
-### 文本编辑器
+### vim
+>文本编辑器
 
-Linux下的文本编辑器非常之多，上面使用vi就是一种，选择看个人喜好  
-且也是一种可玩性很好的软件，所以[单拿出来](misc/vi-vim-nvim.md)，记录有配置和用法
+[笔记](misc/linux/vim.md)
 
-### 终端复用器
+### tmux
+>终端复用器
 
-tmux
++ 作用：
+  + 多个终端
+  + 断开SSH而不影响命令执行
 
-+ 使用：我的[笔记](misc/tmux.md)
++ 使用：[笔记](misc/linux/tmux.md)
 
-### Git
+### git
 
-+ 配置：我的[教程](./Git.md#config)
-+ 使用：我的[笔记](./Git.md)
++ 配置：[笔记](./SSH&Git.md#22-git)
++ 使用：[笔记](./SSH&Git.md#33-git)
 
 ### zsh
 
-[我的zsh配置笔记](./TerminalConfigGuide.md#unix-linux-and-macos)
+[笔记](Missing-Semester/Terminal.md#unix-linux-and-macos)
 
 ## 5.导入软件配置
 
@@ -169,5 +164,3 @@ Obsidian提供的文件类型是`AppImage`，加上可执行权限（`chmod +x x
 # 云服务器
 
 # 虚拟机
-
-相关问题见[我的教程](./WindowsConfigGuide.md#虚拟机vmware-workstation-pro)
