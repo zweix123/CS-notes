@@ -3,7 +3,7 @@
 ## What
 >什么是命令行？
 
-就是黑框框，如果你现在的是Windows的机器，使用快捷键`Win + r`然后键入`cmd`并回车，弹出的就是命令行；如果你现在使用的是MacOS的机器，使用快捷键`Command + space`打开聚焦搜索，然后键入`terminal`并回车，弹出的就是命令行。
+就是黑框框，如果你现在的是Windows的机器，使用快捷键`Win + r`然后键入`cmd`并回车，弹出的就是命令行；如果你现在使用的是macOS的机器，使用快捷键`Command + space`打开聚焦搜索，然后键入`terminal`并回车，弹出的就是命令行。
 
 + 名词解析，你可能听过关于这个话题下的很多名词：工作台、命令行、终端、Shell、cmd、bash
 	+ 工作台：请不要使用这个名词
@@ -31,70 +31,58 @@
 	+ [The Art Of Command Line简体中文](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
 
 # Config
+Windows上的终端配置是单独的，而Linux和macOS都是Unix系操作系统，终端配置一样，故统一在这里。
 
 ## Windows
+
+[Windows配置指南之命令行](./WindowsConfigGuide.md#5命令行)
 
 ## Unix:Linux and macOS
 
 方案：zsh and oh-my-zsh
 
-+ 命令
++ 相关命令：
     + `echo $SHELL`查看使用shell
     + `cat /etc/shells`查看机器有的shell程序
     + `chsh -s shell绝对路径`设置默认shell，比如zsh是`chsh -s $(which zsh)`
     + 重新载入Shell的配置：`source shell的rc文件`，比如zsh是`source ~/.zshrc`
 
-### 1.zsh
++ 前置条件：
+    + 下载并配置Git
 
-0. 下载`zsh`（macOS不需要）：[Manual](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)，一行命令即可  
-	```bash
-	sudo apt install -y zsh
-	```
+### 1.下载zsh并更换默认shell
+>macOS不需要
 
-    + 更新默认shell：`chsh -s $(which zsh)`
-        >实际上这边建议不要着急修改，在clone oh-my-zsh会提示是否修改默认shell
+Manual：[https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)，一行命令即可
 
-### 2.oh-my-posh
+比如在Ubuntu上是
+```bash
+sudo apt install -y zsh
+```
 
-1. 下载oh-my-posh：[Manual](https://github.com/ohmyzsh/ohmyzsh/wiki)
-	```bash
-	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	```
-	>使用国内源（`https://gitee.com/mirrors/oh-my-zsh`），Clone到本地修改名字为`.oh-my-zsh`即可
+更新默认shell：`chsh -s $(which zsh)`
+>实际上这边建议不要着急修改，在克隆oh-my-zsh会提示是否修改默认shell
 
-    + 我在使用VMware workstation时出现错误，通过这两个博客解决（[一个](https://blog.csdn.net/m0_56681539/article/details/127912811)、[另一个](https://blog.csdn.net/u014454538/article/details/123563034)）
+### 2.下载oh-my-posh并安装插件
 
-2. 安装插件（插件推荐）：
+Manual：[https://github.com/ohmyzsh/ohmyzsh/wiki](https://github.com/ohmyzsh/ohmyzsh/wiki)
 
-	+ git：默认安装，手动配置，为git命令提供缩写，可在插件目录下的sh文件查看
-	+ command-not-found：默认安装，手动配置
-	+ zsh-completions：默认安装，手动配置，功能不知道x.x
-	+ zsh-syntax-highlighting：手动安装，手动配置，语法高亮
+```bash
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
 
-        ```bash
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-        ```
+使用国内源：
+```bash
+git clone https://gitee.com/mirrors/oh-my-zsh ~/.oh-my-zsh
+```
 
-        使用国内源：
-
-        ```bash
-        git clone https://gitee.com/Annihilater/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-        ```
-
-    + zsh-autosuggestions：手动安装，手动配置，命令历史补全
-
-        ```bash
-        git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-        ```
-
-        这里的网址就是没有`.git`，Manual中就没有  
-
-        使用国内源：
-
-        ```bash
-        git clone https://gitee.com/phpxxo/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-        ```
+| 插件名                     | 功能  | 下载                                                                                                                                      | 国内源下载                                                                                                                                    |
+| ----------------------- | --- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| git                     |     | 默认安装                                                                                                                                    |                                                                                                                                          |
+| command-not-found       |     | 默认安装                                                                                                                                    |                                                                                                                                          |
+| zsh-completions         |     | `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting` | `git clone https://gitee.com/Annihilater/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting` |
+| zsh-syntax-highlighting |     | `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`             | `git clone https://gitee.com/phpxxo/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`              |
 
 ### 3.导入配置
 
-3. 导入[我的配置](https://github.com/zweix123/unix-config)
+[这是](https://github.com/zweix123/unix-config)我的配置，在README中有使用方法
