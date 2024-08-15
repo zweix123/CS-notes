@@ -1,13 +1,10 @@
 Missing-Semester是MIT的一个计算机课程，学习学校不会教但是非常有用的工具。该目录本意也是该课程的笔记。在中科大“一生一芯”活动中，老师用了一节课的时间强调“工具是第一生产力”。在我个人的实践中，这句话也得到了印证。于是该目录的范围扩展为效率工具与工作流。相信我，它让我变得更强了。
 
-# 第一性原理
-
-1. 摸索一套自己的工作流的投入产出比是极高的，别怕麻烦
-2. 严格遵守奥卡姆剃刀原理：“如无必要、勿增实体”
-    - 依照需求寻求工具，而非因工具能力而创造需求
-    - 不要大而全的工具，而要恰好满足需求的小而精的工具。
-
-# Sum
++ 第一性原理：
+    1. 从职业生涯的视角看，摸索一套自己工作流的投入产出比是极高的。
+    2. 严格遵守奥卡姆剃刀原理：“如无必要、勿增实体”
+        - 依照需求寻求工具，而非因工具能力而创造需求
+        - 不要大而全的工具，而要恰好满足需求的小而精的工具。
 
 从大学算起，我个人使用机器的经历是：3年Windows->1年Linux->?年macOS，故后面大概只会更新macOS相关的了。
 
@@ -28,7 +25,7 @@ Missing-Semester是MIT的一个计算机课程，学习学校不会教但是非�
 + 笔记-Obsidian-Markdown：Obsidian打开的单位是项目而非文件，而我个人成独立的Markdown项目只有这个CS-notes，编程项目通常使用VSCode，而VSCode也能编辑Markdown。故在我的场景下，Obsidian就是专门打开CS-notes的，并结合Git实现存档和多端同步。
 + 截图：
     + 最主要的需求是图片悬停，其次是将粘贴板的文本转换成图片悬停，偶尔会有OCR，极少极少会有长截屏。
-    + 有三个选择，Snipaste，PixPin，iShot，Snipaste非常优雅且夸平台，但是后两个需求不能满足，PixPin支持Win和macOS，恰好覆盖需求，UI有点丑，iShot功能最强大但是只支持macOS
+    + 有三个选择，Snipaste，PixPin，iShot，Snipaste非常优雅且跨平台，但是后两个需求不能满足，PixPin支持Win和macOS，恰好覆盖需求，UI有点丑，iShot功能最强大但是只支持macOS。最终选择PixPin。
 
 ## 浏览器:Chrome
 
@@ -95,7 +92,11 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
     + 开机自启动
     + 使用`TODO`作为开关快捷键
 
-## 笔记软件:Obsidian
+## 编程:终端
+
+## 编程:VSCode
+
+## 笔记:Obsidian
 
 + 操作系统：
     + Windows：
@@ -105,3 +106,32 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
     + macOS：
 
 [笔记](./VSCMD.md#obsidian)
+
+
+## 论文:Zotero
+
++ Install
+    + 官网：包含软件和浏览器插件
++ Usage：
+    + 论文不像书籍，某个话题下可能有很多篇，Zotero可以用来维护论文文件（操作系统的文件系统也行）
+    + 内置多种文献文件类型的阅读器，All in One阅读，比如CAJ（这似乎也不是一定要用它的理由）
+        + 通过插件实现划词翻译
+    + 有浏览器插件，可以一键导入文献文件（这个是不是有点方便了）
+    + 导出文献的BibTeX类型数据文件（这个就很有用了）
+    + 其他各种插件
++ config
++ extension：
+    + Translate for Zotero：官网下载
+    	+ Zotero和Zoreto7的该插件是不兼容的，从github release可能要找比较早的6版本才能用（如果使用Zotero6的话）
+
+## 键盘与改键
+
+由于在Windows中，只有`Ctrl+Insert`/`Shift+Insert`才能在任何环境（Windows GUI，Windows Terminla，Vim，SSH to Linux，SSH to Linux and Vim，SSH to Linux and Tmux）都适用，且我确实使用数字键盘次数很少。故选择必须有`Home`、`End`、`Insert`、`Delete`的84键盘，且该键盘必须支持Windows和Mac两个平台。
++ 外界键盘：利用改键软件将`Caps Lock`键改成方向键右键`rigth`
+
+将`Caps Lock`键改成方向键右键`rigth`的作用
+>个人大写输入使用`Shift`，几乎不用`Caps Lock`，而其位置又非常的好，市面上有很多关于其改键方案。
+
+1. oh-my-zsh/oh-my-posh的历史命令补全是方向键右键，但是右手移动过去比较慢，正好输入命令中`Tab`比较常用，`Caps Lock`在它下面，可以用同一个手指按。用来加速历史命令补全
+2. 在VSCode中跳转通常是按住`Ctrl`/`Command`然后鼠标左键点击名称，但是跳转过去之后怎么回来呢？我将快捷键设置成`Alt+Right`，就能实现单手`Go Back`（否则默认快捷键需要两个手）。当然这是在Windows和Linux，在macOS上没有好的方案。
+    - 该方案目前废弃，选择一个功能键作为`Go Back`，目前使用`F3`

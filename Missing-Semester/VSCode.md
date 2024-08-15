@@ -1,22 +1,17 @@
-+ Ref：
-	+ [Bilibili · 等疾风 · 【VS Code】四年功力 一刻掌握 速通C++插件/终端美化/工程管理 懒人必备](https://www.bilibili.com/video/BV1YG4y1v7uB/?vd_source=4ee99d4ebd507c7277fa312ed28dbdda)：强烈推荐这个视频，除了C++之外还有很多通用配置，我的配置基本从这里出发。
+关于主力编辑器的选择，对于个人而言，如果一个新的工作流被验证效率优于当前，我可以不顾学习成本去迁移，比如输入法迁移到双拼。对于VSCode和Vim的选择，我相信vim的上限是优于VSCode的，但是基于GUI修饰键的操作在各个软件都有事实标准。不能保证所有常用软件都支持vim模式。出于对统一美感的追求，最终还是选择VSCode，但vim终究还是我们的老前辈，对于某些vim下很好的操作模式积极寻找VSCode等价操作。关于VSCode和jetbrains的选择，我个人依然使用VSCode原因是我个人对命令行操作比较熟练，且有多语言编程需求，VSCode All In One的属性比较吸引我，但是我承认jetbrains家软件的优秀，日常关注其更好的点寻找VSCode的等价效果。
 
-调教一套适合自己的工作流的收益是不错的，一个程序员的工作流核心就是开发环境——编辑器。
-
-+ 关于主力编辑器的选择：我个人是这样的，如果一个新的工作流被验证效率优于目前使用的工作流，我是可以不顾任何学习成本迁移过去的，比如从输入法从全拼到双拼的转移。
-	+ VSCode和vim的选择，我相信上限vim是优于VSCode的，但是基于Ctrl作为leaderkey的操作模式在各个软件都深入人心了，不能保证所有常用的软件都支持vim模式，最后还是选择VSCode。但vim还是我们的老前辈，对于某些vim下很好的操作模式积极寻找VSCode的等价操作。
-
-## Install
-
-官网下载安装包安装
-
-+ 在Mac中，安装包的格式是`dmg`文件，然后点击会要求一个拖动的动作，即在路径`/Applications`下创建对应的`.app`文件（本质是目录），但是VSCode在点击之后直接在当前目录创建，需要手动移入到正确的路径中；所以建议将dmg文件先放在Application下再点击。
-
-## Use
-
-[Keyboard](./keyboard.md#vscode)
-
-## Config
++ 怎么打开VSCode？我的方式：在终端cd到对应路径，然后`code .`
+    + 没有`code`命令？使用VSCode命令`Shell Command: Install 'code' command in PATH`，什么是VSCode命令，见下一条。
++ Command Center：即UI顶部的输入框，默认是项目下文件检索，通过添加前缀实现各种功能，下面是我常用的
+    + Search files by name：默认`Ctrl/Comand + p`，相当于fd
+	+ Go to Line:  默认`Ctrl/Command + g`，相当于vim的`数字 + g`
+	+ Go to Symbol：默认`Ctrl/Command + Shift + O`
+	+ Show and Run Cmd：默认`Ctrl/Command + Shift + P`，本文的“命令”即为了这里的命令
++ 常用通用命令：
+    + 快捷键相关：`Perferences: Open Keyboard Shortcuts`
+        + 在macOS中，不同输入法下的快捷键不同，要分别设置
+    + 选中文本进行大小写转换：`Transform to Lowercase`/`Transform to Uppercase`
+    + 代码块折叠：`Fold All`/`Unfold All`，还能按层级`Fold Level ...`
 
 + Settings：VSCode的配置分三个层级：默认 -> 用户 -> 工作区，同一项配置后者覆盖前者：快捷键`Ctrl + ,`或者命令`open settings`
 
@@ -26,11 +21,59 @@
 		+ `explorer.sortOrder`：资源管理器文件排序关键字
 	+ `extensions.json`：项目下插件过滤
 
-+ 如果VSCode下载后，Shell依然找不到`code`命令，可以打开VSCode快捷键`Command + Shift + P`打开命令行，输入install，选择`Shell Command: Install 'code' commands in PATH`
+## 基本文本操作
 
-+ 设置同步：UI左下角齿轮图标中的`Settings Sync is On`，自动同步。
-    + 规则：云上配置、端的配置，当一个端打开VSCode时，其配置将会被云上配置覆盖；当端修改配置时，会上传到云上。
-        + 但我遇到这样的场景：针对插件，当活跃的一端删除时，删除后，另一段打开，并不会删除，返回删除的端再打开会下载回来。
+|                   | Windows           | macOS               |
+| ----------------- | ----------------- | ------------------- |
+| Insert            | Insert            | 无                   |
+| Delete            | Delete            | Command + backspace |
+| Home              | Home              | Command + left      |
+| End               | End               | Command + right     |
+| Top               | Ctrl + Home       | Command + up        |
+| Button            | Ctrl + End        | Command + down      |
+| 全选，保存，撤退，剪切，复制，粘贴 | Ctrl+a，s，z，x，c，v  | Command+a，s，z，x，c，v |
+| 选中                | 按住Shift使用方向键      | 按住Shift使用方向键        |
+| 整行移动              | 按住Alt使用方向键上下键     | 按住Option使用方向键上下键    |
+| 按word单位移动         | 按住Ctrl使用方向键       | 按住Option使用方向键       |
+| 按word单位删除         | 按住Ctrl使用backspace | 按住Option使用backspace |
+
++ 全选：Ctrl/Command+a
++ 保存：Ctrl/Command+s
++ 撤退：Ctrl/Command+z
++ 剪切：Ctrl/Command+x
++ 复制：Ctrl/Command+c
++ 粘贴：Ctrl/Command+v
++ 查找：Ctrl/Command+f（当前文件）和Ctrl/Command+Shift+f（当前项目）（相当于rg）
++ 多光标：
+    + Alt/Option+鼠标点击
+    + 选中文本->Command+d/Ctrl+Alt+d：相同文本多光标
+        + 如果希望全文全部相同文本都选中（并出现光标）：Command/Ctrl+F2
+    + Alt/Option + Ctrl/Command + 方向键上下
+
++ 光标在terminal与workspace切换，以及在workspace中的不同窗口切换：
+    + win：Ctrl+~和Ctrl+num
+    + mac：Ctrl+·和Command+num：看起来有点反直觉，但是mac的Comamnd+·是系统级快捷键
+
+    首先使用上面的快捷键可以在终端和不同窗口之前选择，其次单独使用终端相关的则是打开/关闭，关闭自然就会到workspace了。
+
+    进一步，使用Ctrl/Command + Shift + j则是将Terminal的全屏和取消全屏
+
++ 格式化：Shift+Alt/Option+f，效果依赖插件，大部分项目设置为format on save
+
++ 名称跳转：
+    + Ctrl/Commad+鼠标左键点击
+    + Go Back：
+        + win：Alt/Option+方向键Right
+        + mac：F3
+
+## 配置同步
+
+设置同步：UI左下角齿轮图标中的`Settings Sync is On`，自动同步。
++ 规则：云上配置、端的配置，当一个端打开VSCode时，其配置将会被云上配置覆盖；当端修改配置时，会上传到云上。
+    + 但我遇到这样的场景：针对插件，当活跃的一端删除时，删除后，另一段打开，并不会删除，返回删除的端再打开会下载回来。
+
+## 字体与外观
+
 + 关闭受限模式：打开设置，键入`trust`
 
 	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/vscode受限模式关闭.png" style="zoom:59%;" div align=center />
@@ -48,7 +91,7 @@
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/编辑器字体.png" style="zoom:60%;" div align=center />
 
 	+ 终端字体：打开设置，键入`Terminal Font Family`  
-		>需要你已经按照[Shell的配置](./TerminalConfigGuide.md#font-download)下载了对应字体
+		>需要你已经按照[Shell的配置](Missing-Semester/Terminal.md#font-download)下载了对应字体
 
 		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/终端字体.png" style="zoom:57.5%;" div align=center />
 		
@@ -77,34 +120,25 @@
     // }
 	```
 
-### Plugin
+## 远程开发
 
-1. 这里不仅会记录辅助性插件（比如支持不同文件类型的插件，比如Git相关的），还会记录专用性的（比如语言开发，比如Markdown的编辑），但后者具体的配置和说明会分布在不同的章节，这里会提供章节链接；没有专门说明则在这里说明。
-2. 插件之间往往有依赖关系，也会记录在这里，以不同级的无序列表表示，一般来说，一个插件的安装，会自动安装其依赖的插件。
+远程开发：VSCode较于JB家的IDE值得说的优点就是远程开发功能了，我们假设你本机是win，无论是那么当你需要Linux环境（无论时WSL、服务器还是虚拟机）时，都推荐使用SSH（服务器肯定是SSH，WSL我个人没有用过，虚拟机虽然相当于完整机器但是仍然建议通过SSH过去开发），而VSCode的Remote插件可以达到一个很自然的开发流程和体验。
++ Remote - SSH：远程开发必备
+    + Remote - SSH: Editing Configuration Files
+    + Remote Explorer
 
-+ [Config](#config)：
-    + Atom One Dark Theme
-    + One Dark Pro
-    + vscode-icons
-    + FiraCode font - Professional Font for Developers
+## 文件支持
 
-+ 远程开发：VSCode较于JB家的IDE值得说的优点就是远程开发功能了，我们假设你本机是win，无论是那么当你需要Linux环境（无论时WSL、服务器还是虚拟机）时，都推荐使用SSH（服务器肯定是SSH，WSL我个人没有用过，虚拟机虽然相当于完整机器但是仍然建议通过SSH过去开发），而VSCode的Remote插件可以达到一个很自然的开发流程和体验。
-    + Remote - SSH：远程开发必备
-        + Remote - SSH: Editing Configuration Files
-        + Remote Explorer
++ JSON：默认提供
++ YAML：
+    + YAML
++ TOML：
+    + TOML Language Support
 
-+ 文件支持：
-    + JSON：默认提供
-    + YAML：
-        + YAML
-    + TOML：
-        + Even Better TOML
-    + Makefile：
-        + Makefile Tools
-    + CMake：
-        + C++相关插件依赖的CMake Tools
+## Python
 
-+ [Python](#python)：
+
++ 插件：
     + Python Extension Pack
         + autoDocstring - Python Docstring Generator
         + Python
@@ -126,65 +160,6 @@
         + Jupyter Notebooks Renderers
         + Jupyter Slide Show
         + Jupyter Cell Tags
-
-+ [C++](#cc)
-    + C/C++ Extension Pack
-        + C/C++
-        + C/C++ Themes：没用
-        + CMake Tools
-    + llvm相关：
-        + clangd：好用
-    + Better C++ Syntax
-    + cmake
-        + 上面提到的CMake Tools
-        + CMake Language Support
-            >还有一个语言支持插件CMake，但是没有这个鲜艳。
-
-            + .NET Install Tool
-        + cmake-format
-
-+ Golang：[微软教程](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)和[debug tutor](https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code)
-    + Go
-    + Go Nightly
-
-+ Web：
-	+ Auto Rename Tag：补全
-	+ Live Server：启动服务渲染页面
-	+ Thunder client：HTTP Client，类似postman
-
-+ Markdown：[我的MarkDown笔记](./Markdown.md)
-    + Markdown All in One：Yes，All in One
-        >Markdown的渲染还有插件Markdown Preview Enhanced，据说更好看，我没有使用
-
-	+ Markmap：使用Markdown生成思维导图
-
-+ LaTeX：[我的LaTeX笔记](./LaTeX.md)
-    + LaTeX Workshop
-    + BibTeX formatter
-
-+ Git：
-    + 内置功能
-    + gitignore
-    + Git Blame
-    + 没有使用gitlens，这玩意太臃肿了。
-
-+ 其他：
-    + Project Manager：VSCode是围绕项目的，该插件会出现在Explorer上面，用于在不同项目之前跳转，虽然我基本不用，将是Explorer图标太靠上了，用Project Manager的图标占位。
-    + Better Comments：注释增强，TODO的高亮之类的。
-    + AutoCorrect：中文拼接与格式检测
-    + Compare Folder：重大升级！非常好用！
-    + Wakatime：统计编程情况
-#### Copilot
-
-我也不知道为啥我有资质，因为VSCode和Github都是微软家的，用起来好方便啊！
-
-+ 插件：
-    + Github Copilot
-        + Github Copilot Chat
-
-## Code
-
-### Python
 
 + 依赖环境：
 	+ win：通过Scoop下载Python（Python3）
@@ -234,10 +209,23 @@
 
 + `Intellicode Api Examples › Python: Enabled`：关闭，暂时不知道为什么TODO
 
-### C/C++
+## C++
 
-+ Ref：
-    + [Bilibili · 等疾风 · 【VS Code】四年功力 一刻掌握 速通C++插件/终端美化/工程管理 懒人必备](https://www.bilibili.com/video/BV1YG4y1v7uB/?vd_source=4ee99d4ebd507c7277fa312ed28dbdda)
++ 插件：
+    + C/C++ Extension Pack
+        + C/C++
+        + C/C++ Themes：没用
+        + CMake Tools
+    + llvm相关：
+        + clangd：好用
+    + Better C++ Syntax
+    + cmake
+        + 上面提到的CMake Tools
+        + CMake Language Support
+            >还有一个语言支持插件CMake，但是没有这个鲜艳。
+
+            + .NET Install Tool
+        + cmake-format
 
 + 软件安装：
     + Unix：对应包管理器，比如Ubuntu的apt，macOS的brew
@@ -364,7 +352,12 @@ ${fileDirname}: 当前文件所在路径
 + 其他实践
     + cmake有代码`target_compile_options(... "-Werror" ...)`，这里表示把warning当error，这在某些项目中可能出现有很多的warning，但是项目可运行，但是在clangd这里，把warning当error了，如果文件大起来，前的的error太多了，会导致它不在处理后面的代码。而官方的`C/C++`插件似乎不受这影响。我是开发时把这个参数注释掉，修改后记得重新生成compile_commands.json文件。
 
-### Go
+## Golang
+
++ Golang：[微软教程](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)和[debug tutor](https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code)
+    + Go
+        + 下载依赖
+    + Go Nightly
 
 + 插件：[别忘了Go和VSCode都是微软家的](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)
     + 修改format tool：打开设置页，搜索`Go: Format Tool`，选择
@@ -375,3 +368,47 @@ ${fileDirname}: 当前文件所在路径
         "editor.links": false,
     }
     ```
+
+## Web
+
++ Auto Rename Tag：补全
++ Live Server：启动服务渲染页面
++ Thunder client：HTTP Client，类似postman
+
+## Markdown
+
++ Markdown：[我的MarkDown笔记](./Markdown.md)
+    + Markdown All in One：Yes，All in One
+        >Markdown的渲染还有插件Markdown Preview Enhanced，据说更好看，我没有使用
+
+	+ Markmap：使用Markdown生成思维导图
+
+## LaTeX
+
++ LaTeX：[我的LaTeX笔记](./LaTeX.md)
+    + LaTeX Workshop
+    + BibTeX formatter
+
+## Git
+
++ Git：
+    + 内置功能
+    + gitignore
+    + Git Blame
+    + 没有使用gitlens，这玩意太臃肿了。
+
+## Copilot
+
+我也不知道为啥我有资质，因为VSCode和Github都是微软家的，用起来好方便啊！
+
++ 插件：
+    + Github Copilot
+        + Github Copilot Chat
+
+## 其他
+
++ Project Manager：VSCode是围绕项目的，该插件会出现在Explorer上面，用于在不同项目之前跳转，虽然我基本不用，将是Explorer图标太靠上了，用Project Manager的图标占位。
++ Better Comments：注释增强，TODO的高亮之类的。
++ AutoCorrect：中文拼接与格式检测
++ Compare Folder：重大升级！非常好用！
++ Wakatime：统计编程情况

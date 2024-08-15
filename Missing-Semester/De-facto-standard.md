@@ -15,3 +15,16 @@
 + Status Bar状态栏：底部
 + Activity bar活动栏：最左侧，上包含插件或者基本功能，下包含账户和设置
 + Side Bar：左Primary Side Bar，右Secondary Side Bar
+
+## What is the Command key for Windows?
+>来自Windows老用户的疑问。
+
+在CLI时代，修饰键使用Ctrl，在GUI时代，又多了很多快捷键，如何设计？Windows选择直接复用Ctrl（实际上还是添加了Windows键的，但是就像霸王龙的前肢），而Mac则选择添加新的修饰键，即Command。
+
+所以
+
+被人熟知的Ctrl+c是复制，Ctrl+v是粘贴，则在Mac中分别是Command+c和Command+v
+>有人可能觉得Ctrl+cv最直觉，这可能是因为Windows的市场占有率太大了。
+
+macOS这样处理的好处是在CLI时代的快捷键依然保留，比如在命令行中Ctrl+a是Home，Ctrl+e是End。同样的操作在Windows中可能无法实现。
+>这里macOS中也有坏处，就是Home、End或者其等价操作在终端用不了，必须用使用Ctrl做修饰键的。

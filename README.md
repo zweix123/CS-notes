@@ -50,7 +50,7 @@
     + [Windows开发机配置指南](./Missing-Semester/WindowsConfigGuide.md)：如题
     + [Linux开发机配置指南](./Missing-Semester/LinuxConfigGuide.md)：如题
     + Apple系：
-        + [Mac开发机配置指南](Missing-Semester/macConfigGuide.md)：如题
+        + [Mac开发机配置指南](Missing-Semester/macOSConfigGuide.md)：如题
         + [IPad学习机配置指南](Missing-Semester/iPadConfigGuide.md)：如题
 
     和平台无关的：[SSH](Missing-Semester/SSH.md) | [Git](Missing-Semester/Git.md) | [Markdown](Missing-Semester/Markdown.md) | [VSCode](Missing-Semester/VSCode.md) | [LaTeX](Missing-Semester/LaTeX.md) | Docker | ...

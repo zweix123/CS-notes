@@ -46,8 +46,6 @@
 
 + 导入备份：数据目录
 
-+ [键盘相关设置](Missing-Semester/Keyboard.md)：包括键位和输入法。
-
 + 文件的查看：
 	+ 打开文件扩展名
 	+ 打开隐藏的项目
@@ -56,11 +54,11 @@
 	>睡眠：风扇转：此时电脑仍供电给内存，CPU以较低频率运行  
 	>休眠：风扇不转，信息保留：计算机将内存中的内容写入进磁盘中，并断电。下次开机时可以恢复到之前的工作状态。  
 	>关机：信息不保留 
-	
-|     |      | 电池  | 通电  |
-| --- | ---- | --- | --- |
-|     | 电源按钮 | 休眠  | 休眠  |
-|     | 关盖   | 不使用 | 不使用 |
+
+|      | 电池  | 通电  |
+| ---- | --- | --- |
+| 电源按钮 | 休眠  | 休眠  |
+| 关盖   | 不使用 | 不使用 |
 
 + 关于<span id="win-code">Windows上的编码问题</space>，是一个很经典的问题。
     + 现象：
@@ -74,6 +72,22 @@
 + 其他问题：
     + [不能进入`C:\Program Files\WindowsApps`目录](https://jingyan.baidu.com/article/1876c852de26a0c80b1376c5.html)
     + [升级到专业版或者企业版](https://blog.csdn.net/qq_32682301/article/details/116003700)：Why？remote到win服务器（好小众的需求）
+
+### 0.1键盘
+
++ 通用配置：
+    + 输入法使用默认输入法软件
+    + 输入法只保留ABC和拼音
+    + 输入法默认使用英文
+    + 拼音设置为双拼且不自动扩展到全拼，双拼布局使用微软
+    + 输入法切换只使用Ctrl/Control + Space
++ Windows：
+    + 全半角和中英标点的切换设置为无
+    + 翻页只有+/-
+
++ 改键：Windows笔记本自带键盘：通过注册表将`Caps Lock`键改成方向键右键`rigth`
+
+[键盘选择与改键设计]()
 
 # 必装软件
 
@@ -90,13 +104,9 @@
 
 所有的机器都需要代理，我在所有平台使用的都是Clash系列，操作大差不差，且配置互通，所以忽略平台汇总在一处，这是[跳转链接](./README.md#代理-clash系)。
 
-## 4.笔记软件Obsidian
+## 4.命令行
 
-该软件是跨平台的，所以汇总在一处，这是[跳转链接](./README.md#笔记软件obsidian)。
-
-## 5.命令行
-
-### 5.0前置知识
+### 4.0前置知识
 
 值得强调的，在win11中Windows Terminal（下面会提到）是默认安装的，快捷键`win + r`键入`wt`即打开一个软件，它的样子是属于Windows Terminal的，但是"内核"使用的cmd这个Shell，同样这个”内核“是可以替换的，我们下面会将其替换成Powershell7。
 
@@ -120,7 +130,7 @@
 
 		>关于颜色，颜色是个连续的概念，但是命令行程序只需要几种颜色，这里由”终端“确定某种颜色比如Red到底是什么样的（在这里颜色变成离散的概念），然后上层程序比如Shell通过设置好的Red进行染色，比如将用户名染色成Red。除了Shell之外比如Vim同样是在命令行上运行的程序，所以这里的对Red的设定也会影响到它。
 
-### 5.1PowerShell7
+### 4.1PowerShell7
 
 + 安装：[Manual](https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3)（官方推荐winget）
 + 更新：reinstall
@@ -138,12 +148,12 @@
 	winget update Microsoft.PowerShell
 	```
 
-### 5.2oh-my-posh
+### 4.2oh-my-posh
 
 + 安装：[Manual](https://ohmyposh.dev/docs/installation/windows)（官方推荐使用winget）
 + 使用：还记得pwsh在打开后运行一个脚本嘛？我们只要把调用oh-my-posh的相关命令放在那里就可以用了，这里比较重要的是**主题**的选择
 
-### 5.3Windows Terminal
+### 4.3Windows Terminal
 
 >win10需要下载，win11自带
 
@@ -162,11 +172,11 @@
 
 	+ 更多配色见[Windows Terminal Themes](https://windowsterminalthemes.dev/)
 
-### 5.4导入配置
+### 4.4导入配置
 
 + 我的[配置](https://github.com/zweix123/posh-config)，项目README中有使用方法
 
-## 6.包管理器Scoop
+## 5.包管理器Scoop
 
 **Scoop非常强大，几乎任何你想下载的命令行程序或者依赖软件都可以去search一下，几乎都有！**  
 比如C/C++（`gcc`、`g++`、`gdb`、`make`、`cmake`）、Python（Python和某些库的依赖）、Golang、Java、LaTeX还有各种软件。
@@ -256,7 +266,7 @@
 + 其他：
 	+ 关于软件`unxutils`：这里有很多Linux常用命令，用来补齐Windows和Linux命令不同的问题，但是我没有安装，首先Powershell7本身就有很多和Linux一致的命令，部分会单独安装。而这里不仅有基本的命令，还有`zsh`这样的命令， 至少给我带来的一个问题是在VSCode使用CMake插件会造成输出乱码已经部分情况不能编译。所以卸载了这个。
 
-### 7.SSH&Git
+## 6.SSH&Git
 
 + 安装：
   + SSH：通常默认安装
@@ -264,7 +274,7 @@
 
 + 配置：[我的教程](./SSH&Git.md#二config)
 
-## 8.编辑器VSCode
+## 7.编辑器VSCode
 VSCode本身是编辑器，在插件的支持下扩展出丰富的功能（<strike>极具可玩性</strike>）
 
 + install：STFW
@@ -275,12 +285,18 @@ VSCode本身是编辑器，在插件的支持下扩展出丰富的功能（<stri
 
 + configs：内容多且散，且无关平台，我将其放在这个[教程](../Missing-Semester/VSCode.md)
 
+## 8.笔记软件Obsidian
+
+该软件是跨平台的，所以汇总在一处，这是[跳转链接](./README.md#笔记软件obsidian)。
+
+## 9.图片悬停PixPin
+
 # 其他软件
 
-+ [这里]()是一些汇总，有一些非常出彩值得特别推荐，后面有精力会放在当前文档，主要指图片悬停、启动器等。
-
+## 启动器
+Wox
 ## 虚拟机
->VMware Workstation Pro
+VMware Workstation Pro
 
 + 我的使用方式：主要是为我在win机器上提供一个linux环境，所以我使用的场景一般是打开后就放在后台，然后通过SSH或者VSCode的remote（本质也是SSH）连过去，我们发现上面的场景几乎不需要VMware Workstation的图形化界面，索性VMWare为我们提供了命令行的操作形式
 	```bash
