@@ -72,7 +72,7 @@
             >该选择是默认关闭的，可以想象，几乎相当于我们接收的任何压缩包都不能在本地解压 : )
 
 + 其他问题：
-    + [不能进入`C:\Program Files\WindowsApps`目录](https://jingyan.baidu.com/article/1876c852de26a0c80b1376c5.html
+    + [不能进入`C:\Program Files\WindowsApps`目录](https://jingyan.baidu.com/article/1876c852de26a0c80b1376c5.html)
     + [升级到专业版或者企业版](https://blog.csdn.net/qq_32682301/article/details/116003700)：Why？remote到win服务器（好小众的需求）
 
 # 必装软件
@@ -92,11 +92,11 @@
 
 ## 4.笔记软件Obsidian
 
-该软件是跨平台的，所以汇总在一处，这是[跳转链接]()。
+该软件是跨平台的，所以汇总在一处，这是[跳转链接](./README.md#笔记软件obsidian)。
 
 ## 5.命令行
 
-### 5.0.前置知识
+### 5.0前置知识
 
 值得强调的，在win11中Windows Terminal（下面会提到）是默认安装的，快捷键`win + r`键入`wt`即打开一个软件，它的样子是属于Windows Terminal的，但是"内核"使用的cmd这个Shell，同样这个”内核“是可以替换的，我们下面会将其替换成Powershell7。
 
@@ -120,7 +120,7 @@
 
 		>关于颜色，颜色是个连续的概念，但是命令行程序只需要几种颜色，这里由”终端“确定某种颜色比如Red到底是什么样的（在这里颜色变成离散的概念），然后上层程序比如Shell通过设置好的Red进行染色，比如将用户名染色成Red。除了Shell之外比如Vim同样是在命令行上运行的程序，所以这里的对Red的设定也会影响到它。
 
-### 5.1.PowerShell7
+### 5.1PowerShell7
 
 + 安装：[Manual](https://learn.microsoft.com/zh-cn/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.3)（官方推荐winget）
 + 更新：reinstall
@@ -138,12 +138,12 @@
 	winget update Microsoft.PowerShell
 	```
 
-### 5.2.oh-my-posh
+### 5.2oh-my-posh
 
 + 安装：[Manual](https://ohmyposh.dev/docs/installation/windows)（官方推荐使用winget）
 + 使用：还记得pwsh在打开后运行一个脚本嘛？我们只要把调用oh-my-posh的相关命令放在那里就可以用了，这里比较重要的是**主题**的选择
 
-### 5.3.Windows Terminal
+### 5.3Windows Terminal
 
 >win10需要下载，win11自带
 
@@ -162,7 +162,7 @@
 
 	+ 更多配色见[Windows Terminal Themes](https://windowsterminalthemes.dev/)
 
-### 5.4.导入配置
+### 5.4导入配置
 
 + 我的[配置](https://github.com/zweix123/posh-config)，项目README中有使用方法
 
@@ -258,8 +258,11 @@
 
 ### 7.SSH&Git
 
-+ 安装：`scoop install git`
-+ 配置：[我的教程]()
++ 安装：
+  + SSH：通常默认安装
+  + Git：`scoop install git`
+
++ 配置：[我的教程](./SSH&Git.md#二config)
 
 ## 8.编辑器VSCode
 VSCode本身是编辑器，在插件的支持下扩展出丰富的功能（<strike>极具可玩性</strike>）
