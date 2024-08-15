@@ -1,3 +1,4 @@
+
 关于主力编辑器的选择，对于个人而言，如果一个新的工作流被验证效率优于当前，我可以不顾学习成本去迁移，比如输入法迁移到双拼。对于VSCode和Vim的选择，我相信vim的上限是优于VSCode的，但是基于GUI修饰键的操作在各个软件都有事实标准。不能保证所有常用软件都支持vim模式。出于对统一美感的追求，最终还是选择VSCode，但vim终究还是我们的老前辈，对于某些vim下很好的操作模式积极寻找VSCode等价操作。关于VSCode和jetbrains的选择，我个人依然使用VSCode原因是我个人对命令行操作比较熟练，且有多语言编程需求，VSCode All In One的属性比较吸引我，但是我承认jetbrains家软件的优秀，日常关注其更好的点寻找VSCode的等价效果。
 
 + 怎么打开VSCode？我的方式：在终端cd到对应路径，然后`code .`
@@ -134,6 +135,16 @@
     + YAML
 + TOML：
     + TOML Language Support
+
+
+## Git
+
++ Git：
+    + 内置功能
+    + gitignore
+    + Git Blame
+    + 没有使用gitlens，这玩意太臃肿了。
+
 
 ## Python
 
@@ -381,21 +392,106 @@ ${fileDirname}: 当前文件所在路径
     + Markdown All in One：Yes，All in One
         >Markdown的渲染还有插件Markdown Preview Enhanced，据说更好看，我没有使用
 
+### Mind-Map
+
+
+我在最开始是使用思维导图记笔记的，直到现在我也觉得树形结构是比流式结构更好的笔记结构，此时随机选择了[Xmind8](https://xmind.cn/download/xmind8/)（是8而不是最新版，这个可能不是最好看的，但是我觉得是操作最合理高效的）。随机笔记规模的扩大就有了渲染性能和文件管理的问题，这个时候使用Markdown；此时思维导图这个形式只是偶尔使用，最后发现没必要在为这偶尔使用的需求留着一个软件了，换到[markmap](https://markmap.js.org/)框架（有VSCode插件Markmap）
+
+
 	+ Markmap：使用Markdown生成思维导图
+
+### Slide
+
+>我书写本文的发心是如何制作像[南大蒋炎岩老师那样的](http://jyywiki.cn/OS/2022/slides/1.slides.html#/)运行于Web的幻灯片，而不是微软的能量点，后又接触到PDF全屏播放的效果也类似幻灯片，如果可以导出成PDF那也可以作为一种幻灯片
+
++ 目前幻灯片种类有三种：
+	+ 图形化的幻灯片，以微软的能量点为代表
+	+ 基于Web的幻灯片，以[Reveal.js](https://revealjs.com/)为大爹
+	+ 必须导出成pdf使用的幻灯片，基本指LaTeX包[Beamer](https://www.overleaf.com/learn/latex/Beamer)
+
+这里
++ 微软的能量点，相对来说更被大众熟知，PPT几乎成了幻灯片的代名词，我没有选择它的原因可以从Markdown的设计出发，能量点提供了大量的功能，这意味着想掌握这些功能需要更高的学习成本，实际上我们大部分场景根本用不到这么多功能，能不能调节下抽象程度。
++ Bearmer：感兴趣的同学可以了解下，相信你一定看过由它制作的幻灯片，但是LaTeX谁爱用谁用。
++ Web幻灯片：  
+	下面的讨论对标Reveal.js，基于Web，兼容Markdwon，支持水平和垂直幻灯片，支持代码特定行高亮，其他
+	+ Reveal.js，学习难度大
+	+ reveal-md：Reveal.js的前端，该有的功能都有，但是想要调教出一个非常适合自己的主题仍然困难
+	+ [Slidev](https://sli.dev/)：对主题的定制较于reveal-md更好（大概），但是不支持水平幻灯片
+	+ 其他：
+		+ VSCode插件Markdown Perview Enhanced提供Markdown方言实现幻灯片：功能单一
+		+ Obsidian自带幻灯片插件提供通过`---`划分幻灯片：功能仅此而已
+		+ Obsidian第三方插件Advanced Slides据说对标Reveal.js，但是没有官方支持（[这里](https://forum.obsidian.md/t/advanced-slides-create-markdown-based-reveal-js-presentations-in-obsidian/28243/200)）
+---
+我们发现并没有一款完美的框架，于是我准备自己开发，具体看[项目](https://github.com/zweix123/jyyslide-md)。  
+
++ 使用**简单**Markdown方言，设计过程严格按照奥卡姆剃刀，尽可能保证功能和语法的简单。
++ 基于Web，兼容Markdwon，支持水平和垂直幻灯片，不支持代码特定行高亮，支持依次出现，支持渐变动画。
++ **蒋炎岩风格**，实际上，本框架完全可以制作和蒋老师一摸一样的。
+
 
 ## LaTeX
 
-+ LaTeX：[我的LaTeX笔记](./LaTeX.md)
++ [知乎 · 槿灵兮 · 【LaTeX】针对萌新自学者的入门教程](https://zhuanlan.zhihu.com/p/521649367?utm_source=zhihu)
++ [LaTeX 入门与进阶](https://latex.lierhua.top/zh/)
+
++ 插件：
     + LaTeX Workshop
     + BibTeX formatter
 
-## Git
 
-+ Git：
-    + 内置功能
-    + gitignore
-    + Git Blame
-    + 没有使用gitlens，这玩意太臃肿了。
++ 在线：比较有名的一款是overleaf，我个人使用的是[texpage](https://www.texpage.com/)，原因在于某些模板在overleaf如果有中文则格式不符合预期，后面本地环境跑起来之后一直使用本地。下面详细讲本地。
+
+==Tex Live by Scoop and VSCode in Windows==
+
++ 编译工具：软件包Tex Live，包含一款LaTeX编辑器XeLaTeX，而且我使用Scoop进行安装（[我的Scoop教程](./WindowsConfigGuide.md#6包管理器scoop)）
+	>LaTeX的编译工具有很多，宛如古神的低语，我个人将下面这个跑的通的方案作为黑盒，慢慢了解全貌。
+
+	```powershell
+	scoop bucket add scoopet https://github.com/ivaquero/scoopet
+	scoop install texlive  # 需要较长时间
+	```
+
+	+ 设置环境变量，这应该是Scoop的问题，它设置的相关环境变量不全，在我的机器上，还需要将`...\Scoop\apps\texlive\current\bin\windows`手动设置环境变量，在该路径下才是Tex Live软件包中各种可执行文件的路径，设置后可以通过`xelatex --version`检测。
+	+ LaTeX的包管理器是tlmgr，其依赖脚本perl，tlmgr已经包含在Tex Live软件包中，而tlmgr也内置了perl，不需要单独下载（其他教程可能会说单独下载），问题出现在perl在Windows中可能出现报错
+
+		```
+		Locale 'Chinese (Simplified)_China.936' is unsupported, and may crash the interpreter.
+		```
+
+		其原因是Windows非常经典的编码问题，关于这个问题在[Windows编码问题](./WindowsConfigGuide.md#win-code)
+
+	+ 包管理tlmgr配置：
+
+		```powershell
+		tlmgr update --self  # 升级自身
+		tlmgr update --all  # 升级所有包
+		tlmgr list --only-installed  # 列出已安装包
+		```
+
+	+ 常见包安装
+
+		```powershell
+		tlmgr install ctex ctexrep latexmk  # 中文支持
+		tlmgr install mhchem chemfig circuitikz  # 化学 & 电子
+		tlmgr install multirow ifoddpage relsize titlesec  # 排版
+		tlmgr install epstopdf subfigure appendix  # 图表
+		tlmgr install ulem xcolor environ letltxmacro enumitem stringenc trimspaces soul algorithm2e genmisc  # 字符 & 字体
+		tlmgr install cleveref titling placeins minted tocloft biblatex biber  # 其他, 主要是我校毕业论文模板的依赖包
+		tlmgr install latexindent  # 格式化工具
+		```
+
+		面对一个模板的报错，可以尝试从是否缺乏某个依赖包的角度考虑（通过看log）
+
++ 编辑环境：个人使用VSCode，插件推荐和配置如下：
+
+	+ 核心插件：LaTeX Workshop
+		+ 我个人使用的配置在[这里](https://github.com/zweix123/zstu-graduation-thesis-latex-template/blob/master/.vscode/settings.json)，其他教程通常将该配置作为全局配置，出于最小化全局状态原则，我个人使用将配置放在项目下。
+		+ 使用：一个项目就是一个模板和文章，在任意`.tex`保存时即可触发插件生成pdf。
+
++ 其他：
+	+ [`.gitignore`](https://github.com/zweix123/zstu-graduation-thesis-latex-template/blob/master/.gitignore)
+
+
 
 ## Copilot
 

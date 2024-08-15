@@ -17,15 +17,13 @@ Missing-Semester是MIT的一个计算机课程，学习学校不会教但是非�
 | 包管理器  | Scoop             | 原生              | brew       |            |
 | 编程    | VSCode            | VSCode          | VSCode     |            |
 | 笔记    | Obsidian          | Obsidian        | Obsidian   | Markdown   |
-| 论文    | zotero            | zotero          | zotero     |            |
-| 启动器   | Wox               |                 | Spotlight  |            |
 | 截图    | PixPin            |                 | PixPin     | 悬停+OCR+长截图 |
+| 启动器   | Wox               |                 | Spotlight  |            |
+| 论文    | zotero            | zotero          | zotero     |            |
 |       |                   |                 |            |            |
 
 + 笔记-Obsidian-Markdown：Obsidian打开的单位是项目而非文件，而我个人成独立的Markdown项目只有这个CS-notes，编程项目通常使用VSCode，而VSCode也能编辑Markdown。故在我的场景下，Obsidian就是专门打开CS-notes的，并结合Git实现存档和多端同步。
-+ 截图：
-    + 最主要的需求是图片悬停，其次是将粘贴板的文本转换成图片悬停，偶尔会有OCR，极少极少会有长截屏。
-    + 有三个选择，Snipaste，PixPin，iShot，Snipaste非常优雅且跨平台，但是后两个需求不能满足，PixPin支持Win和macOS，恰好覆盖需求，UI有点丑，iShot功能最强大但是只支持macOS。最终选择PixPin。
++ 截图：最主要的需求是图片悬停，其次是将粘贴板的文本转换成图片悬停，偶尔会有OCR，极少极少会有长截屏；有三个选择，Snipaste，PixPin，iShot，Snipaste非常优雅且跨平台，但是后两个需求不能满足，PixPin支持Win和macOS，恰好覆盖需求，UI有点丑，iShot功能最强大但是只支持macOS。最终选择PixPin。
 
 ## 浏览器:Chrome
 
@@ -39,15 +37,14 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
                 + win11：`设置` -> `系统` -> `多任务处理` -> "对齐或按Alt + Tab时显示应用中的标签页"改为"不显示选项卡"。
     + Linux：
     + macOS：
+
 + 配置与插件：
     + 增强：
         + Header Editor：使用谷歌总需要人工验证，可使用该插件避免，[教程](https://blog.azurezeng.com/recaptcha-use-in-china/)。
         + 标签分组扩展
-        + 键鼠：
-            + crxMouse Chrome手势：前进后退、顶部底部、链接图片打开
-            + Vimium：未使用
-        + AI：
-            + New Bing Anywhere
+        + crxMouse Chrome手势：前进后退、顶部底部、链接图片打开
+        + Vimium：未使用
+    + New Bing Anywhere
     + 油猴脚本
     + 身份验证器：用于双重验证，比如Github
     + 翻译：
@@ -56,30 +53,10 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
     + Zotero：
         + Zotero Connector
     + 信息收集：
+        >ref: [csdiy·必须工具·日常学习工作流](https://csdiy.wiki/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/workflow/#_10) | [少数派·Vacodwave·3000+小时积累的学习工作流](https://sspai.com/post/75969)
+
         + 主动收集：Cubox，多端统一
-        + 被动收集：RSSHub Radar+Feedly Mini，前者为任何网页创建RSS，后者为RSS查看器
-
-### 信息输入
-
-+ Ref：
-    + [csdiy·必须工具·日常学习工作流](https://csdiy.wiki/%E5%BF%85%E5%AD%A6%E5%B7%A5%E5%85%B7/workflow/#_10)
-        + [少数派·Vacodwave·3000+小时积累的学习工作流](https://sspai.com/post/75969)
-
-+ 痛点：
-    + 稳定的周期更新的输出内容分散，通过**RSSHub Radar**（浏览器插件）和**Feedly mini**（浏览器插件）解决
-        + [x] Windows(Chrome)
-        + macOS(Safari)：不配置，Chrome是独立于系统的，macOS中也有Chrome，以Chrome为主（谷歌账号多端同步）
-    + 多个端的收藏分别维护在本地，不能统一，通过**CuBox**（浏览器插件）解决
-        + [x] Windows and Chrome
-        + [x] macOS and Safari
-        + [x] Android
-        + [x] iPad and Safari
-+ 难点：多端指PC、macOS、Android、IPhone、IPadOS，几乎包含了所有平台，我要求方案可以在以上所有平台有效。
-
-+ 对于Ref的方案中，没有采纳的特性：
-    + 多种类型信息转换成markdown或者pdf汇总到obsidian
-        + 多种知识肯定会以不同的语言描述，如果仅仅是留存双链而没有经过我自己的消化并不是我想要的。
-        + 可能对于论文的场景这样有好处，比如一篇笔记和一篇论文有关，笔记有利于整理框架，
+        + 被动收集：RSSHub Radar+Feedly Mini，前者为任何网页创建RSS，后者为RSS接收和查看器
 
 ## 代理:Clash系
 
@@ -90,12 +67,10 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 
 + 配置：
     + 开机自启动
-    + 使用`TODO`作为开关快捷键
+    + 使用F2作为开关快捷键
 
 ## 编程:终端
-
 ## 编程:VSCode
-
 ## 笔记:Obsidian
 
 + 操作系统：
@@ -105,7 +80,25 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
     + Linux：
     + macOS：
 
-[笔记](./VSCMD.md#obsidian)
+|         | Typora | Obsidian | VSCode |
+| ------- | ------ | -------- | ------ |
+| 编辑模式    | 即时渲染   | 即时渲染     | 分屏渲染   |
+| 渲染效果    | 极好     |          |        |
+| 方言      | 无      | 有，双链     |        |
+| 跨平台     |        |          |        |
+| 源码导出    |        |          |        |
+| 多机同步    |        |          |        |
+| 付费否     |        |          |        |
+| 使用模式    | 单文件/项目 | 项目       | 单文件/项目 |
+| Table支持 |        | 可支持Tikz  |        |
+| LaTeX支持 |        |          |        |
+| 代码画图支持  |        |          |        |
+| 性能      | 卡      |          |        |
+| 查看大纲    |        |          |        |
+
++ 插件推荐
+    + Obsidian Git：多机同步必备，取消所有快捷键，因为核心功能主要有三个（如果熟悉Git的话）：add + commit、push、pull。而Obsidian也有类似VSCode的命令行模式（快捷键`Ctrl + p`或者`Command + p`），输出前缀`git`即有上面提到的几个选项，甚至在PC上，我都是命令行手动管理。
+    + Advanced Tabled：Markdown表格相关补全，它存在大量的自定义，抽象程度低就意味着复杂，索性它提供了图形化的操作，鉴于表格用的本来就不多。我干脆没有设计快捷键。
 
 
 ## 论文:Zotero

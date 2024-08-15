@@ -1,7 +1,5 @@
 ## 基本配置
 
-+ [键盘基本配置](Missing-Semester/Keyboard.md#配置)
-    + [键盘改键](Missing-Semester/Keyboard.md#改键)
 + 其他设置：
     + 外观：深色
     + 桌面背景：纯色黑色
