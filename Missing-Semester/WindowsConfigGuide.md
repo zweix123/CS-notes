@@ -272,7 +272,7 @@
   + SSH：通常默认安装
   + Git：`scoop install git`
 
-+ 配置：[我的教程](./SSH&Git.md#二config)
++ 配置：[我的教程](Missing-Semester/CLI/SSH&Git.md#二config)
 
 ## 7.编辑器VSCode
 VSCode本身是编辑器，在插件的支持下扩展出丰富的功能（<strike>极具可玩性</strike>）
