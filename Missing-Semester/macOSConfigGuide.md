@@ -63,9 +63,9 @@
 ### 安装Git->SSH生成密钥->配置Github
 
 1. Git安装: `brew install git`
-2. Git配置: [笔记](./Git.md#config)
-3. SSH生成密钥: [笔记](./SSH.md#tldr)
-4. 将SSH公钥上传到Github上: [笔记](./Git.md#config-1)
+2. SSH生成密钥: [我的教程](./CLI/ssh.md#config)
+3. Git配置: [我的教程](./CLI/git.md#config)
+4. 将SSH公钥上传到Github上: [我的教程](./CLI/git.md#config)
 5. 克隆CS-notes
 ### 下载Obsidian
 + 安装：直接安装

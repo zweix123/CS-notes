@@ -34,7 +34,7 @@ usermod -aG wheel 用户名  # Centos
 
 ## 2.配置SSH
 
-+ 配置：[我的教程](Missing-Semester/CLI/SSH&Git.md#21-ssh)，通常作为服务端和客户端都要配置（作为服务端本机连接，作为客户端连接Github）
+[我的教程](Missing-Semester/CLI/ssh.md)
 
 ## 3.修改软件源
 
@@ -70,37 +70,30 @@ usermod -aG wheel 用户名  # Centos
 ### vim
 >文本编辑器
 
-[笔记](misc/linux/vim.md)
+[我的笔记](./CLI/vim.md)
 
 ### tmux
 >终端复用器
 
-+ 作用：
++ 功能：
   + 多个终端
   + 断开SSH而不影响命令执行
 
-+ 使用：[笔记](misc/linux/tmux.md)
+[我的笔记](./CLI/tmux.md)
 
 ### git
 
-+ 配置：[笔记](Missing-Semester/CLI/SSH&Git.md#22-git)
-+ 使用：[笔记](Missing-Semester/CLI/SSH&Git.md#33-git)
++ 配置：[我的教程](./CLI/git.md#config)
++ 使用：[我的教程](./CLI/git.md#usage)
 
 ### zsh
 
-
-方案：zsh and oh-my-zsh
-
-+ 相关命令：
-    + `echo $SHELL`查看使用shell
-    + `cat /etc/shells`查看机器有的shell程序
-    + `chsh -s shell绝对路径`设置默认shell，比如zsh是`chsh -s $(which zsh)`
-    + 重新载入Shell的配置：`source shell的rc文件`，比如zsh是`source ~/.zshrc`
+我的终端方案：zsh+oh-my-zsh
 
 + 前置条件：
-    + 下载并配置Git
+    1. 下载并配置Git
 
-### 1.下载zsh并更换默认shell
+#### 1.下载zsh并更换默认shell
 >macOS不需要
 
 Manual：[https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)，一行命令即可
@@ -113,7 +106,7 @@ sudo apt install -y zsh
 更新默认shell：`chsh -s $(which zsh)`
 >实际上这边建议不要着急修改，在克隆oh-my-zsh会提示是否修改默认shell
 
-### 2.下载oh-my-posh并安装插件
+#### 2.下载oh-my-posh并安装插件
 
 Manual：[https://github.com/ohmyzsh/ohmyzsh/wiki](https://github.com/ohmyzsh/ohmyzsh/wiki)
 
@@ -137,18 +130,13 @@ git clone https://gitee.com/mirrors/oh-my-zsh ~/.oh-my-zsh
 | zsh-autosuggestions     | 输入命令时自动显示可能的命令建议，以暗色的形式，按当前键入的命令作为前缀匹配，使用方向键右键补全 | `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`             | `git clone https://gitee.com/phpxxo/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`              |
 | zsh-syntax-highlighting | 高亮显示你输入的命令中的语法错误                                 | `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting` | `git clone https://gitee.com/Annihilater/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting` |
 
-### 3.导入配置
+#### 3.导入配置
 
-[这是](https://github.com/zweix123/unix-config)我的配置，在README中有使用方法
-
-
-+ 认知对齐：
-    + 对接触编程而没有接触命令行的同学：
-    + 对是程序员但命令行使用不多的同行：
+导入[我的配置](https://github.com/zweix123/unix-config)，在README中有使用方法
 
 ## 5.导入软件配置
 
-导入[我的配置](https://github.com/zweix123/unix-config)
+导入[我的配置](https://github.com/zweix123/unix-config)，在README中有使用方法
 
 ## 其他开发环境
 

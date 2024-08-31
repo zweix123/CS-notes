@@ -1,34 +1,33 @@
-# 一、简单说明
++ 前置知识：
+    + [ssh](Missing-Semester/CLI/ssh.md)
 
-SSH的使用场景是连接服务器，Git则是版本管理工具，当结合Git仓库托管服务，可用于团队协作或者其他。而`git clone ssh url`使用SSH作为非对称加密，此处涉及SSH配置，故两者的配置通常的一同的，故放在同一文档管理。
+Git是一个成为事实标准的版本管理工具，GitHub是一个代码托管平台（除了它还有其他很多很多也能代码托管）
 
-## 1.2 Git
++ Git配置文件位置：
+    + 用户的（全局的）：用户目录下的`.gitconfig`文件
+        + Windows：`C:\User\${用户名}\.gitconfig`
+        + Unix（Linux & macOS）：`/home/${用户名}/.gitconfig`
+    + 项目的（局部的）：使用Git维护的项目的`.git/`目录下的`config`文件
 
-Git是一种版本管理工具，
+    对于同一个配置项，项目的覆盖用户的
 
-+ 配置文件位置：
-	+ win：`C:\User\$User\.gitconfig`
-	+ unix：`/home/${User}/.gitconfig`
+## Config
 
-## 1.3 GitHub
+### Git
 
-GitHub是一个代码托管平台。
+下面通过命令做的配置会体现在上面提到的配置文件中
 
-# 二、Config
-
-
-## 2.2 Git
-
-第一时间配置：
+基本的：
 ```bash
 git config --global user.name xxx  # 设置全局用户名
 git config --global user.email xxx@xxx  # 设置全局邮箱地址
 ```
-+ 注意这里的flag——`--global`，假如想配置单个项目的用户信息，可以在Git项目下使用去掉该flag的命令配置，相关配置维护在项目根目录的`.git/config`中
+对于`--global`这个flag，表示对应配置记录在用户配置中；假如想配置当个项目的用户信息，则在该项目**根目录路径下**使用不带该flag的命令。
 
-必选设置
+必选的（个人建议）：
+
 ```bash
-# 设置语言, 不然语言显示的是乱码(Win and Mac)
+# 设置语言, 不然语言显示的是乱码(win and mac)
 git config --global core.quotepath false
 git config --global gui.encoding utf-8
 git config --global i18n.commit.encoding utf-8
@@ -38,15 +37,19 @@ git config --global i18n.logoutputencoding utf-8
 git config --global core.autocrlf false
 ```
 
-可选设置
+可选的：
 ```bash
 git config --global core.editor vim  # your favorite editor
 git config --global color.ui true
 ```
 
-其他设置
+其他的：
+
+网络问题：
+
 ```bash
-# 我还遇到过网络问题，报错形如Failed to connect to github.com port 443 after xxx ms: Couldn't connect to server, 通过下面的方法解决，如果没遇到可不执行
+# 报错：Failed to connect to github.com port 443 after xxx ms: Couldn't connect to server
+# 解决：如下
 git config --global http.proxy http://127.0.0.1:7890 
 git config --global https.proxy http://127.0.0.1:7890
 # 查看
@@ -57,7 +60,7 @@ git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
 
-## 2.3 GitHub
+### GitHub
 
 0. SSH相关配置：在`~/.ssh/config`添加
     ```
@@ -66,24 +69,9 @@ git config --global --unset https.proxy
         Port 443
     ```
 
-1. 上传密钥：<a href="#密钥">上文</a>
+1. 上传密钥：见SSH教程
 
-# 三、Usage
-## 3.1 SSH
-
-+ ssh本来的功能就是连接服务器：<a href="#连接服务器">上文</a>
-
-## 3.2 scp&sshpass&ftp
-
-+ `scp`：`scp source destination`，dest描述为：`别名:path`
-	+ 多文件：`scp source1 source2 destination`
-	+ 复制文件夹：添加选项`-r`
-	+ 指定端口：添加参数`-P`
-+ `sshpass`：就是把`scp`的`password`从stdin input变成argument
-+ `ftp`：可以先登陆到服务器上，然后在通过`get`和`mget`传文件
-
-## 3.3 Git
-
+# Usage
 
 + Init: 进入项目目录下：
 	```bash
@@ -133,8 +121,6 @@ git config --global --unset https.proxy
 + merge:
 	+ 进入合入的分支，如果`xxx`是需要合进来的分支，则命令为`git cherry-pick xxx`
 
-## 3.4 GitHub
-
 + Init：创建一个新项目时有足够的提示
 + `git push`：推送，将本地版本库放到云端
 + `git pull`：拉回，将云端版本库放到本地
@@ -147,18 +133,12 @@ git config --global --unset https.proxy
 	git clone -b <branchname> <remote-repo-url>
 	```
 
-### 3.4.1 Page
-
 考虑这样的场景，我的项目的有些成果可以静态网页的形式展示，缩短路径让客户最快的看到我们产品的效果。但是大费周章的在服务器搭建一个Web服务也不合适，因为大概率服务器属于你的时间要远小于项目属于你的时间。这时GitHub Pages就派生用场了。下面给出一个方案。
 
 打开项目 -> Settings -> Pages(在右边) -> (在Branch下选择)master + docs -> Save -> 然后把一个index.html放到项目的docs目录下即可通过`https://用户名.github.io/项目名/`访问
 
-
-
-# Learn Git In Practice
-
 + Ref: [Pro Git book](https://git-scm.com/book/en/v2) | [Git User Manual](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/user-manual.html)
-+ Ref: [《GotGitHub》](http://www.worldhello.net/gotgithub/) | [我的SSH笔记](./SSH.md)
++ Ref: [《GotGitHub》](http://www.worldhello.net/gotgithub/) | [我的SSH笔记](Missing-Semester/CLI/ssh.md)
 
 + 工作区worksapce：仓库所在的目录，是独立于各个分支的。
 + 暂存区Stage/索引Index：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，也是独立于各个分支的。
@@ -179,7 +159,7 @@ git config --global --unset https.proxy
     + Review，审计pr代码
     + Merge，在这里指pr通过review，合并进项目中
 
-## 为开源项目贡献代码
+为开源项目贡献代码
 
 一个在Github上Public的repo(Repositories)是“开源”，任何人都可以查看代码，也能为项目贡献代码
 
@@ -232,7 +212,7 @@ git config --global --unset https.proxy
     + push参数`-f`
 
 
-## 多分支维护
+多分支维护
 
 上面提到，每次开始一个新的任务都应该开一个新的分支进行开发，这在多人开发中是必要的，那么个人开发也有必要嘛？  
 我个人觉得有的，因为在开发新的部分时常常发现上一个部分的小bug，这个时候我可能先`git reset HEAD~1`退回到上一个版本，然后把修改的文件`add`然后重新commit，但是这样太笨对吧，如果上次修改了大量的文件，或者两次修改之间有重复的文件，是不能解决的。所有个人项目开新的分支也是有必要的。
@@ -256,7 +236,7 @@ git config --global --unset https.proxy
 
     + 查看包括云端的分支：`git branch -a`
 
-## 查看过去版本效果的正确姿势
+查看过去版本效果的正确姿势
 
 >如果在开发新功能时是开一个分支就不会有下面的问题
 
@@ -266,7 +246,7 @@ git config --global --unset https.proxy
 
 + 这些信息是保存在本地的，不会随着push到云端
 
-## 修改过去版本中的记录
+修改过去版本中的记录
 >这是一个危险的行为，不建议模仿
 
 我的一个个人项目诞生于我对git使用很不规范的时期，有很多无用的commit，其中真的影响使用的是，我发现git clone的速度非常的慢，虽然项目中确实有挺多的静态文件，但是直觉上感觉不应该这么的慢。我在之前的某个commit中把大量的测试用图片交了上去，猜测这部分在.git目录中的记录体积很大。考虑如何删除。
@@ -299,11 +279,11 @@ git config --global --unset https.proxy
 
 果然快很多。
 
-## 将其他repo各分支push到自己的repo中
+将其他repo各分支push到自己的repo中
 
 下面两个情况，当项目的修改到自己的repo后，就不能再联系到学校本来的repo了，我通常是在服务器从学校clone并保留，每次拿到新的分支copy出来，把copy出来的项目去push到自己的repo，开新的实验在备份那里进行更新再copy。
 
-### xv6
+xv6
 每个实验都是一个分支，我们把某个分支从MIT clone到本地，然后
 ```
 git remote set-url origin 你的项目的SSH链接
@@ -311,7 +291,7 @@ git push
 ```
 这个分支就push到自己的repo下
 
-### CS144
+CS144
 
 与xv6的不同的是，它的每个实验在上一次实验的基础上，所以每次开新实验都是把新的分支merge到当前的分支，然后继续开发新进来的TODO  
 更新好分支后
@@ -327,12 +307,12 @@ git push origin HEAD
 git merge origin/上次实验分支名
 ```
 
-### CMU15445
+CMU15445
 
 哦！15445提供了更优雅的方案，我上面两个方法简直太笨了。  
 记得修改action并save
 
-## 子模块
+子模块
 
 + 将其他项目作为子模块：
     ```bash
@@ -344,8 +324,7 @@ git merge origin/上次实验分支名
     git submodule update --init --recursive
     ```
 
-
-# amazing
+## amazing
 
 ```bash
 # 查询项目贡献者数量
@@ -375,9 +354,8 @@ git log --author="用户名" --pretty=tformat: --numstat | awk '{ add += $1; sub
 # 接时间范围、排除路径、指定路径参数如上
 ```
 
-
 还能好玩些
 
-```
+```bash
 git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s,\t removed lines: %s,\t total lines: %s\n", add, subs, loc }' -; done | column -t -s $'\t'
 ```

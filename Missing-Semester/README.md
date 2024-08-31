@@ -21,7 +21,7 @@
         + [VSCode](./VSCode.md)
         + 命令行：包含在各系统配置中（Linux的配置是满血版，macOS也是Unix系统，在oh-my-zsh的配置一样，所以使用Linux的配置；win则是尽力配置出同样的体验）
 
-    + 命令纬度：[CLI介绍](./CLI/README.md) -> 命令行配置（如上） -> [SSH](./CLI/SSH.md) -> [Git](./CLI/Git.md) -> [其他](./CLI/)
+    + 命令纬度：[CLI介绍](./CLI/README.md) -> 命令行配置（如上） -> [ssh](Missing-Semester/CLI/ssh.md) -> [git](Missing-Semester/CLI/git.md) -> [其他](./CLI/)
 
 大学算起，我个人使用机器的经历是：3年Windows->1年Linux->?年macOS，故后面大概只会更新macOS相关的了。
 
