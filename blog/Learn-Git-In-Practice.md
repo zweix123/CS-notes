@@ -27,3 +27,10 @@ git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git l
 git log --author="用户名" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -;
 # 接时间范围、排除路径、指定路径参数如上
 ```
+
+
+还能好玩些
+
+```
+git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s,\t removed lines: %s,\t total lines: %s\n", add, subs, loc }' -; done | column -t -s $'\t'
+```

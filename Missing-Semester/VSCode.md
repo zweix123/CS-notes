@@ -380,6 +380,12 @@ ${fileDirname}: 当前文件所在路径
     }
     ```
 
+## Shell
+
++ format: 
+    + shell-format
+        + dep: shfmt comamnd
+
 ## Web
 
 + Auto Rename Tag：补全
