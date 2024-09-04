@@ -252,6 +252,14 @@
 
 + [ ] 《卓有成效的工程师》
 
+### 其他专项
+
+#### 向量数据库与RAG
+目前向量数据库和RAG强绑定
+
++ [Survey of Vector Database Management Systems](https://arxiv.org/abs/2310.14021)
++ [Vector database management systems: Fundamental concepts, use-cases, and current challenges](https://arxiv.org/abs/2309.11322)
+
 ## 人文学科
 
 ### 纯文学

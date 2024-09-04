@@ -6,6 +6,15 @@
 go --help
 ```
 
+### go test
+
++ `go test`的参数
+    + `-v`
+    + `-race`
+    + `-parallel`
+    + `-shuffle`
+    + `-converprofile`
+
 ## Config
 
 command
@@ -53,22 +62,54 @@ GOPATH  # go1.11引入module, 不再需要;
 
 所以这个章节就描述这样的主题，比如硬规范的东西，比如常见的问题与解决方案，比如最佳实践。在这里罗列。
 
-+ https://go.dev/doc/effective_go
-+ https://google.github.io/styleguide/go/
-+ https://github.com/uber-go/guide
+1. 官方推荐的Effective Go：https://go.dev/doc/effective_go
+2. 在学完Effective Go后，就是谷歌官方的规范：https://google.github.io/styleguide/go/
+3. uber的最佳实践很不错：https://github.com/uber-go/guide
+4. 反向的，从最差实践看最佳实践：https://100go.co/
 
 ### 项目结构和名称命名
 
-+ Go在语法层面通过名称首字母的大小写控制来控制是否**导出**
-
 + 项目名：小写，使用中划线划分单词
-+ 文件名：小写，使用下划线划分单词
-+ module名：使用反向域名，规范同项目名
-+ package名/目录名：小写不使用下划线，package名和目录相同
-+ 其他（接口名/结构体名/函数名/变量名）：使用驼峰命名法作为基本规范
-    + 常量：全大写使用下划线
++ mod名：使用反向域名，其他规范同项目名
++ package名：小写，单个单词，不实用下划线或者驼峰
+    + 包名和其所在的目录名相同
++ 其他：使用驼峰命名法作为基本规范
 
-+ 项目结构：[Standard Go Project Layout](https://github.com/golang-standards/project-layout/blob/master/README_zh.md)
++ 其他建议：
+    + 名称自解释/递归解释
+
+
+## 项目结构
+
++ 官方：https://go.dev/doc/modules/layout
++ 社区：https://github.com/golang-standards/project-layout/tree/master
+
+## 语法细节
+
++ 数组是值，切片是指针
++ golang的分号是有意义的，实际上，它会在编译期插入到某些字符后面，比较典型的
+    ```go
+    if check()
+    {
+        // .. 
+    }
+    // 会导致
+    if check();  //! 问题
+    {
+        // .. 
+    };
+    ```
++ 对于map中没有的键，获取并不会panic，会是被复制成值的零值，所以`map[key]bool`天然就是一个set
+    + 同样的，对于`delete(map..., key)`，中key不在map也是安全的
+
++ 类型转换可以是复合的
++ `new(T)`与`&T{}`等价，而不是与`T{}`，使用`T{}`的优先级大于`make(...)`再大于`new()`
+
+## 其他准则
+
++ 假如不知道一个名称是否导出，则不导出
+
+## 业务场景
 
 ### CLI
 https://github.com/spf13/cobra
@@ -100,13 +141,12 @@ https://github.com/spf13/viper
 
 + 实现：https://github.com/juju/ratelimit
 
-#### 其他TODO
+#### 其他
 
-+ https://github.com/ulule/limiter
+1. https://github.com/ulule/limiter 
 
-### 其他TODO
+### 其他
 
-TODO：
 + https://marksuper.xyz/2022/08/26/groupcache/
 + https://marksuper.xyz/2022/10/13/xxl-job/
 + https://marksuper.xyz/2021/10/15/error_group/
@@ -114,7 +154,7 @@ TODO：
 + https://marksuper.xyz/2023/12/23/ant/
 + local cache
 
-### 性能调优与注意事项
+## 性能
 
 + GOMAXPROCS（go max procs）：go中goroutine的队列数量，最好和CPU核数一致。
     + 目前这个版本通常不需要求，可以由服务器通过环境变量设制
@@ -124,9 +164,10 @@ TODO：
     + 在go1。19之后：则添加了GOMEMLIMIT（go mem limit），即可以设置触发的阈值
 + 性能分析：Go-Monitor
 
-TODO: GC和内存碎片
++ GC
++ 内存碎片
 
-## tools
+## Tool
 
 ### Json-to-Go-struct
 https://mholt.github.io/json-to-go/

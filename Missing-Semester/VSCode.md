@@ -514,3 +514,62 @@ ${fileDirname}: 当前文件所在路径
 + AutoCorrect：中文拼接与格式检测
 + Compare Folder：重大升级！非常好用！
 + Wakatime：统计编程情况
+
+
+
+# 附录: 我的配置
+```json
+{
+    // ==================== 个人配置 ====================
+    // 个人 VSCode 配置, 通常放在 User Settings 中
+    "editor.formatOnSave": true, // 保存时自动格式化, 这个可能会造成困难, 因为工作中大概率接触很多没有格式化过的代码 : )
+    "editor.rulers": [
+        80,
+        120
+    ],
+    // golang
+    "[go]": { // go mod name 通常是网址, 所以当想通过Command+左键跳转的时候, VSCode会将其作为网址打开, 故关闭
+        "editor.links": false,
+    },
+    /// language server
+    "gopls": {
+        "ui.semanticTokens": true, // 高亮强化
+        "formatting.gofumpt": true, // 格式化强化
+        "usePlaceholders": true, // 补全强化
+        "staticcheck": true // lint强化
+    },
+    /// linter
+    "go.lintTool": "golangci-lint", // golangci-lint是多个linter的集合(golint, vet, errcheck, staticcheck), 使用配置文件 .golangci.yml 不过没有也能用
+    "go.lintFlags": [
+        "-set_exit_status" // 发现任何 lint 问题时返回一个非零的退出状态
+    ],
+    /// formatter
+    "go.formatTool": "goimports", // 格式化强化, 但是不知道为什么没有和上面的冲突
+    // python
+    /// formatter
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter", // formatter: black
+        // 下面的作用是: 当文件保存时, 对import语句进行整理
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+            "notebook.source.organizeImports": "explicit"
+        },
+    },
+    // 上面提到, python 文件保存时整理import语句, 使用isort包, 相关参数在这里配置
+    "isort.args": [
+        "--profile", // 预设的配置文件
+        "black", // 预设的配置文件与black兼容
+    ],
+    /// linter
+    "mypy-type-checker.args": [
+        "--check-untyped-defs", // 对那些没有类型注解的函数或方法定义进行类型检查, 默认不检查
+    ],
+    // C/C++
+    // others
+    /// dryadsfile
+    "files.associations": {
+        "dryadsfile": "python"
+    },
+    // ==================== 个人配置 ====================
+}
+```
