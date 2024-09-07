@@ -380,6 +380,23 @@ ${fileDirname}: 当前文件所在路径
     }
     ```
 
+按照https://code.visualstudio.com/docs/languages/go走一遍
+
+更好的高亮
+```json
+"gopls": { "ui.semanticTokens": true }
+```
+
+更好的静态分析
+go.lintTool使用golangci-lint
+
+更好的格式化
+```
+"gopls": {
+    "formatting.gofumpt": true
+}
+```
+
 ## Shell
 
 + format: 

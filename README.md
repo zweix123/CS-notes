@@ -148,12 +148,21 @@
 	+ Manual：Python这种语言看Manual就行啦
 	+ B站码农高天，他是CPython的Contributor，Python相关教程很不错，适合想精深Python的。
 
-+ Golang：
-	+ Manual，Golang官方的Tour of Go就非常好呀。
-	+ [Easy 搞定 Golang设计模式](https://www.yuque.com/aceld/lfhu8y)：为什么一个语言需要单独的设计模式呢？因为Golang这种interface的形式我个人确实不太习惯。书不错。
++ Go：
+    + [x] Quick Start：[A Tour of Go](https://go.dev/tour/welcome/)
+
+    我目前以Go作为工作中的主要开发语言，有这样的体会，它的语法非常非常简单，在Quick Start后就可以立刻投入到大项目的实践中。在实践过程中，会遇到很多问题，几乎都可以通过见招拆招解决。在这个过程中，有意识的积累典型场景和最佳实践，很快就很好了。“大道至简”的优势体现的淋漓尽致。
+
+    所以我后面的学习重点基本在“最佳实践”上，基本囊括Go常见的语法陷阱。
+
+    + [x] [100 Go Mistakes and How to Avoid Them](https://100go.co/)：当提出“最差实践”的同时，最佳实践也就有了。
 
 + Rust：
-	+ [x] [rustlings](https://github.com/rust-lang/rustlings)：真的不由得感叹一句“太现代了！”，它的思路是提供很多无法编译的Rust代码，然后供我们修改，在实践中理解Rust的各种语法（显然这些 Bug 涉及的语法特性应该是难度递增的）。它的特色是提供了全自动交互环境，就像玩游戏闯关一样。具体的，我以我的流程为例，将项目Fork到自己的github中，然后clone下来，在本地搭建好Rust相关环境后，编译`rustlings`。然后在项目目录下打开VSCode，不需要Explorer，整个屏幕就有一个编辑区和终端，然后让他们左右放置（以往我都是上下放置），然后在终端启动 `rustlings watch`，就会自动找到最近的需要修改的代码，VSCode的终端是可以点击链接打开，自然就拿到了需要修改的文件，然后保存，终端自动重新测试，错了给出编译报错，成了给出下一个需要修改的 Bug。这就很像游戏呀。然后`rustlings watch`是有`hint`的，因为我没有学过Rust，直接以练代学，所以基本每个我都`hint`一下，它会给出Rust Book的链接，这个时候我再去看书。整个学习体验棒极了。
+    >我在学习Rust前非常忐忑，因为我极大概率永远不会用Rust写对自己“工作”有益的代码，而个人的学习理念向来是在实践中学习; 没有需求的推进我很怀疑自己学习Rust的动力。
+
+    + Quick Start：语法（[fasterthanlime · A half-hour to learn Rust](https://fasterthanli.me/articles/a-half-hour-to-learn-rust)） + 练习（[rustlings](https://github.com/rust-lang/rustlings)）：前者顾名思义，后者还是很惊喜的，其提供一系列无法编译的Rust代码然后供我们修改，在实践中理解Rust的各种用法。其特色是提供了一个全自动的交互环境，就像玩游戏闯关一样。
+
+    + [The Rust Programming Language](https://doc.rust-lang.org/book/)：很多的人的推荐，目前当作查表。
 
 + 前端：
     + https://h-wakanda.github.io/css-animation-101-cn/
@@ -169,6 +178,8 @@
 >+ 它为我们展示设计编程语言的方方面面
 
 + [x] 《Crafting interpreters》【🤏】：这本书自底向上手把手的带读者使用C语言实现一个有闭包、类、垃圾回收的动态类型语言。是我2023年看到的最好的技术书（这个受到了《Effective Modern C++》的冲击），总之非常推荐。
+
++ 内存分配器
 
 ### 体系结构
 
@@ -234,6 +245,14 @@
 #### 存储
 
 + [ ] 《数据存储-架构与技术》舒继武：海舟哥严选，先mark下下
+
+#### 其他专题
+
++ [迟先生的Mini-LSM](https://skyzh.github.io/mini-lsm/)
+    + Pre：
+        + 语法：[The Rust Programming Language](https://doc.rust-lang.org/book/)
+        + 存储：~~[PingCAP人才计划P2](https://github.com/pingcap/talent-plan/tree/master/courses/rust/projects/project-2)~~
+        + LSM基础知识：LevelDB整体思想（[叉鸽的博客](https://blog.mrcroxx.com/tags/leveldb/)）
 
 ### 高性能/并行计算
 

@@ -89,6 +89,7 @@ usermod -aG wheel 用户名  # Centos
 ### zsh
 
 我的终端方案：zsh+oh-my-zsh
+>starship
 
 + 前置条件：
     1. 下载并配置Git
@@ -124,7 +125,7 @@ git clone https://gitee.com/mirrors/oh-my-zsh ~/.oh-my-zsh
 | z                       | 提供了一个快速跳转到你之前访问过的目录的功能，使用命令`z`                   | 默认安装                                                                                                                                    |                                                                                                                                          |
 | git                     | 集成了 git 命令的自动补全和高亮显示                             | 默认安装                                                                                                                                    |                                                                                                                                          |
 | history                 | 增强了 zsh 的历史命令功能                                  |                                                                                                                                         |                                                                                                                                          |
-| zsh-completions         | 提供了额外的命令补全脚本                                     | `git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions`                                    |                                                                                                                                          |
+| zsh-completions         | 提供了额外的命令补全脚本（增强补全）                               | `git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions`                                    |                                                                                                                                          |
 | colored-man-pages       | 将 man 命令的输出以彩色显示                                 | 默认安装                                                                                                                                    |                                                                                                                                          |
 | command-not-found       | 尝试执行一个不存在的命令时，尝试找到正确的命令或者提供安装缺失命令的方法             | 默认安装                                                                                                                                    |                                                                                                                                          |
 | zsh-autosuggestions     | 输入命令时自动显示可能的命令建议，以暗色的形式，按当前键入的命令作为前缀匹配，使用方向键右键补全 | `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`             | `git clone https://gitee.com/phpxxo/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`              |
