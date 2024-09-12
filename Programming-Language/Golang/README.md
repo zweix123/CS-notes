@@ -1,31 +1,23 @@
 ## Install
 
-## Command
+STFM
 
-```bash
-go --help
-```
+## Command
 
 ### go test
 
-+ `go test`的参数
-    + `-v`
-    + `-race`
-    + `-parallel`
-    + `-shuffle`
-    + `-converprofile`
++ flag `-v`：即 verbose
++ args `-run=XXX`：通过正则执行特定case
++ flag `-race`：竟态竞争检测，最佳实践必加
++ args `-parallel`：Go在test时会尝试并行执行测试，该参数用于限制最多并行多少个
++ args `-shuffle`：随机化测试，参数作为随机化种子（按理说测试case之间不应该有依赖呀）
++ flag `-cover`：启动覆盖率
 
 ## Config
 
-command
-```bash
-go help env
-go env
-```
-
 建议使用放在rc文件的`export`命令设置go环境变量，而非使用`go env -w`的flag
 
-重要的go环境变量
+一些重要的go环境变量如下
 ```
 GO111MODULE  # 默认为on, 如果不是, 请设置
 GOPROXY      # 代理, 国内官方为https://goproxy.io,direct, 如果在公司中, 使用公司内部的
@@ -38,72 +30,48 @@ GOPATH  # go1.11引入module, 不再需要;
 
 # Effective
 
-在我个人的实践中，意识到go的语法有这样的特点
++ Go的特点：
+    + Go在语法中限制代码实现，比如包名要求和目录名相关，名称首字母大小写影响可见性，保存时格式化。
+    + Go的语法非常简单，程序员能做的抽象有限。意味着某种需求只有有限的实现方式。
+    + Go适合的业务场景有中间件和部分后端。
 
-+ 语法会要求命名
-    + 包名与目录名相关
-    + 名称首字母大小写影响可见性
+对于Go的这些特点，通过“最佳实践”可以让一个没有接触过Go的程序员循序形成生产力。
 
-再结合go比较适合的业务场景——中间件和部分后端
++ Ref：
+    1. [谷歌推荐的Effective Go](https://go.dev/doc/effective_go)
+    2. [谷歌官方的规范](https://google.github.io/styleguide/go/)
+    3. [uber的最佳实践](https://github.com/uber-go/guide)
+    4. ["最差实践"](https://100go.co/)
 
-所以go项目应该有比较严格的规范
+### 项目结构
 
-+ 语法简单，抽象有限
++ Ref：
+    + [官方](https://go.dev/doc/modules/layout)
+    + [社区](https://github.com/golang-standards/project-layout/)
 
-这意味着某种需求只有有限的实现方式
-
-所以适合针对可能的应用场景定义好相关的库，业务实现使用这些库即可
-
-综上所属，通过最佳实践可以对一个没有接触过go的程序员迅速形成生产力
-
-这里引入 [Go Style](https://google.github.io/styleguide/go/) 的三个分级，Guide，Decision，Best Practice，我最初以为他们的区别是影响的纬度从抽象到具体，但实际上是Entry的可变性，Guide是最不可能变化的，Best Practice是可能随着版本变化而变化的。在这种情况下，我觉得，应该将每个Entry都作为必须的。
-
-这样才能规范项目质量，让未来者更快的接手项目。
-
-所以这个章节就描述这样的主题，比如硬规范的东西，比如常见的问题与解决方案，比如最佳实践。在这里罗列。
-
-1. 官方推荐的Effective Go：https://go.dev/doc/effective_go
-2. 在学完Effective Go后，就是谷歌官方的规范：https://google.github.io/styleguide/go/
-3. uber的最佳实践很不错：https://github.com/uber-go/guide
-4. 反向的，从最差实践看最佳实践：https://100go.co/
-
-### 项目结构和名称命名
+### 名称命名
 
 + 项目名：小写，使用中划线划分单词
 + mod名：使用反向域名，其他规范同项目名
-+ package名：小写，单个单词，不实用下划线或者驼峰
++ package名：小写，单个单词，不使用下划线或者驼峰
     + 包名和其所在的目录名相同
-+ 其他：使用驼峰命名法作为基本规范
-
-+ 其他建议：
-    + 名称自解释/递归解释
-
-
-## 项目结构
-
-+ 官方：https://go.dev/doc/modules/layout
-+ 社区：https://github.com/golang-standards/project-layout/tree/master
++ 其他使用驼峰命名法作为基本规范
++ 其他：
+    + [名称自解释/递归解释](https://google.github.io/styleguide/go/best-practices#function-and-method-names)
 
 ## 语法细节
 
 + 数组是值，切片是指针
-+ golang的分号是有意义的，实际上，它会在编译期插入到某些字符后面，比较典型的
-    ```go
-    if check()
-    {
-        // .. 
-    }
-    // 会导致
-    if check();  //! 问题
-    {
-        // .. 
-    };
-    ```
-+ 对于map中没有的键，获取并不会panic，会是被复制成值的零值，所以`map[key]bool`天然就是一个set
-    + 同样的，对于`delete(map..., key)`，中key不在map也是安全的
-
-+ 类型转换可以是复合的
++ 类型转换可以是复合类型
++ [nil调用函数](https://golang3.eddycjy.com/posts/nil-func/)
+    + 对于为`nil`的Slice和Map（不是Slice指针和Map指针），可读不可写
+    + 对于map中没有的键，获取并不会panic，会是被负值成值的零值，所以`map[key]bool`天然就是一个set
+        + 同样的，对于`delete(map..., key)`，中key不在map也是安全的
 + `new(T)`与`&T{}`等价，而不是与`T{}`，使用`T{}`的优先级大于`make(...)`再大于`new()`
+    + 所以最佳实践上
+        + 无论是内置类型还是自定义类型，创建指针都是使用`&T{}`而非`new`
+        + 对于内置类型，实例使用`make`
+        + 对于自定义类型，实例使用`T{}`
 
 ## 其他准则
 
@@ -111,68 +79,77 @@ GOPATH  # go1.11引入module, 不再需要;
 
 ## 业务场景
 
-### CLI
-https://github.com/spf13/cobra
++ 命令行：[cobra](https://github.com/spf13/cobra)
++ 配置：[viper](https://github.com/spf13/viper)
++ 限流：
+    + 漏桶：[uber-go/ratelimit](https://github.com/uber-go/ratelimit)
+    + 令牌桶：[juju/ratelimit](https://github.com/juju/ratelimit)
+    + 其他：[ulule/limiter](https://github.com/ulule/limiter)
 
-### Config
-https://github.com/spf13/viper
++ Local Cache：
+    + pre：
+        + built-in：map、sync.Map
+        + go1.5以后，当map里的key和value都不包含指针时则GC扫描忽略
+    + 需求：
+        + 低时延
+        + 高并发
+        + 容量大
+        + 不持久化
+        + 接口简单
 
-### 限流
+| 链接                                                        | 有无GC | 是否支持过期时间     | 接口     | 其他                           |
+| --------------------------------------------------------- | ---- | ------------ | ------ | ---------------------------- |
+| [bigcache](https://github.com/allegro/bigcache)           | 无GC  | 是，但一个实例只能有一个 | 复杂，见其他 | 接口复杂（hash冲突不兼容+没有更新接口+手动序列化） |
+| [fastcache](https://github.com/VictoriaMetrics/fastcache) | 无GC  | 否            | 简单     | 比bigcache快                   |
+| [freecache](https://github.com/coocood/freecache)         |      | 是            | 简单     | 存储空间预先分配（开始多+后面不增）           |
+| [go-cache](https://github.com/patrickmn/go-cache)         |      | 是            | 简单     | 结构简单，推荐万级小key                |
+| [groupcache](https://github.com/golang/groupcache)        |      |              |        | 轻量memcached，不在当前选型范围中        |
 
-#### 漏桶
++ 并发：
+    + 无依赖：协程池：
 
-+ 定义：https://en.wikipedia.org/wiki/Leaky_bucket
+        + 需求：
+            + 限制并发量
+            + 控制生命周期
 
-形象的，有两个参数，水桶的大小和水桶的漏水速度。可以想象，如果访问的请求量很低，比水桶漏水的速度都低，此时请求（相当于）可以（不被限制地）访问；当访问量逐渐增大，让桶中积累水的时候，则只能按照水桶的流水速度恒定的被处理；让访问量继续增大，在水桶中的水已经充满开始外溢了，则请求直接被拒绝。
+        1. [sync.errgroup](https://github.com/golang/sync/tree/master/errgroup)（官方）
+        2. [tunny](https://github.com/Jeffail/tunny)
+        3. [ants](https://github.com/panjf2000/ants)
 
-特点，服务处理请求的速度是存在一个被划定的上限的。超过上限的请求都必须等待甚至被拒绝。
+    + 有依赖：任务处理器/任务编排
 
-+ 实现：https://github.com/uber-go/ratelimit
-
-#### 令牌桶
-
-+ 定义：https://en.wikipedia.org/wiki/Token_bucket
-
-形象的，有两个参数，令牌桶的大小和令牌桶新增令牌的速度。每个请求只有令牌桶中存在令牌才能访问。可以想象，当访问速度大于令牌新增速度时，令牌桶内的令牌会逐渐减少，直到令牌桶中的令牌为空，此时请求可以访问的速度和令牌生成速度相同。同样的，如果请求速度比较小，令牌桶中的令牌也不会无限积累，有一个上线。
-
-特点，令牌桶算法能限制的最大流量并不是令牌生成的速度，如果令牌桶中积累了足够的令牌，此时大流量过来时，在一定量的范围内，速度依然可以很高。
-
-与漏桶算法的比较：加入这里的令牌桶是不存在的，只有令牌生成速度，两个算法是一样的（如果不考虑多余流量的处理）。但是令牌桶的出现，让其在大流量来时，可以在一定范围内依然很大流量的处理，知道流量耗尽回归到漏桶的状态。而漏桶是有一个锁死的上限的。
-
-+ 实现：https://github.com/juju/ratelimit
-
-#### 其他
-
-1. https://github.com/ulule/limiter 
-
-### Local Cache
-+ https://github.com/allegro/bigcache
-
-### 其他
-
-+ https://marksuper.xyz/2022/08/26/groupcache/
-+ https://marksuper.xyz/2022/10/13/xxl-job/
-+ https://marksuper.xyz/2021/10/15/error_group/
-+ https://marksuper.xyz/2023/01/23/tunny/
-+ https://marksuper.xyz/2023/12/23/ant/
+        1. [machinery](https://github.com/RichardKnop/machinery)
 
 ## 性能
+
+也算是常见八股吧，不仅八股中重要，在实际工作中也重要
+
++ 性能分析：Go-Monitor
+
+### 调度
 
 + GOMAXPROCS（go max procs）：go中goroutine的队列数量，最好和CPU核数一致。
     + 目前这个版本通常不需要求，可以由服务器通过环境变量设制
 
+https://povilasv.me/go-scheduler/
+
+### 内存分配
+
+https://medium.com/eureka-engineering/understanding-allocations-in-go-stack-heap-memory-9a2631b5035d
+https://medium.com/@ankur_anand/a-visual-guide-to-golang-memory-allocator-from-ground-up-e132258453ed
+### 堆栈
+
+https://medium.com/eureka-engineering/understanding-allocations-in-go-stack-heap-memory-9a2631b5035d
+
+### GC
+
 + Ballast（压舱石）：建议设置为最大内存资源的一半。和GC相关，避免频繁GC。
     + 在go1.19之前：申请一块大内存，因为GC是会有一个目标GC的内存，此时活跃内存就更多了。而且这块内存不会真是分配内存。
     + 在go1。19之后：则添加了GOMEMLIMIT（go mem limit），即可以设置触发的阈值
-+ 性能分析：Go-Monitor
-
-+ GC
-+ 内存碎片
 
 ## Tool
 
-### Json-to-Go-struct
-https://mholt.github.io/json-to-go/
++ Json生成可序列化的Go结构体：[Json-to-Go-struct](https://mholt.github.io/json-to-go/)
 
 # Roast
 
