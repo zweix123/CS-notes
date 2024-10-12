@@ -22,21 +22,48 @@
 		+ `explorer.sortOrder`：资源管理器文件排序关键字
 	+ `extensions.json`：项目下插件过滤
 
+## Cursor
+
+现在的cursor挺有意思的，记录一下 : )
+
+说一下背景，我的主要开发语言有Golang、Python和C++，这些语言在VSCode都能有不错的体验，我也几乎没用过JB家的IDE。
+
++ 在编辑器层面，cursor是套娃的VSCode（只能说VSCode虽然不是真开源，但是确实是公开了相当一部分的代码，而且其上活跃的插件社区是真开源）。在最初cursor刚出那会，我有体验过，就被它古典的UI劝退了（当时好像只支持vim模式？）。但是现在，它确实是补上了这部分能力。在安装cursor时选择VSCode模式（所以我也并不知道其他模式怎么样），它会自动载入我目前在VSCode的所有配置（插件、配置、快捷键）。打开之后，UI和交互和VSCode**几乎一样**！从VSCode抢人简直轻而易举。
+    >不仅是配置，在cursor里的操作“感觉”也一样，比如在终端通过命令打开，比如不同层级的配置。简直了，直接摘桃子啊。
+
++ 那副驾驶怎么样呢？VSCode也有Copilot呀？我为什么不在VSCode上用Copilot而用你套娃的cursor（即使几乎一样）？
+
+    + 首先Copilot提供什么能力？
+        1. Chat
+        2. AI补全：通过将光标后的代码后移，然后以 inline completion 进行提示，按Tab接受
+        3. 对于报错和警告，有AI解决的按钮
+
+    + VSCode的插件框架有什么限制？
+        + VSCode的插件框架应该是有诸多限制，需要在其能力之上开发
+
+    + cursor多了什么？
+        + 提示的代码并不仅是inline completion，还有“悬浮”的
+        + 不仅能提示加，还能提示删除
+
+
+    因为VSCode插件的限制，使其他副驾驶插件只能在光标后面“挤”出空间弹出补全代码，但是在cursor中，不仅这一种形式，除了添加、还有替换、还有删除，还有这些的**组合**。
+
+
 ## 基本文本操作
 
-|                   | Windows           | macOS               |
-| ----------------- | ----------------- | ------------------- |
-| Insert            | Insert            | 无                   |
-| Delete            | Delete            | Command + backspace |
-| Home              | Home              | Command + left      |
-| End               | End               | Command + right     |
-| Top               | Ctrl + Home       | Command + up        |
-| Button            | Ctrl + End        | Command + down      |
-| 全选，保存，撤退，剪切，复制，粘贴 | Ctrl+a，s，z，x，c，v  | Command+a，s，z，x，c，v |
-| 选中                | 按住Shift使用方向键      | 按住Shift使用方向键        |
-| 整行移动              | 按住Alt使用方向键上下键     | 按住Option使用方向键上下键    |
-| 按word单位移动         | 按住Ctrl使用方向键       | 按住Option使用方向键       |
-| 按word单位删除         | 按住Ctrl使用backspace | 按住Option使用backspace |
+|                                    | Windows                 | macOS                      |
+| ---------------------------------- | ----------------------- | -------------------------- |
+| Insert                             | Insert                  | 无                         |
+| Delete                             | Delete                  | Command + backspace        |
+| Home                               | Home                    | Command + left             |
+| End                                | End                     | Command + right            |
+| Top                                | Ctrl + Home             | Command + up               |
+| Button                             | Ctrl + End              | Command + down             |
+| 全选，保存，撤退，剪切，复制，粘贴 | Ctrl+a，s，z，x，c，v   | Command+a，s，z，x，c，v   |
+| 选中                               | 按住Shift使用方向键     | 按住Shift使用方向键        |
+| 整行移动                           | 按住Alt使用方向键上下键 | 按住Option使用方向键上下键 |
+| 按word单位移动                     | 按住Ctrl使用方向键      | 按住Option使用方向键       |
+| 按word单位删除                     | 按住Ctrl使用backspace   | 按住Option使用backspace    |
 
 + 全选：Ctrl/Command+a
 + 保存：Ctrl/Command+s
@@ -145,6 +172,11 @@
     + Git Blame
     + 没有使用gitlens，这玩意太臃肿了。
 
++ gitlens：
+    + Gitlens > Current Line: Enabled
+    + Gitlens > Code Lens Endabled
+
+    以上两个关闭，不然大文件卡，我blame看的也是状态栏
 
 ## Python
 
@@ -513,8 +545,6 @@ go.lintTool使用golangci-lint
 
 + 其他：
 	+ [`.gitignore`](https://github.com/zweix123/zstu-graduation-thesis-latex-template/blob/master/.gitignore)
-
-
 
 ## Copilot
 

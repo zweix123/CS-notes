@@ -75,6 +75,11 @@
 
 ### 命令行配置
 [笔记](Missing-Semester/Terminal.md#unix-linux-and-macos)
+TODO: 这部分有问题，但是没有精力修改
+```bash
+brew install coreutils  # https://github.com/zanmato1984/my-sh/blob/master/oh-my-zsh
+
+```
 ### 编辑器VSCode
 
 + 安装：直接安装

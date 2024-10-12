@@ -119,3 +119,12 @@ https://snapdrop.net/
 https://github.com/H-M-H/Weylus
 
 无敌了，PC跨平台，移动端非侵入式。
+
+## 又从群友mark一个ipad副屏方案
+
+moonlight
+virtual display driver
+
+
+https://ivonblog.com/posts/moonlight-use-a-tablet-as-a-second-monitor/
+http://121.37.161.156/cn_aura/ipad-as-screen-with-windows/

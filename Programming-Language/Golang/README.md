@@ -1,3 +1,5 @@
+Go不需要框架，它本身就是框架
+
 ## Install
 
 STFM
@@ -42,6 +44,7 @@ GOPATH  # go1.11引入module, 不再需要;
     2. [谷歌官方的规范](https://google.github.io/styleguide/go/)
     3. [uber的最佳实践](https://github.com/uber-go/guide)
     4. ["最差实践"](https://100go.co/)
+    5. [beihai · 构建可持续迭代的 Golang 应用](https://wingsxdu.com/posts/golang/clean-go/)
 
 ### 项目结构
 
@@ -55,7 +58,7 @@ GOPATH  # go1.11引入module, 不再需要;
 + mod名：使用反向域名，其他规范同项目名
 + package名：小写，单个单词，不使用下划线或者驼峰
     + 包名和其所在的目录名相同
-+ 其他使用驼峰命名法作为基本规范
++ 其他使用驼峰命名法作为基本规范（包括常量）
 + 其他：
     + [名称自解释/递归解释](https://google.github.io/styleguide/go/best-practices#function-and-method-names)
 
@@ -97,13 +100,13 @@ GOPATH  # go1.11引入module, 不再需要;
         + 不持久化
         + 接口简单
 
-| 链接                                                        | 有无GC | 是否支持过期时间     | 接口     | 其他                           |
-| --------------------------------------------------------- | ---- | ------------ | ------ | ---------------------------- |
-| [bigcache](https://github.com/allegro/bigcache)           | 无GC  | 是，但一个实例只能有一个 | 复杂，见其他 | 接口复杂（hash冲突不兼容+没有更新接口+手动序列化） |
-| [fastcache](https://github.com/VictoriaMetrics/fastcache) | 无GC  | 否            | 简单     | 比bigcache快                   |
-| [freecache](https://github.com/coocood/freecache)         |      | 是            | 简单     | 存储空间预先分配（开始多+后面不增）           |
-| [go-cache](https://github.com/patrickmn/go-cache)         |      | 是            | 简单     | 结构简单，推荐万级小key                |
-| [groupcache](https://github.com/golang/groupcache)        |      |              |        | 轻量memcached，不在当前选型范围中        |
+| 链接                                                      | 有无GC | 是否支持过期时间         | 接口         | 其他                                               |
+| --------------------------------------------------------- | ------ | ------------------------ | ------------ | -------------------------------------------------- |
+| [bigcache](https://github.com/allegro/bigcache)           | 无GC   | 是，但一个实例只能有一个 | 复杂，见其他 | 接口复杂（hash冲突不兼容+没有更新接口+手动序列化） |
+| [fastcache](https://github.com/VictoriaMetrics/fastcache) | 无GC   | 否                       | 简单         | 比bigcache快                                       |
+| [freecache](https://github.com/coocood/freecache)         |        | 是                       | 简单         | 存储空间预先分配（开始多+后面不增）                |
+| [go-cache](https://github.com/patrickmn/go-cache)         |        | 是                       | 简单         | 结构简单，推荐万级小key                            |
+| [groupcache](https://github.com/golang/groupcache)        |        |                          |              | 轻量memcached，不在当前选型范围中                  |
 
 + 并发：
     + 无依赖：协程池：
@@ -150,6 +153,7 @@ https://medium.com/eureka-engineering/understanding-allocations-in-go-stack-heap
 ## Tool
 
 + Json生成可序列化的Go结构体：[Json-to-Go-struct](https://mholt.github.io/json-to-go/)
++ go visualize call graph: ondrajz/go-callvis -- 当前版本在1.22之后会出问题, 而维护者不太活跃 --> Egor3f/go-callvis(解决: [pr](https://github.com/ondrajz/go-callvis/pull/177/files), 只删除了代码) -- 原项目有一些不太好的实现 --> zweix123/go-callvis(从ondrajz的fork)
 
 # Roast
 
@@ -161,3 +165,10 @@ https://medium.com/eureka-engineering/understanding-allocations-in-go-stack-heap
     >不知道能不能通过最佳实践解决
 4. 构造结构体时类似C而非使用类似C++的构造函数，会出现若干参数我没有设置也不会报错，这在多人合作时，假如结构体的定义者增加了字段，但是结构体的使用者不修改也能编译，则容易出现bug。
     >golang相关的lint应该可以解决这个问题，即假如某些字段没有使用则会提示/报错。但是目前感觉不好用，不能保证流程的完全，个人认为这种情况还是容易出现的。
+
+## 其他
+
+### go shebang trick
+```go
+//usr/bin/env go run $0 $@; exit
+```
