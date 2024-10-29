@@ -1,3 +1,6 @@
++ Ref：
+    + [动手实战人工智能 AI By Doing](https://aibydoing.com/)
+
 机器学习Machine Learning是实现人工智能的手段，而深度学习只是机器学习中的一种特定方法。
 
 + 机器学习大致分为四类：

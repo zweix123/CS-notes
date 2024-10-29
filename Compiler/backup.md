@@ -1,3 +1,25 @@
++ Pre：
+	+ CS61A使用的教材的前身是《Structure and Interpretation of Computer Programs》（SICP），区别在于使用Python进行示例。相较于Python语法，我相信CS61A会对“如何编程”这件事有高屋建瓴的讲解，所以将其放在Compiler下
+	+ （在大概调研之后）我使用的版本是[CS 61A Fall 2020](https://inst.eecs.berkeley.edu/~cs61a/fa20/)，课程在[B站](https://www.bilibili.com/video/BV1s3411G7yM)有收录，打开双语体验颇佳。
+
+
+	+ + [CS 61A FALL 2020](https://inst.eecs.berkeley.edu/~cs61a/fa20/)：大概调研了一下，首先最新版的video不全，然后课程分Summer和Fall，秋季似乎因为时间长所以内容多，最终结合资料全面程度选择FALL 2020这一版。
+
+
++ Python相关
+	+ `and`、`or`和`not`仅仅表达与或非，与其他编程语言含义无二。
+	+ False Value in Pytrhon: False, 0, '', None
+	+ True Value in Python: Angthing else (True)
+
+
++ 编程启蒙：
+	+ 思考表达式和调用
+		+ side-effi（副作用）
+	+ 思考函数调用顺序
+		+ 函数结构
+	+ 函数式编程：
+		+ pure function
+
 + 参考学习资料：
 	+ Crafting interpreters：全开源，我愿称之为学习编译原理最好的第一本书
 		+ 官网：http://www.craftinginterpreters.com/
@@ -225,3 +247,56 @@ https://matklad.github.io/2020/04/13/simple-but-powerful-pratt-parsing.html
 	艾伦·图灵和阿隆佐·邱奇分别做出了回答，他们各自设计了一个具有最小机器集的微型系统，前者发明图灵机，后者则是lamdba演算
 
 	+ 图灵完备Turing-complete：语言可以实现一个图灵机的模拟器，因为图灵机是可以计算任何可计算函数，那么实现了图灵机的语言也可以。
+
+
++ Reference：
+	+ https://matklad.github.io/2020/04/13/simple-but-powerful-pratt-parsing.html
+
+这篇文章不是一个新手向的教程，在经过简单的引入后我们核心讨论Pratt解析的原理和实现
+
+1. 在编译前端，我们需要将Token列表转换成AST，这就是句法分析  
+	句法分析有一系列的工具和技术，这里讨论如何手写解析器
+2. 上下文无关语法，这是个强有力的工具，它可以简约的表示语法结构，并且通过递归几乎可以直接转换成代码。事实真的是这样么？  
+	左递归和优先级，为此，需要重新上下文无关语法，这下就不简约了，并不好写。
+
+	+ 关于左递归，一个解决方案就是将递归改成循环  
+		而Pratt就是结合递归和循环
+
+出人意料的，Pratt还能解决associativity结合性和precedence优先级
+
+
++ *parsing*: *concrete syntax* to `abstract syntax`
+	+ concrete syntax: program-as-text representation
+
+
+
+## 几个问题
+
++ 编译器和解释器：一般来说，以这样的方式区分：
+	+ 编译器：将代码作为输入，将机器码作为输出；机器码有输入和输出
+	+ 
+
+
+
++ 编译器和解释器：一般来说，通过这样的方式区分，
+	+ 编译器是将代码作为输入，机器代码作为输出，然后机器代码有自己的输入和输出
+	+ 解释器是将代码和输入一起作为输入，将计算结果作为输出
+
+	但个人认为这样区分编译器或者解释器意义不大，实际上，在解释器中也有“编译”的部分，比如将代码作为输入，将中间代码或者字节码作为输出。然后将字节码和输入一起作为解释器剩下部分的输入。
+
+	故下面不再区分，以编译器作为覆盖以上概念的具有最大意义的概念。
+
++ 程序语言与编译器
+
+
+
+
++ References：
+	+ [Crafting interpreters](http://www.craftinginterpreters.com/)：全开源，我愿称之为学习编译原理最好的第一本书；[代码](https://github.com/munificent/craftinginterpreters) | [翻译](http://readonly.link/books/https://raw.githubusercontent.com/GuoYaxiang/craftinginterpreters_zh/main/book.json)
+	+ [Essentials of Compilation](https://github.com/IUCompilerCourse)
+
+ 
+
++ 编译相关书籍布局：
+	+ 通常将编译组织为一系列阶段，然后每个章节描述一个阶段
+	+ 增量方法，在每一章都构建一个完整的编译器，然后逐渐丰富功能

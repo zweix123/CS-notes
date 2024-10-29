@@ -116,12 +116,17 @@ GOPATH  # go1.11引入module, 不再需要;
             + 控制生命周期
 
         1. [sync.errgroup](https://github.com/golang/sync/tree/master/errgroup)（官方）
+            1. https://marksuper.xyz/2021/10/15/error_group/
         2. [tunny](https://github.com/Jeffail/tunny)
+            1. https://darjun.github.io/2021/06/10/godailylib/tunny/
         3. [ants](https://github.com/panjf2000/ants)
+            1. https://marksuper.xyz/2023/12/23/ant/
 
     + 有依赖：任务处理器/任务编排
 
         1. [machinery](https://github.com/RichardKnop/machinery)
+
+    + 重试
 
 ## 性能
 

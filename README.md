@@ -235,10 +235,10 @@
 #### 分布式系统
 
 + [ ] MIT6.824：看完了部分课程的讲义和完整的课程字幕翻译记录，主要以了解知识点为主，因为我的实习项目就是分布式存储，工业界的实践就在眼前，所以课程实现没有做。
-	+ [x] [MapReduce](./Distributed-System/MapReduce.md)
+	+ [x] [MapReduce](Distributed-System/Google/MapReduce.md)
     + [ ] GFS
     + [ ] BigTable
-    + [x] [Raft](./Distributed-System/Raft.md)
+    + [x] [README](Distributed-System/Consistency/Raft/README.md)
     + [ ] Zookeeper
     + [ ] Spanner
 
@@ -271,6 +271,10 @@
 
 + [ ] 《卓有成效的工程师》
 
+### 大前端
+
+基本技术栈：react+ts+vite
+
 ### 其他专项
 
 #### 向量数据库与RAG
@@ -278,6 +282,8 @@
 
 + [Survey of Vector Database Management Systems](https://arxiv.org/abs/2310.14021)
 + [Vector database management systems: Fundamental concepts, use-cases, and current challenges](https://arxiv.org/abs/2309.11322)
+
+
 
 ## 人文学科
 
