@@ -1,4 +1,15 @@
-Go不需要框架，它本身就是框架
+~~Go不需要框架，它本身就是框架~~
+
+## 吐糟
+
+1. 面向接口编程+包内名称共享+名称在包内不分先后——影响代码可读性：当我看到一个接口时，我不知道哪些结构体实现了它；当我看到一个结构体实现了很多方法时，我不知道它是为了实现哪些接口。
+    >现代编辑环境可以一定程度解决这个问题。
+2. `interface{}`，一个`map[string]interface{}`或者函数返回`interface{}`就直接相当于动态类型了，我怎么知道这里的值是什么东西？
+    >这个也能一定程度接受，因为其他的代码想要使用这个值必须知道其类型，这里只是对读代码有阻碍，不过出现错误只能在运行时感知呀。
+3. 相似名称过多。比如`net/http`中，包对外方法、结构体`ServeMux`都有方法`HandleFunc`，还有一个类型也是`HandleFunc`。
+    >不知道能不能通过最佳实践解决
+4. 构造结构体时类似C而非使用类似C++的构造函数，会出现若干参数我没有设置也不会报错，这在多人合作时，假如结构体的定义者增加了字段，但是结构体的使用者不修改也能编译，则容易出现bug。
+    >golang相关的lint应该可以解决这个问题，即假如某些字段没有使用则会提示/报错。但是目前感觉不好用，不能保证流程的完全，个人认为这种情况还是容易出现的。
 
 ## Install
 
@@ -37,7 +48,7 @@ GOPATH  # go1.11引入module, 不再需要;
     + Go的语法非常简单，程序员能做的抽象有限。意味着某种需求只有有限的实现方式。
     + Go适合的业务场景有中间件和部分后端。
 
-对于Go的这些特点，通过“最佳实践”可以让一个没有接触过Go的程序员循序形成生产力。
+对于Go的这些特点，通过“最佳实践”可以让一个没有接触过Go的程序员迅速形成生产力。
 
 + Ref：
     1. [谷歌推荐的Effective Go](https://go.dev/doc/effective_go)
@@ -45,14 +56,15 @@ GOPATH  # go1.11引入module, 不再需要;
     3. [uber的最佳实践](https://github.com/uber-go/guide)
     4. ["最差实践"](https://100go.co/)
     5. [beihai · 构建可持续迭代的 Golang 应用](https://wingsxdu.com/posts/golang/clean-go/)
+    6. [CoolShell · Go编程模式](https://coolshell.cn/articles/21128.html)
 
-### 项目结构
+## 项目结构
 
 + Ref：
     + [官方](https://go.dev/doc/modules/layout)
     + [社区](https://github.com/golang-standards/project-layout/)
 
-### 名称命名
+## 名称命名
 
 + 项目名：小写，使用中划线划分单词
 + mod名：使用反向域名，其他规范同项目名
@@ -68,13 +80,13 @@ GOPATH  # go1.11引入module, 不再需要;
 + 类型转换可以是复合类型
 + [nil调用函数](https://golang3.eddycjy.com/posts/nil-func/)
     + 对于为`nil`的Slice和Map（不是Slice指针和Map指针），可读不可写
-    + 对于map中没有的键，获取并不会panic，会是被负值成值的零值，所以`map[key]bool`天然就是一个set
+    + 对于map中没有的键，获取并不会panic，会是被赋值成值的零值，所以`map[key]bool`天然就是一个set
         + 同样的，对于`delete(map..., key)`，中key不在map也是安全的
-+ `new(T)`与`&T{}`等价，而不是与`T{}`，使用`T{}`的优先级大于`make(...)`再大于`new()`
-    + 所以最佳实践上
-        + 无论是内置类型还是自定义类型，创建指针都是使用`&T{}`而非`new`
-        + 对于内置类型，实例使用`make`
-        + 对于自定义类型，实例使用`T{}`
++ `new(T)`与`&T{}`等价，而不是与`T{}`；有的构造方式有：`T{}`、`make(...)`和`new()`
+    + 无论是内置类型还是自定义类型，创建指针都是使用`&T{}`而非`new`
+    + 对于内置类型，实例使用`make`
+        + 这里隐含的最佳实践是创建时指定cap，假如实在不能或者就是期望为空，则可以以声明变量而不赋值的形式“初始化”
+    + 对于自定义类型，实例使用`T{}`
 
 ## 其他准则
 
@@ -82,94 +94,136 @@ GOPATH  # go1.11引入module, 不再需要;
 
 ## 业务场景
 
-+ 命令行：[cobra](https://github.com/spf13/cobra)
-+ 配置：[viper](https://github.com/spf13/viper)
-+ 限流：
-    + 漏桶：[uber-go/ratelimit](https://github.com/uber-go/ratelimit)
-    + 令牌桶：[juju/ratelimit](https://github.com/juju/ratelimit)
-    + 其他：[ulule/limiter](https://github.com/ulule/limiter)
+### 命令行
+[cobra](https://github.com/spf13/cobra)
 
-+ Local Cache：
-    + pre：
-        + built-in：map、sync.Map
-        + go1.5以后，当map里的key和value都不包含指针时则GC扫描忽略
-    + 需求：
-        + 低时延
-        + 高并发
-        + 容量大
-        + 不持久化
-        + 接口简单
+### 配置
+[viper](https://github.com/spf13/viper)
 
-| 链接                                                      | 有无GC | 是否支持过期时间         | 接口         | 其他                                               |
-| --------------------------------------------------------- | ------ | ------------------------ | ------------ | -------------------------------------------------- |
-| [bigcache](https://github.com/allegro/bigcache)           | 无GC   | 是，但一个实例只能有一个 | 复杂，见其他 | 接口复杂（hash冲突不兼容+没有更新接口+手动序列化） |
-| [fastcache](https://github.com/VictoriaMetrics/fastcache) | 无GC   | 否                       | 简单         | 比bigcache快                                       |
-| [freecache](https://github.com/coocood/freecache)         |        | 是                       | 简单         | 存储空间预先分配（开始多+后面不增）                |
-| [go-cache](https://github.com/patrickmn/go-cache)         |        | 是                       | 简单         | 结构简单，推荐万级小key                            |
-| [groupcache](https://github.com/golang/groupcache)        |        |                          |              | 轻量memcached，不在当前选型范围中                  |
+### 限流
 
-+ 并发：
-    + 无依赖：协程池：
++ 漏桶：[uber-go/ratelimit](https://github.com/uber-go/ratelimit)
++ 令牌桶：[juju/ratelimit](https://github.com/juju/ratelimit)
++ 其他：[ulule/limiter](https://github.com/ulule/limiter)
 
-        + 需求：
-            + 限制并发量
-            + 控制生命周期
+### 本地缓存
 
-        1. [sync.errgroup](https://github.com/golang/sync/tree/master/errgroup)（官方）
-            1. https://marksuper.xyz/2021/10/15/error_group/
-        2. [tunny](https://github.com/Jeffail/tunny)
-            1. https://darjun.github.io/2021/06/10/godailylib/tunny/
-        3. [ants](https://github.com/panjf2000/ants)
-            1. https://marksuper.xyz/2023/12/23/ant/
++ pre：
+    + built-in：map、sync.Map
+    + go1.5以后，当map里的key和value都不包含指针时则GC扫描忽略
++ 需求：
+    + 低时延
+    + 高并发
+    + 容量大
+    + 不持久化
+    + 接口简单
 
-    + 有依赖：任务处理器/任务编排
+| 链接                                                        | 有无GC | 是否支持过期时间     | 接口     | 其他                           |
+| --------------------------------------------------------- | ---- | ------------ | ------ | ---------------------------- |
+| [bigcache](https://github.com/allegro/bigcache)           | 无GC  | 是，但一个实例只能有一个 | 复杂，见其他 | 接口复杂（hash冲突不兼容+没有更新接口+手动序列化） |
+| [fastcache](https://github.com/VictoriaMetrics/fastcache) | 无GC  | 否            | 简单     | 比bigcache快                   |
+| [freecache](https://github.com/coocood/freecache)         |      | 是            | 简单     | 存储空间预先分配（开始多+后面不增）           |
+| [go-cache](https://github.com/patrickmn/go-cache)         |      | 是            | 简单     | 结构简单，推荐万级小key                |
+| [groupcache](https://github.com/golang/groupcache)        |      |              |        | 轻量memcached，不在当前选型范围中        |
 
-        1. [machinery](https://github.com/RichardKnop/machinery)
+### 并发
 
-    + 重试
+#### 无依赖：协程池
+
+<a id="batch"></a>
+
+需求引入：
+
+考虑这样的场景，我们有一批参数需要去下游请求，
+假如是简单的串行执行，肯定是划不来的，这种IO密集型的场景中我们肯定有大量的时间在等待。
+所以需要异步，但是一口气将请求全部都发出去也有新的问题；主要发生在参数的数量过多时，
+1. 我们在短时间内创造了大量的协程
+2. 对下游的访问量是突增的，可能造成被限流，导致很多可以正常请求得到结果的请求失败。
+
+然后我们再扩展这个场景，假如下游的接口支持批量请求呢？（比如参数从参数变成参数列表）
+这种可以将我们的所有参数一口气在一次请求中发送出去么？当参数比较多时大概率不行，因为对每个参数进行处理的时间是客观存在的，当多个参数一起请求时，可能出现长尾效应，即若干个参数的计算时间远远大于本次请求其他参数的平均处理时间，从而导致整个请求超时失败。
+
+所以我们的需求可以如下总结：
+1. 尽量高的并发
+2. 最高并发数有限（即自身服务的协程数，既防止协程的徒增，又防止被下游限流）
+
+我首先的设计是这样的，
+将这一批参数首先划分成多个“大批”，然后对每个大批再划分成多个小批（假如下游支持批量查询则小批的大小就是下游建议的每次请求参数个数（因为长尾效应是随着参数的数量越多而越显著的），假如下游每次请求只支持单个参数，则小批的大小是1），每个小批则对应一次请求。
+然后对于每个大批，小批之间的请求是并行的，而大批与大批之间的处理，则是串行的。
+此时请求的并发量最多就是一个大批的小批个数，同时也在尽量的并发，满足我们的需求。
+
+这里是一种函数式表述
+```go
+Flatten(
+    MapSeries(
+        Chunk(input, big_chunk_size) -> []big_chunk,
+        Flatten(
+            MapParallel(
+                Chunk(big_chunk, small_chunk_size) -> []small_chunk,
+                F(small_chunk),
+            ),
+        ),
+    ),
+)
+// Flatten是Chunk的逆操作, 相当于
+/*
+Reduce(
+    collection,
+    func(agg []T, item Slice, index int) []T {
+        return append(agg, item...)
+    },
+    []T{},
+)
+*/
+```
+
+但是正解不是这样的，我们再来看我们的需求，发现这个不正是一个协程池会做的事情么？我们只需要资源限制好，任务尽量的往里塞，至于任务的调度就交给协程池就可以了。由协程池维护协程数和并发量，对下游的压力自然也就可控了。
+
++ 业界协程池的实现：
+    + [sync.errgroup](https://github.com/golang/sync/tree/master/errgroup)（官方）
+        + Ref：
+            + https://marksuper.xyz/2021/10/15/error_group/
+    + [tunny](https://github.com/Jeffail/tunny)
+        + Ref：
+            + https://darjun.github.io/2021/06/10/godailylib/tunny/
+    + [ants](https://github.com/panjf2000/ants)
+        + Ref：
+            + https://marksuper.xyz/2023/12/23/ant/
+
+#### 有依赖: 任务编排
+[machinery](https://github.com/RichardKnop/machinery)
+
+#### 重试
 
 ## 性能
 
-也算是常见八股吧，不仅八股中重要，在实际工作中也重要
-
-+ 性能分析：Go-Monitor
++ TODO
+    + Go-Monitor
 
 ### 调度
 
-+ GOMAXPROCS（go max procs）：go中goroutine的队列数量，最好和CPU核数一致。
-    + 目前这个版本通常不需要求，可以由服务器通过环境变量设制
-
-https://povilasv.me/go-scheduler/
++ Ref：
+    + https://povilasv.me/go-scheduler/
 
 ### 内存分配
 
-https://medium.com/eureka-engineering/understanding-allocations-in-go-stack-heap-memory-9a2631b5035d
-https://medium.com/@ankur_anand/a-visual-guide-to-golang-memory-allocator-from-ground-up-e132258453ed
++ Ref：
+    + https://medium.com/eureka-engineering/understanding-allocations-in-go-stack-heap-memory-9a2631b5035d
+    + https://medium.com/@ankur_anand/a-visual-guide-to-golang-memory-allocator-from-ground-up-e132258453ed
+
 ### 堆栈
 
-https://medium.com/eureka-engineering/understanding-allocations-in-go-stack-heap-memory-9a2631b5035d
++ Ref：
+    + https://medium.com/eureka-engineering/understanding-allocations-in-go-stack-heap-memory-9a2631b5035d
 
 ### GC
 
-+ Ballast（压舱石）：建议设置为最大内存资源的一半。和GC相关，避免频繁GC。
-    + 在go1.19之前：申请一块大内存，因为GC是会有一个目标GC的内存，此时活跃内存就更多了。而且这块内存不会真是分配内存。
-    + 在go1。19之后：则添加了GOMEMLIMIT（go mem limit），即可以设置触发的阈值
++ Ballast
 
 ## Tool
 
 + Json生成可序列化的Go结构体：[Json-to-Go-struct](https://mholt.github.io/json-to-go/)
 + go visualize call graph: ondrajz/go-callvis -- 当前版本在1.22之后会出问题, 而维护者不太活跃 --> Egor3f/go-callvis(解决: [pr](https://github.com/ondrajz/go-callvis/pull/177/files), 只删除了代码) -- 原项目有一些不太好的实现 --> zweix123/go-callvis(从ondrajz的fork)
-
-# Roast
-
-1. 面向接口编程+包内名称共享+名称在包内不分先后——影响代码可读性：当我看到一个接口时，我不知道哪些结构体实现了它；当我看到一个结构体实现了很多方法时，我不知道它是为了实现哪些接口。
-    >现代编辑环境可以一定程度解决这个问题。
-2. `interface{}`，一个`map[string]interface{}`或者函数返回`interface{}`就直接相当于动态类型了，我怎么知道这里的值是什么东西？
-    >这个也能一定程度接受，因为其他的代码想要使用这个值必须知道其类型，这里只是对读代码有阻碍，不过出现错误只能在运行时感知呀。
-3. 相似名称过多。比如`net/http`中，包对外方法、结构体`ServeMux`都有方法`HandleFunc`，还有一个类型也是`HandleFunc`。
-    >不知道能不能通过最佳实践解决
-4. 构造结构体时类似C而非使用类似C++的构造函数，会出现若干参数我没有设置也不会报错，这在多人合作时，假如结构体的定义者增加了字段，但是结构体的使用者不修改也能编译，则容易出现bug。
-    >golang相关的lint应该可以解决这个问题，即假如某些字段没有使用则会提示/报错。但是目前感觉不好用，不能保证流程的完全，个人认为这种情况还是容易出现的。
 
 ## 其他
 
@@ -177,3 +231,9 @@ https://medium.com/eureka-engineering/understanding-allocations-in-go-stack-heap
 ```go
 //usr/bin/env go run $0 $@; exit
 ```
+
+### suger
+
++ https://github.com/zweix123/suger
++ https://github.com/samber/lo
++ https://github.com/ahmetb/go-linq
