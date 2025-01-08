@@ -87,6 +87,8 @@ pip --help         # [沟通]
 
 ## poetry
 
+python环境管理好文章：https://alpopkes.com/posts/python/packaging_tools/，推荐。
+
 一款现代的Python虚拟环境管理工具
 
 + install：`pip install poetry`
@@ -142,6 +144,20 @@ pip --help         # [沟通]
 		就行
 
 		值得注意的是，我们发现来自依赖库的报错肯定是这个库本身要求安装的Python版本，如果这是一个你的库，那么像上面那样设置也会导致别人也遇到同样的限制，而使用`^`则宽泛的多
+
+## formatter
+
++ 规范纬度：
+    + PEP 8+PEP 257
+    + Google Python Style Guide
+    + Black
+    + 
++ 工具纬度：
+    + autopep8
+    + yarp
+    + black
+        + pyink
+
 
 # PyPI
 

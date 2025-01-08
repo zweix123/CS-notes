@@ -34,9 +34,10 @@
 | 包管理器  | Scoop             | 原生              | brew       |            |
 | 编程    | VSCode            | VSCode          | VSCode     |            |
 | 笔记    | Obsidian          | Obsidian        | Obsidian   | Markdown   |
-| 截图    | PixPin            |                 | PixPin     | 悬停+OCR+长截图 |
+| 截图    | PixPin            |                 | Xnip       | 悬停+OCR+长截图 |
 | 启动器   | Wox               |                 | Spotlight  |            |
 | 论文    | zotero            | zotero          | zotero     |            |
+|       |                   |                 |            |            |
 |       |                   |                 |            |            |
 
 + 笔记-Obsidian-Markdown：Obsidian打开的单位是项目而非文件，而我个人成独立的Markdown项目只有这个CS-notes，编程项目通常使用VSCode，而VSCode也能编辑Markdown。故在我的场景下，Obsidian就是专门打开CS-notes的，并结合Git实现存档和多端同步。
@@ -152,8 +153,8 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 
 + HTTP
     + VSCode插件：Thunder Client，基本功能是没问题的，但是自带的编辑窗口“不可用”（有错位）
-    + Insomnia：本身开源，是有收费版本的，有免费版
-        + 导出为curl命令（真好哇！）
+    + postman：老牌软件，有免费版和收费版
+        + 导出为curl命令（真好呀）
 + MySQL：
     + VSCode插件：Database Client，我在使用它的时候没有遇到啥不能解决的问题，只是既然全面转换了就也找替代品了。
     + DBeaver：叔叔推荐的

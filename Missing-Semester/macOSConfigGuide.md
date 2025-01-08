@@ -59,14 +59,19 @@
     ```
 
 2. 按照[Manual](https://brew.sh/zh-cn/)执行下载命令
+3. 按照脚本输出更新rc文件
+
++ 我对brew的定位是只下载终端命令，对应的，终端命令也只由brew下载。相当于，我不使用`brew --cask
+    + TODO，有些我也不使用它下
 
 ### 安装Git->SSH生成密钥->配置Github
 
-1. Git安装: `brew install git`
+1. Git安装：自带
 2. SSH生成密钥: [我的教程](./CLI/ssh.md#config)
 3. Git配置: [我的教程](./CLI/git.md#config)
 4. 将SSH公钥上传到Github上: [我的教程](./CLI/git.md#config)
 5. 克隆CS-notes
+
 ### 下载Obsidian
 + 安装：直接安装
 + 其他：[笔记](./Markdown.md)
@@ -78,8 +83,8 @@
 TODO: 这部分有问题，但是没有精力修改
 ```bash
 brew install coreutils  # https://github.com/zanmato1984/my-sh/blob/master/oh-my-zsh
-
 ```
+
 ### 编辑器VSCode
 
 + 安装：直接安装

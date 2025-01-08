@@ -11,6 +11,31 @@
 4. 构造结构体时类似C而非使用类似C++的构造函数，会出现若干参数我没有设置也不会报错，这在多人合作时，假如结构体的定义者增加了字段，但是结构体的使用者不修改也能编译，则容易出现bug。
     >golang相关的lint应该可以解决这个问题，即假如某些字段没有使用则会提示/报错。但是目前感觉不好用，不能保证流程的完全，个人认为这种情况还是容易出现的。
 
+5. 擦，这么东西怎么能过编译啊！
+```go
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+const s = `{
+    "a": 1,
+    "b": 2
+}`
+
+func main() {
+	var m1 map[string]int
+	json.Unmarshal([]byte(s), &m1)
+	fmt.Println(m1)
+
+	var m2 map[string]int
+	json.Unmarshal([]byte(s), m2)
+	fmt.Println(m2)
+}
+```
+
 ## Install
 
 STFM
@@ -25,6 +50,10 @@ STFM
 + args `-parallel`：Go在test时会尝试并行执行测试，该参数用于限制最多并行多少个
 + args `-shuffle`：随机化测试，参数作为随机化种子（按理说测试case之间不应该有依赖呀）
 + flag `-cover`：启动覆盖率
+
+```bash
+go test -v -cover -race ./...
+```
 
 ## Config
 
@@ -56,7 +85,8 @@ GOPATH  # go1.11引入module, 不再需要;
     3. [uber的最佳实践](https://github.com/uber-go/guide)
     4. ["最差实践"](https://100go.co/)
     5. [beihai · 构建可持续迭代的 Golang 应用](https://wingsxdu.com/posts/golang/clean-go/)
-    6. [CoolShell · Go编程模式](https://coolshell.cn/articles/21128.html)
+    6. [CoolShell · Go编程模式](https://coolshell.cn/articles/series/go%e7%bc%96%e7%a8%8b%e6%a8%a1%e5%bc%8f)
+        + 但是我感觉里面关于范型的讨论已经过时了。
 
 ## 项目结构
 
@@ -77,6 +107,7 @@ GOPATH  # go1.11引入module, 不再需要;
 ## 语法细节
 
 + 数组是值，切片是指针
+    + Full Slice Expression：`s := arr[start:end:cap]`，此时s指向的底层数组与arr的没有关系（不然指向的是同一个区域，appand且没有触发resize可能会相互影响！）
 + 类型转换可以是复合类型
 + [nil调用函数](https://golang3.eddycjy.com/posts/nil-func/)
     + 对于为`nil`的Slice和Map（不是Slice指针和Map指针），可读不可写
@@ -87,6 +118,11 @@ GOPATH  # go1.11引入module, 不再需要;
     + 对于内置类型，实例使用`make`
         + 这里隐含的最佳实践是创建时指定cap，假如实在不能或者就是期望为空，则可以以声明变量而不赋值的形式“初始化”
     + 对于自定义类型，实例使用`T{}`
+
++ `defer`
+    + defer是针对函数的，而不是针对代码块的，常见错误：循环中的defer
+    + 多个defer：可以把defer理解为将一个函数放入栈中，对应的，执行也是从栈顶开始的，相当于在函数中越早defer的函数越晚执行。
+    + 对协程一定要`defer recover()`，当写成发生panic时，仍然一定会执行所有的defer，假如defer发生panic时，其他defer仍然也依然执行。假如没有recover，则这些panic会影响整个进程，有了recover，就能只影响该协程。同时，recover比如通过defer使用，且必须是第一个defer（按照上面的，保证该defer最后一个执行，handle其他defer的panic）
 
 ## 其他准则
 
@@ -105,6 +141,7 @@ GOPATH  # go1.11引入module, 不再需要;
 + 漏桶：[uber-go/ratelimit](https://github.com/uber-go/ratelimit)
 + 令牌桶：[juju/ratelimit](https://github.com/juju/ratelimit)
 + 其他：[ulule/limiter](https://github.com/ulule/limiter)
++ 标准库：golang.org/x/time/rate
 
 ### 本地缓存
 
@@ -223,7 +260,12 @@ Reduce(
 
 ## Tool
 
+### json to go
+
 + Json生成可序列化的Go结构体：[Json-to-Go-struct](https://mholt.github.io/json-to-go/)
+
+### go visualize call graph
+
 + go visualize call graph: ondrajz/go-callvis -- 当前版本在1.22之后会出问题, 而维护者不太活跃 --> Egor3f/go-callvis(解决: [pr](https://github.com/ondrajz/go-callvis/pull/177/files), 只删除了代码) -- 原项目有一些不太好的实现 --> zweix123/go-callvis(从ondrajz的fork)
 
 ## 其他
@@ -233,8 +275,3 @@ Reduce(
 //usr/bin/env go run $0 $@; exit
 ```
 
-### suger
-
-+ https://github.com/zweix123/suger
-+ https://github.com/samber/lo
-+ https://github.com/ahmetb/go-linq
