@@ -2,7 +2,6 @@ VSCode插件
 
 ----
 
-
 + format
 + diff
 + list type to table
@@ -13,7 +12,6 @@ VSCode插件
 
 + https://github.com/loggerhead/json4u/
 
-
 + Json
     + format: 其他工具可以实现
     + minify
@@ -21,8 +19,6 @@ VSCode插件
         + 支持局部
     + escape和unescape：识别类型
     + nested parse
-    + 
-
 
 + format
 + diff

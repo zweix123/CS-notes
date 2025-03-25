@@ -54,7 +54,11 @@
 
 + 再来说一下功能说的，我有接触有朋友觉得，AI会干扰TA的编程思路，但是我觉得不会，当我们按照我们的思路完成前置代码以及一定的注释后，AI可以理解我们的意思，帮我完成**我想完成**的代码，非常棒。
 
-
++ Cursor无限续杯：Curosr的新用户可以试用14天的Pro版本以及500个问答额度，所以加上我们每14天可以得到一个新邮箱账号即可无限续杯。
+    + 工具：
+        + https://cursor-auto-free-doc.vercel.app/
+    + 方案：
+        + https://waite.wang/posts/tools/cursor-forever-free/
 
 ## 基本文本操作
 

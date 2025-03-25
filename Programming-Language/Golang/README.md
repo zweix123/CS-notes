@@ -1,3 +1,6 @@
+
+
+
 ~~Go不需要框架，它本身就是框架~~
 
 ## 吐糟
@@ -26,15 +29,66 @@ const s = `{
 }`
 
 func main() {
+	// 主要区别在m1使用指针, m2没有使用指针
 	var m1 map[string]int
 	json.Unmarshal([]byte(s), &m1)
-	fmt.Println(m1)
+	fmt.Println(m1) // map[a:1 b:2]
 
 	var m2 map[string]int
 	json.Unmarshal([]byte(s), m2)
-	fmt.Println(m2)
+	fmt.Println(m2) // map[]
 }
 ```
+
+6. 真神奇啊
+```go
+package main
+
+import (
+	"fmt"
+	"reflect"
+)
+
+func main() {
+	var (
+		s1, s2, s3 []string
+	)
+	s1 = nil
+	s2 = []string{}
+	s3 = []string(nil)
+	fmt.Println(reflect.DeepEqual(s1, s2)) // false
+	fmt.Println(reflect.DeepEqual(s1, s3)) // true
+	fmt.Println(reflect.DeepEqual(s2, s3)) // false
+}
+```
+
+7. 逆天，没有默认初始化？还是内置类型默认是“某种指针”？
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var m map[string]int
+	m["a"] = 1
+	fmt.Println(m)
+}
+/*
+> go run main.go
+panic: assignment to entry in nil map
+
+goroutine 1 [running]:
+main.main()
+        /Users/.../main.go:7 +0x34
+exit status 2
+*/
+```
+
+
+### 编程最佳实践并非业务最佳实践
+
+1. 枚举
+
 
 ## Install
 
@@ -80,12 +134,13 @@ GOPATH  # go1.11引入module, 不再需要;
 对于Go的这些特点，通过“最佳实践”可以让一个没有接触过Go的程序员迅速形成生产力。
 
 + Ref：
-    1. [谷歌推荐的Effective Go](https://go.dev/doc/effective_go)
-    2. [谷歌官方的规范](https://google.github.io/styleguide/go/)
-    3. [uber的最佳实践](https://github.com/uber-go/guide)
-    4. ["最差实践"](https://100go.co/)
-    5. [beihai · 构建可持续迭代的 Golang 应用](https://wingsxdu.com/posts/golang/clean-go/)
-    6. [CoolShell · Go编程模式](https://coolshell.cn/articles/series/go%e7%bc%96%e7%a8%8b%e6%a8%a1%e5%bc%8f)
+    1. [A Tour of Go](https://go.dev/tour/)
+    2. [谷歌推荐的Effective Go](https://go.dev/doc/effective_go)
+    3. [谷歌官方的规范](https://google.github.io/styleguide/go/)
+    4. [uber的最佳实践](https://github.com/uber-go/guide)
+    5. ["最差实践"](https://100go.co/)
+    6. [beihai · 构建可持续迭代的 Golang 应用](https://wingsxdu.com/posts/golang/clean-go/)
+    7. [CoolShell · Go编程模式](https://coolshell.cn/articles/series/go%e7%bc%96%e7%a8%8b%e6%a8%a1%e5%bc%8f)
         + 但是我感觉里面关于范型的讨论已经过时了。
 
 ## 项目结构
@@ -174,16 +229,16 @@ GOPATH  # go1.11引入module, 不再需要;
 考虑这样的场景，我们有一批参数需要去下游请求，
 假如是简单的串行执行，肯定是划不来的，这种IO密集型的场景中我们肯定有大量的时间在等待。
 所以需要异步，但是一口气将请求全部都发出去也有新的问题；主要发生在参数的数量过多时，
-1. 我们在短时间内创造了大量的协程
-2. 对下游的访问量是突增的，可能造成被限流，导致很多可以正常请求得到结果的请求失败。
+2. 我们在短时间内创造了大量的协程
+3. 对下游的访问量是突增的，可能造成被限流，导致很多可以正常请求得到结果的请求失败。
 
 然后我们再扩展这个场景，假如下游的接口支持批量请求呢？（比如参数从参数变成参数列表）
 这种可以将我们的所有参数一口气在一次请求中发送出去么？当参数比较多时大概率不行，因为对每个参数进行处理的时间是客观存在的，当多个参数一起请求时，可能出现长尾效应，即若干个参数的计算时间远远大于本次请求其他参数的平均处理时间，从而导致整个请求超时失败。
 仍然要想一些办法。
 
 所以我们的需求可以如下总结：
-1. 尽量高的并发
-2. 最高并发数有限（即自身服务的协程数，既防止协程的徒增，又防止被下游限流）
+4. 尽量高的并发
+5. 最高并发数有限（即自身服务的协程数，既防止协程的徒增，又防止被下游限流）
 
 我首先的设计是这样的，
 将这一批参数首先划分成多个“大批”，然后对每个大批再划分成多个小批（假如下游支持批量查询则小批的大小就是下游建议的每次请求参数个数（因为长尾效应是随着参数的数量越多而越显著的），假如下游每次请求只支持单个参数，则小批的大小是1），每个小批则对应一次请求。
@@ -233,32 +288,7 @@ Reduce(
 
 #### 重试
 
-## 性能
-
-+ TODO
-    + Go-Monitor
-
-### 调度
-
-+ Ref：
-    + https://povilasv.me/go-scheduler/
-
-### 内存分配
-
-+ Ref：
-    + https://medium.com/eureka-engineering/understanding-allocations-in-go-stack-heap-memory-9a2631b5035d
-    + https://medium.com/@ankur_anand/a-visual-guide-to-golang-memory-allocator-from-ground-up-e132258453ed
-
-### 堆栈
-
-+ Ref：
-    + https://medium.com/eureka-engineering/understanding-allocations-in-go-stack-heap-memory-9a2631b5035d
-
-### GC
-
-+ Ballast
-
-## Tool
+## 开发工具
 
 ### json to go
 
@@ -268,10 +298,49 @@ Reduce(
 
 + go visualize call graph: ondrajz/go-callvis -- 当前版本在1.22之后会出问题, 而维护者不太活跃 --> Egor3f/go-callvis(解决: [pr](https://github.com/ondrajz/go-callvis/pull/177/files), 只删除了代码) -- 原项目有一些不太好的实现 --> zweix123/go-callvis(从ondrajz的fork)
 
-## 其他
+## 其他技巧
 
 ### go shebang trick
 ```go
 //usr/bin/env go run $0 $@; exit
 ```
 
+
+
+# Source Code
+
+## 并发模型
+
++ Ref：
+    + [知乎 · 小徐先生 · 温故知新——Golang GMP 万字洗髓经](https://zhuanlan.zhihu.com/p/869632834)
+    + [Russ Cox · Coroutines for Go](https://research.swtch.com/coro)
++ 
+
+Golang的并发模型——GMP（goroutine-machine-processor）
++ G即goroutine，是Golang对协程的抽象
++ M即machine，是Golang对线程的抽象
++ P即Processor，是Golang中的调度器
+    + lrq（local run queue）：通过数组实现循环队列
+
+## 内存管理
+
+Golang的内存管理模块主要继承自TCMalloc（Thread-Caching-Malloc）的设计思路。
+
++ Ref：
+    + [Russ Cox · Memory Models](https://research.swtch.com/mm)
+    + [Medium · James Kirk · Understanding Allocations in Go](https://medium.com/eureka-engineering/understanding-allocations-in-go-stack-heap-memory-9a2631b5035d)
+    + [Medium · Ankur Anand · A visual guide to Go Memory Allocator from scratch (Golang)](https://medium.com/@ankur_anand/a-visual-guide-to-golang-memory-allocator-from-ground-up-e132258453ed)
+
+## 并发工具
+
+锁和管道
+
+## IO模型
+
+因为Linux的epollo多路复用技术是线程纬度的，所以Golang设计了一套netpoll机制。
+
+## 数据结构
+
+https://research.swtch.com/godata
+https://research.swtch.com/interfaces
+https://research.swtch.com/godata2
