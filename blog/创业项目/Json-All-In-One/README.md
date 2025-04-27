@@ -7,6 +7,7 @@ VSCode插件
 + list type to table
 + nest/flat
 + to yaml and etc.
++ 手动反序列化
 
 ## 举例
 

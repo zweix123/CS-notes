@@ -109,6 +109,13 @@ STFM
 go test -v -cover -race ./...
 ```
 
+### go build
+
+```bash
+go build -gcflags="-m" .
+```
+内存逃逸分析
+
 ## Config
 
 建议使用放在rc文件的`export`命令设置go环境变量，而非使用`go env -w`的flag
@@ -142,6 +149,8 @@ GOPATH  # go1.11引入module, 不再需要;
     6. [beihai · 构建可持续迭代的 Golang 应用](https://wingsxdu.com/posts/golang/clean-go/)
     7. [CoolShell · Go编程模式](https://coolshell.cn/articles/series/go%e7%bc%96%e7%a8%8b%e6%a8%a1%e5%bc%8f)
         + 但是我感觉里面关于范型的讨论已经过时了。
+    8. [高性能golang](https://goperf.dev/)：真挺不错的（我看的时候有一个错误，不知道后面修复了没有）
+    9. [Go项目设计的“七宗罪”？警惕那些流行的“反模式”](https://tonybai.com/2025/04/21/go-project-design-antipatterns/)
 
 ## 项目结构
 
@@ -218,6 +227,8 @@ GOPATH  # go1.11引入module, 不再需要;
 | [go-cache](https://github.com/patrickmn/go-cache)         |      | 是            | 简单     | 结构简单，推荐万级小key                |
 | [groupcache](https://github.com/golang/groupcache)        |      |              |        | 轻量memcached，不在当前选型范围中        |
 
+ristretto
+
 ### 并发
 
 #### 无依赖：协程池
@@ -287,6 +298,40 @@ Reduce(
 [machinery](https://github.com/RichardKnop/machinery)
 
 #### 重试
+
+### 序列化
+
+方法
+json
+gob
+pb
+msgp
+性能(ns/op)
+458.8
+113.8(-75%)
+52.30(-88%)
+35.94(-92%)
+内存(B/op)
+291
+304(+4%)
+24(-91%)
+32(-89%)
+大数据量
+方法
+json
+gob
+pb
+msgp
+性能(ns/op)
+26378
+111.8(-99.5%)
+16610(-37%)
+34.44(-99.8%)
+内存(B/op)
+293602
+304(-99.8%)
+245776(-16%)
+32(-99.9%)
 
 ## 开发工具
 

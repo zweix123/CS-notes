@@ -1,3 +1,6 @@
++ Ref
+    + https://taxodium.ink//setup-macos.html
+
 ## 基本配置
 
 + 其他设置：
