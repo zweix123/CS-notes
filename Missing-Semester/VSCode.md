@@ -1,14 +1,13 @@
++ [我的VSCode/Curosr配置](https://github.com/zweix123/unix-config/blob/master/IDE/settings.json)：下面所有插件或者配置都在这个配置中。
 
-
-
-关于主力编辑器的选择，对于个人而言，如果一个新的工作流被验证效率优于当前，我可以不顾学习成本去迁移，比如输入法迁移到双拼。对于VSCode和Vim的选择，我相信vim的上限是优于VSCode的，但是基于GUI修饰键的操作在各个软件都有事实标准。不能保证所有常用软件都支持vim模式。出于对统一美感的追求，最终还是选择VSCode，但vim终究还是我们的老前辈，对于某些vim下很好的操作模式积极寻找VSCode等价操作。关于VSCode和jetbrains的选择，我个人依然使用VSCode原因是我个人对命令行操作比较熟练，且有多语言编程需求，VSCode All In One的属性比较吸引我，但是我承认jetbrains家软件的优秀，日常关注其更好的点寻找VSCode的等价效果。
+关于主力编辑器的选择，对于个人而言，如果一个新的工作流被验证效率优于当前，我可以不顾学习成本去迁移，比如输入法迁移到双拼。对于VSCode和Vim的选择，我相信vim的上限是优于VSCode的，但是基于GUI修饰键的操作在各个软件都有事实标准。不能保证所有常用软件都支持vim模式。出于对统一美感的追求，最终还是选择VSCode，但vim终究还是我们的老前辈，对于某些vim下很好的操作模式积极寻找VSCode等价操作。关于VSCode和jetbrains的选择，我个人依然使用VSCode原因是我个人对命令行操作比较熟练，且有多语言编程需求，VSCode的"All In One"属性比较吸引我，但是我承认jetbrains家软件的优秀，日常关注其更好的点寻找VSCode的等价效果。
 
 + 怎么打开VSCode？我的方式：在终端cd到对应路径，然后`code .`
     + 没有`code`命令？使用VSCode命令`Shell Command: Install 'code' command in PATH`，什么是VSCode命令，见下一条。
 + Command Center：即UI顶部的输入框，默认是项目下文件检索，通过添加前缀实现各种功能，下面是我常用的
     + Search files by name：默认`Ctrl/Comand + p`，相当于fd
 	+ Go to Line:  默认`Ctrl/Command + g`，相当于vim的`数字 + g`
-	+ Go to Symbol：默认`Ctrl/Command + Shift + O`
+	+ Go to Symbol：默认`Ctrl/Command + Shift + O`（英文字母O）
 	+ Show and Run Cmd：默认`Ctrl/Command + Shift + P`，本文的“命令”即为了这里的命令
 + 常用通用命令：
     + 快捷键相关：`Perferences: Open Keyboard Shortcuts`
@@ -21,46 +20,6 @@
 	聊到配置就要聊到`.vscode`目录，这里聊一下该目录和插件无关的文件
 
 	+ `settings.json`：即上面提到工作区范围的配置文件，这里聊一下常用的一些配置项，本文其他部分对于各个话题也会提到相关配置项
-		+ `explorer.sortOrder`：资源管理器文件排序关键字
-	+ `extensions.json`：项目下插件过滤
-
-## Cursor
-
-+ 就UI上，可能有刚从VSCode到Cursor的朋友不舒服侧边栏的位置不一样了，可以设置的![workbench orientation](https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/cursor-sidebar.png)
-
-现在的cursor挺有意思的，记录一下 : )
-
-说一下背景，我的主要开发语言有Golang、Python和C++，这些语言在VSCode都能有不错的体验，我也几乎没用过JB家的IDE。
-
-+ 在编辑器层面，cursor是套娃的VSCode（只能说VSCode虽然不是真开源，但是确实是公开了相当一部分的代码，而且其上活跃的插件社区是真开源）。在最初cursor刚出那会，我有体验过，就被它古典的UI劝退了（当时好像只支持vim模式？）。但是现在，它确实是补上了这部分能力。在安装cursor时选择VSCode模式（所以我也并不知道其他模式怎么样），它会自动载入我目前在VSCode的所有配置（插件、配置、快捷键）。打开之后，UI和交互和VSCode**几乎一样**！从VSCode抢人简直轻而易举。
-    >不仅是配置，在cursor里的操作“感觉”也一样，比如在终端通过命令打开，比如不同层级的配置。简直了，直接摘桃子啊。
-
-+ 那副驾驶怎么样呢？VSCode也有Copilot呀？我为什么不在VSCode上用Copilot而用你套娃的cursor（即使几乎一样）？
-
-    + 首先Copilot提供什么能力？
-        1. Chat
-        2. AI补全：通过将光标后的代码后移，然后以 inline completion 进行提示，按Tab接受
-        3. 对于报错和警告，有AI解决的按钮
-
-    + VSCode的插件框架有什么限制？
-        + VSCode的插件框架应该是有诸多限制，需要在其能力之上开发
-
-    + cursor多了什么？
-        + 提示的代码并不仅是inline completion，还有“悬浮”的
-        + 不仅能提示加，还能提示删除
-        + 最最重要的：**Cursor的上下文是整个项目/Workspace**，理论上Cursor应该会比Copilot聪明，代价是假如我的项目里有一个数据文件并打开，Cursor就不说话了（按理说Curosr应该搞一个可以识别这样的文件的呀）
-        + 除此之外：Cursor的划词提问比VSCode更流畅自然，比如可以选择终端文本，比如相关快捷键一致，比如选择文本相关上下文（AI在Cursor是一等公民）
-        + 嗨，说那么多干啥，看看官方文档：[cursor features](https://www.cursor.com/features)
-
-    因为VSCode插件的限制，使其他副驾驶插件只能在光标后面“挤”出空间弹出补全代码，但是在cursor中，不仅这一种形式，除了添加、还有替换、还有删除，还有这些的**组合**。
-
-+ 再来说一下功能说的，我有接触有朋友觉得，AI会干扰TA的编程思路，但是我觉得不会，当我们按照我们的思路完成前置代码以及一定的注释后，AI可以理解我们的意思，帮我完成**我想完成**的代码，非常棒。
-
-+ Cursor无限续杯：Curosr的新用户可以试用14天的Pro版本以及500个问答额度，所以加上我们每14天可以得到一个新邮箱账号即可无限续杯。
-    + 工具：
-        + https://cursor-auto-free-doc.vercel.app/
-    + 方案：
-        + https://waite.wang/posts/tools/cursor-forever-free/
 
 ## 基本文本操作
 
@@ -92,20 +51,20 @@
     + Alt/Option + Ctrl/Command + 方向键上下
 
 + 光标在terminal与workspace切换，以及在workspace中的不同窗口切换：
-    + win：Ctrl+~和Ctrl+num
-    + mac：Ctrl+·和Command+num：看起来有点反直觉，但是mac的Comamnd+·是系统级快捷键
+    + win：`Ctrl+~`和`Ctrl+num`
+    + mac：`Ctrl+·`和`Command+num`：看起来有点反直觉，但是mac的`Comamnd+·`是系统级快捷键
 
     首先使用上面的快捷键可以在终端和不同窗口之前选择，其次单独使用终端相关的则是打开/关闭，关闭自然就会到workspace了。
 
-    进一步，使用Ctrl/Command + Shift + j则是将Terminal的全屏和取消全屏
+    进一步，使用`Ctrl/Command + Shift + j`则是将Terminal的全屏和取消全屏
 
 + 格式化：Shift+Alt/Option+f，效果依赖插件，大部分项目设置为format on save
 
 + 名称跳转：
     + Ctrl/Commad+鼠标左键点击
     + Go Back：
-        + win：Alt/Option+方向键Right
-        + mac：F3
+        + win：Alt/Option+方向键Right（一般来说应该是方向键左键Left，但是在win上我会将Caps改成方向键右键用于加速命令行补全）
+        + mac：F3（个人习惯，在mac上没有follow win是因为Command+左右是Home/End，Option+左右是单词移动，Ctrl不不能+左右作为快捷键）
 
 ## 配置同步
 
@@ -115,59 +74,14 @@
 
 ## 字体与外观
 
-+ 关闭受限模式：打开设置，键入`trust`
+TODO(zweix)：补充配置
 
-	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/vscode受限模式关闭.png" style="zoom:59%;" div align=center />
-
-+ 主题（背景颜色、字体颜色等等）：插件`One Dark Pro`和插件`Atom One Dark Theme`
-	>One Dark主题的优点：养眼
-	>>我真的使用过很多主题，但是用过One Dark后总感觉其他主题更刺眼，我将还要终端、vim也统一成One Dark风格（无了，没必要，就VSCode的One Dark主题效果最好）
-
-+ 文件图标：插件`vscode-icons`
-
-+ 字体：
-	+ 编辑器字体：打开设置，键入`Editor Font Family`  
-		>需要插件`FiraCode font - Professional Font for Developers`
-
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/编辑器字体.png" style="zoom:60%;" div align=center />
-
-	+ 终端字体：打开设置，键入`Terminal Font Family`  
-		>需要你已经按照[Shell的配置](Missing-Semester/Terminal.md#font-download)下载了对应字体
-
-		<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/终端字体.png" style="zoom:57.5%;" div align=center />
-		
-+ 括号连线：打开设置，键入`bracket`，找到对应位置选择true  
-
-	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/branket.png" style="zoom:60%;" div align=center />
-
-+ 柔顺：  
-	打开设置，键入`smooth`，选择下面三个选项  
-
-	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/smooth.png" style="zoom:79%;" div align=center />  
-
-	打开设置，键入`cursor` ，将下面设置为smooth  
-
-	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/cursor smooth.png" style="zoom:75%;" div align=center />  
-
-+ 补全建议：打开设置，键入`preview`，选择下面的选项  
-
-	<img src="https://cdn.jsdelivr.net/gh/zweix123/CS-notes@master/resource/Missing-Semester/suggest perview.png" style="zoom:64%;" div align=center />
-
-+ 行字数提醒：
-	```json
-	"editor.rulers": [ 80, 120 ],
-    // "workbench.colorCustomizations": {
-    //     "editorRuler.foreground": "#ff4081"
-    // }
-	```
-
-~~更新自工作，我并不喜欢JetBrains家的编辑器，毕竟当你有了锤子，你看谁都是钉子，而JB家的一个语言一个的哲学不太喜欢。而且它的内存占用太高，真的卡。但是同事很喜欢，也许是因为这是业务岗，同事们之前都是做Java的（现在是Golang），可能Java确实IDEA是最好的。在这样的情况下，我明显感觉自己在同事的屏幕看代码有困难（可能是因为主题），于是希望自己的VSCode和IDEA更像，希望可以提高效率。~~ ==垃圾，狗都不用==。
-1. 图标：JetBrains Icon Theme
-2. 主题：JetBrains Darcula Theme
-3. 字体：
-    + [下载链接](https://www.jetbrains.com/lp/mono/)
-    + /JetBrainsMono/fonts/ttf，所有字体，手动点击下载
-    + 在font改成`JetBrains Mono, Fira Code`
++ 主题：插件`One Dark Pro`（`One Dark Pro Darker`）
++ 图标：插件`vscode-icons`
++ 字体：插件`FiraCode font - Professional Font for Developers`
+    + 编辑器字体
+    + 终端字体
++ 其他
 
 ## 远程开发
 
@@ -183,7 +97,6 @@
     + YAML
 + TOML：
     + TOML Language Support
-
 
 ## Git
 
@@ -233,26 +146,7 @@
 	+ Python和Python Extension Pack（它们依赖很多插件，会自动下载很多，所以下面只说它不会自动下载的）
 	+ Mypy Type Checker：类型检查
 
-+ 配置：
-	```json
-	{
-	    "[python]": {
-	        "editor.defaultFormatter": "ms-python.black-formatter",  // 默认格式化工具
-	        "editor.formatOnSave": true,  // 保存时格式化
-	        "editor.codeActionsOnSave": {
-	            "source.organizeImports": true  // 保存时重排import语句
-	        },
-	    },
-	     "mypy-type-checker.args": [  // mypy类型检查
-	         "--check-untyped-defs",  // 检查类型时也要检查未标记类型的函数和方法
-	    ],
-	    // black不能重排import语句，因为这会修改代码的AST，所以重载import语句使用的是isort插件，这里配置表示isort使用black的配置
-	    "isort.args": [
-	        "--profile",
-	        "black"
-	    ],
-	}
-	```
++ 配置：TODO(补充配置)
 
 	功能包括代码格式化、`import`语句的重排和去重、静态类型检查
 
@@ -269,11 +163,7 @@
 		我个人的理解是关于import语句的重排和去重和black的功能有冲突，在实现上我们发现前者操作会影响代码AST，这似乎和black的架构有关系，我的解决方案体现在配置中
 
 + 对第三方库的引入补全：[一个回答](https://blog.csdn.net/weixin_38165206/article/details/102903066)
-
-+ 块执行`Python: Run Selection`：选择代码后使用快捷键`Shift + Ehter`会将这部分代码发送到Python Shell中，很容易误触，我取消了这个快捷键
 + 使用`#%%`可类似Jupyter分块，而Jupyter状态下有很多快捷键
-
-+ `Intellicode Api Examples › Python: Enabled`：关闭，暂时不知道为什么TODO
 
 ## C++
 
@@ -420,37 +310,8 @@ ${fileDirname}: 当前文件所在路径
 
 ## Golang
 
-+ Golang：[微软教程](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)和[debug tutor](https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code)
-    + Go
-        + 下载依赖
-    + Go Nightly
-
-+ 插件：[别忘了Go和VSCode都是微软家的](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)
-    + 修改format tool：打开设置页，搜索`Go: Format Tool`，选择
-    + 添加hint：添加设置：`"go.lintTool": "golangci-lint"`
-+ 当使用Ctrl/Command+鼠标左键进行跳转时，由于Golang的库通常是网络路径，VSCode会将其识别成网络，此时的跳转变成了跳转链接，但是我们实际上是希望文件跳转，则在settings.json（我通常是在项目下）添加
-    ```json
-    "[go]": {
-        "editor.links": false,
-    }
-    ```
-
-按照https://code.visualstudio.com/docs/languages/go走一遍
-
-更好的高亮
-```json
-"gopls": { "ui.semanticTokens": true }
-```
-
-更好的静态分析
-go.lintTool使用golangci-lint
-
-更好的格式化
-```
-"gopls": {
-    "formatting.gofumpt": true
-}
-```
++ 插件与部分配置：[微软教程->按照与配置Golang插件](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)、[安装之后VSCode可以提供的能力](https://code.visualstudio.com/docs/languages/go)和[debug tutor](https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code)
++ 配置：TODO
 
 ## Shell
 
@@ -462,7 +323,7 @@ go.lintTool使用golangci-lint
 
 + Auto Rename Tag：补全
 + Live Server：启动服务渲染页面
-+ Thunder client：HTTP Client，类似postman
++ ~~Thunder client：HTTP Client，类似postman~~
 
 ## Markdown
 
@@ -472,11 +333,7 @@ go.lintTool使用golangci-lint
 
 ### Mind-Map
 
-
 我在最开始是使用思维导图记笔记的，直到现在我也觉得树形结构是比流式结构更好的笔记结构，此时随机选择了[Xmind8](https://xmind.cn/download/xmind8/)（是8而不是最新版，这个可能不是最好看的，但是我觉得是操作最合理高效的）。随机笔记规模的扩大就有了渲染性能和文件管理的问题，这个时候使用Markdown；此时思维导图这个形式只是偶尔使用，最后发现没必要在为这偶尔使用的需求留着一个软件了，换到[markmap](https://markmap.js.org/)框架（有VSCode插件Markmap）
-
-
-	+ Markmap：使用Markdown生成思维导图
 
 ### Slide
 
@@ -508,9 +365,9 @@ go.lintTool使用golangci-lint
 
 
 ## LaTeX
-
-+ [知乎 · 槿灵兮 · 【LaTeX】针对萌新自学者的入门教程](https://zhuanlan.zhihu.com/p/521649367?utm_source=zhihu)
-+ [LaTeX 入门与进阶](https://latex.lierhua.top/zh/)
++ Ref：
+    + [知乎 · 槿灵兮 · 【LaTeX】针对萌新自学者的入门教程](https://zhuanlan.zhihu.com/p/521649367?utm_source=zhihu)
+    + [LaTeX 入门与进阶](https://latex.lierhua.top/zh/)
 
 + 插件：
     + LaTeX Workshop
@@ -579,67 +436,20 @@ go.lintTool使用golangci-lint
 
 ## 其他
 
-+ Project Manager：VSCode是围绕项目的，该插件会出现在Explorer上面，用于在不同项目之前跳转，虽然我基本不用，将是Explorer图标太靠上了，用Project Manager的图标占位。
++ Project Manager：VSCode是围绕项目的，该插件会出现在Explorer上面，用于在不同项目之前跳转。
 + Better Comments：注释增强，TODO的高亮之类的。
-+ AutoCorrect：中文拼接与格式检测
-+ Compare Folder：重大升级！非常好用！
-+ Wakatime：统计编程情况
++ AutoCorrect：中文拼接与格式检测。
++ Compare Folder：文件夹之间的比较。
++ Wakatime：统计编程情况。
++ Bookmarks：by项目的创建标签，快速导航。
 
 
+==垃圾，狗都不用==
 
-# 附录: 我的配置
-```json
-{
-    // ==================== 个人配置 ====================
-    // 个人 VSCode 配置, 通常放在 User Settings 中
-    "editor.formatOnSave": true, // 保存时自动格式化, 这个可能会造成困难, 因为工作中大概率接触很多没有格式化过的代码 : )
-    "editor.rulers": [
-        80,
-        120
-    ],
-    // golang
-    "[go]": { // go mod name 通常是网址, 所以当想通过Command+左键跳转的时候, VSCode会将其作为网址打开, 故关闭
-        "editor.links": false,
-    },
-    /// language server
-    "gopls": {
-        "ui.semanticTokens": true, // 高亮强化
-        "formatting.gofumpt": true, // 格式化强化
-        "usePlaceholders": true, // 补全强化
-        "staticcheck": true // lint强化
-    },
-    /// linter
-    "go.lintTool": "golangci-lint", // golangci-lint是多个linter的集合(golint, vet, errcheck, staticcheck), 使用配置文件 .golangci.yml 不过没有也能用
-    "go.lintFlags": [
-        "-set_exit_status" // 发现任何 lint 问题时返回一个非零的退出状态
-    ],
-    /// formatter
-    "go.formatTool": "goimports", // 格式化强化, 但是不知道为什么没有和上面的冲突
-    // python
-    /// formatter
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter", // formatter: black
-        // 下面的作用是: 当文件保存时, 对import语句进行整理
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit",
-            "notebook.source.organizeImports": "explicit"
-        },
-    },
-    // 上面提到, python 文件保存时整理import语句, 使用isort包, 相关参数在这里配置
-    "isort.args": [
-        "--profile", // 预设的配置文件
-        "black", // 预设的配置文件与black兼容
-    ],
-    /// linter
-    "mypy-type-checker.args": [
-        "--check-untyped-defs", // 对那些没有类型注解的函数或方法定义进行类型检查, 默认不检查
-    ],
-    // C/C++
-    // others
-    /// dryadsfile
-    "files.associations": {
-        "dryadsfile": "python"
-    },
-    // ==================== 个人配置 ====================
-}
-```
+~~更新自工作，我并不喜欢JetBrains家的编辑器，毕竟当你有了锤子，你看谁都是钉子，而JB家的一个语言一个软件的哲学不太喜欢。而且它的内存占用太高，真的卡。但是同事很喜欢，也许是因为这是业务岗，同事们之前都是做Java的（现在是Golang），可能Java确实IDEA是最好的。在这样的情况下，我明显感觉自己在同事的屏幕看代码有困难（可能是因为主题），于是希望自己的VSCode和IDEA更像，希望可以提高效率。~~ 
+1. ~~图标：JetBrains Icon Theme~~
+2. ~~主题：JetBrains Darcula Theme~~
+3. ~~字体：~~
+    + ~~[下载链接](https://www.jetbrains.com/lp/mono/)~~
+    + ~~/JetBrainsMono/fonts/ttf，所有字体，手动点击下载~~
+    + ~~在font改成`JetBrains Mono, Fira Code`~~
