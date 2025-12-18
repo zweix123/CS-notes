@@ -1,5 +1,7 @@
 # Cursor
 
++ 配置：workbench.activityBar.orientation -> 修改为vertical使侧边栏回到和VSCode一样在最右边竖着。
+
 ## Free-Cursor
 
 - 原理：

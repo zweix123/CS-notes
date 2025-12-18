@@ -1,3 +1,6 @@
++ 工作流：
+    + https://www.cesarsotovalero.net/blog/i-am-switching-to-python-and-actually-liking-it.html
+
 想在这里聊一下在使用Python开发软件的过程中语言之外的知识点。具体的，我们讨论一个语言时，语法仅仅是很小的一部分，它的生态也很重要：如何管理依赖，如何构建，如何发布；相关测试框架、相关格式化软件、相关Lint软件；被普遍使用的工程架构、代码风格，有没有什么奇技淫巧。
 
 >同样发心的资料应该不少，这里会陆续挂一些链接，不是作为推荐，仅仅作为标记。
@@ -84,6 +87,15 @@ pip --help         # [沟通]
 ```
 
 + pip有一个问题，就是下载的库的版本的全局的，为一个项目下载的库会被其他的项目访问到，如果有两个项目的需要的依赖版本不同，就会出现问题，所以，我们需要虚拟环境，每个虚拟环境中的依赖是独立的、互不影响的。
+
+## venv
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+python -m pip install -r requirements.txt 
+deactivate
+```
 
 ## poetry
 

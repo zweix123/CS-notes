@@ -119,6 +119,7 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
 + 插件推荐
     + Obsidian Git：多机同步必备，取消所有快捷键，因为核心功能主要有三个（如果熟悉Git的话）：add + commit、push、pull。而Obsidian也有类似VSCode的命令行模式（快捷键`Ctrl + p`或者`Command + p`），输出前缀`git`即有上面提到的几个选项，甚至在PC上，我都是命令行手动管理。
     + Advanced Tabled：Markdown表格相关补全，它存在大量的自定义，抽象程度低就意味着复杂，索性它提供了图形化的操作，鉴于表格用的本来就不多。我干脆没有设计快捷键。
+    + [英文语法检测](https://github.com/automattic/harper)
 
 
 ## 论文:Zotero

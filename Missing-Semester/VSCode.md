@@ -1,6 +1,6 @@
-+ [我的VSCode/Curosr配置](https://github.com/zweix123/unix-config/blob/master/IDE/settings.json)：下面所有插件或者配置都在这个配置中。
+[我的VSCode&Cursor的配置](https://github.com/zweix123/unix-config/blob/master/IDE/settings.json)：基本配置以及本文涉及的插件的配置，都在这个配置中，且有脚本可以直接应用到本机。
 
-关于主力编辑器的选择，对于个人而言，如果一个新的工作流被验证效率优于当前，我可以不顾学习成本去迁移，比如输入法迁移到双拼。对于VSCode和Vim的选择，我相信vim的上限是优于VSCode的，但是基于GUI修饰键的操作在各个软件都有事实标准。不能保证所有常用软件都支持vim模式。出于对统一美感的追求，最终还是选择VSCode，但vim终究还是我们的老前辈，对于某些vim下很好的操作模式积极寻找VSCode等价操作。关于VSCode和jetbrains的选择，我个人依然使用VSCode原因是我个人对命令行操作比较熟练，且有多语言编程需求，VSCode的"All In One"属性比较吸引我，但是我承认jetbrains家软件的优秀，日常关注其更好的点寻找VSCode的等价效果。
+关于主力编辑器的选择，对我个人而言，如果一个新的工作流被验证效率优于当前，我可以不顾学习成本去迁移，比如输入法迁移到双拼。对于VSCode和Vim的选择，我相信vim的上限是优于VSCode的，但是基于GUI修饰键的操作在各个软件都成了事实标准。不能保证所有常用软件都支持vim模式。出于对统一美感的追求，最终还是选择VSCode，但vim终究还是我们的老前辈，对于某些vim下很好的操作模式积极寻找VSCode等价操作。关于VSCode和jetbrains的选择，我个人依然使用VSCode原因是我个人对命令行操作比较熟练，且有多语言编程需求，VSCode的"All In One"属性比较吸引我，但是我承认jetbrains家软件的优秀，日常关注其更好的点寻找VSCode的等价效果。
 
 + 怎么打开VSCode？我的方式：在终端cd到对应路径，然后`code .`
     + 没有`code`命令？使用VSCode命令`Shell Command: Install 'code' command in PATH`，什么是VSCode命令，见下一条。
@@ -17,11 +17,12 @@
 
 + Settings：VSCode的配置分三个层级：默认 -> 用户 -> 工作区，同一项配置后者覆盖前者：快捷键`Ctrl + ,`或者命令`open settings`
 
-	聊到配置就要聊到`.vscode`目录，这里聊一下该目录和插件无关的文件
+	聊到配置就要聊到`.vscode`目录，这里聊一下该目录下和插件无关的文件
 
-	+ `settings.json`：即上面提到工作区范围的配置文件，这里聊一下常用的一些配置项，本文其他部分对于各个话题也会提到相关配置项
+	+ `settings.json`：即上面提到工作区范围的配置文件。
 
 ## 基本文本操作
+> 各种编辑软件都支持的文本操作的事实标准
 
 |                                    | Windows                 | macOS                      |
 | ---------------------------------- | ----------------------- | -------------------------- |
@@ -74,14 +75,11 @@
 
 ## 字体与外观
 
-TODO(zweix)：补充配置
-
 + 主题：插件`One Dark Pro`（`One Dark Pro Darker`）
 + 图标：插件`vscode-icons`
 + 字体：插件`FiraCode font - Professional Font for Developers`
     + 编辑器字体
     + 终端字体
-+ 其他
 
 ## 远程开发
 
@@ -100,13 +98,14 @@ TODO(zweix)：补充配置
 
 ## Git
 
-| 我的需求                           | 解决方式                                                                                                                                                                                                                                                                                                                                                                           |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 查看当前的修改（by文件，可对比）              | VSCode自带的Source Control（就是侧边栏分支图标                                                                                                                                                                                                                                                                                                                                              |
-| `.gitignore`编辑增强               | gitignore插件                                                                                                                                                                                                                                                                                                                                                                    |
-| blame（单行blame，文件层面blame）       | 这其实是一个值得讨论的问题，JB家的blame功能是在编辑器左边开一个窗口，仔细想一下，这个VSCode其实是原生不支持的，这样的一个窗口在VSCode下不是一等公民。下面讨论一些插件的解法。<br>+ Git Blame：在下面状态栏开一个位置表示光标在的位置上次修改的username<br>+ Annotator：它的行为是仿照JB家的，但是上面说的，VSCode原生不能支持这样的形式，所以它是单独开一个页面，在这里划分两个窗口分别显示blame内容和代码内容，因为不原生支持，在这里，源文件内容的显示修改很差<br>+ gitlens：它和Annotator在原理上是一样的，但是它优化的更好，显示效果基本相当于原生的了。<br>我目前只用Git Blame，因为Annotator效果不好，然后我个人不喜欢gitlens |
-| 图形化提交历史                        | Interactive Git Log插件：真不错，画风很喜欢，而且很干净                                                                                                                                                                                                                                                                                                                                          |
-| 查看某一次提交修改的所有文件并且可以查看某一个文件的对比修改 | Interactive Git Log插件                                                                                                                                                                                                                                                                                                                                                          |
+| 我的需求                           | 解决方式                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 查看当前的修改（by文件，可对比）              | VSCode自带的Source Control（就是侧边栏分支图标）                                                                                                                                                                                                                                                                                                                                               |
+| `.gitignore`编辑增强               | gitignore插件（现在VSCode已经自带这个功能了）                                                                                                                                                                                                                                                                                                                                                   |
+| blame（单行blame，文件层面blame）       | 这其实是一个值得讨论的问题，JB家的blame功能是在编辑器左边开一个窗口，仔细想一下，这个VSCode其实是原生不支持的，这样的一个窗口在VSCode下不是一等公民。下面讨论一些插件的解法。<br>+ Git Blame：在下面状态栏开一个位置表示光标在的位置上次修改的username<br>+ Annotator：它的行为是仿照JB家的，但是上面说的，VSCode原生不能支持这样的形式，所以它是单独开一个页面，在这里划分两个窗口分别显示blame内容和代码内容，因为不原生支持，在这里，源文件内容的显示修改很差<br>+ gitlens：它和Annotator在原理上是一样的，但是它优化的更好，显示效果基本相当于原生的了。<br>我目前只用Git Blame，因为Annotator效果不好，然后我个人觉得gitlens太重了 |
+| 图形化提交历史                        | Interactive Git Log插件：真不错，画风很喜欢，而且很干净                                                                                                                                                                                                                                                                                                                                            |
+| 查看某一次提交修改的所有文件并且可以查看某一个文件的对比修改 | Interactive Git Log插件                                                                                                                                                                                                                                                                                                                                                            |
+|                                |                                                                                                                                                                                                                                                                                                                                                                                  |
 
 + gitlens：
     + Gitlens > Current Line: Enabled
@@ -114,8 +113,9 @@ TODO(zweix)：补充配置
 
     以上两个关闭，不然大文件卡，我blame看的也是状态栏
 
-## Python
++ Go to next change
 
+## Python
 
 + 插件：
     + Python Extension Pack
@@ -146,7 +146,7 @@ TODO(zweix)：补充配置
 	+ Python和Python Extension Pack（它们依赖很多插件，会自动下载很多，所以下面只说它不会自动下载的）
 	+ Mypy Type Checker：类型检查
 
-+ 配置：TODO(补充配置)
++ 配置：
 
 	功能包括代码格式化、`import`语句的重排和去重、静态类型检查
 
@@ -311,7 +311,14 @@ ${fileDirname}: 当前文件所在路径
 ## Golang
 
 + 插件与部分配置：[微软教程->按照与配置Golang插件](https://learn.microsoft.com/zh-cn/azure/developer/go/configure-visual-studio-code)、[安装之后VSCode可以提供的能力](https://code.visualstudio.com/docs/languages/go)和[debug tutor](https://www.digitalocean.com/community/tutorials/debugging-go-code-with-visual-studio-code)
-+ 配置：TODO
+
+```bash
+> go version                                                   
+go version go1.22.12 darwin/arm64
+
+> go install golang.org/x/tools/gopls@v0.16.2
+> go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.60.2
+```
 
 ## Shell
 
@@ -442,6 +449,7 @@ ${fileDirname}: 当前文件所在路径
 + Compare Folder：文件夹之间的比较。
 + Wakatime：统计编程情况。
 + Bookmarks：by项目的创建标签，快速导航。
++ 
 
 
 ==垃圾，狗都不用==
@@ -453,3 +461,9 @@ ${fileDirname}: 当前文件所在路径
     + ~~[下载链接](https://www.jetbrains.com/lp/mono/)~~
     + ~~/JetBrainsMono/fonts/ttf，所有字体，手动点击下载~~
     + ~~在font改成`JetBrains Mono, Fira Code`~~
+
+
+还在考察中的：
++ indent-rainbow
++ dendron
++ Live Server

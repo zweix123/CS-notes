@@ -6,7 +6,8 @@
 
 + 查看Linux发行版和版本的命令：
     ```bash
-    uname -a
+    cat /etc/os-release  # 查看发行版信息
+    uname -a  # 查看内核信息
     lsb_release -a
     ```
 

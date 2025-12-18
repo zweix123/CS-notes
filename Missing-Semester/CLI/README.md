@@ -1,3 +1,5 @@
+https://utcc.utoronto.ca/~cks/space/blog/programming/BashGoodSetEReports
+
 # Quick Start
 
 ## What
@@ -29,3 +31,8 @@
 + 使用这个命令行程序
 	+ [新手指南： Linux 新手应该知道的 26 个命令](https://linux.cn/article-6160-1.html)
 	+ [The Art Of Command Line简体中文](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
+
+
+# Zsh
+
+https://scottspence.com/posts/speeding-up-my-zsh-shell

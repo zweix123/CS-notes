@@ -1,6 +1,8 @@
 + Ref
     + [微信公众号 · 腾讯技术工程 · 不需要AI和数学知识背景，这篇文章带你学会大模型应用开发](https://mp.weixin.qq.com/s?__biz=MjM5ODYwMjI2MA==&mid=2649791944&idx=1&sn=9bd69fbe147a8e480158ee32348d88a6&chksm=bfce8dec0844bbb5f588d752074a57ff7a45c54368234bb2d7269e4fd6df7a8251f9d4c53a07&xtrack=1&scene=90&subscene=93&sessionid=1741609844&flutter_pos=0&clicktime=1741609846&enterid=1741609846&finder_biz_enter_id=4&ranksessionid=1741609804&ascene=56&fasttmpl_type=0&fasttmpl_fullversion=7634324-zh_CN-zip&fasttmpl_flag=0&realreporttime=1741609846877#rd)
     + https://i.xiaojukeji.com/way/article/13301956
+    + https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf
+    + https://anthropic.com/engineering/built-multi-agent-research-system
 
 ## RAG(Retrieval-Augmented Generation)
 > 检索增强生成技术

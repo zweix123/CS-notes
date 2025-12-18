@@ -63,6 +63,10 @@
 
 2. 按照[Manual](https://brew.sh/zh-cn/)执行下载命令
 3. 按照脚本输出更新rc文件
+4. 使用国内源：
+```bash
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
+```
 
 + 我对brew的定位是只下载终端命令，对应的，终端命令也只由brew下载。相当于，我不使用`brew --cask
     + TODO，有些我也不使用它下
