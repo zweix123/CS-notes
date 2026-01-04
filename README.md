@@ -267,13 +267,22 @@
     + [动手实战人工智能](https://aibydoing.com/intro)
     + [llya Sutskever 30u30](https://www.reddit.com/r/ArtificialInteligence/comments/1cpbh1s/ilya_sutskever_if_you_really_learn_all_of_these/?rdt=49832&onetap_auto=true&one_tap=true)
 
+#### LLM Agent
+
+- 《Agentic Design Patterns》（智能体设计模式）：https://github.com/ginobefun/agentic-design-patterns-cn
+
 ### 系统设计
-
-
 
 ### 软件工程
 
 + [ ] 《卓有成效的工程师》
+
+
+- [ ] 《卓有成效的工程师》
+
+- [ ] [如何成为一名靠谱的程序员：职业素养入门指南](https://mp.weixin.qq.com/s/7uyA8bFr8FZTRGlN38tdHg)
+
+- [ ] [代码写得好，绩效却不高？程序员的沟通和思考有多重要？](https://mp.weixin.qq.com/s/MLmrJfX3xNUH_wRfWF77eQ)
 
 ### 大前端
 
