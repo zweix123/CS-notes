@@ -449,7 +449,7 @@ go version go1.22.12 darwin/arm64
 + Compare Folder：文件夹之间的比较。
 + Wakatime：统计编程情况。
 + Bookmarks：by项目的创建标签，快速导航。
-+ 
++ Output Colorizer
 
 
 ==垃圾，狗都不用==
