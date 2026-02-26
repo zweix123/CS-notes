@@ -1,6 +1,6 @@
 ## 快速开始
 
-0. 智慧的提问+网络问题
+0. [智慧的提问](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)+网络问题
 1. 什么是命令行？它和图形化的计算机操作方式比有什么特点？Anyway，反正你必须要使用命令行，等你用了就知道了。
 2. 去哪里找一个可以用的命令行？
 	+ Windows：`Ctrl + r`然后键入`cmd`，此时弹出的黑框框就是命令行，但不建议使用，建议使用[Powershell7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4)（区分于Windows自带的Windows Powershell），推荐直接在`cmd`执行`winget install --id Microsoft.Powershell --source winget`下载。之后`Ctrl + r`键入`pwsh`打开的黑框框即是Powershell7，虽然和Linux原生的终端仍然有差别，不过就学习而言，个人体会差别不大，但仍然推荐使用Linux。

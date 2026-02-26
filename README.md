@@ -58,7 +58,7 @@
 + 什么是规范：产物的一致性，比如这里就是笔记风格的一致性。
 
 ## 最佳实践
-+ 什么是最佳实践：目的与规范相同，主要针对工具（比如编程语言），使用工具是为了做成某事，工具有某些属性可以做成某事。当人学习某些属性后，未必有能力完成对应的事情，因为，一个学习的好方法是先提出要做成什么事情，再考虑如何使用工具的属性完成。此为最佳实践，关键在一个Practice一词上。
++ 什么是最佳实践：目的与规范相同，主要针对工具（比如编程语言），使用工具是为了做成某事，工具有某些属性可以做成某事。当人学习某些属性后，未必有能力完成对应的事情，因为，一个学习的好方法是先提出要做成什么事情，再考虑如何使用工具的属性完成。此为最佳实践，关键在这 Practice 一词上。
 
 # RoadMap
 
@@ -113,7 +113,7 @@
 + 编程入门：
     >我有点遗忘在第一次接触编程的感觉了，不太能换位到一个初学者的视角；不同人进入编程世界的入口是不一样的，这个阶段可能会花一些时间找找感觉。
 
-    + CS61A（SICP, Structure and Interpretation of Computer Programs）：CS-DIY的第一门课，其教材SCIP也被称为是一个常看常新的书，我大概尝试了下，对我来说过于初学者，没有必要看完，写在这里作为推荐，适合编程初学者。
+    + [ ] CS61A（SICP, Structure and Interpretation of Computer Programs）：CS-DIY的第一门课，其教材SCIP也被称为是一个常看常新的书，我大概尝试了下，对我来说过于初学者，没有必要看完，写在这里作为推荐，适合编程初学者。
     + [x] Acwing Linux 基础课/Missing-Semester：这两门课有一小部分重叠，主要讲 Linux 的操作和工具，我觉得非常实用，前者内容更少，所以讲的更细致（给了很多演示），但是它是服务于它自己后面的课程的，够细但不够多，所以需要后者作为补充；后者非常的全面，会讲到我们在实际开发中会遇到但是不会有人系统讲的东西。强烈推荐。
 
 + 计算机系统基础：
@@ -155,8 +155,6 @@
 
     所以我后面的学习重点基本在“最佳实践”上，基本囊括Go常见的语法陷阱。
 
-    TODO(zweix): 补充学习资料
-
 + Rust：
     >我在学习Rust前非常忐忑，因为我极大概率永远不会用Rust写对自己“工作”有益的代码，而个人的学习理念向来是在实践中学习; 没有需求的推进我很怀疑自己学习Rust的动力。
 
@@ -165,7 +163,7 @@
     + [The Rust Programming Language](https://doc.rust-lang.org/book/)：很多的人的推荐，目前当作查表。
 
 + 前端：
-    + https://h-wakanda.github.io/css-animation-101-cn/
+    + [ ] [css-animation-101-cn](https://h-wakanda.github.io/css-animation-101-cn/)：TODO
 
 ### 数据结构
 
@@ -179,8 +177,6 @@
 
 + [x] 《Crafting interpreters》【🤏】：这本书自底向上手把手的带读者使用C语言实现一个有闭包、类、垃圾回收的动态类型语言。是我2023年看到的最好的技术书（这个受到了《Effective Modern C++》的冲击），总之非常推荐。
 
-+ 内存分配器
-
 ### 体系结构
 
 >个人感觉计算机组成原理、体系结构、操作系统（的一部分）并不能泾渭分明的划分，这里以体系结构统称
@@ -190,9 +186,7 @@
     + 让我对计算机底层有了全新的理解
     + 学到了很多对Coder来说很珍贵的的品质：Unix哲学、如何提问、STFW/STFM/RTFSC等等
     + 相信机器是永远正确的，相信 Bugs 一定是能观测，可复现，你能够解决的。如果不是，那一定是没有找对合适的工具，没掌握正确的调试手法。
-+ [ ] [《计算机体系结构基础》（胡伟武等，第三版）](https://github.com/foxsen/archbase)
-+ 《计算机组成与设计：软件/硬件接口》
-+ 《Computer Architecture A Quantitaive Approach》（又称《量化方法》）
++ [ ] [《计算机体系结构基础》（胡伟武等，第三版）](https://github.com/foxsen/archbase)：TODO
 
 ### 操作系统
 
@@ -205,23 +199,23 @@
 
 + [x] 谢希仁的《计算机网络》（第七版）：教材
 + [x] Stanford CS144（2023）：使用C++20实现了字节流、重组器、TCP的两端、数据链路层和网络层的接口、IP的路由选择。其中的项目结构（包括CMake相关代码）和几个Util类（地址的封装、文件描述符的封装、Socket的封装）都挺值得学习的。做完才意识到删除了往年最难的部分，难度低了很多，应该适合新手。遗憾的是这就导致后几个实验比较零碎，未能得到一个完整可用的TCP协议实现。
-+ [ ] 《计算机网络：自顶向下方法》
++ [ ] 《计算机网络：自顶向下方法（第七版）》：TODO
 
 ### 广义存储
 
 + [ ] 《Designing Data-Intensive Application》（设计数据密集型应用）（简称DDIA）：存储领域大通识课，假如你本身就是数据库/存储/infra的从业者，这本书可能有点无聊；假如你是后端研发，这本书可以带你串起存储相关的方方面面（想要更具体的学习则可以把这本书作为索引）；初次之外还有系统稳定性相关的基础常识。我个人认为这本书比较适合刚毕业的后端研发（没有从业过infra且对网络服务稳定性有一定了解）。
 
-+ 谷歌三件套
-    + MapReduce
-    + GFS
-    + BigTable
-        + LevelDB
-            + RocksDB
++ 谷歌三件套：
+    + MapReduce：
+    + GFS：
+    + BigTable：
+        + LevelDB：
+            + RocksDB：
 
 + 一致性协议：
-    + Raft
+    + Raft：
         + ectd：Raft的开源实现
-    + Zookeeper
+    + Zookeeper：
         + Zookeeper：Zookeeper的开源实现
     + Paxos：世界上只有一种分布式协议，那就是Paxos
 
@@ -240,15 +234,13 @@
 	+ [x] [MapReduce](Distributed-System/Google/MapReduce.md)
     + [ ] GFS
     + [ ] BigTable
-    + [x] [README](Distributed-System/Consistency/Raft/README.md)
+    + [x] [Raft](Distributed-System/Consistency/Raft/README.md)
     + [ ] Zookeeper
     + [ ] Spanner
 
-+ 深度理解分布式系统
-
 #### 存储
 
-+ [ ] 《数据存储-架构与技术》舒继武：海舟哥严选，先mark下下
++ [ ] 《数据存储-架构与技术》舒继武：海舟哥严选，先mark下。
 
 #### 其他专题
 
@@ -262,26 +254,34 @@
 
 ### 人工智能
 
-+ 记录一下群友推荐的：
-    + [Deep Learning Systems](https://dlsyscourse.org/)：dlsys
-    + [动手实战人工智能](https://aibydoing.com/intro)
-    + [llya Sutskever 30u30](https://www.reddit.com/r/ArtificialInteligence/comments/1cpbh1s/ilya_sutskever_if_you_really_learn_all_of_these/?rdt=49832&onetap_auto=true&one_tap=true)
++ [ ] [Coursera: Machine Learning]()：TODO
++ [ ] [动手实战人工智能](https://aibydoing.com/intro)：TODO
++ [ ] [llya Sutskever 30u30](https://www.reddit.com/r/ArtificialInteligence/comments/1cpbh1s/ilya_sutskever_if_you_really_learn_all_of_these/?rdt=49832&onetap_auto=true&one_tap=true)
 
-#### LLM Agent
+#### 机器学习
 
-- 《Agentic Design Patterns》（智能体设计模式）：https://github.com/ginobefun/agentic-design-patterns-cn
+
+
+#### 深度学习
+
++ [ ] [Deep Learning Systems（dlsys）](https://dlsyscourse.org/)：TODO
++ [ ] [CS229]()：TODO
+
+
+#### 大语言模型
+
++ [ ] [CS336]()：TODO
+
+#### 大模型智能体
+
++ [ ] [《Agentic Design Patterns》](https://github.com/ginobefun/agentic-design-patterns-cn)：TODO
 
 ### 系统设计
 
 ### 软件工程
 
 + [ ] 《卓有成效的工程师》
-
-
-- [ ] 《卓有成效的工程师》
-
 - [ ] [如何成为一名靠谱的程序员：职业素养入门指南](https://mp.weixin.qq.com/s/7uyA8bFr8FZTRGlN38tdHg)
-
 - [ ] [代码写得好，绩效却不高？程序员的沟通和思考有多重要？](https://mp.weixin.qq.com/s/MLmrJfX3xNUH_wRfWF77eQ)
 
 ### 大前端
@@ -295,6 +295,11 @@
 
 + [Survey of Vector Database Management Systems](https://arxiv.org/abs/2310.14021)
 + [Vector database management systems: Fundamental concepts, use-cases, and current challenges](https://arxiv.org/abs/2309.11322)
+
+#### 年报
+
++ 大模型年报
++ 数据库年报
 
 ## 人文学科
 
