@@ -260,12 +260,13 @@
 
 #### 机器学习
 
++ https://openmlsys.github.io/
 
 
 #### 深度学习
 
 + [ ] [Deep Learning Systems（dlsys）](https://dlsyscourse.org/)：TODO
-+ [ ] [CS229]()：TODO
++ [ ] [CS229](https://cs229.stanford.edu/)：TODO
 
 
 #### 大语言模型

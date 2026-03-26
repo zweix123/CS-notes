@@ -1,3 +1,12 @@
++ 学习资料：
+    + [CS336: Language Modeling from Scratch](https://cs336.stanford.edu/spring2025/)
+
+# 原理
+
+https://growingswe.com/blog/microgpt
+
+# 应用
+
 ## RAG(Retrieval-Augmented Generation)
 > 检索增强生成技术
 

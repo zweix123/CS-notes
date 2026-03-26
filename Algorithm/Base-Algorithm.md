@@ -28,8 +28,8 @@
 int l, r, ans = ;
 while (l <= r) {
     int mid = l + r >> 1;
-    if (check(mid)) l = mid + 1/r = mid - 1, ans = mid;
-    else r = mid - 1/l = mid + r; 
+    if (check(mid)) l = mid + 1, ans = mid;
+    else r = mid - 1;
 }
 // ans
 ```
