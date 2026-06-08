@@ -1,27 +1,5 @@
-## 快速开始
 
-0. [智慧的提问](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)+网络问题
-1. 什么是命令行？它和图形化的计算机操作方式比有什么特点？Anyway，反正你必须要使用命令行，等你用了就知道了。
-2. 去哪里找一个可以用的命令行？
-	+ Windows：`Ctrl + r`然后键入`cmd`，此时弹出的黑框框就是命令行，但不建议使用，建议使用[Powershell7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4)（区分于Windows自带的Windows Powershell），推荐直接在`cmd`执行`winget install --id Microsoft.Powershell --source winget`下载。之后`Ctrl + r`键入`pwsh`打开的黑框框即是Powershell7，虽然和Linux原生的终端仍然有差别，不过就学习而言，个人体会差别不大，但仍然推荐使用Linux。
-	+ Linux：如果你使用的是无桌面的模式，则你已经在命令行中了；否则快捷键`Ctrl + T`打开命令行
-	+ Mac：`Command + space`打开聚焦搜索，键入`terminual`打开命令行
-3. 区分一些名词：
-	+ Shell：
-		+ 狭义的操作系统 = 操作系统内核 + Shell，所以Shell是和操作系统进行交互的工具。
-		+ Shell是一种“编程语言”，是脚本语言，可以按照期语法何其进行”交互式编程“，也能将命令作为代码放进文件中然后一起在Shell中运行。
-
-		上面提到cmd、Windows Powershell、Powershell7都是Shell，Bash，Zsh，Fish也都是Shell。
-
-	+ Terminal：Shell是一个抽象的概念，即执行命令本身和操作系统进行交互的。那么我们作为计算机的用户，通过什么将命令给到Shell呢？这个概念划分出来意义本来不大，比如我在任何地方打开一个命令行，肯定是终端和Shell一起打开，Shell自带一个终端（或者反过来）。但是在Windows中，有一个Windows Ternimal的软件，它需要绑定某个Shell才能使用，所以这里区分一下
-	+ 命令行：在这里作为Shell和Terminal的合称
-
-4. 快速开始一些简单常用的命令：[新手指南： Linux 新手应该知道的 26 个命令](https://linux.cn/article-6160-1.html)，如果你时间多一点的话，可以看看[The Art Of Command Line简体中文](https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md)
-
-5. 好，你可以退出本教程了。
-6. 下面会在场景中讨论相关命令，相互之间没有递进关系。
-
-# Shell基本操作
+# Linux基本操作
 
 + 控制相关快捷键：
 	+ `Ctrl + c`：向当前执行程序发送中断信号SIGINT，强制中断
@@ -38,11 +16,6 @@
 + `xargs`：
 
 更多见[Shell 编程](Programming-Language/Bash.md)
-
-## 开发必要软件使用
-
-+ ssh
-+ git
 
 # Linux一切皆文件
 >你可能需要一个Linux机器，如果你是Windows，可以使用VMware，以无图形化的方式打开，并SSH过去，个人体验很好。
@@ -253,29 +226,4 @@
 
 + `iostat -x 1`
 
-# 其他
-
-ranger strace time
-
-df, dust, free, du, ssh `ssh`：[我的教程](../Missing-Semester/SSH.md), top
-
-+ `ps aux`：查看所有进程（直接标准输出）
-+ `kill -9 pid`：kill 对应pid 的进程
-	>本质是向某个进程传递信号：`kill -s SIGTERM pid`
-
-+ `watch -n 0.1 command`：每0.1秒执行一次`command`命令
-+ `tree`：展示当前目录的文件结构
-+ `md5sum`：计算md5哈希值：
-	+ 可从`stdin`读入内容：执行命令 -> 输入内容 -> `Ctrl + z`
-	+ 可从命令行参数传入文件名列表
-
-+ `cloc`：统计行数
-+ `wc`：统计字数
-	+ `wc -lwc`：行数、单词数、字节数
-
-+ `diff`：比较不同
-	+ `vimdiff`
-+ 按文件名查找文件：`find`
-	+ Modern 替代品：`fd`
-+ 按文件内容查找文件：`grep`
-	+ Modern 替代品：`ag`
+## 网络IO
