@@ -1,3 +1,7 @@
++ Ref：
+    + [YanxingLiu 实用命令行工具推荐](https://yanxingliu.github.io/posts/2026/04/useful-cli-tools/)
+        + https://github.com/XuehaiPan/Dev-Setup
+
 + 发心：
 
     在MIT的课程[Missing-Semester](https://missing.csail.mit.edu/)中，没有讲编译原理、操作系统、计算机网络这样的主题，而是讲很少会有课程涉及的、在受教育过程以及职业生涯可能上千小时都会使用的工具，比如命令行、编辑器、版本管理工具等。
