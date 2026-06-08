@@ -8,14 +8,14 @@
 
 ## 必要工具
 
-+ Model Provider 管理：[farion1231/cc-switch](https://github.com/farion1231/cc-switch)50k+star，事实标准，支持常用Agent。
-+ Skills 管理：[vercel-labs/skills](https://github.com/vercel-labs/skills)16k+star，事实标准，支持常用Agent。
++ Model Provider 管理：[farion1231/cc-switch](https://github.com/farion1231/cc-switch) 50k+star，事实标准，支持常用Agent。
++ Skills 管理：[vercel-labs/skills](https://github.com/vercel-labs/skills) 16k+star，事实标准，支持常用Agent。
 + 语音输入：
     + 收费：typeless
     + 开源：[input0](https://github.com/10xChengTu/input0)
 + 其他：
-    + 通过过滤 Command 的输出节省Token：[rtk-ai/rtk](https://github.com/rtk-ai/rtk)
-    + claude记忆：[thedotmack/claude-mem](https://github.com/thedotmack/claude-mem)
+    + 在命令输出到达LLM上下文之前对其进行过滤和压缩以节省Token：[rtk-ai/rtk](https://github.com/rtk-ai/rtk)
+    + claude 记忆：[thedotmack/claude-mem](https://github.com/thedotmack/claude-mem)
 
 ## 编程通用
 > 全局配置
@@ -24,16 +24,16 @@ skill
 ```bash
 # 元能力
 ## skill creator
-npx skills add https://github.com/anthropics/skills --skill "skill-creator" --agent "claude-code" -g -y
-# npx skills remove --agent "claude-code" --global "skill-creator" -y
+npx skills add https://github.com/anthropics/skills --skill "skill-creator" --agent "claude-code" --agent "codex" -g -y
+# npx skills remove --agent "claude-code" --agent "codex" --global "skill-creator" -y
 
 # workflow
 # 比如 obra/superpowers, Fission-AI/OpenSpec, 或者公司特化的
 
 # 基本开发能力
 ## git
-npx skills add https://github.com/github/awesome-copilot --skill "git-commit" --agent "claude-code" -g -y
-# npx skills remove --agent "claude-code" --global "git-commit" -y
+npx skills add https://github.com/github/awesome-copilot --skill "git-commit" --agent "claude-code" --agent "codex" -g -y
+# npx skills remove --agent "claude-code" --agent "codex" --global "git-commit" -y
 ```
 
 plugin
@@ -55,12 +55,13 @@ claude plugin install claude-hud -s user
 # lackeyjb/playwright-skill
 claude plugin marketplace add lackeyjb/playwright-skill
 claude plugin install playwright-skill@playwright-skill -s project
-cd ~/.claude/plugins/marketplaces/playwright-skill/skills/playwright-skill
-npm run setup
+# 其余操作见项目说明
 
 # jackwener/opencli
 # install opencli and chrome extension extension
-npx skills add jackwener/opencli --agent "claude-code" -y
+mkdir -p ~/opencli-workspace
+cd ~/opencli-workspace
+npx skills add jackwener/opencli --agent "claude-code" --agent "codex" -y
 
 # Lum1104/Understand-Anything
 claude plugin marketplace add Lum1104/Understand-Anything

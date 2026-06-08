@@ -8,5 +8,6 @@
   "cssTheme": "",
   "monospaceFontFamily": "",
   "textFontFamily": "",
-  "baseFontSizeAction": true
+  "baseFontSizeAction": true,
+  "showRibbon": true
 }

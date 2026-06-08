@@ -1,5 +1,6 @@
 + 学习资料：
     + [CS336: Language Modeling from Scratch](https://cs336.stanford.edu/spring2025/)
+    + https://github.com/rasbt/LLMs-from-scratch
 
 # 原理
 
