@@ -1,0 +1,9 @@
+{
+  "id": "mindmap",
+  "name": "Mindmap",
+  "version": "1.0.1",
+  "minAppVersion": "0.12.17",
+  "description": "Create notes with Mindmaps.",
+  "author": "YunXiaoYi",
+  "isDesktopOnly": false
+}
