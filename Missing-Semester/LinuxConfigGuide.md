@@ -35,7 +35,7 @@ usermod -aG wheel 用户名  # Centos
 
 ## 2.配置SSH
 
-[我的教程](Missing-Semester/CLI/ssh.md)
+[我的教程](Missing-Semester/command/ssh.md)
 
 ## 3.修改软件源
 
@@ -71,7 +71,7 @@ usermod -aG wheel 用户名  # Centos
 ### vim
 >文本编辑器
 
-[我的笔记](./CLI/vim.md)
+[我的笔记](Missing-Semester/command/vim.md)
 
 ### tmux
 >终端复用器
@@ -80,12 +80,12 @@ usermod -aG wheel 用户名  # Centos
   + 多个终端
   + 断开SSH而不影响命令执行
 
-[我的笔记](./CLI/tmux.md)
+[我的笔记](Missing-Semester/command/tmux.md)
 
 ### git
 
-+ 配置：[我的教程](./CLI/git.md#config)
-+ 使用：[我的教程](./CLI/git.md#usage)
++ 配置：[我的教程](Missing-Semester/command/git.md#config)
++ 使用：[我的教程](Missing-Semester/command/git.md#usage)
 
 ### zsh
 

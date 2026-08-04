@@ -1,12 +1,10 @@
-+ Ref：
-    + [YanxingLiu 实用命令行工具推荐](https://yanxingliu.github.io/posts/2026/04/useful-cli-tools/)
-        + https://github.com/XuehaiPan/Dev-Setup
-
 + 发心：
 
     在MIT的课程[Missing-Semester](https://missing.csail.mit.edu/)中，没有讲编译原理、操作系统、计算机网络这样的主题，而是讲很少会有课程涉及的、在受教育过程以及职业生涯可能上千小时都会使用的工具，比如命令行、编辑器、版本管理工具等。
 
     在中科大“一生一芯”活动中，yzh用了[一节课](https://ysyx.oscc.cc/slides/2205/02.html)的时间讲了Linux入门，比如GUI和CLI的对比、命令行工具概述、Unix哲学等。
+
+    后续接触诸多课程，越专业越把环境配置作为关键的第一步。
 
     本系列文章以此为题，包含各系统配置、重要软件的配置、效率工具的推荐。
 
@@ -25,26 +23,26 @@
 
     + 软件纬度：
         + [VSCode](./VSCode.md)
-        + 命令行：包含在各系统配置中（Linux的配置是满血版，macOS也是Unix系统，在oh-my-zsh的配置一样，所以使用Linux的配置；win则是尽力配置出同样的体验）
+        + 命令行：包含在各系统配置中（linux的配置是满血版，macOS也是Unix系统，在oh-my-zsh的配置一样，所以使用linux的配置；win则是尽力配置出同样的体验）
 
-    + 命令纬度：[CLI介绍](./CLI/README.md) -> 命令行配置（如上） -> [ssh](Missing-Semester/CLI/ssh.md) -> [git](Missing-Semester/CLI/git.md) -> [其他](./CLI/)
+    + 命令维度（基本命令、新质生产力命令、学习生产环境配置命令）：[CLI/README](Missing-Semester/command/README.md)
 
 大学算起，我个人使用机器的经历是：3年Windows->1年Linux->?年macOS，故后面大概只会更新macOS相关的了。
 
-| OS    | Windows           | Linux           | macOS      | 需求         |
-| ----- | ----------------- | --------------- | ---------- | ---------- |
-| 浏览器   | Chrome            | Chrome          | Chrome     |            |
-| 代理    | Clash for Windows | Clash for Linux | ClashX Pro |            |
-| Shell | Powershell7       | zsh             | zsh        |            |
-| 终端    | Windows Terminal  | Terminal        | Terminal   |            |
-| 包管理器  | Scoop             | 原生              | brew       |            |
-| 编程    | VSCode            | VSCode          | VSCode     |            |
-| 笔记    | Obsidian          | Obsidian        | Obsidian   | Markdown   |
-| 截图    | PixPin            |                 | Xnip       | 悬停+OCR+长截图 |
-| 启动器   | Wox               |                 | Spotlight  |            |
-| 论文    | zotero            | zotero          | zotero     |            |
-|       |                   |                 |            |            |
-|       |                   |                 |            |            |
+| OS    | Windows           | Linux           | macOS           | 需求         |
+| ----- | ----------------- | --------------- | --------------- | ---------- |
+| 浏览器   | Chrome            | Chrome          | Chrome          |            |
+| 代理    | Clash for Windows | Clash for Linux | Clash Verge Rev |            |
+| Shell | Powershell7       | zsh             | zsh             |            |
+| 终端    | Windows Terminal  | Terminal        | Terminal        |            |
+| 包管理器  | Scoop             | 原生              | brew            |            |
+| 编程    | VSCode            | VSCode          | VSCode          |            |
+| 笔记    | Obsidian          | Obsidian        | Obsidian        | Markdown   |
+| 截图    | PixPin            |                 | Xnip            | 悬停+OCR+长截图 |
+| 启动器   | Wox               |                 | Spotlight       |            |
+| 论文    | zotero            | zotero          | zotero          |            |
+|       |                   |                 |                 |            |
+|       |                   |                 |                 |            |
 
 + 笔记-Obsidian-Markdown：Obsidian打开的单位是项目而非文件，而我个人成独立的Markdown项目只有这个CS-notes，编程项目通常使用VSCode，而VSCode也能编辑Markdown。故在我的场景下，Obsidian就是专门打开CS-notes的，并结合Git实现存档和多端同步。
 + 截图：最主要的需求是图片悬停，其次是将粘贴板的文本转换成图片悬停，偶尔会有OCR，极少极少会有长截屏；有三个选择，Snipaste，PixPin，iShot，Snipaste非常优雅且跨平台，但是后两个需求不能满足，PixPin支持Win和macOS，恰好覆盖需求，UI有点丑，iShot功能最强大但是只支持macOS。最终选择PixPin。
@@ -82,12 +80,16 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
         + 主动收集：Cubox，多端统一
         + 被动收集：RSSHub Radar+Feedly Mini，前者为任何网页创建RSS，后者为RSS接收和查看器
 
++ chrome://flags/
+    + #Vertical Tabs: 垂直Tab
+    + #Enable split view link opening shortcut: 分屏
+
 ## 代理:Clash系
 
 + 操作系统：
     + Windows：
     + Linux：
-    + macOS：配置不能通过URL直接导入，Windows中的配置文件后缀名是`yml`，macOS中是`yaml`，文件拷贝进来直接改名即可。
+    + macOS：
 
 + 配置：
     + 开机自启动
@@ -124,6 +126,9 @@ Chrome是六大浏览器之一，插件丰富，登陆谷歌账号同步信息�
     + Obsidian Git：多机同步必备，取消所有快捷键，因为核心功能主要有三个（如果熟悉Git的话）：add + commit、push、pull。而Obsidian也有类似VSCode的命令行模式（快捷键`Ctrl + p`或者`Command + p`），输出前缀`git`即有上面提到的几个选项，甚至在PC上，我都是命令行手动管理。
     + Advanced Tabled：Markdown表格相关补全，它存在大量的自定义，抽象程度低就意味着复杂，索性它提供了图形化的操作，鉴于表格用的本来就不多。我干脆没有设计快捷键。
     + [英文语法检测](https://github.com/automattic/harper)
+
+### 跨软件格式化方案
+> VSCode&Obsidin
 
 
 ## 论文:Zotero

@@ -67,5 +67,6 @@ SSH的配置需要在客户端和服务端都配置
 	+ 多文件：`scp source1 source2 destination`
 	+ 复制文件夹：添加选项`-r`
 	+ 指定端口：添加参数`-P`
++ `rsync`：scp升级版
 + `sshpass`：就是把`scp`的`password`从stdin input变成argument
 + `ftp`：可以先登陆到服务器上，然后在通过`get`和`mget`传文件

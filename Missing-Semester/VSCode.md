@@ -323,7 +323,7 @@ go version go1.22.12 darwin/arm64
 ## Shell
 
 + format: 
-    + shell-format
+    + VSCode Shell-like Formatter
         + dep: shfmt comamnd
 
 ## Web

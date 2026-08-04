@@ -50,7 +50,7 @@
 
 [笔记](./README.md#浏览器chrome)
 
-### 科学上网ClashX
+### 科学上网 Clash Verge Rev
 
 [笔记](./README.md#代理clash系)
 
@@ -74,9 +74,9 @@
 ### 安装Git->SSH生成密钥->配置Github
 
 1. Git安装：自带
-2. SSH生成密钥: [我的教程](./CLI/ssh.md#config)
-3. Git配置: [我的教程](./CLI/git.md#config)
-4. 将SSH公钥上传到Github上: [我的教程](./CLI/git.md#config)
+2. SSH生成密钥: [我的教程](Missing-Semester/command/ssh.md#config)
+3. Git配置: [我的教程](Missing-Semester/command/git.md#config)
+4. 将SSH公钥上传到Github上: [我的教程](Missing-Semester/command/git.md#config)
 5. 克隆CS-notes
 
 ### 下载Obsidian
@@ -86,7 +86,7 @@
 ## 其他必装软件
 
 ### 命令行配置
-[笔记](Missing-Semester/Terminal.md#unix-linux-and-macos)
+[笔记](Missing-Semester/command/README.md#unix-linux-and-macos)
 TODO: 这部分有问题，但是没有精力修改
 ```bash
 brew install coreutils  # https://github.com/zanmato1984/my-sh/blob/master/oh-my-zsh

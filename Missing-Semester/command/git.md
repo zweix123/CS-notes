@@ -1,5 +1,5 @@
 - 前置知识：
-  - [ssh](Missing-Semester/CLI/ssh.md)
+  - [ssh](Missing-Semester/command/ssh.md)
 
 Git 是一个成为事实标准的版本管理工具，GitHub 是一个代码托管平台（除了它还有其他很多很多也能代码托管）
 
@@ -92,8 +92,8 @@ git config --global color.ui true
 ```bash
 # 报错：Failed to connect to github.com port 443 after xxx ms: Couldn't connect to server
 # 解决：如下
-git config --global http.proxy http://127.0.0.1:7890
-git config --global https.proxy http://127.0.0.1:7890
+git config --global http.proxy http://127.0.0.1:7897  # 跟随 Clash 配置
+git config --global https.proxy http://127.0.0.1:7897  # 跟随 Clash 配置
 # 查看
 git config --global http.proxy
 git config --global https.proxy
@@ -192,7 +192,7 @@ git init
 打开项目 -> Settings -> Pages(在右边) -> (在 Branch 下选择)master + docs -> Save -> 然后把一个 index.html 放到项目的 docs 目录下即可通过`https://用户名.github.io/项目名/`访问
 
 - Ref: [Pro Git book](https://git-scm.com/book/en/v2) | [Git User Manual](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/user-manual.html)
-- Ref: [《GotGitHub》](http://www.worldhello.net/gotgithub/) | [我的 SSH 笔记](Missing-Semester/CLI/ssh.md)
+- Ref: [《GotGitHub》](http://www.worldhello.net/gotgithub/) | [我的 SSH 笔记](Missing-Semester/command/ssh.md)
 
 - 工作区 worksapce：仓库所在的目录，是独立于各个分支的。
 - 暂存区 Stage/索引 Index：数据暂时存放的区域，类似于工作区写入版本库前的缓存区，也是独立于各个分支的。
